@@ -18,8 +18,6 @@ function App() {
           <Route exact path='/create' render={() => <h1>Create Artwork</h1>}/>
           <Route render={() => <p>Page not found</p>}/>
         </Switch>
-        
-        
       </Container>
     </div>
   );
