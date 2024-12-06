@@ -10,7 +10,7 @@ const SignUpForm = () => {
         username: "",
         password1: "",
         password2: "",
-    })
+    });
 
     const {username, password1, password2} = signUpData;
     const [errors, setErrors] = useState({});
@@ -37,7 +37,7 @@ const SignUpForm = () => {
         <Row>
         <Col className="my-auto py-2 p-md-2" md={6}>
             <Container>
-            <h1>sign up</h1>
+            <h1>Sign Up</h1>
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="username">
@@ -50,9 +50,9 @@ const SignUpForm = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors.username?.map((message, index) =>
+                {errors.username?.map((message, index) => (
                     <Alert variant="warning" key={index}>{message}</Alert>
-                )}
+                ))}
 
                 <Form.Group controlId="passwrod1">
                     <Form.Label className="d-none">Password</Form.Label>
@@ -64,9 +64,9 @@ const SignUpForm = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors.password1?.map((message, index) =>
+                {errors.password1?.map((message, index) => (
                     <Alert variant="warning" key={index}>{message}</Alert>
-                )}
+                ))}
 
                 <Form.Group controlId="passwrod2">
                     <Form.Label className="d-none">Confirm password</Form.Label>
@@ -78,16 +78,16 @@ const SignUpForm = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors.password2?.map((message, index) =>
+                {errors.password2?.map((message, index) => (
                     <Alert variant="warning" key={index}>{message}</Alert>
-                )}
+                ))}
 
                 <Button type="submit">
                     Sign up
                 </Button>
-                {errors.non_field_errors?.map((message, index) =>
+                {errors.non_field_errors?.map((message, index) => (
                     <Alert variant="warning" key={index}>{message}</Alert>
-                )}
+                ))}
             </Form>
 
             </Container>
