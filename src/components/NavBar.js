@@ -3,27 +3,32 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import React from "react";
 import styles from "../styles/NavBar.module.css";
+import {NavLink} from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <Navbar className={styles.NavBar} expand="md" fixed="top">
             <Container>
-                <Navbar.Brand href="#home">Artly</Navbar.Brand>
+                <NavLink to='/'>
+                    <Navbar.Brand>
+                        Artly
+                    </Navbar.Brand>
+                </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto text-left">
-                    <Nav.Link>
+                    <NavLink className={styles.NavLink} to='/'>
+                        Home
+                    </NavLink>
+                    <NavLink className={styles.NavLink} to='/create'>
                         Post your Artwork
-                    </Nav.Link>
-                    <Nav.Link>
-                        Saved
-                    </Nav.Link>
-                    <Nav.Link>
+                    </NavLink>
+                    <NavLink className={styles.NavLink} to='/signin'>
                         Sign in
-                    </Nav.Link>
-                    <Nav.Link>
+                    </NavLink>
+                    <NavLink className={styles.NavLink} to='/signup'>
                         Sign up
-                    </Nav.Link>
+                    </NavLink>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
