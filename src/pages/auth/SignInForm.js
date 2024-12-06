@@ -8,9 +8,10 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 
 function SignInForm() {
-
+    const setLoggedInUser = useSetLoggedInUser();
     const [signInData, setSignInData] = useState({
         username: "",
         password: "",
@@ -30,7 +31,8 @@ function SignInForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('/dj-rest-auth/login/', signInData);
+            const {data} = await axios.post('/dj-rest-auth/login/', signInData);
+            setLoggedInUser(data.user);
             history.push('/');
         } catch (error) {
             setErrors(error.response?.data)
