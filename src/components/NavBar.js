@@ -6,11 +6,13 @@ import Container from "react-bootstrap/Container";
 import styles from "../styles/NavBar.module.css";
 import {NavLink} from 'react-router-dom';
 import axios from "axios";
+import useNavBarToggle from "../hooks/useNavBarToggle";
 
 
 const NavBar = () => {
     const loggedInUser = useLoggedInUser();
     const setLoggedInUser = useSetLoggedInUser();
+    const {expanded, setExpanded, ref} = useNavBarToggle();
 
     // Function that handles signout functionality
     const handleSignOut = async () => {
@@ -48,14 +50,18 @@ const NavBar = () => {
     );
 
     return (
-        <Navbar className={styles.NavBar} expand="md" fixed="top">
+        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
             <Container>
                 <NavLink to='/'>
                     <Navbar.Brand>
                         Artly
                     </Navbar.Brand>
                 </NavLink>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle
+                    ref={ref}
+                    onClick={()=> setExpanded(!expanded)}
+                    aria-controls="basic-navbar-nav" 
+                />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto text-left">
                     <NavLink className={styles.NavLink} to='/'>
