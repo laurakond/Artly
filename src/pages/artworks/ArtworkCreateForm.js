@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-
+import React, { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
+import {axiosReq} from "../../api/AxiosDefaults";
+
 
 function ArtworkCreateForm() {
 
@@ -25,6 +29,9 @@ function ArtworkCreateForm() {
         description: ""
     });
 
+    const imageInput = useRef(null);
+    const history = useHistory();
+
     const {
         artwork_title,       
         artist_name, 
@@ -39,6 +46,49 @@ function ArtworkCreateForm() {
         description,
     } = artworkData;
 
+    const handleChange = (event) => {
+        setArtworkData({
+            ...artworkData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const handleChangeImage = (event) => {
+        if (event.target.files.length) {
+            URL.revokeObjectURL(image);
+            setArtworkData({
+                ...artworkData,
+                image: URL.createObjectURL(event.target.files[0]),
+            });
+        }
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+
+        formData.append("artwork_title", artwork_title)
+        formData.append("artist_name", artist_name)
+        formData.append("style", style)
+        formData.append("type", type)
+        formData.append("payment_method", payment_method)
+        formData.append("price", price)
+        formData.append("image", imageInput.current.files[0])
+        formData.append("alt_text", alt_text)
+        formData.append("contact", contact)
+        formData.append("location", location)
+        formData.append("description", description)
+
+        try {
+            const {data} = await axiosReq.post('/artworks/', formData);
+            history.push(`/artworks/${data.id}`);
+        } catch (error) {
+            console.log(error)
+            if (error.response?.status !== 401){
+                setErrors(error.response?.data)
+            }
+        }
+    }
 
     const textFields = (
         <div className="text-center">
@@ -52,9 +102,15 @@ function ArtworkCreateForm() {
                 placeholder="artwork title"
                 name="artwork_title"
                 value={artwork_title}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
+        {errors.artwork_title?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="artist_name">
             <Form.Label>
                 Artist name
@@ -64,10 +120,15 @@ function ArtworkCreateForm() {
                 placeholder="artist name"
                 name="artist_name"
                 value={artist_name}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
-        
+        {errors.artist_name?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="style">
             <Form.Label >
                 Style
@@ -78,7 +139,7 @@ function ArtworkCreateForm() {
                 name="style"
                 as="select"
                 value={style}
-                // onChange={handleChange}
+                onChange={handleChange}
             >
                 <option value="Modern">Modern</option>
                 <option value="Contemporary">Contemporary</option>
@@ -88,6 +149,12 @@ function ArtworkCreateForm() {
                 <option value="Other">Other</option>
             </Form.Control>
         </Form.Group>
+        {errors.style?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="type">
             <Form.Label >
                 Type
@@ -98,7 +165,7 @@ function ArtworkCreateForm() {
                 name="type"
                 as="select"
                 value={type}
-                // onChange={handleChange}
+                onChange={handleChange}
             >
                 <option value="Collage">Collage</option>
                 <option value="Drawing">Drawing</option>
@@ -112,6 +179,12 @@ function ArtworkCreateForm() {
                 <option value="Other">Other</option>
             </Form.Control>
         </Form.Group>
+        {errors.type?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="payment_method">
             <Form.Label >
                 Payment method
@@ -122,12 +195,18 @@ function ArtworkCreateForm() {
                 name="payment_method"
                 as="select"
                 value={payment_method}
-                // onChange={handleChange}
+                onChange={handleChange}
             >
                 <option value="Paypal">Paypal</option>
                 <option value="Cash">Cash</option>
             </Form.Control>
         </Form.Group>
+        {errors.payment_method?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="price">
             <Form.Label >
                 Price
@@ -137,9 +216,15 @@ function ArtworkCreateForm() {
                 placeholder="price"
                 name="price"
                 value={price}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
+        {errors.price?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="alt_text">
             <Form.Label >
                 Image title
@@ -149,9 +234,15 @@ function ArtworkCreateForm() {
                 placeholder="descriptive image title"
                 name="alt_text"
                 value={alt_text}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
+        {errors.alt_text?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="contact">
             <Form.Label >
                 Contact
@@ -161,9 +252,15 @@ function ArtworkCreateForm() {
                 placeholder="contact"
                 name="contact"
                 value={contact}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
+        {errors.contact?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
+
         <Form.Group controlId="location">
             <Form.Label >
                 Location
@@ -173,9 +270,14 @@ function ArtworkCreateForm() {
                 placeholder="location"
                 name="location"
                 value={location}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
+        {errors.location?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
 
         <Form.Group controlId="description">
             <Form.Label >
@@ -187,12 +289,17 @@ function ArtworkCreateForm() {
                 name="description"
                 as="textarea"
                 value={description}
-                // onChange={handleChange}
+                onChange={handleChange}
             />
         </Form.Group>
+        {errors.description?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
 
         <Button
-            onClick={() => {}}
+            onClick={() => history.goBack()}
         >
             cancel
         </Button>
@@ -203,14 +310,25 @@ function ArtworkCreateForm() {
     );
 
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
         <Row>
             <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
             <Container
                 className='d-flex flex-column justify-content-center'
             >
                 <Form.Group className="text-center">
-                
+                {image ? (
+                    <>
+                    <figure>
+                        <Image src={image} rounded />
+                    </figure>
+                    <div>
+                        <Form.Label htmlFor="image-upload">
+                            Change the image
+                        </Form.Label>
+                    </div>
+                    </>
+                ):(
                     <Form.Label
                     className="d-flex justify-content-center"
                     htmlFor="image-upload"
@@ -220,7 +338,20 @@ function ArtworkCreateForm() {
                         message="Click or tap to upload an image"
                     />
                     </Form.Label>
+                )}
 
+
+                    <Form.File
+                    id="image-upload"
+                    accept="image/*"
+                    onChange={handleChangeImage}
+                    ref={imageInput}
+                    />
+                    {errors.image?.map((message, index) => (
+                    <Alert key={index} variant="warning">
+                        {message}
+                    </Alert>
+                    ))}
                 </Form.Group>
                 <div className="d-md-none">{textFields}</div>
             </Container>
