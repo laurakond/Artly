@@ -343,12 +343,12 @@ My thanks go to:
 - My mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova) 
 - My fellow student, [Vernell Clark](https://github.com/VCGithubCode), for troubleshooting problematic parts of code and providing a shoulder to cry on when things got really rough.
 
-- [Daisy McGirr](https://github.com/Dee-McG) for the advice on the application set ups and how to configure various aspects of the project.
+- [Daisy McGirr](https://github.com/Dee-McG)
 
 
 
 ### Code Inspiration
-
+- I used Code Institute's Moments walkthrough as the base for my project.
 
 ### References
 - I have referred to the following repository when sourcing guidance, information and inspiration for the project:
