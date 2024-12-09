@@ -13,11 +13,12 @@ import Asset from '../../components/Asset';
 const AllArtworksPage = ({message}) => {
     const [artworks, setArtworks] = useState({results: []});
     const [hasLoaded, setHasLoaded] = useState(false); 
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
         const fetchArtworks = async () => {
             try {
-                const {data} = await axiosReq.get(`/artworks/`);
+                const {data} = await axiosReq.get(`/artworks/?search=${searchQuery}`);
                 setArtworks(data);
                 setHasLoaded(true);
             } catch (error) {
@@ -25,13 +26,29 @@ const AllArtworksPage = ({message}) => {
             }
         };
         setHasLoaded(false);
-        fetchArtworks();
-    }, []);
+        const timer = setTimeout(() => {
+            fetchArtworks();
+            }, 1000);
+    
+            return () => {
+            clearTimeout(timer);
+            };
+    }, [searchQuery]);
 
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles mobile</p>
+                <i className={`fas fa-search`} />
+                <Form onSubmit={(event) => event.preventDefault()}>
+                <Form.Control
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    type="text"
+                    className="mr-sm-2"
+                    placeholder="Search artworks"
+                />
+            </Form>
                 {hasLoaded ? (
                     <>
                         {artworks.results.length ? (
