@@ -1,13 +1,13 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { axiosReq, axiosRes } from '../api/AxiosDefaults';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
-export const LoggedinUserContext = createContext();
-export const SetLoggedinUserContext = createContext();
+export const LoggedInUserContext = createContext();
+export const SetLoggedInUserContext = createContext();
 
-export const useLoggedInUser = () => useContext(LoggedinUserContext);
-export const useSetLoggedInUser = () => useContext(SetLoggedinUserContext);
+export const useLoggedInUser = () => useContext(LoggedInUserContext);
+export const useSetLoggedInUser = () => useContext(SetLoggedInUserContext);
 
 export const LoggedInUserProvider = ({children}) => {
     const [loggedInUser, setLoggedInUser] = useState(null);
@@ -69,10 +69,10 @@ export const LoggedInUserProvider = ({children}) => {
         }, [history]);
 
     return(
-        <LoggedinUserContext.Provider value={loggedInUser}>
-            <SetLoggedinUserContext.Provider value={setLoggedInUser}>
+        <LoggedInUserContext.Provider value={loggedInUser}>
+            <SetLoggedInUserContext.Provider value={setLoggedInUser}>
                 {children}
-            </SetLoggedinUserContext.Provider>
-        </LoggedinUserContext.Provider>
+            </SetLoggedInUserContext.Provider>
+        </LoggedInUserContext.Provider>
     )
 }
