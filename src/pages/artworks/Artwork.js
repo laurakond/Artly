@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { useLoggedInUser } from '../../contexts/LoggedInUserContext';
 import { Card, Media } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import appStyles from "../../App.module.css";
+import { DropdownMenu } from '../../components/DropdownMenu';
+import { axiosRes } from '../../api/AxiosDefaults';
+
 
 const Artwork = (props) => {
     const {
@@ -27,6 +31,20 @@ const Artwork = (props) => {
 
     const loggedInUser = useLoggedInUser();
     const is_owner = loggedInUser?.username === owner;
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/artworks/${id}/edit`);
+    }
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/artworks/${id}/`);
+            history.goBack();
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <Card>
@@ -36,11 +54,15 @@ const Artwork = (props) => {
                 </Media>
                 <div className='d-flex align-items-center'>
                     <span>{updated_at}</span>
-                    {is_owner && artworkPage && "..."}
+                    {is_owner && artworkPage && <DropdownMenu
+                        handleEdit={handleEdit}
+                        handleDelete={handleDelete}
+                        /> 
+                    }
                 </div>
             </Card.Body>
             <Link to={`/artworks/${id}`}>
-                <Card.Img src={image} alt={alt_text}/>
+                <Card.Img src={image} alt={alt_text} className={appStyles.Image}/>
             </Link>
             <Card.Body>
                 {artwork_title && <Card.Title className='text-center'>{artwork_title}</Card.Title>}
