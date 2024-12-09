@@ -9,6 +9,7 @@ import ArtworkCreateForm from "./pages/artworks/ArtworkCreateForm";
 import ArtworkPage from "./pages/artworks/ArtworkPage";
 import AllArtworksPage from "./pages/artworks/AllArtworksPage";
 import { useLoggedInUser } from "./contexts/LoggedInUserContext";
+import ArtworkEditForm from "./pages/artworks/ArtworkEditForm";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             render={() => <ArtworkCreateForm/>} 
           />
           <Route exact path="/artworks/:id" render={() => <ArtworkPage/> } />
+          <Route exact path="/artworks/:id/edit" render={() => <ArtworkEditForm/> } />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>
