@@ -18,15 +18,16 @@ const ArtworkPage = () => {
     useEffect(() => {
         const handleMount = async () => {
         try {
-            const [{ data: artwork }] = await Promise.all([
+            const [{ data: artwork }, { data: bids }] = await Promise.all([
             axiosReq.get(`/artworks/${id}`),
+            axiosReq.get(`bids/?artwork=${id}`)
             ]);
             setArtwork({ results: [artwork] });
+            setBids( bids);
         } catch (err) {
             console.log(err);
         }
     };
-
         handleMount();
     }, [id]);
 
@@ -47,6 +48,16 @@ const ArtworkPage = () => {
                 ) : bids.results.length ? (
                 "Bids"
                 ) : null}
+
+                {bids.results.length ? (
+                    bids.results.map((bid) => (
+                        <p key={bid.id}>{bid.buyer}: {bid.bid_price}</p>
+                    ))
+                ) : loggedInUser ? (
+                    <span>No bids yet</span>
+                ) : (
+                    <span>log in to leave a bid</span>
+                )}
                 </Container>
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
