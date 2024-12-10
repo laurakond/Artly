@@ -10,6 +10,7 @@ import Image from "react-bootstrap/Image";
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import {axiosReq} from "../../api/AxiosDefaults";
+import appStyles from "../../App.module.css";
 
 
 function ArtworkCreateForm() {
@@ -320,7 +321,7 @@ function ArtworkCreateForm() {
                 {image ? (
                     <>
                     <figure>
-                        <Image src={image} rounded />
+                        <Image className={appStyles.Image} src={image} rounded />
                     </figure>
                     <div>
                         <Form.Label htmlFor="image-upload">
@@ -339,7 +340,6 @@ function ArtworkCreateForm() {
                     />
                     </Form.Label>
                 )}
-
 
                     <Form.File
                     id="image-upload"
