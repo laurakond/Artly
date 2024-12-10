@@ -17,7 +17,7 @@ export const DropdownMenu = ({handleEdit, handleDelete}) => {
         <Dropdown>
             <Dropdown.Toggle as={ThreeDots}/>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
             <Dropdown.Item
                 onClick={handleEdit}
                 aria-label="edit"
