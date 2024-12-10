@@ -25,7 +25,7 @@ const Artwork = (props) => {
         // sold,
         updated_at,
         artworkPage,
-        bid_count,
+        bids_count,
 
     } = props;
 
@@ -69,7 +69,7 @@ const Artwork = (props) => {
                 {artist_name && <Card.Text>Artist name: {artist_name}</Card.Text>}
                 
                 <div>
-                    <p>Bid count: {bid_count}</p>
+                    <p>Bid count: {bids_count}</p>
                 </div>
                 
                 {style && <Card.Text>Style: {style}</Card.Text>}
