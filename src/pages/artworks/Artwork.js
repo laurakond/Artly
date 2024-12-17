@@ -13,7 +13,7 @@ const Artwork = (props) => {
         owner,
         artwork_title,       
         artist_name, 
-        style, 
+        style,
         type,
         payment_method,
         price,
@@ -62,23 +62,38 @@ const Artwork = (props) => {
                 </div>
             </Card.Body>
             <Link to={`/artworks/${id}`}>
-                <Card.Img src={image} alt={alt_text} className={appStyles.Image}/>
+                <Card.Img
+                    src={image}
+                    alt={alt_text}
+                    className={appStyles.Image}
+                />
             </Link>
             <Card.Body>
-                {artwork_title && <Card.Title className='text-center'>{artwork_title}</Card.Title>}
-                {artist_name && <Card.Text>Artist name: {artist_name}</Card.Text>}
-                
+                {artwork_title && <Card.Title className='text-center'>
+                    {artwork_title}
+                </Card.Title>
+                }
+                {artist_name && <Card.Text>
+                    Artist name: {artist_name}
+                    </Card.Text>
+                }
                 <div>
                     <p>Bid count: {bids_count}</p>
                 </div>
-                
+                {/* {sold && <Card.Text>Sold: {sold}</Card.Text>} */}
                 {style && <Card.Text>Style: {style}</Card.Text>}
                 {type && <Card.Text>Type: {type}</Card.Text>}
-                {payment_method && <Card.Text>Payment method: {payment_method}</Card.Text>}
+                {payment_method && <Card.Text>
+                    Payment method: {payment_method}
+                    </Card.Text>
+                }
                 {price && <Card.Text>Price: {price}</Card.Text>}
                 {contact && <Card.Text>Contact: {contact}</Card.Text>}
                 {location && <Card.Text>Location: {location}</Card.Text>}
-                {description && <Card.Text>Description: {description}</Card.Text>}
+                {description && <Card.Text>
+                    Description: {description}
+                    </Card.Text>
+                }
             </Card.Body>
         </Card>
     )
