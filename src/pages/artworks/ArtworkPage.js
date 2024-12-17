@@ -7,12 +7,12 @@ import { axiosReq } from '../../api/AxiosDefaults';
 import Artwork from './Artwork';
 import BidCreateForm from '../bids/BidCreateForm';
 import { useLoggedInUser } from '../../contexts/LoggedInUserContext';
+import Bid from '../bids/Bid';
 
 const ArtworkPage = () => {
     const { id } = useParams();
     const [artwork, setArtwork] = useState({ results: [] });
     const loggedInUser = useLoggedInUser();
-    // const profile_image = loggedInUser?.profile_image;
     const [bids, setBids] = useState({ results: [] });
 
     useEffect(() => {
@@ -39,8 +39,6 @@ const ArtworkPage = () => {
                 <Container >
                 {loggedInUser ? (
                     <BidCreateForm
-                    // profile_id={currentUser.profile_id}
-                    // profileImage={profile_image}
                     artwork={id}
                     setArtwork={setArtwork}
                     setBids={setBids}
@@ -51,7 +49,7 @@ const ArtworkPage = () => {
 
                 {bids.results.length ? (
                     bids.results.map((bid) => (
-                        <p key={bid.id}>{bid.buyer}: {bid.bid_price}</p>
+                        <Bid key={bid.id} {...bid} setArtwork={setArtwork} setBids={setBids} />
                     ))
                 ) : loggedInUser ? (
                     <span>No bids yet</span>
