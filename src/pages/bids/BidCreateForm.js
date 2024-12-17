@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import InputGroup from "react-bootstrap/InputGroup";
 import { axiosRes } from '../../api/AxiosDefaults';
 
 function BidCreateForm(props) {
+    const [errors, setErrors] = useState({});
     const { artwork, setArtwork, setBids } = props;
     const [bidData, setBidData] = useState({
         email: "",
@@ -43,9 +45,13 @@ function BidCreateForm(props) {
                 email: "",
                 bid_price: "",
             }
+        
         );
         } catch (error) {
-        console.log(error);
+            console.log(error);
+            if (error.response?.status !== 401){
+                setErrors(error.response?.data)
+            }
         }
     };
 
@@ -62,6 +68,12 @@ function BidCreateForm(props) {
                 onChange={handleChange}
                 rows={2}
             />
+            {errors.bid_price?.map((message, index) => (
+                <Alert key={index} variant="warning">
+                    {message}
+                </Alert>
+                ))}
+
             <Form.Control
                 placeholder="email"
                 name="email"
@@ -72,6 +84,11 @@ function BidCreateForm(props) {
             />
             </InputGroup>
         </Form.Group>
+        {errors.email?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))}
         <button
             className="btn d-block ml-auto"
             // disabled={!bidPrice.trim()}
