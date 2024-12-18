@@ -18,6 +18,14 @@ function BidCreateForm(props) {
             ...bidData,
             [event.target.name]: event.target.value,
         });
+        // This part of code was appropriated from medium.com. Full credit is
+        // noted in the Readme file.
+        if (errors[event.target.name]) {
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [event.target.name]: null
+            }));
+        }
     };
 
     const handleSubmit = async (event) => {
@@ -48,7 +56,6 @@ function BidCreateForm(props) {
         
         );
         } catch (error) {
-            console.log(error);
             if (error.response?.status !== 401){
                 setErrors(error.response?.data)
             }
@@ -68,11 +75,17 @@ function BidCreateForm(props) {
                 onChange={handleChange}
                 rows={2}
             />
-            {errors.bid_price?.map((message, index) => (
+            {/* {Array.isArray(errors.bid_price) && errors.bid_price.map((message, index) => (
                 <Alert key={index} variant="warning">
                     {message}
                 </Alert>
-                ))}
+            ))} */}
+            {errors.bid_price?.map((message, index) => (
+                <Alert key={index} variant="warning">
+                {message}
+                </Alert>
+                ))
+            }
 
             <Form.Control
                 placeholder="email"
@@ -84,11 +97,17 @@ function BidCreateForm(props) {
             />
             </InputGroup>
         </Form.Group>
-        {errors.email?.map((message, index) => (
+        {/* {Array.isArray(errors.email) && errors.email.map((message, index) => (
             <Alert key={index} variant="warning">
                 {message}
             </Alert>
-            ))}
+        ))} */}
+            {errors.email?.map((message, index) => (
+                <Alert key={index} variant="warning">
+                {message}
+                </Alert>
+                ))
+            }
         <button
             className="btn d-block ml-auto"
             // disabled={!bidPrice.trim()}
