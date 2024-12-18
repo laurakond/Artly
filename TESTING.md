@@ -42,6 +42,27 @@ All files were put through the official [W3C Markup Validation](https://validato
 
 ### Fixed bugs
 
+**error 400: request failed with status code 400**
+- I received a 400 error when testing the bid submission. The issue was to do with the phone number field type. 
+    - I resolved this by removing the field from the Bid model in the back-end as it was not crucial for the bid functionality.
+
+**Bid price field error message would not hide once a new value was input**
+- When testing the bid price input field, I noticed that the error message would not hide when a new bid value was written, even after the submission.
+- I managed to resolve this by resetting the error state. I used this snippet of code from [Medium](https://medium.com/@rbscoop2611/most-efficient-way-to-add-warning-messages-under-forms-input-field-472f2b70bb72):
+    
+    ```Python
+            if (errors[name]) {
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    [name]: null
+                }));
+            }
+    ```
+
+**Hide Bid component for the seller**
+- When working on the Bid component display, I decided to hide the bid form from the users who were selling the artwork. This way the sellers were only able to see the submitted bids and avoid bidding on their own artworks. 
+    - I used `!artwork.results[0]?.is_owner` in the ternary condition to render the bid form for the buyers only. 
+
 ### Unfixed bugs
   
 
