@@ -362,15 +362,12 @@ My thanks go to:
 - My mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova) 
 - My fellow student, [Vernell Clark](https://github.com/VCGithubCode), for troubleshooting problematic parts of code and providing a shoulder to cry on when things got really rough.
 
-- [Daisy McGirr](https://github.com/Dee-McG)
-
-
+- [Daisy McGirr](https://github.com/Dee-McG) for helpig to crystalise the project idea, troubleshooting and providing moral support throughout the whole project.
 
 ### Code Inspiration
 - I used Code Institute's Moments walkthrough as the base for my project.
 
 ### References
-- I have referred to the following repository when sourcing guidance, information and inspiration for the project:
-    - Iuliia Konovalova [e-commerce](https://github.com/IuliiaKonovalova/e-commerce/tree/main) project.
+
 
 [Return to Table of Contents](#table-of-contents)
