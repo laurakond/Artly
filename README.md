@@ -334,6 +334,17 @@ Inside your project:
 
 ### Used code
 
+- To resolve a sticky error message I used the following code from the [Medium](https://medium.com/@rbscoop2611/most-efficient-way-to-add-warning-messages-under-forms-input-field-472f2b70bb72) article (also noted in the TESTING.md Bugs section).
+
+    ```Python
+            if (errors[name]) {
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    [name]: null
+                }));
+            }
+    ```
+
 ### General resources:
 
 
