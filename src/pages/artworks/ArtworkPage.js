@@ -23,7 +23,7 @@ const ArtworkPage = () => {
             axiosReq.get(`bids/?artwork=${id}`)
             ]);
             setArtwork({ results: [artwork] });
-            setBids( bids);
+            setBids(bids);
         } catch (err) {
             console.log(err);
         }
@@ -37,7 +37,7 @@ const ArtworkPage = () => {
                 <p>Popular artworks for mobile</p>
                 <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
                 <Container >
-                {loggedInUser ? (
+                {loggedInUser && !artwork.results[0]?.is_owner ? (
                     <BidCreateForm
                     artwork={id}
                     setArtwork={setArtwork}
