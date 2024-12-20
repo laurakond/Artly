@@ -27,7 +27,7 @@ const NavBar = () => {
     // Icons to show when the user is logged in
     const loggedInIcons = (
         <>
-            <NavLink className={styles.NavLink} to='artworks/create'>
+            <NavLink className={styles.NavLink} to='/artworks/create'>
                 Create Artwork
             </NavLink>
             {loggedInUser?.username}
