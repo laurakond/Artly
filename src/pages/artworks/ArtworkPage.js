@@ -3,7 +3,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import { useParams } from 'react-router';
-import { axiosReq } from '../../api/AxiosDefaults';
+import { axiosReq, axiosRes } from '../../api/AxiosDefaults';
 import Artwork from './Artwork';
 import BidCreateForm from '../bids/BidCreateForm';
 import { useLoggedInUser } from '../../contexts/LoggedInUserContext';
@@ -15,6 +15,23 @@ const ArtworkPage = () => {
     const loggedInUser = useLoggedInUser();
     const [bids, setBids] = useState({ results: [] });
 
+    const handleAcceptBid = async (id) => {
+        try {
+            console.log("Updating bid with ID:", id);
+            await axiosRes.put(`/bids/${id}/`, {status: "Approved"});
+            setBids((prevBids)=>({
+                ...prevBids,
+                results: prevBids.results.map((bid)=>
+                    bid.id === id ? {...bid, status: "Approved"} : bid
+                ),
+            }));
+            console.log("printing prop id", id)
+            console.log(" printing accept bid in artwork.js");
+        } catch (error) {
+            console.error(error);
+        };
+    };
+    
     useEffect(() => {
         const handleMount = async () => {
         try {
@@ -49,7 +66,15 @@ const ArtworkPage = () => {
 
                 {bids.results.length ? (
                     bids.results.map((bid) => (
-                        <Bid key={bid.id} {...bid} setArtwork={setArtwork} setBids={setBids} />
+                        <Bid
+                            key={bid.id}
+                            {...bid}
+                            setArtwork={setArtwork}
+                            setBids={setBids}
+                            handleRejectBid={()=>{}}
+                            handleAcceptBid={handleAcceptBid}
+                            handleSoldBid={()=>{}}
+                        />
                     ))
                 ) : loggedInUser ? (
                     <span>No bids yet</span>
@@ -65,4 +90,4 @@ const ArtworkPage = () => {
     )
 }
 
-export default ArtworkPage
+export default ArtworkPage;
