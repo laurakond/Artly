@@ -13,6 +13,7 @@ const Bid = (props) => {
         status,
         id,
         handleAcceptBid,
+        handleRejectBid,
         // setArtwork,
         // setComments
     } = props;
@@ -32,7 +33,7 @@ const Bid = (props) => {
             {is_seller && (
                 <>
                 <button onClick={()=>handleAcceptBid(id)}>Approve</button>
-                <button onClick={()=>{}}>Reject</button>
+                <button onClick={()=>handleRejectBid(id)}>Reject</button>
                 <button onClick={()=>{}}>Mark as sold</button>
                 </>
             )}
