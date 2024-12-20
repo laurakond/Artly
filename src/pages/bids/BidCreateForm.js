@@ -53,7 +53,6 @@ function BidCreateForm(props) {
                 email: "",
                 bid_price: "",
             }
-        
         );
         } catch (error) {
             if (error.response?.status !== 401){
