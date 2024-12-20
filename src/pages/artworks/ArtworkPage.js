@@ -49,6 +49,23 @@ const ArtworkPage = () => {
         };
     };
 
+    const handleSoldBid = async (id) => {
+        try {
+            console.log("Updating bid with ID:", id);
+            await axiosRes.put(`/bids/${id}/`, {status: "Sold"});
+            setBids((prevBids)=>({
+                ...prevBids,
+                results: prevBids.results.map((bid)=>
+                    bid.id === id ? {...bid, status: "Sold"} : bid
+                ),
+            }));
+            console.log("printing prop id in sold bid", id)
+            console.log(" printing sold bid in artwork.js");
+        } catch (error) {
+            console.error(error);
+        };
+    };
+
     useEffect(() => {
         const handleMount = async () => {
         try {
@@ -90,7 +107,7 @@ const ArtworkPage = () => {
                             setBids={setBids}
                             handleRejectBid={handleRejectBid}
                             handleAcceptBid={handleAcceptBid}
-                            handleSoldBid={()=>{}}
+                            handleSoldBid={handleSoldBid}
                         />
                     ))
                 ) : loggedInUser ? (
