@@ -14,8 +14,7 @@ const Bid = (props) => {
         id,
         handleAcceptBid,
         handleRejectBid,
-        // setArtwork,
-        // setComments
+        handleSoldBid
     } = props;
     const loggedInUser = useLoggedInUser();
     const is_seller = loggedInUser?.username === seller;
@@ -34,7 +33,7 @@ const Bid = (props) => {
                 <>
                 <button onClick={()=>handleAcceptBid(id)}>Approve</button>
                 <button onClick={()=>handleRejectBid(id)}>Reject</button>
-                <button onClick={()=>{}}>Mark as sold</button>
+                <button onClick={()=>handleSoldBid(id)}>Mark as sold</button>
                 </>
             )}
         </div>
