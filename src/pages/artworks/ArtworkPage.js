@@ -31,7 +31,24 @@ const ArtworkPage = () => {
             console.error(error);
         };
     };
-    
+
+    const handleRejectBid = async (id) => {
+        try {
+            console.log("Updating bid with ID:", id);
+            await axiosRes.put(`/bids/${id}/`, {status: "Rejected"});
+            setBids((prevBids)=>({
+                ...prevBids,
+                results: prevBids.results.map((bid)=>
+                    bid.id === id ? {...bid, status: "Rejected"} : bid
+                ),
+            }));
+            console.log("printing prop id in reject bid", id)
+            console.log(" printing reject bid in artwork.js");
+        } catch (error) {
+            console.error(error);
+        };
+    };
+
     useEffect(() => {
         const handleMount = async () => {
         try {
@@ -71,7 +88,7 @@ const ArtworkPage = () => {
                             {...bid}
                             setArtwork={setArtwork}
                             setBids={setBids}
-                            handleRejectBid={()=>{}}
+                            handleRejectBid={handleRejectBid}
                             handleAcceptBid={handleAcceptBid}
                             handleSoldBid={()=>{}}
                         />
