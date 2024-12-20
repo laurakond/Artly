@@ -25,7 +25,8 @@ function ArtworkEditForm() {
         alt_text: "", 
         contact: "",
         location: "",
-        description: ""
+        description: "",
+        // sold: "",
     });
 
     const imageInput = useRef(null);
@@ -44,6 +45,7 @@ function ArtworkEditForm() {
         contact,
         location,
         description,
+        // sold
     } = artworkData;
 
     useEffect(() =>{
@@ -62,7 +64,8 @@ function ArtworkEditForm() {
                     contact,
                     location,
                     description,
-                    is_owner
+                    is_owner,
+                    // sold
                 } = data;
 
                 is_owner ? setArtworkData({
@@ -77,6 +80,7 @@ function ArtworkEditForm() {
                     contact,
                     location,
                     description,
+                    // sold
                 }) : history.push('/');
             } catch (error) {
                 console.log(error);
@@ -108,6 +112,7 @@ function ArtworkEditForm() {
 
         formData.append("artwork_title", artwork_title)
         formData.append("artist_name", artist_name)
+        // formData.append("sold", sold)
         formData.append("style", style)
         formData.append("type", type)
         formData.append("payment_method", payment_method)
@@ -119,7 +124,6 @@ function ArtworkEditForm() {
         if (imageInput?.current?.files[0]){
             formData.append("image", imageInput.current.files[0]);
         }
-
 
         try {
             await axiosReq.put(`/artworks/${id}/`, formData);
@@ -266,6 +270,24 @@ function ArtworkEditForm() {
                 {message}
             </Alert>
             ))}
+
+        {/* <Form.Group controlId="price">
+            <Form.Label >
+                Artwork status
+            </Form.Label>
+            <Form.Control 
+                type="checkbox" 
+                // placeholder="price"
+                name="sold"
+                value={sold}
+                onChange={handleChange}
+            />
+        </Form.Group>
+        {errors.price?.map((message, index) => (
+            <Alert key={index} variant="warning">
+                {message}
+            </Alert>
+            ))} */}
 
         <Form.Group controlId="alt_text">
             <Form.Label >
