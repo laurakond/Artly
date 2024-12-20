@@ -22,11 +22,10 @@ const Artwork = (props) => {
         contact,
         location,
         description,
-        // sold,
+        sold,
         updated_at,
         artworkPage,
         bids_count,
-
     } = props;
 
     const loggedInUser = useLoggedInUser();
@@ -61,6 +60,7 @@ const Artwork = (props) => {
                     }
                 </div>
             </Card.Body>
+
             <Link to={`/artworks/${id}`}>
                 <Card.Img
                     src={image}
@@ -69,10 +69,12 @@ const Artwork = (props) => {
                 />
             </Link>
             <Card.Body>
+                {sold ? <p>Sold</p> : null}
                 {artwork_title && <Card.Title className='text-center'>
                     {artwork_title}
                 </Card.Title>
                 }
+                
                 {artist_name && <Card.Text>
                     Artist name: {artist_name}
                     </Card.Text>
@@ -80,7 +82,6 @@ const Artwork = (props) => {
                 <div>
                     <p>Bid count: {bids_count}</p>
                 </div>
-                {/* {sold && <Card.Text>Sold: {sold}</Card.Text>} */}
                 {style && <Card.Text>Style: {style}</Card.Text>}
                 {type && <Card.Text>Type: {type}</Card.Text>}
                 {payment_method && <Card.Text>
@@ -99,4 +100,4 @@ const Artwork = (props) => {
     )
 }
 
-export default Artwork
+export default Artwork;
