@@ -12,46 +12,32 @@ const Bid = (props) => {
         // email,
         status,
         id,
+        handleAcceptBid,
         // setArtwork,
         // setComments
     } = props;
     const loggedInUser = useLoggedInUser();
     const is_seller = loggedInUser?.username === seller;
 
-    const handleAcceptBid = () => {
-        // history.push(`/artworks/${id}/edit`);
-        console.log("accept bid");
-    }
-
-    const handleRejectBid = async () => {
-        // try {
-        //     await axiosRes.delete(`/bids/${id}/`);
-        //     history.goBack();
-        // } catch (error) {
-        //     console.log(error);
-        // }
-        console.log("reject bid");
-    };
-
     return (
         <div>
-            <span>{buyer}</span> 
+            <span>{buyer} -- </span> 
             <span>{updated_at}</span>
             <p > Bid placed: £{bid_price} Status: {status}</p>
             {/* {is_seller && (
-                <DropdownMenu handleAcceptBid={handleAcceptBid}
+                <DropdownMenu handleAcceptBid={()=>{}}
                 handleRejectBid={handleRejectBid}
             />
             )} */}
             {is_seller && (
                 <>
-                <button onChange={()=>{}}>Accept</button>
-                <button onChange={()=>{}}>Reject</button>
-                <button onChange={()=>{}}>Mark as sold</button>
+                <button onClick={()=>handleAcceptBid(id)}>Approve</button>
+                <button onClick={()=>{}}>Reject</button>
+                <button onClick={()=>{}}>Mark as sold</button>
                 </>
             )}
         </div>
     )
 }
 
-export default Bid
+export default Bid;
