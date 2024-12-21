@@ -175,7 +175,7 @@ function ArtworkCreateForm() {
                 <option value="Painting">Painting</option>
                 <option value="Photography">Photography</option>
                 <option value="Pottery">Pottery</option>
-                <option value="Sculpture">Scultpure</option>
+                <option value="Sculpture">Sculpture</option>
                 <option value="Watercolour">Watercolour</option>
                 <option value="Other">Other</option>
             </Form.Control>
