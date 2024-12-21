@@ -363,7 +363,13 @@ My thanks go to:
 
 ### Code Inspiration
 - I used Code Institute's Moments walkthrough as the base for my project.
-
+- Updating bid status:
+    -  When trying to figure out how to create functionality for accepting/rejecting and selling the artwork based on a bid, I used Code Institute’s Moments walkthrough project to help me understand how to manage previous and current state.
+- Artwork sold status not appearing straight away:
+    - Similarly, when testing my app, I noticed that the artwork was displaying sold status only after refreshing the page.
+    - I realised that I needed to update the artwork sold status in order to get the “Sold” statement appear upon clicking “Mark as sold” button.
+        - I managed to get that working by altering the setBid code snippet to setArtwork snippet based on the Code Institute’s Moments walkthrough project.
+        - I also found this part of React documentation useful: [React documentation - updating state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
 ### References
 
 
