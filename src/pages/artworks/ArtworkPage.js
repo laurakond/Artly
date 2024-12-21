@@ -8,6 +8,9 @@ import Artwork from './Artwork';
 import BidCreateForm from '../bids/BidCreateForm';
 import { useLoggedInUser } from '../../contexts/LoggedInUserContext';
 import Bid from '../bids/Bid';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Asset from '../../components/Asset';
+import { fetchMoreData } from '../../utils/utils';
 
 const ArtworkPage = () => {
     const { id } = useParams();
@@ -59,8 +62,17 @@ const ArtworkPage = () => {
                     bid.id === id ? {...bid, status: "Sold"} : bid
                 ),
             }));
-            console.log("printing prop id in sold bid", id)
-            console.log(" printing sold bid in artwork.js");
+            
+            // Sets the artwork's sold status as true, which allows to generate
+            // the status straight away upon the bid status update.
+            setArtwork((prevArtwork)=>({
+                ...prevArtwork,
+                results: prevArtwork.results.map((artwork)=>({
+                    ...artwork,
+                    sold: true,
+                }))
+            }))
+
         } catch (error) {
             console.error(error);
         };
@@ -99,17 +111,26 @@ const ArtworkPage = () => {
                 ) : null}
 
                 {bids.results.length ? (
-                    bids.results.map((bid) => (
-                        <Bid
-                            key={bid.id}
-                            {...bid}
-                            setArtwork={setArtwork}
-                            setBids={setBids}
-                            handleRejectBid={handleRejectBid}
-                            handleAcceptBid={handleAcceptBid}
-                            handleSoldBid={handleSoldBid}
-                        />
-                    ))
+                    <InfiniteScroll
+                        children={
+                            bids.results.map((bid) => (
+                                <Bid
+                                    key={bid.id}
+                                    {...bid}
+                                    setArtwork={setArtwork}
+                                    setBids={setBids}
+                                    handleRejectBid={handleRejectBid}
+                                    handleAcceptBid={handleAcceptBid}
+                                    handleSoldBid={handleSoldBid}
+                                />
+                            ))
+                        }
+                        dataLength={bids.results.length}
+                        loader={<Asset spinner />}
+                        hasMore={!!bids.next}
+                        next={()=>fetchMoreData(bids, setBids)}
+                    />
+                    
                 ) : loggedInUser ? (
                     <span>No bids yet</span>
                 ) : (
