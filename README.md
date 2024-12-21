@@ -295,36 +295,16 @@ To clone the repository in Github:
 
 ### Heroku
 To deploy to the Heroku website, follow the steps below:
-Inside your project:
- - Install the latest gunicorn to your virtual environment
- - Install the latest whitenoise version
- - Add both dependencies to the requirements.txt
- - Create a Procfile declaring the web process `web: ` followed by a command to execute the project, for example `python3 manage.py runserver` if using Gitpod as your IDE.
- - Create a runtime.txt and note the closest version of Python to the one you use.
- - Make sure your DEBUG in settings.py is set to False.
 
-1. Navigate to https://www.heroku.com platform website.
-2. Create or log in to your account.
-3. Once on your dashboard:
-    1) if you don't have any projects created yet, there should be a "Create a new app" prompt in the middle of the screen.
-    2) if you have some projects already, click on the "New" tab on the top right corner of the screen just below the profile bauble. 
-4.  Enter a unique application name for your project and select the region you are based in. Click "create app".
-5. Once insde the app, select "Settings" button from the menu in the middle. It's important to edit the "Settings" tab before deploying the project: 
-    1. Click on "Reveal Config Vars" to add any keys that the application requires. For this project I included the following:
-        - DATABASE_URL
-        - SECRET_KEY
-        - CLOUDINARY_URL
-
-    2. Add Buildpacks below Config Vars. Click on "Add buildpack":
-        - First, select Python and click "Add buildpack".
-
-6. Once step 5 is done, navigate to the "Deploy" tab a the top of the screen to the left of where the Settings tab is located.
-7. Click on "Github" icon under "Deployment method", and connect Heroku to your Github account. 
-8. Once the accounts are connected, you can choose between automatic or manual deployment:
-
-    1) Automatic deployment will automatically update your app once you use "git push" command in your IDE. 
-
-    2) Manual deployment will require you to manually "push" the changes you made in the IDE to the Heroku system.
+- Navigate to [Heroku](https://www.heroku.com) platform website ang log in or create an account.
+- Click 'Create new App'.
+- Choose a unique project name and select your region from the drop down.
+- Select 'Deploy' tab.
+- Select 'Github' (or other platform if you are using another one) in the Deployment method section to connect to Heroku.
+- Type out your project name in the 'Connect to Github' section and select your project repository
+- Once connected, scroll to the bottom and click 'Deploy Branch' button
+- When it has finished deploying, click on the 'View' button below or 'Open App' at the top right corner
+- If the deployment was successful you will be taken to the deployed site. 
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -354,6 +334,23 @@ Inside your project:
 - [Most efficient way to add warning messages](https://medium.com/@rbscoop2611/most-efficient-way-to-add-warning-messages-under-forms-input-field-472f2b70bb72)
 - [React hook form erros](https://daily.dev/blog/react-hook-form-errors-not-working-troubleshooting-tips#:~:text=and%20simplifying%20schema.-,Ensure%20Errors%20are%20Passed%20to%20Inputs,the%20error%20message%20when%20present)
 - [React docs](https://legacy.reactjs.org/docs/error-boundaries.html)
+
+#### Form validation
+- [FeeCodeCamp: How to validate forms in react](https://www.freecodecamp.org/news/how-to-validate-forms-in-react/)
+
+#### Creating search by categories
+- [How to implement multiple filters in react](https://www.geeksforgeeks.org/how-to-implement-multiple-filters-in-react/)
+- [How do you use multiple useEffect in a component](https://www.geeksforgeeks.org/how-do-you-use-multiple-useeffect-in-a-component/)
+- [One or many useEffect hooks](https://stackoverflow.com/questions/54002792/in-general-is-it-better-to-use-one-or-many-useeffect-hooks-in-a-single-component)
+- [Search category filter](https://medium.com/@josephtran_24702/creating-your-reactjs-app-with-search-category-filter-feature-aab62c60363f)
+
+#### Toastify
+- [Toastify documentation](https://www.npmjs.com/package/react-toastify/v/9.0.3)
+- [Toastify guides](https://fkhadra.github.io/react-toastify/category/guides)
+- [Dead simple chat team - Toastify complete guide](https://deadsimplechat.com/blog/react-toastify-the-complete-guide/#creating-a-basic-toast-notification)
+- [Geshan Manandhar - beginner's guide to using Toastify](https://geshan.com.np/blog/2023/05/react-toastify/)
+- [Geeks for Geeks react toastify](https://www.geeksforgeeks.org/reactjs-toast-notification/)
+- [Logrocket - using react toastify](https://blog.logrocket.com/using-react-toastify-style-toast-messages/)
 
 
 ### Acknowledgments
