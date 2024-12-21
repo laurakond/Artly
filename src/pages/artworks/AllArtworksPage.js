@@ -9,6 +9,8 @@ import appStyles from "../../App.module.css";
 import { axiosReq } from '../../api/AxiosDefaults';
 import Artwork from './Artwork';
 import Asset from '../../components/Asset';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
 
 const AllArtworksPage = ({message, filter=""}) => {
     const [artworks, setArtworks] = useState({results: []});
@@ -133,9 +135,17 @@ const AllArtworksPage = ({message, filter=""}) => {
                 {hasLoaded ? (
                     <>
                         {artworks.results.length ? (
-                            artworks.results.map((artwork)=>(
-                                <Artwork key={artwork.id} {...artwork} />
-                            ))
+                            <InfiniteScroll
+                                children={
+                                    artworks.results.map((artwork)=>(
+                                        <Artwork key={artwork.id} {...artwork} />
+                                    ))
+                                }
+                                dataLength={artworks.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!artworks.next}
+                                next={()=>fetchMoreData(artworks, setArtworks)}
+                            />
                         ):(
                             <Container className={appStyles.Content}>
                                 <Asset src={NoResults} message={message}/>
