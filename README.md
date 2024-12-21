@@ -238,6 +238,7 @@ I used [Google fonts](https://fonts.google.com/) to source the fonts for the web
 - WCAG color contrast checker for website accessibilty
 - Wave evaluation tool for giving visual feedback about the accessibility of the website
 - [Contrast Grid](https://contrast-grid.eightshapes.com/) to test chosen color palette
+- [React Toastify](https://www.npmjs.com/package/react-toastify/v/9.0.3) for rendering user notifications
 
 Full list of dependencies used for the project can be found in the requirements.txt file. 
 
