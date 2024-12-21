@@ -11,6 +11,7 @@ import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
 import appStyles from "../../App.module.css";
+import { toast } from "react-toastify";
 
 function ArtworkCreateForm() {
     const [errors, setErrors] = useState({});
@@ -81,11 +82,15 @@ function ArtworkCreateForm() {
         try {
             const { data } = await axiosReq.post("/artworks/", formData);
             history.push(`/artworks/${data.id}`);
+            toast.success("Artwork listing created successfully!");
         } catch (error) {
             console.log(error);
             if (error.response?.status !== 401) {
                 setErrors(error.response?.data);
             }
+            toast.error(
+                "Something went wrong while attempting to upload your artwork."
+            );
         }
     };
 

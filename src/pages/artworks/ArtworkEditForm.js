@@ -9,6 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import { axiosReq } from "../../api/AxiosDefaults";
 import appStyles from "../../App.module.css";
+import { toast } from "react-toastify";
 
 function ArtworkEditForm() {
     const [errors, setErrors] = useState({});
@@ -123,11 +124,15 @@ function ArtworkEditForm() {
     try {
         await axiosReq.put(`/artworks/${id}/`, formData);
         history.push(`/artworks/${id}`);
+        toast.success("Artwork updated successfully!");
     } catch (error) {
         console.log(error);
         if (error.response?.status !== 401) {
             setErrors(error.response?.data);
         }
+        toast.error(
+                "Something went wrong while attempting to update your artwork."
+            );
     }
     };
 

@@ -2,6 +2,7 @@ import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
+
 import "./api/AxiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
@@ -10,9 +11,13 @@ import ArtworkPage from "./pages/artworks/ArtworkPage";
 import AllArtworksPage from "./pages/artworks/AllArtworksPage";
 import { useLoggedInUser } from "./contexts/LoggedInUserContext";
 import ArtworkEditForm from "./pages/artworks/ArtworkEditForm";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
+  // lines 17-18 are needed for filtering by saved artworks. Otherwise it is not 
+  // required
   const loggedInUser = useLoggedInUser();
   const user_id = loggedInUser?.user_id || "";
 
@@ -20,6 +25,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
+        <ToastContainer></ToastContainer>
         <Switch>
           <Route 
             exact

@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import appStyles from "../../App.module.css";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { axiosRes } from "../../api/AxiosDefaults";
+import { toast } from "react-toastify";
 
 const Artwork = (props) => {
     const {
@@ -39,9 +40,13 @@ const Artwork = (props) => {
         try {
             await axiosRes.delete(`/artworks/${id}/`);
             history.goBack();
+            toast.success("Artwork deleted successfully!");
         } catch (error) {
             console.log(error);
         }
+        toast.error(
+            "Something went wrong while attempting to delete your artwork."
+        );
     };
 
     return (

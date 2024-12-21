@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import InputGroup from "react-bootstrap/InputGroup";
 import { axiosRes } from '../../api/AxiosDefaults';
+import { toast } from "react-toastify";
 
 function BidCreateForm(props) {
     const [errors, setErrors] = useState({});
@@ -47,6 +48,7 @@ function BidCreateForm(props) {
                 bids_count: prevArtwork.results[0].bids_count + 1,
             },
             ],
+            
         }));
         setBidData(
             {
@@ -54,10 +56,14 @@ function BidCreateForm(props) {
                 bid_price: "",
             }
         );
+        toast.success("Your bid submitted!");
         } catch (error) {
             if (error.response?.status !== 401){
                 setErrors(error.response?.data)
             }
+            toast.error(
+                "Something went wrong while attempting to submit your bid"
+            );
         }
     };
 
