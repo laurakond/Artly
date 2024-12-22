@@ -326,6 +326,49 @@ To deploy to the Heroku website, follow the steps below:
             }
     ```
 
+- To add a corner ribbon for the Sold artwork, I adapted the following code from [Stackoverflow](https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css) thread:
+
+    ``` css
+    .parent {
+    overflow: hidden; /* required */
+    width: 50%; /* for demo only */
+    height: 250px /* some non-zero number */;
+    margin: 25px auto; /* for demo only */
+    border:1px solid grey; /* for demo only */
+    position: relative; /* required  for demo*/
+    }
+
+    .ribbon {
+    margin: 0;
+    padding: 0;
+    background: rebeccapurple;
+    color:white;
+    padding:1em 0;
+    position: absolute;
+    top:0;
+    right:0;
+    transform: translateX(30%) translateY(0%) rotate(45deg);
+    transform-origin: top left;
+    }
+    .ribbon:before,
+    .ribbon:after {
+    content: '';
+    position: absolute;
+    top:0;
+    margin: 0 -1px; /* tweak */
+    width: 100%;
+    height: 100%;
+    background: rebeccapurple;
+    }
+    .ribbon:before {
+    right:100%;
+    }
+
+    .ribbon:after {
+    left:100%;
+    }
+    ```
+
 ### General resources:
 
 #### React tutorials
@@ -353,6 +396,11 @@ To deploy to the Heroku website, follow the steps below:
 - [Geeks for Geeks react toastify](https://www.geeksforgeeks.org/reactjs-toast-notification/)
 - [Logrocket - using react toastify](https://blog.logrocket.com/using-react-toastify-style-toast-messages/)
 
+#### Applying styles for conditional statements
+- [React conditional styles make easy](https://www.dhiwise.com/post/react-conditional-styles-made-easy-best-practices)
+- [Conditional styling React](https://owlcation.com/stem/conditional-styling-react)
+- [Stackoverflow - correct way to handle conditional styling in React](https://stackoverflow.com/questions/35762351/correct-way-to-handle-conditional-styling-in-react)
+- [Stackoverflow - how to change opacity of button in conditional rendering](https://stackoverflow.com/questions/66526935/how-to-change-opacity-of-button-in-conditional-rendering-in-react-native)
 
 ### Acknowledgments
 
