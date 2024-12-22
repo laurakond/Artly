@@ -16,14 +16,17 @@ const AllArtworksPage = ({message, filter=""}) => {
     const [artworks, setArtworks] = useState({results: []});
     const [hasLoaded, setHasLoaded] = useState(false); 
     const [searchQuery, setSearchQuery] = useState("");
-    // search for style/type
+    // search for style/type/sold status
     const [styleQuery, setStyleQuery] = useState("");
     const [typeQuery, setTypeQuery] = useState("");
+    const [soldFilter, setSoldFilter] = useState(undefined);
 
     useEffect(() => {
         const fetchArtworks = async () => {
             try {
-                const {data} = await axiosReq.get(`/artworks/?search=${searchQuery}`);
+                const {data} = await axiosReq.get(
+                    `/artworks/?search=${searchQuery}`
+                );
                 setArtworks(data);
                 setHasLoaded(true);
             } catch (error) {
@@ -44,7 +47,9 @@ const AllArtworksPage = ({message, filter=""}) => {
     useEffect(() => {
         const fetchStyles = async () => {
             try {
-                const {data} = await axiosReq.get(`/artworks/?${filter}search=${styleQuery}`);
+                const {data} = await axiosReq.get(
+                    `/artworks/?${filter}${styleQuery}`
+                );
                 setArtworks(data);
                 setHasLoaded(true);
             } catch (error) {
@@ -60,7 +65,9 @@ const AllArtworksPage = ({message, filter=""}) => {
     useEffect(() => {
         const fetchType = async () => {
             try {
-                const {data} = await axiosReq.get(`/artworks/?${filter}search=${typeQuery}`);
+                const {data} = await axiosReq.get(
+                    `/artworks/?${filter}search=${typeQuery}`
+                );
                 setArtworks(data);
                 setHasLoaded(true);
             } catch (error) {
@@ -70,6 +77,23 @@ const AllArtworksPage = ({message, filter=""}) => {
         setHasLoaded(false);
         fetchType();
     }, [filter, typeQuery]);
+
+    // useEffect for filtering based on the sold status. 
+    useEffect(() => {
+        const fetchSoldStatus = async () => {
+            try {
+                const {data} = await axiosReq.get(
+                    `/artworks/?${filter}sold=${soldFilter}`
+                );
+                setArtworks(data);
+                setHasLoaded(true);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        setHasLoaded(false);
+        fetchSoldStatus();
+    }, [filter, soldFilter]);
 
     return (
         <Row className="h-100">
@@ -129,6 +153,23 @@ const AllArtworksPage = ({message, filter=""}) => {
                     <option value="Sculpture">Scultpure</option>
                     <option value="Watercolour">Watercolour</option>
                     <option value="Other">Other</option>
+                </Form.Control>
+            </Form>
+
+            <Form onSubmit={(event) => event.preventDefault()}>
+                <Form.Label >
+                    View by Sold status
+                </Form.Label>
+                <Form.Control
+                    value={soldFilter}
+                    onChange={(event) => setSoldFilter(event.target.value)}
+                    type="text"
+                    className="mr-sm-2"
+                    as="select"
+                >
+                    <option value="">All</option>
+                    <option value="true">Sold</option>
+                    <option value="false">Not sold</option>
                 </Form.Control>
             </Form>
 
