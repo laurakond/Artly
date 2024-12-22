@@ -51,7 +51,7 @@ const Artwork = (props) => {
     };
 
     return (
-        <Card className={styles.Test} style={{ opacity: sold ? "60%" : null }}>
+        <Card className={styles.Parent} style={{ opacity: sold ? "60%" : null }}>
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     {owner}
@@ -76,7 +76,7 @@ const Artwork = (props) => {
             </Link>
 
             <Card.Body>
-                {sold ? <p className={styles.CornerLabel}>Sold</p> : null}
+                {sold ? <span className={styles.Ribbon}>Sold</span> : null}
                 {artwork_title && (
                 <Card.Title className="text-center">
                     {artwork_title}
