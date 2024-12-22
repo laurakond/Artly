@@ -1,8 +1,10 @@
 .Test {
-  cursor: "not-allowed";
+    cursor: "not-allowed";
 }
 
-/* Sold label(ribbon) */
+/* Sold label(ribbon) code was appropriated from this StackOverflow thread:
+https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
+*/
 .Parent {
     overflow: hidden; /* required */
     /* width: 50%; for demo only */
