@@ -6,6 +6,7 @@ import appStyles from "../../App.module.css";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { toast } from "react-toastify";
+import styles from "../../styles/Artwork.module.css";
 
 const Artwork = (props) => {
     const {
@@ -50,7 +51,7 @@ const Artwork = (props) => {
     };
 
     return (
-        <Card>
+        <Card className={styles.Test} style={{ opacity: sold ? "60%" : null }}>
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     {owner}
@@ -75,7 +76,7 @@ const Artwork = (props) => {
             </Link>
 
             <Card.Body>
-                {sold ? <p>Sold</p> : null}
+                {sold ? <p className={styles.CornerLabel}>Sold</p> : null}
                 {artwork_title && (
                 <Card.Title className="text-center">
                     {artwork_title}
