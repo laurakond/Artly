@@ -44,20 +44,23 @@ const Artwork = (props) => {
 
     const handleDelete = async () => {
         try {
-        await axiosRes.delete(`/artworks/${id}/`);
-        history.goBack();
-        toast.success("Artwork deleted successfully!");
+            await axiosRes.delete(`/artworks/${id}/`);
+            history.goBack();
+            toast.success("Artwork deleted successfully!");
         } catch (error) {
-        console.log(error);
+            console.log(error);
+            toast.error(
+                "Something went wrong while attempting to delete your artwork."
+            );
         }
-        toast.error(
-        "Something went wrong while attempting to delete your artwork."
-        );
     };
 
     return (
-        <Card className={styles.Parent} style={{ opacity: sold ? "60%" : null }}>
-            <Card.Body>
+        <Card className={styles.Parent} >
+            <div >
+                {sold ? <span className={styles.Ribbon}>Sold</span> : null}
+            </div>
+            <Card.Body style={{ opacity: sold ? "60%" : null }}>
                 <Media className="align-items-center justify-content-between">
                     {owner}
                 </Media>
@@ -68,51 +71,73 @@ const Artwork = (props) => {
                         <DropdownMenu
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
-                    />
+                        />
                     )}
                 </div>
-            </Card.Body>
 
-            <div>
-                {sold ? <span className={styles.Ribbon}>Sold</span> : null}
-            </div>
-                
-            <div className="text-center">
-                {artwork_title && <Card.Title>{artwork_title}</Card.Title>}
-                {artist_name && <Card.Text>By {artist_name}</Card.Text>}
-                {description && <Card.Text>Description: {description}</Card.Text>}
-            </div>
+                <Link to={`/artworks/${id}`} >    
+                    <div className="text-center">
+                        {artwork_title &&
+                            <Card.Title>{artwork_title}</Card.Title>
+                        }
+                        {artist_name &&
+                            <Card.Text>By {artist_name}</Card.Text>
+                        }
+                        {description &&
+                            <Card.Text>Description: {description}</Card.Text>
+                        }
+                    </div>
 
-            <Container className="p-4">
-                <Link to={`/artworks/${id}`}>
-                    <Row>
-                        <Col>
-                            <CardImg
-                                src={image}
-                                alt={alt_text}
-                                className={appStyles.Image}
-                            />
-                        </Col>
+                    <Container className="p-4">
+                        <Row>
+                            <Col>
+                                <CardImg
+                                    src={image}
+                                    alt={alt_text}
+                                    className={appStyles.Image}
+                                />
+                            </Col>
 
-                        <Col>
-                            <Card.Body>
-                                <div>
-                                    {style && <Card.Text>Style: {style}</Card.Text>}
-                                    {type && <Card.Text>Type: {type}</Card.Text>}
-
-                                    {payment_method && (
-                                    <Card.Text>Payment method: {payment_method}</Card.Text>
-                                    )}
-
-                                    {price && <Card.Text>Price: {price}</Card.Text>}
-                                    {contact && <Card.Text>Contact: {contact}</Card.Text>}
-                                    {location && <Card.Text>Location: {location}</Card.Text>}
-                                </div>
-                            </Card.Body>
-                        </Col>
-                    </Row>
+                            <Col>
+                                <Card.Body>
+                                    <div>
+                                        {style && 
+                                            <Card.Text>
+                                                Style: {style}
+                                            </Card.Text>
+                                        }
+                                        {type && 
+                                            <Card.Text>
+                                                Type: {type}
+                                                </Card.Text>
+                                            }
+                                        {payment_method && (
+                                            <Card.Text>
+                                                Payment method: {payment_method}
+                                            </Card.Text>
+                                        )}
+                                        {price && 
+                                            <Card.Text>
+                                                Price: {price}
+                                                </Card.Text>
+                                        }
+                                        {contact && 
+                                            <Card.Text>
+                                                Contact: {contact}
+                                            </Card.Text>
+                                        }
+                                        {location && 
+                                            <Card.Text>
+                                                Location: {location}
+                                            </Card.Text>
+                                        }
+                                    </div>
+                                </Card.Body>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Link>
-            </Container>
+            </Card.Body>
         </Card>
     );
 };
