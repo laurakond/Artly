@@ -7,10 +7,11 @@ import NoResults from '../../assets/no-results.png';
 import appStyles from "../../App.module.css";
 
 import { axiosReq } from '../../api/AxiosDefaults';
-import Artwork from './Artwork';
+// import Artwork from './Artwork';
 import Asset from '../../components/Asset';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
+import ArtworkPartInfo from './ArtworkPartInfo';
 
 const AllArtworksPage = ({message, filter=""}) => {
     const [artworks, setArtworks] = useState({results: []});
@@ -48,7 +49,7 @@ const AllArtworksPage = ({message, filter=""}) => {
         const fetchStyles = async () => {
             try {
                 const {data} = await axiosReq.get(
-                    `/artworks/?${filter}${styleQuery}`
+                    `/artworks/?${filter}search=${styleQuery}`
                 );
                 setArtworks(data);
                 setHasLoaded(true);
@@ -106,7 +107,7 @@ const AllArtworksPage = ({message, filter=""}) => {
                     onChange={(event) => setSearchQuery(event.target.value)}
                     type="text"
                     className="mr-sm-2"
-                    placeholder="Search artworks"
+                    placeholder="Search artworks or artist name"
                 />
             </Form>
             {/* Search for styles/types of artwork */}
@@ -169,35 +170,36 @@ const AllArtworksPage = ({message, filter=""}) => {
                 >
                     <option value="">All</option>
                     <option value="true">Sold</option>
-                    <option value="false">Not sold</option>
+                    <option value="false">For sale</option>
                 </Form.Control>
             </Form>
 
-                {hasLoaded ? (
-                    <>
-                        {artworks.results.length ? (
-                            <InfiniteScroll
-                                children={
-                                    artworks.results.map((artwork)=>(
-                                        <Artwork key={artwork.id} {...artwork} />
-                                    ))
-                                }
-                                dataLength={artworks.results.length}
-                                loader={<Asset spinner />}
-                                hasMore={!!artworks.next}
-                                next={()=>fetchMoreData(artworks, setArtworks)}
-                            />
-                        ):(
-                            <Container className={appStyles.Content}>
-                                <Asset src={NoResults} message={message}/>
-                            </Container>
-                        )}
-                        </>
-                    ) : (
+            {hasLoaded ? (
+                <>
+                    {artworks.results.length ? (
+                        <InfiniteScroll
+                            children={
+                                artworks.results.map((artwork)=>(
+                                    // <Artwork key={artwork.id} {...artwork} />
+                                    <ArtworkPartInfo key={artwork.id} {...artwork} />
+                                ))
+                            }
+                            dataLength={artworks.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!artworks.next}
+                            next={()=>fetchMoreData(artworks, setArtworks)}
+                        />
+                    ):(
                         <Container className={appStyles.Content}>
-                            < Asset spinner />
+                            <Asset src={NoResults} message={message}/>
                         </Container>
                     )}
+                    </>
+                ) : (
+                    <Container className={appStyles.Content}>
+                        < Asset spinner />
+                    </Container>
+                )}
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                     <p>Popular profiles for desktop</p>
