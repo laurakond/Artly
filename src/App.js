@@ -25,7 +25,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
-        <ToastContainer></ToastContainer>
+        <ToastContainer autoClose={2000}></ToastContainer>
         <Switch>
           <Route 
             exact
