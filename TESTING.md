@@ -74,6 +74,22 @@ All files were put through the official [W3C Markup Validation](https://validato
 - when testing my deployed react website, I noticed that the url for creating an artwork listing was broken. Upon each click on the “create artwork”, “artwork” would be concatenated at the end
 - I managed to resolve this by adding a missing / at the beginning of the link path in the NavBar.js file.
 
+**no image upload error**
+
+![no-image-error.png](documentation/images/errors/no-image-error.png)
+
+- When testing Artwork creation, I received the pictured error if no image was selected even though it was an optional field to submit.
+    - I managed to resolve this by replacing the existing image related code in ArtworkCreateForm.js with this:
+        ```jsx
+        if (imageInput?.current?.files[0]) {
+            formData.append(
+                "image",
+                imageInput.current.files[0]
+            );
+        }
+        ```
+
+
 ### Unfixed bugs
   
 
