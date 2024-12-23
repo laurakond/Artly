@@ -73,7 +73,9 @@ function ArtworkCreateForm() {
         formData.append("type", type);
         formData.append("payment_method", payment_method);
         formData.append("price", price);
-        formData.append("image", imageInput.current.files[0]);
+        if (imageInput?.current?.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+        }
         formData.append("alt_text", alt_text);
         formData.append("contact", contact);
         formData.append("location", location);
