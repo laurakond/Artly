@@ -11,12 +11,12 @@ import ArtworkPage from "./pages/artworks/ArtworkPage";
 import AllArtworksPage from "./pages/artworks/AllArtworksPage";
 import { useLoggedInUser } from "./contexts/LoggedInUserContext";
 import ArtworkEditForm from "./pages/artworks/ArtworkEditForm";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
-  // lines 17-18 are needed for filtering by saved artworks. Otherwise it is not 
+  // lines 17-18 are needed for filtering by saved artworks. Otherwise it is not
   // required
   const loggedInUser = useLoggedInUser();
   const user_id = loggedInUser?.user_id || "";
@@ -27,20 +27,25 @@ function App() {
       <Container className={styles.Main}>
         <ToastContainer autoClose={2000}></ToastContainer>
         <Switch>
-          <Route 
+          <Route
             exact
             path="/"
-            render={() => <AllArtworksPage message="No results found."/> } 
+            render={() => <AllArtworksPage message="No results found." />}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route 
-            exact 
-            path="/artworks/create" 
-            render={() => <ArtworkCreateForm/>} 
+          <Route
+            exact
+            path="/artworks/create"
+            render={() => <ArtworkCreateForm />}
           />
-          <Route exact path="/artworks/:id" render={() => <ArtworkPage/> } />
-          <Route exact path="/artworks/:id/edit" render={() => <ArtworkEditForm/> } />
+          <Route exact path="/artworks/:id" render={() => <ArtworkPage />} />
+          <Route
+            exact
+            path="/artworks/:id/edit"
+            render={() => <ArtworkEditForm />}
+          />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>
