@@ -98,7 +98,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles mobile</p>
+        <MostSellingProfiles mobile />
         <i className={`fas fa-search`} />
         <Form onSubmit={(event) => event.preventDefault()}>
           <Form.Control
