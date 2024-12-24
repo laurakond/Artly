@@ -1,36 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import appStyles from "../../App.module.css";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/AxiosDefaults";
-import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 
 const MostSellingProfiles = ({ mobile }) => {
-  const [profileData, setProfileData] = useState({
-    pageProfile: { results: [] },
-    mostSellingProfiles: { results: [] },
-  });
-
-  const { mostSellingProfiles } = profileData;
-  const loggedInUser = useLoggedInUser();
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(
-          "/profiles/?ordering=-artwork_count"
-        );
-        setProfileData((prevState) => ({
-          ...prevState,
-          mostSellingProfiles: data,
-        }));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handleMount();
-  }, [loggedInUser]);
+  const { mostSellingProfiles } = useProfileData();
 
   return (
     <Container className={`${mobile && "d-lg-none text-center mb-3"}`}>
