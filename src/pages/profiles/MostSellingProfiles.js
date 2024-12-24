@@ -4,8 +4,9 @@ import { Container } from "react-bootstrap";
 import { axiosReq } from "../../api/AxiosDefaults";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Asset from "../../components/Asset";
+import Profile from "./Profile";
 
-const MostSellingProfiles = () => {
+const MostSellingProfiles = ({ mobile }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
     mostSellingProfiles: { results: [] },
@@ -32,13 +33,21 @@ const MostSellingProfiles = () => {
   }, [loggedInUser]);
 
   return (
-    <Container>
+    <Container className={`${mobile && "d-lg-none text-center mb-3"}`}>
       {mostSellingProfiles.results.length ? (
         <>
           <p>Top sellers</p>
-          {mostSellingProfiles.results.map((profile) => (
-            <p key={profile.id}>{profile.owner}</p>
-          ))}
+          {mobile ? (
+            <div className="d-flex justify-content-around">
+              {mostSellingProfiles.results.slice(0, 4).map((profile) => (
+                <Profile key={profile.id} profileData={profile} mobile />
+              ))}
+            </div>
+          ) : (
+            mostSellingProfiles.results.map((profile) => (
+              <Profile key={profile.id} profileData={profile} />
+            ))
+          )}
         </>
       ) : (
         <Asset spinner />
