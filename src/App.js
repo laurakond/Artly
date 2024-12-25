@@ -14,6 +14,9 @@ import ArtworkEditForm from "./pages/artworks/ArtworkEditForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UsernameEditForm from "./pages/profiles/UsernameEditForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditFrom";
+import UserPasswordEditForm from "./pages/profiles/UserPasswordEditForm";
 
 function App() {
   // lines 17-18 are needed for filtering by saved artworks. Otherwise it is not
@@ -46,6 +49,21 @@ function App() {
             render={() => <ArtworkEditForm />}
           />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameEditForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordEditForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>
