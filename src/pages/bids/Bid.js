@@ -48,14 +48,6 @@ const Bid = (props) => {
           </>
         )
       )}
-
-      {/* {is_seller && (
-                <>
-                <button onClick={()=>handleAcceptBid(id)}>Approve</button>
-                <button onClick={()=>handleRejectBid(id)}>Reject</button>
-                <button onClick={()=>handleSoldBid(id)}>Mark as sold</button>
-                </>
-            )} */}
     </div>
   );
 };
