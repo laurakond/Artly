@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
@@ -59,8 +60,20 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
-          <h4>{profile?.location}</h4>
-          <div>Portfolio: {profile?.portfolio_url}</div>
+          <div>
+            {profile?.location === "" ? (
+              <Card.Text>No location given.</Card.Text>
+            ) : (
+              <Card.Text>{profile?.location}</Card.Text>
+            )}
+          </div>
+          <div>
+            {profile?.portfolio_url === "" ? (
+              <Card.Text>Porfolio: No portfolio given.</Card.Text>
+            ) : (
+              <Card.Text>{profile?.portfolio_url}</Card.Text>
+            )}
+          </div>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.artwork_count}</div>
@@ -69,10 +82,38 @@ function ProfilePage() {
           </Row>
           <Row>
             <Col>
-              <div>Style: {profile?.styles}</div>
-              <div>Technique: {profile?.techniques}</div>
-              <div>Influences: {profile?.influences}</div>
-              <div>Collaboration: {profile?.collaborations}</div>
+              <div>
+                {profile?.styles === "" ? (
+                  <Card.Text>Style: No styles noted.</Card.Text>
+                ) : (
+                  <Card.Text>Style: {profile?.styles}</Card.Text>
+                )}
+              </div>
+              <div>
+                {profile?.techniques === "" ? (
+                  <Card.Text>Technique: No techniques noted.</Card.Text>
+                ) : (
+                  <Card.Text>Technique: {profile?.techniques}</Card.Text>
+                )}
+              </div>
+              <div>
+                {profile?.influences === "" ? (
+                  <Card.Text>Influences: No influences noted.</Card.Text>
+                ) : (
+                  <Card.Text>Influences: {profile?.influences}</Card.Text>
+                )}
+              </div>
+              <div>
+                {profile?.collaborations === "" ? (
+                  <Card.Text>
+                    Collaborations: No collaborations noted.
+                  </Card.Text>
+                ) : (
+                  <Card.Text>
+                    Collaborations: {profile?.collaborations}
+                  </Card.Text>
+                )}
+              </div>
             </Col>
           </Row>
         </Col>
