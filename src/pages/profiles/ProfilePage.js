@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
-
-import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
-import MostSellingProfiles from "./MostSellingProfiles";
-import { useParams } from "react-router-dom";
+import appStyles from "../../App.module.css";
+import { useParams } from "react-router";
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Image } from "react-bootstrap";
-import Artwork from "../artworks/Artwork";
+import { Button, Image } from "react-bootstrap";
+import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
+import MostSellingProfiles from "./MostSellingProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
-import NoResults from "../../assets/no-results.png";
+import Artwork from "../artworks/Artwork";
 import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -50,7 +49,7 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData]);
 
-  const sellerProfile = (
+  const profileContent = (
     <>
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
@@ -58,22 +57,38 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
-          <Row className="justify-content-center no-gutter">
-            <Col xs={3}>
+          <h4>{profile?.location}</h4>
+          <div>Portfolio: {profile?.portfolio_url}</div>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={3} className="my-2">
               <div>{profile?.artwork_count}</div>
               <div>artworks</div>
             </Col>
           </Row>
+          <Row>
+            <Col>
+              <div>Style: {profile?.styles}</div>
+              <div>Technique: {profile?.techniques}</div>
+              <div>Influences: {profile?.influences}</div>
+              <div>Collaboration: {profile?.collaborations}</div>
+            </Col>
+          </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
-          <p>Follow button</p>
+          {loggedInUser &&
+            !is_owner &&
+            (profile?.following_id ? (
+              <Button onClick={() => {}}>unfollow</Button>
+            ) : (
+              <Button onClick={() => {}}>follow</Button>
+            ))}
         </Col>
-        <Col className="p-3">Profile content</Col>
+        {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
     </>
   );
 
-  const sellerProfileArtworks = (
+  const profileOwnersArtworks = (
     <>
       <hr />
       <p className="text-center">{profile?.owner}'s artworks</p>
@@ -84,7 +99,7 @@ function ProfilePage() {
             <Artwork
               key={artwork.id}
               {...artwork}
-              setProfileArtworks={setProfileArtworks}
+              setArtworks={setProfileArtworks}
             />
           ))}
           dataLength={profileArtworks.results.length}
@@ -105,11 +120,11 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <MostSellingProfiles mobile />
-        <Container>
+        <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
-              {sellerProfile}
-              {sellerProfileArtworks}
+              {profileContent}
+              {profileOwnersArtworks}
             </>
           ) : (
             <Asset spinner />
@@ -119,7 +134,6 @@ function ProfilePage() {
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <MostSellingProfiles />
       </Col>
-      {profile?.influences && <Col>{profile.influences}</Col>}
     </Row>
   );
 }
