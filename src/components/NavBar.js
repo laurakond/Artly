@@ -10,10 +10,8 @@ import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import useNavBarToggle from "../hooks/useNavBarToggle";
-import { useParams } from "react-router-dom";
 
 const NavBar = () => {
-  const { id } = useParams();
   const loggedInUser = useLoggedInUser();
   const setLoggedInUser = useSetLoggedInUser();
   const { expanded, setExpanded, ref } = useNavBarToggle();
@@ -34,7 +32,6 @@ const NavBar = () => {
       <NavLink className={styles.NavLink} to="/artworks/create">
         Create Artwork
       </NavLink>
-      {/* <NavLink to={`/profiles/${id}`}>{loggedInUser?.username}</NavLink> */}
       <NavLink to={`/profiles/${loggedInUser?.profile_id}`}>
         <i className="fa-solid fa-user"></i>
         {loggedInUser?.username}
