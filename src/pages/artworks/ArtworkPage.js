@@ -98,7 +98,6 @@ const ArtworkPage = () => {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <MostSellingProfiles mobile />
-        <p>Popular artworks for mobile</p>
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
         <Container>
           {loggedInUser && !artwork.results[0]?.is_owner ? (
