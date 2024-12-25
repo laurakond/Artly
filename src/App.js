@@ -15,7 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameEditForm from "./pages/profiles/UsernameEditForm";
-import ProfileEditForm from "./pages/profiles/ProfileEditFrom";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UserPasswordEditForm from "./pages/profiles/UserPasswordEditForm";
 
 function App() {
