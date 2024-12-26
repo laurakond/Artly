@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   const { profileData, mobile, imageSize = 55 } = props;
-  const { id, artwork_count, profile_image, owner } = profileData;
+  const { id, owner } = profileData;
 
   const loggedInUser = useLoggedInUser();
   const is_owner = loggedInUser?.username === owner;

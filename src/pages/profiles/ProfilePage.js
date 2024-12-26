@@ -79,6 +79,10 @@ function ProfilePage() {
               <div>{profile?.artwork_count}</div>
               <div>artworks</div>
             </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.sold_artwork_count}</div>
+              <div>sold artworks</div>
+            </Col>
           </Row>
           <Row>
             <Col>
