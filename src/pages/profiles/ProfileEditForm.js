@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import { toast } from "react-toastify";
 
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
@@ -110,9 +111,13 @@ const ProfileEditForm = () => {
         ...loggedInUser,
         profile_image: data.profile_image,
       }));
+      toast.success("Profile updated successfully!");
       history.goBack();
     } catch (error) {
       console.log(error);
+      toast.error(
+        "Something went wrong while attempting to update your profile."
+      );
       setErrors(error.response?.data);
     }
   };

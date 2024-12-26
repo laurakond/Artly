@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-
+import { toast } from "react-toastify";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
@@ -42,9 +41,13 @@ const UserPasswordEditForm = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
+      toast.success("PAssword updated successfully!");
       history.goBack();
     } catch (error) {
       console.log(error);
+      toast.error(
+        "Something went wrong while attempting to update your password."
+      );
       setErrors(error.response?.data);
     }
   };
