@@ -20,7 +20,7 @@ const ProfileDataProvider = ({ children }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-          "/profiles/?ordering=-artwork_count"
+          "/profiles/?ordering=-sold_artwork_count"
         );
         setProfileData((prevState) => ({
           ...prevState,
