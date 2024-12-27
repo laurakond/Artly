@@ -10,6 +10,7 @@ const Bid = (props) => {
     seller,
     email,
     status,
+    artwork_sold_status,
     id,
     handleAcceptBid,
     handleRejectBid,
@@ -17,6 +18,7 @@ const Bid = (props) => {
   } = props;
   const loggedInUser = useLoggedInUser();
   const is_seller = loggedInUser?.username === seller;
+  const artwork_available = status !== "Sold";
 
   return (
     <div>
@@ -40,11 +42,15 @@ const Bid = (props) => {
           <br />
         </>
       ) : (
-        is_seller && (
+        is_seller &&
+        artwork_available &&
+        !artwork_sold_status && (
           <>
-            <button onClick={() => handleAcceptBid(id)}>Approve</button>
-            <button onClick={() => handleRejectBid(id)}>Reject</button>
-            <button onClick={() => handleSoldBid(id)}>Mark as sold</button>
+            <div>
+              <button onClick={() => handleAcceptBid(id)}>Approve</button>
+              <button onClick={() => handleRejectBid(id)}>Reject</button>
+              <button onClick={() => handleSoldBid(id)}>Mark as sold</button>
+            </div>
           </>
         )
       )}
