@@ -15,7 +15,7 @@ import { Button, Image } from "react-bootstrap";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import MostSellingProfiles from "./MostSellingProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Artwork from "../artworks/Artwork";
+import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
@@ -143,7 +143,7 @@ function ProfilePage() {
       {profileArtworks.results.length ? (
         <InfiniteScroll
           children={profileArtworks.results.map((artwork) => (
-            <Artwork
+            <ArtworkPartInfo
               key={artwork.id}
               {...artwork}
               setArtworks={setProfileArtworks}
