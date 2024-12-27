@@ -18,10 +18,11 @@ const ArtworkPage = () => {
   const [artwork, setArtwork] = useState({ results: [] });
   const loggedInUser = useLoggedInUser();
   const [bids, setBids] = useState({ results: [] });
+  const not_owner = !artwork.results[0]?.is_owner;
+  const artwork_sold = artwork.results[0]?.sold;
 
   const handleAcceptBid = async (id) => {
     try {
-      console.log("Updating bid with ID:", id);
       await axiosRes.put(`/bids/${id}/`, { status: "Approved" });
       setBids((prevBids) => ({
         ...prevBids,
@@ -29,8 +30,6 @@ const ArtworkPage = () => {
           bid.id === id ? { ...bid, status: "Approved" } : bid
         ),
       }));
-      console.log("printing prop id", id);
-      console.log(" printing accept bid in artwork.js");
     } catch (error) {
       console.error(error);
     }
@@ -38,7 +37,6 @@ const ArtworkPage = () => {
 
   const handleRejectBid = async (id) => {
     try {
-      console.log("Updating bid with ID:", id);
       await axiosRes.put(`/bids/${id}/`, { status: "Rejected" });
       setBids((prevBids) => ({
         ...prevBids,
@@ -46,8 +44,6 @@ const ArtworkPage = () => {
           bid.id === id ? { ...bid, status: "Rejected" } : bid
         ),
       }));
-      console.log("printing prop id in reject bid", id);
-      console.log(" printing reject bid in artwork.js");
     } catch (error) {
       console.error(error);
     }
@@ -55,7 +51,6 @@ const ArtworkPage = () => {
 
   const handleSoldBid = async (id) => {
     try {
-      console.log("Updating bid with ID:", id);
       await axiosRes.put(`/bids/${id}/`, { status: "Sold" });
       setBids((prevBids) => ({
         ...prevBids,
@@ -73,6 +68,7 @@ const ArtworkPage = () => {
           sold: true,
         })),
       }));
+      // console.log("testing bid status", artwork.sold);
     } catch (error) {
       console.error(error);
     }
@@ -100,7 +96,7 @@ const ArtworkPage = () => {
         <MostSellingProfiles mobile />
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
         <Container>
-          {loggedInUser && !artwork.results[0]?.is_owner ? (
+          {loggedInUser && not_owner && !artwork_sold ? (
             <BidCreateForm
               artwork={id}
               setArtwork={setArtwork}
@@ -131,7 +127,7 @@ const ArtworkPage = () => {
           ) : loggedInUser ? (
             <span>No bids yet</span>
           ) : (
-            <span>log in to leave a bid</span>
+            <span>Log in to leave a bid</span>
           )}
         </Container>
       </Col>
