@@ -19,7 +19,7 @@ const ArtworkPage = () => {
   const loggedInUser = useLoggedInUser();
   const [bids, setBids] = useState({ results: [] });
   const not_owner = !artwork.results[0]?.is_owner;
-  const artwork_sold = artwork.results[0]?.sold;
+  const artwork_sold_status = artwork.results[0]?.sold;
 
   const handleAcceptBid = async (id) => {
     try {
@@ -96,7 +96,7 @@ const ArtworkPage = () => {
         <MostSellingProfiles mobile />
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
         <Container>
-          {loggedInUser && not_owner && !artwork_sold ? (
+          {loggedInUser && not_owner && !artwork_sold_status ? (
             <BidCreateForm
               artwork={id}
               setArtwork={setArtwork}
@@ -117,6 +117,7 @@ const ArtworkPage = () => {
                   handleRejectBid={handleRejectBid}
                   handleAcceptBid={handleAcceptBid}
                   handleSoldBid={handleSoldBid}
+                  artwork_sold_status={artwork_sold_status}
                 />
               ))}
               dataLength={bids.results.length}
