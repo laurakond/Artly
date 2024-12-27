@@ -10,6 +10,7 @@ import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import useNavBarToggle from "../hooks/useNavBarToggle";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const loggedInUser = useLoggedInUser();
@@ -21,8 +22,12 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setLoggedInUser(null);
+      toast.success("You are logged out!");
     } catch (error) {
       console.log(error);
+      toast.error(
+        "Something went wrong while attempting to log out. Please try again."
+      );
     }
   };
 
