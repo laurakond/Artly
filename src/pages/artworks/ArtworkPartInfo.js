@@ -7,8 +7,11 @@ import Col from "react-bootstrap/Col";
 import CardImg from "react-bootstrap/CardImg";
 import { Link } from "react-router-dom";
 import appStyles from "../../App.module.css";
-
+import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import styles from "../../styles/Artwork.module.css";
+import { OverlayTrigger } from "react-bootstrap";
+import { Tooltip } from "react-bootstrap";
+import { axiosRes } from "../../api/AxiosDefaults";
 
 const ArtworkPartInfo = (props) => {
   const {
@@ -25,7 +28,53 @@ const ArtworkPartInfo = (props) => {
     style,
     type,
     bids_count,
+    saved_count,
+    save_id,
+    setArtworks,
   } = props;
+
+  const loggedInUser = useLoggedInUser();
+  const is_owner = loggedInUser?.username === owner;
+
+  const handleSave = async () => {
+    try {
+      const { data } = await axiosRes.post("/saved/", { artwork: id });
+      setArtworks((prevArtworks) => ({
+        ...prevArtworks,
+        results: prevArtworks.results.map((artwork) => {
+          return artwork.id === id
+            ? {
+                ...artwork,
+                saved_count: artwork.saved_count + 1,
+                save_id: data.id,
+              }
+            : artwork;
+        }),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeselectSave = async () => {
+    try {
+      await axiosRes.delete(`/saved/${save_id}/`);
+      setArtworks((prevArtworks) => ({
+        ...prevArtworks,
+        results: prevArtworks.results.map((artwork) => {
+          return artwork.id === id
+            ? {
+                ...artwork,
+                saved_count: artwork.saved_count - 1,
+                like_id: null,
+              }
+            : artwork;
+        }),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Card className={styles.Parent}>
@@ -74,6 +123,34 @@ const ArtworkPartInfo = (props) => {
             </Row>
           </Container>
         </Link>
+        <Col>
+          <div>
+            {is_owner ? (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't save your own post!</Tooltip>}
+              >
+                <i className="fa-regular fa-bookmark" />
+              </OverlayTrigger>
+            ) : save_id ? (
+              <span onClick={handleDeselectSave}>
+                <i className="fa-solid fa-bookmark" />
+              </span>
+            ) : loggedInUser ? (
+              <span onClick={handleSave}>
+                <i className="fa-regular fa-bookmark" />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              >
+                <i class="fa-regular fa-bookmark" />
+              </OverlayTrigger>
+            )}
+            {saved_count}
+          </div>
+        </Col>
       </Card.Body>
     </Card>
   );

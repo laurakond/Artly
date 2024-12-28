@@ -99,7 +99,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <MostSellingProfiles mobile />
-        <i className={`fas fa-search`} />
+        <i className="fas fa-search" />
         <Form onSubmit={(event) => event.preventDefault()}>
           <Form.Control
             value={searchQuery}
@@ -173,7 +173,11 @@ const AllArtworksPage = ({ message, filter = "" }) => {
               <InfiniteScroll
                 children={artworks.results.map((artwork) => (
                   // <Artwork key={artwork.id} {...artwork} />
-                  <ArtworkPartInfo key={artwork.id} {...artwork} />
+                  <ArtworkPartInfo
+                    key={artwork.id}
+                    {...artwork}
+                    setArtworks={setArtworks}
+                  />
                 ))}
                 dataLength={artworks.results.length}
                 loader={<Asset spinner />}
