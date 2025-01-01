@@ -2,12 +2,11 @@ import React from "react";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { Link } from "react-router-dom";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
-import { Button } from "react-bootstrap";
 
 const Profile = (props) => {
   const { profileData, mobile, imageSize = 55 } = props;
   const { id, owner, following_id } = profileData;
-  const { handleFollowUser } = useSetProfileData();
+  const { handleFollowUser, handleUnfollowUser } = useSetProfileData();
 
   const loggedInUser = useLoggedInUser();
   const is_owner = loggedInUser?.username === owner;
@@ -29,7 +28,9 @@ const Profile = (props) => {
           loggedInUser &&
           !is_owner &&
           (following_id ? (
-            <button onClick={() => {}}>unfollow</button>
+            <button onClick={() => handleUnfollowUser(profileData)}>
+              unfollow
+            </button>
           ) : (
             <button onClick={() => handleFollowUser(profileData)}>
               follow
