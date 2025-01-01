@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext, useContext } from "react";
 import { useLoggedInUser } from "./LoggedInUserContext";
 import { axiosReq, axiosRes } from "../api/AxiosDefaults";
 import { followUserHelper, unfollowUserHelper } from "../utils/utils";
+import { toast } from "react-toastify";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -37,8 +38,12 @@ const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
+      toast.success(`You are now following ${clickedProfile.owner}`);
     } catch (error) {
       console.log(error);
+      toast.error(
+        `Something went wrong while attempting to follow ${clickedProfile.owner}.`
+      );
     }
   };
 
@@ -59,8 +64,12 @@ const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
+      toast.success(`You are no longer following ${clickedProfile.owner}`);
     } catch (error) {
       console.log(error);
+      toast.error(
+        `Something went wrong while attempting to unfollow ${clickedProfile.owner}.`
+      );
     }
   };
 
