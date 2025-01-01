@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { useLoggedInUser } from "./LoggedInUserContext";
 import { axiosReq, axiosRes } from "../api/AxiosDefaults";
-import { followHelper } from "../utils/utils";
+import { followUserHelper, unfollowUserHelper } from "../utils/utils";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -27,13 +27,35 @@ const ProfileDataProvider = ({ children }) => {
         ...prevState,
         pageProfile: {
           results: prevState.pageProfile.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+            followUserHelper(profile, clickedProfile, data.id)
           ),
         },
         mostSellingProfiles: {
           ...prevState.mostSellingProfiles,
           results: prevState.mostSellingProfiles.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+            followUserHelper(profile, clickedProfile, data.id)
+          ),
+        },
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUnfollowUser = async (clickedProfile) => {
+    try {
+      await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
+      setProfileData((prevState) => ({
+        ...prevState,
+        pageProfile: {
+          results: prevState.pageProfile.results.map((profile) =>
+            unfollowUserHelper(profile, clickedProfile)
+          ),
+        },
+        mostSellingProfiles: {
+          ...prevState.mostSellingProfiles,
+          results: prevState.mostSellingProfiles.results.map((profile) =>
+            unfollowUserHelper(profile, clickedProfile)
           ),
         },
       }));
@@ -62,7 +84,7 @@ const ProfileDataProvider = ({ children }) => {
   return (
     <ProfileDataContext.Provider value={profileData}>
       <SetProfileDataContext.Provider
-        value={{ setProfileData, handleFollowUser }}
+        value={{ setProfileData, handleFollowUser, handleUnfollowUser }}
       >
         {children}
       </SetProfileDataContext.Provider>
