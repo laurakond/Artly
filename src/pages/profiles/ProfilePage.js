@@ -24,7 +24,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const loggedInUser = useLoggedInUser();
   const { id } = useParams();
-  const { setProfileData } = useSetProfileData();
+  const { setProfileData, handleFollowUser } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = loggedInUser?.username === profile?.owner;
@@ -83,6 +83,14 @@ function ProfilePage() {
               <div>{profile?.sold_artwork_count}</div>
               <div>sold artworks</div>
             </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.following_count}</div>
+              <div>following</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.followers_count}</div>
+              <div>followers</div>
+            </Col>
           </Row>
           <Row>
             <Col>
@@ -127,7 +135,7 @@ function ProfilePage() {
             (profile?.following_id ? (
               <Button onClick={() => {}}>unfollow</Button>
             ) : (
-              <Button onClick={() => {}}>follow</Button>
+              <Button onClick={() => handleFollowUser(profile)}>follow</Button>
             ))}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
