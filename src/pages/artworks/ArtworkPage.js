@@ -12,6 +12,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
+import { toast } from "react-toastify";
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -30,8 +31,10 @@ const ArtworkPage = () => {
           bid.id === id ? { ...bid, status: "Approved" } : bid
         ),
       }));
+      toast.success("Bid accepted.");
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong while attempting to accept the bid.");
     }
   };
 
@@ -44,8 +47,10 @@ const ArtworkPage = () => {
           bid.id === id ? { ...bid, status: "Rejected" } : bid
         ),
       }));
+      toast.success("Bid rejected.");
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong while attempting to reject the bid.");
     }
   };
 
@@ -69,8 +74,10 @@ const ArtworkPage = () => {
         })),
       }));
       // console.log("testing bid status", artwork.sold);
+      toast.success("Artwork is now sold.");
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong while attempting to sell the artwork.");
     }
   };
 
