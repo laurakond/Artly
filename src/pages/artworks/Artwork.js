@@ -82,7 +82,7 @@ const Artwork = (props) => {
               <Col>
                 <CardImg
                   src={image}
-                  alt={alt_text}
+                  alt={artwork_title}
                   className={appStyles.Image}
                 />
               </Col>

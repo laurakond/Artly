@@ -40,7 +40,6 @@ function ArtworkCreateForm() {
     payment_method,
     price,
     image,
-    alt_text,
     contact,
     location,
     description,
@@ -76,7 +75,6 @@ function ArtworkCreateForm() {
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
     }
-    formData.append("alt_text", alt_text);
     formData.append("contact", contact);
     formData.append("location", location);
     formData.append("description", description);
@@ -218,7 +216,7 @@ function ArtworkCreateForm() {
         </Alert>
       ))}
 
-      <Form.Group controlId="alt_text">
+      {/* <Form.Group controlId="alt_text">
         <Form.Label>Image title</Form.Label>
         <Form.Control
           type="text"
@@ -232,7 +230,7 @@ function ArtworkCreateForm() {
         <Alert key={index} variant="warning">
           {message}
         </Alert>
-      ))}
+      ))} */}
 
       <Form.Group controlId="contact">
         <Form.Label>Contact</Form.Label>
