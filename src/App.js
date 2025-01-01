@@ -19,7 +19,7 @@ import UserPasswordEditForm from "./pages/profiles/UserPasswordEditForm";
 
 function App() {
   const loggedInUser = useLoggedInUser();
-  const user_id = loggedInUser?.user_id || "";
+  const profile_id = loggedInUser?.profile_id || "";
 
   return (
     <div className={styles.App}>
@@ -38,7 +38,17 @@ function App() {
             render={() => (
               <AllArtworksPage
                 message="No results found. Adjust the search keyword or save an artwork."
-                filter={`saves__owner__profile=${user_id}&ordering=-saves__created_at&`}
+                filter={`saves__owner__profile=${profile_id}&ordering=-saves__created_at&`}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/followed"
+            render={() => (
+              <AllArtworksPage
+                message="No results found. Adjust the search keyword or follow a profile."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
           />
