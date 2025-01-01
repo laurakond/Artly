@@ -37,6 +37,14 @@ const NavBar = () => {
       <NavLink className={styles.NavLink} to="/artworks/create">
         Create Artwork
       </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/saved"
+      >
+        <i className="fa-solid fa-bookmark" />
+        Saved
+      </NavLink>
       <NavLink to={`/profiles/${loggedInUser?.profile_id}`}>
         <i className="fa-solid fa-user"></i>
         {loggedInUser?.username}
