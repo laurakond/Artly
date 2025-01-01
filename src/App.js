@@ -2,7 +2,8 @@ import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./api/AxiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
@@ -11,16 +12,12 @@ import ArtworkPage from "./pages/artworks/ArtworkPage";
 import AllArtworksPage from "./pages/artworks/AllArtworksPage";
 import { useLoggedInUser } from "./contexts/LoggedInUserContext";
 import ArtworkEditForm from "./pages/artworks/ArtworkEditForm";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameEditForm from "./pages/profiles/UsernameEditForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UserPasswordEditForm from "./pages/profiles/UserPasswordEditForm";
 
 function App() {
-  // lines 17-18 are needed for filtering by saved artworks. Otherwise it is not
-  // required
   const loggedInUser = useLoggedInUser();
   const user_id = loggedInUser?.user_id || "";
 
@@ -34,6 +31,16 @@ function App() {
             exact
             path="/"
             render={() => <AllArtworksPage message="No results found." />}
+          />
+          <Route
+            exact
+            path="/saved"
+            render={() => (
+              <AllArtworksPage
+                message="No results found. Adjust the search keyword or save an artwork."
+                filter={`saves__owner__profile=${user_id}&ordering=-saves__created_at&`}
+              />
+            )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
