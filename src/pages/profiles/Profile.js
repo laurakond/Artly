@@ -2,10 +2,11 @@ import React from "react";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { Link } from "react-router-dom";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import Avatar from "../../components/Avatar";
 
 const Profile = (props) => {
   const { profileData, mobile, imageSize = 55 } = props;
-  const { id, owner, following_id } = profileData;
+  const { id, owner, following_id, profile_image } = profileData;
   const { handleFollowUser, handleUnfollowUser } = useSetProfileData();
 
   const loggedInUser = useLoggedInUser();
@@ -17,7 +18,7 @@ const Profile = (props) => {
     >
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
-          avatar space
+          <Avatar src={profile_image} height={imageSize} />
         </Link>
       </div>
       <div className="mx-2">

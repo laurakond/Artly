@@ -3,6 +3,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
@@ -11,13 +13,13 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import MostSellingProfiles from "./MostSellingProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import styles from "../../styles/ProfilePage.module.css";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
 function ProfilePage() {
@@ -57,7 +59,11 @@ function ProfilePage() {
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
-          <Image roundedCircle src={profile?.image} />
+          <Image
+            className={styles.ProfileImage}
+            roundedCircle
+            src={profile?.profile_image}
+          />
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
