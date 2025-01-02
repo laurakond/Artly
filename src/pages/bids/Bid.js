@@ -3,9 +3,13 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Avatar from "../../components/Avatar";
 import { Link } from "react-router-dom";
 import Media from "react-bootstrap/Media";
+import { BuyerDropdownMenu } from "../../components/DropdownMenu";
+import { axiosRes } from "../../api/AxiosDefaults";
+import { toast } from "react-toastify";
 
 const Bid = (props) => {
   const {
+    buyer,
     updated_at,
     bid_price,
     seller,
@@ -18,31 +22,59 @@ const Bid = (props) => {
     handleSoldBid,
     profile_id,
     profile_image,
+    setArtwork,
+    setBids,
   } = props;
   const loggedInUser = useLoggedInUser();
   const is_seller = loggedInUser?.username === seller;
   const artwork_available = status !== "Sold";
+  const is_buyer = loggedInUser?.username === buyer;
+
+  const handleDeleteBid = async () => {
+    try {
+      await axiosRes.delete(`/bids/${id}/`);
+      setArtwork((prevArtwork) => ({
+        results: [
+          {
+            ...prevArtwork.results[0],
+            bids_count: prevArtwork.results[0].bids_count - 1,
+          },
+        ],
+      }));
+
+      setBids((prevBids) => ({
+        ...prevBids,
+        results: prevBids.results.filter((bid) => bid.id !== id),
+      }));
+      toast.success("Bid deleted successfully!");
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong while attempting to delete your bid.");
+    }
+  };
 
   return (
     <div>
-      {/* <span>{buyer} -- </span> */}
       <Media>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span>{updated_at}</span>
-          <p>
-            {" "}
-            Bid placed: £{bid_price} Status: {status}{" "}
-          </p>
+          {status === "Sold" ? (
+            <p>Bid placed: £{bid_price}</p>
+          ) : (
+            <p>
+              Bid placed: £{bid_price} Status: {status}
+            </p>
+          )}
 
           {is_seller && status === "Sold" ? (
             <>
               <a
                 href={`mailto:${email}`}
                 rel="noopener"
-                aria-label="Email the buyer (opens an email claient to choose from in new window)"
+                aria-label="Email the buyer (opens email in the new window)"
               >
                 Email the buyer
               </a>
@@ -65,6 +97,12 @@ const Bid = (props) => {
             )
           )}
         </Media.Body>
+        {is_buyer && <BuyerDropdownMenu handleDelete={handleDeleteBid} />}
+        {/* {is_buyer && (
+          <button onClick={handleDeleteBid} className="warning">
+            Delete bid
+          </button>
+        )} */}
       </Media>
     </div>
   );
