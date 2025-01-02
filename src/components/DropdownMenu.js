@@ -32,6 +32,20 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   );
 };
 
+export const BuyerDropdownMenu = ({ handleDelete }) => {
+  return (
+    <Dropdown>
+      <Dropdown.Toggle as={ThreeDots} />
+
+      <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+        <Dropdown.Item onClick={handleDelete} aria-label="delete">
+          Delete
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
+
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (
