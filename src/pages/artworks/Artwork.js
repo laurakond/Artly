@@ -12,6 +12,7 @@ import { DropdownMenu } from "../../components/DropdownMenu";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { toast } from "react-toastify";
 import styles from "../../styles/Artwork.module.css";
+import Avatar from "../../components/Avatar";
 
 const Artwork = (props) => {
   const {
@@ -24,14 +25,14 @@ const Artwork = (props) => {
     payment_method,
     price,
     image,
-    alt_text,
     contact,
     location,
     description,
     sold,
     updated_at,
     artworkPage,
-    // bids_count,
+    profile_id,
+    profile_image,
   } = props;
 
   const loggedInUser = useLoggedInUser();
@@ -60,7 +61,14 @@ const Artwork = (props) => {
       <div>{sold ? <span className={styles.Ribbon}>Sold</span> : null}</div>
       <Card.Body style={{ opacity: sold ? "60%" : null }}>
         <Media className="align-items-center justify-content-between">
-          {owner}
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar
+              src={profile_image}
+              height={55}
+              alt={`profile image for ${owner}`}
+            />
+            {owner}
+          </Link>
         </Media>
 
         <div className="d-flex align-items-center">
@@ -70,40 +78,40 @@ const Artwork = (props) => {
           )}
         </div>
 
-        <Link to={`/artworks/${id}`}>
-          <div className="text-center">
-            {artwork_title && <Card.Title>{artwork_title}</Card.Title>}
-            {artist_name && <Card.Text>By {artist_name}</Card.Text>}
-            {description && <Card.Text>Description: {description}</Card.Text>}
-          </div>
+        {/* <Link to={`/artworks/${id}`}> */}
+        <div className="text-center">
+          {artwork_title && <Card.Title>{artwork_title}</Card.Title>}
+          {artist_name && <Card.Text>By {artist_name}</Card.Text>}
+          {description && <Card.Text>Description: {description}</Card.Text>}
+        </div>
 
-          <Container className="p-4">
-            <Row>
-              <Col>
-                <CardImg
-                  src={image}
-                  alt={artwork_title}
-                  className={appStyles.Image}
-                />
-              </Col>
+        <Container className="p-4">
+          <Row>
+            <Col>
+              <CardImg
+                src={image}
+                alt={artwork_title}
+                className={appStyles.Image}
+              />
+            </Col>
 
-              <Col>
-                <Card.Body>
-                  <div>
-                    {style && <Card.Text>Style: {style}</Card.Text>}
-                    {type && <Card.Text>Type: {type}</Card.Text>}
-                    {payment_method && (
-                      <Card.Text>Payment method: {payment_method}</Card.Text>
-                    )}
-                    {price && <Card.Text>Price: {price}</Card.Text>}
-                    {contact && <Card.Text>Contact: {contact}</Card.Text>}
-                    {location && <Card.Text>Location: {location}</Card.Text>}
-                  </div>
-                </Card.Body>
-              </Col>
-            </Row>
-          </Container>
-        </Link>
+            <Col>
+              <Card.Body>
+                <div>
+                  {style && <Card.Text>Style: {style}</Card.Text>}
+                  {type && <Card.Text>Type: {type}</Card.Text>}
+                  {payment_method && (
+                    <Card.Text>Payment method: {payment_method}</Card.Text>
+                  )}
+                  {price && <Card.Text>Price: {price}</Card.Text>}
+                  {contact && <Card.Text>Contact: {contact}</Card.Text>}
+                  {location && <Card.Text>Location: {location}</Card.Text>}
+                </div>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Container>
+        {/* </Link> */}
       </Card.Body>
     </Card>
   );

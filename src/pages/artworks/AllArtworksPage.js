@@ -13,6 +13,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import ArtworkPartInfo from "./ArtworkPartInfo";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
+import styles from "../../styles/AllArtworksPage.module.css";
 
 const AllArtworksPage = ({ message, filter = "" }) => {
   const [artworks, setArtworks] = useState({ results: [] });
@@ -99,7 +100,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <MostSellingProfiles mobile />
-        <i className="fas fa-search" />
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form onSubmit={(event) => event.preventDefault()}>
           <Form.Control
             value={searchQuery}

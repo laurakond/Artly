@@ -12,6 +12,7 @@ import styles from "../../styles/Artwork.module.css";
 import { OverlayTrigger } from "react-bootstrap";
 import { Tooltip } from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
+import Avatar from "../../components/Avatar";
 
 const ArtworkPartInfo = (props) => {
   const {
@@ -31,6 +32,8 @@ const ArtworkPartInfo = (props) => {
     saved_count,
     save_id,
     setArtworks,
+    profile_id,
+    profile_image,
   } = props;
 
   const loggedInUser = useLoggedInUser();
@@ -81,9 +84,11 @@ const ArtworkPartInfo = (props) => {
       <div>{sold ? <span className={styles.Ribbon}>Sold</span> : null}</div>
 
       <Card.Body style={{ opacity: sold ? "60%" : null }}>
-        <Media className="align-items-center justify-content-between">
+        <Media className="align-items-center justify-content-between"></Media>
+        <Link to={`/profiles/${profile_id}`}>
+          <Avatar src={profile_image} height={55} alt={`${owner}'s avatar`} />
           {owner}
-        </Media>
+        </Link>
 
         <div className="d-flex align-items-center">
           <span>{updated_at}</span>
@@ -145,7 +150,7 @@ const ArtworkPartInfo = (props) => {
                 placement="top"
                 overlay={<Tooltip>Log in to like posts!</Tooltip>}
               >
-                <i class="fa-regular fa-bookmark" />
+                <i className="fa-regular fa-bookmark" />
               </OverlayTrigger>
             )}
             {saved_count}
