@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import InputGroup from "react-bootstrap/InputGroup";
+import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { toast } from "react-toastify";
+import Avatar from "../../components/Avatar";
 
 function BidCreateForm(props) {
   const [errors, setErrors] = useState({});
-  const { artwork, setArtwork, setBids } = props;
+  const { artwork, setArtwork, setBids, profile_image, profile_id } = props;
   const [bidData, setBidData] = useState({
     email: "",
     bid_price: "",
@@ -67,6 +69,9 @@ function BidCreateForm(props) {
       <Form.Group>
         <InputGroup>
           {/* {owner} */}
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} />
+          </Link>
           <Form.Control
             placeholder="my bid"
             name="bid_price"

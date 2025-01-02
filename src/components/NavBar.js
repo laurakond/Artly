@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import useNavBarToggle from "../hooks/useNavBarToggle";
 import { toast } from "react-toastify";
+import Avatar from "./Avatar";
 
 const NavBar = () => {
   const loggedInUser = useLoggedInUser();
@@ -45,9 +46,23 @@ const NavBar = () => {
         <i className="fa-solid fa-bookmark" />
         Saved
       </NavLink>
-      <NavLink to={`/profiles/${loggedInUser?.profile_id}`}>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/followed"
+      >
+        <i className="fa-solid fa-bookmark" />
+        Followed
+      </NavLink>
+      {/* <NavLink to={`/profiles/${loggedInUser?.profile_id}`}>
         <i className="fa-solid fa-user"></i>
         {loggedInUser?.username}
+      </NavLink> */}
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${loggedInUser?.profile_id}`}
+      >
+        <Avatar src={loggedInUser?.profile_image} text="Profile" height={40} />
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         Sign out
