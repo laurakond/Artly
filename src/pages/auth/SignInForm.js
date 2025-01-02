@@ -9,10 +9,12 @@ import Alert from "react-bootstrap/Alert";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 import { toast } from "react-toastify";
 
 function SignInForm() {
   const setLoggedInUser = useSetLoggedInUser();
+  useRedirect("loggedIn");
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -34,7 +36,7 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setLoggedInUser(data.user);
-      history.push("/");
+      history.goBack();
       toast.success("You are signed in!");
     } catch (error) {
       setErrors(error.response?.data);
