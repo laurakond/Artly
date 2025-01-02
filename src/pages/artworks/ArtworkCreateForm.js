@@ -12,8 +12,10 @@ import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
 import appStyles from "../../App.module.css";
 import { toast } from "react-toastify";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function ArtworkCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [artworkData, setArtworkData] = useState({
     artwork_title: "",
