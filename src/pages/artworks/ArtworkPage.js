@@ -21,6 +21,7 @@ const ArtworkPage = () => {
   const [bids, setBids] = useState({ results: [] });
   const not_owner = !artwork.results[0]?.is_owner;
   const artwork_sold_status = artwork.results[0]?.sold;
+  const profile_image = loggedInUser?.profile_image;
 
   const handleAcceptBid = async (id) => {
     try {
@@ -108,6 +109,8 @@ const ArtworkPage = () => {
               artwork={id}
               setArtwork={setArtwork}
               setBids={setBids}
+              profile_id={loggedInUser.profile_id}
+              profile_image={profile_image}
             />
           ) : bids.results.length ? (
             "Bids"
