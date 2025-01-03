@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -81,6 +81,31 @@ const ArtworkPage = () => {
     }
   };
 
+  // Functionality for the buyer to delete their bid before the bid is approved
+  // and marked as sold.
+  const handleDeleteBid = async (id) => {
+    try {
+      await axiosRes.delete(`/bids/${id}/`);
+      setArtwork((prevArtwork) => ({
+        results: [
+          {
+            ...prevArtwork.results[0],
+            bids_count: prevArtwork.results[0].bids_count - 1,
+          },
+        ],
+      }));
+
+      setBids((prevBids) => ({
+        ...prevBids,
+        results: prevBids.results.filter((bid) => bid.id !== id),
+      }));
+      toast.success("Bid deleted successfully!");
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong while attempting to delete your bid.");
+    }
+  };
+
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -126,6 +151,7 @@ const ArtworkPage = () => {
                   handleRejectBid={handleRejectBid}
                   handleAcceptBid={handleAcceptBid}
                   handleSoldBid={handleSoldBid}
+                  handleDeleteBid={handleDeleteBid}
                   artwork_is_sold={artwork_is_sold}
                 />
               ))}
