@@ -15,7 +15,7 @@ const Bid = (props) => {
     seller,
     email,
     status,
-    artwork_sold_status,
+    artwork_is_sold,
     id,
     handleAcceptBid,
     handleRejectBid,
@@ -27,7 +27,7 @@ const Bid = (props) => {
   } = props;
   const loggedInUser = useLoggedInUser();
   const is_seller = loggedInUser?.username === seller;
-  const artwork_available = status !== "Sold";
+  // const artwork_available = status !== "Sold";
   const is_buyer = loggedInUser?.username === buyer;
 
   const handleDeleteBid = async () => {
@@ -61,7 +61,13 @@ const Bid = (props) => {
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span>{updated_at}</span>
-          {status === "Sold" ? (
+
+          {/* Bid display based on the bid status and if artwork is sold */}
+          {artwork_is_sold && status === "Sold" ? (
+            <p>
+              Bid placed: £{bid_price} Status: {status}
+            </p>
+          ) : artwork_is_sold ? (
             <p>Bid placed: £{bid_price}</p>
           ) : (
             <p>
@@ -69,6 +75,7 @@ const Bid = (props) => {
             </p>
           )}
 
+          {/* Additional information shown to the seller */}
           {is_seller && status === "Sold" ? (
             <>
               <a
@@ -83,8 +90,8 @@ const Bid = (props) => {
             </>
           ) : (
             is_seller &&
-            artwork_available &&
-            !artwork_sold_status && (
+            // artwork_available &&
+            !artwork_is_sold && (
               <>
                 <div>
                   <button onClick={() => handleAcceptBid(id)}>Approve</button>
@@ -97,7 +104,11 @@ const Bid = (props) => {
             )
           )}
         </Media.Body>
-        {is_buyer && <BuyerDropdownMenu handleDelete={handleDeleteBid} />}
+
+        {/* Delete bid available for the buyer only if the bid is not marked as sold */}
+        {is_buyer && !artwork_is_sold && (
+          <BuyerDropdownMenu handleDelete={handleDeleteBid} />
+        )}
         {/* {is_buyer && (
           <button onClick={handleDeleteBid} className="warning">
             Delete bid
