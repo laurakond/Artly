@@ -1,46 +1,46 @@
 .Test {
-    cursor: "not-allowed";
+  cursor: "not-allowed";
 }
 
 /* Sold label(ribbon) code was appropriated from this StackOverflow thread:
 https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 */
 .Parent {
-    overflow: hidden; /* required */
-    /* width: 50%; for demo only */
-    /* height: 250px; /* some non-zero number */
-    margin: 25px auto; /* for demo only */
-    border: 1px solid grey; /* for demo only */
-    position: relative; /* required  for demo*/
+  overflow: hidden; /* required */
+  /* width: 50%; for demo only */
+  /* height: 250px; /* some non-zero number */
+  margin: 25px auto; /* for demo only */
+  /* border: 1px solid grey; for demo only */
+  /* position: relative; required  for demo */
 }
 
 .Ribbon {
-    margin: 0;
-    padding: 0;
-    background: rebeccapurple;
-    color: white;
-    padding: 0.4em 0.75em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateX(30%) translateY(0%) rotate(45deg);
-    transform-origin: top left;
+  margin: 0;
+  padding: 0;
+  background: rebeccapurple;
+  color: white;
+  padding: 0.4em 0.75em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform-origin: top left;
 }
 .Ribbon:before,
 .Ribbon:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    margin: 0 -1px; /* tweak */
-    width: 100%;
-    height: 100%;
-    background: rebeccapurple;
+  content: "";
+  position: absolute;
+  top: 0;
+  margin: 0 -1px; /* tweak */
+  width: 100%;
+  height: 100%;
+  background: rebeccapurple;
 }
 .Ribbon:before {
-    right: 100%;
+  right: 100%;
 }
 
 .Ribbon:after {
-    left: 100%;
+  left: 100%;
 }
 /* Sold label ends here */
