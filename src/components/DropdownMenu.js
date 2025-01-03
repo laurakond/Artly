@@ -3,16 +3,15 @@ import { useHistory } from "react-router";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
-  <p
+  <i
+    class="fa-solid fa-ellipsis"
     // className="fas fa-elipsis-v"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
       onClick(e);
     }}
-  >
-    Three dots
-  </p>
+  />
 ));
 
 export const DropdownMenu = ({ handleEdit, handleDelete }) => {
