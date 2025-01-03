@@ -20,7 +20,7 @@ const ArtworkPage = () => {
   const loggedInUser = useLoggedInUser();
   const [bids, setBids] = useState({ results: [] });
   const not_owner = !artwork.results[0]?.is_owner;
-  const artwork_sold_status = artwork.results[0]?.sold;
+  const artwork_is_sold = artwork.results[0]?.sold;
   const profile_image = loggedInUser?.profile_image;
 
   const handleAcceptBid = async (id) => {
@@ -74,7 +74,6 @@ const ArtworkPage = () => {
           sold: true,
         })),
       }));
-      // console.log("testing bid status", artwork.sold);
       toast.success("Artwork is now sold.");
     } catch (error) {
       console.error(error);
@@ -104,7 +103,7 @@ const ArtworkPage = () => {
         <MostSellingProfiles mobile />
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
         <Container>
-          {loggedInUser && not_owner && !artwork_sold_status ? (
+          {loggedInUser && not_owner && !artwork_is_sold ? (
             <BidCreateForm
               artwork={id}
               setArtwork={setArtwork}
@@ -127,7 +126,7 @@ const ArtworkPage = () => {
                   handleRejectBid={handleRejectBid}
                   handleAcceptBid={handleAcceptBid}
                   handleSoldBid={handleSoldBid}
-                  artwork_sold_status={artwork_sold_status}
+                  artwork_is_sold={artwork_is_sold}
                 />
               ))}
               dataLength={bids.results.length}

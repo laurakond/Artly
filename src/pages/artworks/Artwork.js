@@ -33,6 +33,7 @@ const Artwork = (props) => {
     artworkPage,
     profile_id,
     profile_image,
+    // bids_count,
   } = props;
 
   const loggedInUser = useLoggedInUser();
@@ -106,6 +107,7 @@ const Artwork = (props) => {
                   {price && <Card.Text>Price: {price}</Card.Text>}
                   {contact && <Card.Text>Contact: {contact}</Card.Text>}
                   {location && <Card.Text>Location: {location}</Card.Text>}
+                  {/* <p> Bid count for testing: {bids_count}</p> */}
                 </div>
               </Card.Body>
             </Col>
