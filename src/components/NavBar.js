@@ -1,16 +1,19 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
 import {
   useLoggedInUser,
   useSetLoggedInUser,
 } from "../contexts/LoggedInUserContext";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
+
 import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
+
 import axios from "axios";
 import useNavBarToggle from "../hooks/useNavBarToggle";
-import { toast } from "react-toastify";
+
 import Avatar from "./Avatar";
 
 const NavBar = () => {
@@ -36,7 +39,7 @@ const NavBar = () => {
   const loggedInIcons = (
     <>
       <NavLink className={styles.NavLink} to="/artworks/create">
-        Create Artwork
+        List Artwork
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -54,17 +57,13 @@ const NavBar = () => {
         <i className="fa-solid fa-bookmark" />
         Followed
       </NavLink>
-      {/* <NavLink to={`/profiles/${loggedInUser?.profile_id}`}>
-        <i className="fa-solid fa-user"></i>
-        {loggedInUser?.username}
-      </NavLink> */}
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${loggedInUser?.profile_id}`}
       >
         <Avatar
           src={loggedInUser?.profile_image}
-          text={loggedInUser?.username}
+          // text={loggedInUser?.username}
           height={40}
         />
       </NavLink>
@@ -94,7 +93,7 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/">
+        <NavLink exact to="/">
           <Navbar.Brand>Artly</Navbar.Brand>
         </NavLink>
         <Navbar.Toggle
@@ -103,8 +102,8 @@ const NavBar = () => {
           aria-controls="basic-navbar-nav"
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto text-left">
-            <NavLink className={styles.NavLink} to="/">
+          <Nav className="ml-auto text-right">
+            <NavLink exact className={styles.NavLink} to="/">
               Home
             </NavLink>
             {loggedInUser ? loggedInIcons : loggedOutIcons}
