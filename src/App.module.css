@@ -2,6 +2,8 @@
   font-family: "Montserrat", serif;
   font-weight: 400;
   min-height: 100vh;
+  color: #090c02;
+  background-color: #f9f8f8;
 }
 
 .Main {
@@ -14,8 +16,17 @@
   object-fit: contain;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
+  color: #090c02;
+}
+
+a:hover {
   cursor: pointer;
-  color: black;
+  color: #69353f;
+  text-decoration: none;
 }
