@@ -1,8 +1,12 @@
 .NavBar {
-    background-color: lightgreen;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  background-color: #f9f8f8;
+  text-decoration: none;
+  /* border-bottom: 1px solid #090c02; */
+  box-shadow: 0 1px 4px #090c02;
 }
 
 .NavLink {
-    padding: 5px;
+  padding: 5px;
 }
