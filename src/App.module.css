@@ -1,13 +1,21 @@
 .App {
-    min-height: 100vh;
+  font-family: "Montserrat", serif;
+  font-weight: 400;
+  min-height: 100vh;
 }
 
 .Main {
-    padding-top: 81px;
+  padding-top: 81px;
 }
 
 .Image {
-    max-height: 40vh;
-    max-width: 100%;
-    object-fit: contain;
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
