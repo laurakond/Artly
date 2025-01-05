@@ -15,7 +15,7 @@ const MostSellingProfiles = ({ mobile }) => {
           <p>Top sellers</p>
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {mostSellingProfiles.results.slice(0, 4).map((profile) => (
+              {mostSellingProfiles.results.slice(0, 3).map((profile) => (
                 <Profile key={profile.id} profileData={profile} mobile />
               ))}
             </div>
