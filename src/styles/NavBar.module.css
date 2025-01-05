@@ -3,10 +3,24 @@
   align-items: center;
   background-color: #f9f8f8;
   text-decoration: none;
-  /* border-bottom: 1px solid #090c02; */
   box-shadow: 0 1px 4px #090c02;
+}
+
+.Active {
+  font-weight: bold;
+  color: #82204a;
 }
 
 .NavLink {
   padding: 5px;
+  margin: auto 0;
 }
+
+i {
+  padding-right: 5px;
+}
+
+/* .navbar-light button.custom-menu-color.navbar-toggler {
+  border-color: #090c02 !important;
+  color: #090c02;
+} */
