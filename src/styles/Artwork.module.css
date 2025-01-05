@@ -1,23 +1,12 @@
-.Test {
-  cursor: "not-allowed";
-}
-
-.CardImageStyle {
-  max-height: 295px;
-  max-width: 100%;
-  object-fit: contain;
-  background-color: lightgray;
-}
+/* These styles are shared between Artwork and ArtworkPartInfo components */
 
 /* Sold label(ribbon) code was appropriated from this StackOverflow thread:
 https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 */
 .Parent {
   overflow: hidden; /* required */
-  /* width: 50%; for demo only */
   /* height: 250px; /* some non-zero number */
-  margin: 25px auto; /* for demo only */
-  /* border: 1px solid grey; for demo only */
+  margin: 25px auto;
   /* position: relative; required  for demo */
 }
 
@@ -53,17 +42,19 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 }
 /* Sold label ends here */
 
+.CardImageStyle {
+  height: auto;
+  max-height: 295px;
+  max-width: 100%;
+  object-fit: contain;
+  background-color: lightgray;
+}
+
 .CardHeader {
   background-color: white;
   border-bottom: none;
   padding-left: 0;
   padding-right: 10px;
-}
-
-.CustomPadding {
-  text-align: end;
-  padding-right: 20px;
-  align-self: flex-start;
 }
 
 .CardTitle,
@@ -74,4 +65,26 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 .CardFooter {
   background-color: white;
   border-top: none;
+}
+
+/* Media queries */
+
+@media (min-width: 576px) {
+  /* Rules for centering images that are of not standard size */
+  .CardRowStyle {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .CardImageStyle {
+    min-width: 295px;
+  }
+  .CardImageWidth {
+    max-width: 100%;
+  }
+
+  .MainCardWidth {
+    flex-basis: 60%;
+    max-width: 60%;
+  }
 }
