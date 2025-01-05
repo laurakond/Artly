@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Media from "react-bootstrap/Media";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+// import Container from "react-bootstrap/Container";
+// import Media from "react-bootstrap/Media";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
 import CardImg from "react-bootstrap/CardImg";
 import { Link } from "react-router-dom";
-import appStyles from "../../App.module.css";
+// import appStyles from "../../App.module.css";
 import styles from "../../styles/Artwork.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { OverlayTrigger } from "react-bootstrap";
@@ -26,8 +26,6 @@ const ArtworkPartInfo = (props) => {
     description,
     sold,
     updated_at,
-    style,
-    type,
     bids_count,
     saved_count,
     save_id,
@@ -81,173 +79,114 @@ const ArtworkPartInfo = (props) => {
 
   return (
     <Card
-      className={`p-0 ${styles.Parent}`}
+      className={`flex-column flex-sm-row p-0 ${styles.Parent}`}
       lg={8}
-      style={{ maxWidth: "18rem" }}
+      style={{ maxWidth: "100%" }}
     >
-      {sold ? <span className={styles.Ribbon}>Sold</span> : null}
-      <CardImg
-        variant="top"
-        src={image}
-        alt={alt_text}
-        className={styles.CardImageStyle}
-      />
-      <Card.Header className={`${styles.CardHeader}`}>
-        <div
-          className={`d-flex flex-direction-row justify-content-between align-items-center`}
-        >
-          {/* <Media> */}
-          <div>
+      <div>{sold ? <span className={styles.Ribbon}>Sold</span> : null}</div>
+      <Link
+        to={`/artworks/${id}`}
+        className={`d-flex justify-content-center ${styles.CardImageWidth}`}
+      >
+        <CardImg
+          variant="top"
+          src={image}
+          alt={alt_text}
+          className={styles.CardImageStyle}
+        />
+      </Link>
+
+      <div className={`d-flex flex-column flex-grow-1 ${styles.MainCardWidth}`}>
+        <Card.Header className={`${styles.CardHeader}`}>
+          <div className="d-flex justify-content-around align-items-center">
             <Link to={`/profiles/${profile_id}`}>
               <Avatar
                 src={profile_image}
                 height={40}
                 alt={`${owner}'s avatar`}
               />
+              {owner}
             </Link>
-            {/* </Media> */}
-            {owner}
+            <div>{updated_at}</div>
           </div>
-          <div>{updated_at}</div>
-        </div>
-      </Card.Header>
-      <Card.Body>
-        <Link to={`/artworks/${id}`}>
-          {artwork_title && (
-            <Card.Title className={`${styles.CardTitle}`}>
-              {artwork_title}
-            </Card.Title>
-          )}
-          {artist_name && (
-            <Card.Text className={`${styles.CardText}`}>
-              By {artist_name}
-            </Card.Text>
-          )}
-          {description && (
-            <Card.Text className={`${styles.CardText}`}>
-              {description}
-            </Card.Text>
-          )}
-        </Link>
-      </Card.Body>
-      <Card.Footer className={`${styles.CardFooter}`}>
-        <div className={`d-flex flex-direction-row justify-content-around`}>
-          {price && (
-            <div>
-              <i class="fa-solid fa-hand-holding-dollar"></i> £{price}
-            </div>
-          )}
+        </Card.Header>
 
-          {bids_count === 0 ? (
-            <div>
-              <i class="fa-solid fa-gavel"></i> 0
-            </div>
-          ) : (
-            <div>
-              <i class="fa-solid fa-gavel"></i> {bids_count}
-            </div>
-          )}
-
-          <div>
-            {is_owner ? (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>You can't save your own post!</Tooltip>}
-              >
-                <i className="fa-regular fa-bookmark" />
-              </OverlayTrigger>
-            ) : save_id ? (
-              <span onClick={handleDeselectSave}>
-                <i className="fa-solid fa-bookmark" />
-              </span>
-            ) : loggedInUser ? (
-              <span onClick={handleSave}>
-                <i className="fa-regular fa-bookmark" />
-              </span>
-            ) : (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to like posts!</Tooltip>}
-              >
-                <i className="fa-regular fa-bookmark" />
-              </OverlayTrigger>
+        <Card.Body className="flex-grow-1">
+          <Link to={`/artworks/${id}`}>
+            {artwork_title && (
+              <Card.Title className={`${styles.CardTitle}`}>
+                {artwork_title}
+              </Card.Title>
             )}
-            {saved_count}
+            {artist_name && (
+              <Card.Text className={`${styles.CardText}`}>
+                By {artist_name}
+              </Card.Text>
+            )}
+            {description && (
+              <Card.Text className={`${styles.CardText}`}>
+                {description}
+              </Card.Text>
+            )}
+          </Link>
+        </Card.Body>
+
+        <Card.Footer className={`${styles.CardFooter} mt-auto`}>
+          <div className="d-flex justify-content-around">
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Artwork price</Tooltip>}
+            >
+              {price && (
+                <div>
+                  <i class="fa-solid fa-hand-holding-dollar"></i> £{price}
+                </div>
+              )}
+            </OverlayTrigger>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Number of bids</Tooltip>}
+            >
+              {bids_count === 0 ? (
+                <div>
+                  <i class="fa-solid fa-gavel"></i> 0
+                </div>
+              ) : (
+                <div>
+                  <i class="fa-solid fa-gavel"></i> {bids_count}
+                </div>
+              )}
+            </OverlayTrigger>
+            <div>
+              {is_owner ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>You can't save your own post!</Tooltip>}
+                >
+                  <i className="fa-regular fa-bookmark" />
+                </OverlayTrigger>
+              ) : save_id ? (
+                <span onClick={handleDeselectSave}>
+                  <i className="fa-solid fa-bookmark" />
+                </span>
+              ) : loggedInUser ? (
+                <span onClick={handleSave}>
+                  <i className="fa-regular fa-bookmark" />
+                </span>
+              ) : (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                >
+                  <i className="fa-regular fa-bookmark" />
+                </OverlayTrigger>
+              )}
+              {saved_count}
+            </div>
           </div>
-        </div>
-      </Card.Footer>
+        </Card.Footer>
+      </div>
     </Card>
-
-    // <Card className={`p-0 ${styles.Parent}`} lg={8}>
-    //   <div>{sold ? <span className={styles.Ribbon}>Sold</span> : null}</div>
-
-    //   <Card.Body style={{ opacity: sold ? "60%" : null }}>
-    //     {/* <Media className="align-items-center justify-content-between"></Media> */}
-
-    //     {/* <Row> */}
-    //     <Link to={`/profiles/${profile_id}`}>
-    //       <Avatar src={profile_image} height={55} alt={`${owner}'s avatar`} />
-    //       {owner}
-    //     </Link>
-    //     <div className="d-flex align-items-center">
-    //       <span>{updated_at}</span>
-    //     </div>
-    //     {/* </Row> */}
-
-    //     <Link to={`/artworks/${id}`}>
-    //       <div className="text-center">
-    //         {artwork_title && <Card.Title>{artwork_title}</Card.Title>}
-    //         {artist_name && <Card.Text>By {artist_name}</Card.Text>}
-    //         {description && <Card.Text>Description: {description}</Card.Text>}
-    //       </div>
-
-    //       {/* <Row> */}
-    //       {/* <Col> */}
-    //       <CardImg src={image} alt={alt_text} className={appStyles.Image} />
-    //       {/* </Col> */}
-    //       {/* </Row> */}
-
-    //       <Row>
-    //         <Col>{price && <Card.Text>Price: £{price}</Card.Text>}</Col>
-    //         <Col>
-    //           {bids_count === 0 ? (
-    //             <Card.Text>Number of bids: No bids yet</Card.Text>
-    //           ) : (
-    //             <Card.Text>Number of bids: {bids_count}</Card.Text>
-    //           )}
-    //         </Col>
-    //       </Row>
-    //     </Link>
-    //     <Col>
-    //       <div>
-    //         {is_owner ? (
-    //           <OverlayTrigger
-    //             placement="top"
-    //             overlay={<Tooltip>You can't save your own post!</Tooltip>}
-    //           >
-    //             <i className="fa-regular fa-bookmark" />
-    //           </OverlayTrigger>
-    //         ) : save_id ? (
-    //           <span onClick={handleDeselectSave}>
-    //             <i className="fa-solid fa-bookmark" />
-    //           </span>
-    //         ) : loggedInUser ? (
-    //           <span onClick={handleSave}>
-    //             <i className="fa-regular fa-bookmark" />
-    //           </span>
-    //         ) : (
-    //           <OverlayTrigger
-    //             placement="top"
-    //             overlay={<Tooltip>Log in to like posts!</Tooltip>}
-    //           >
-    //             <i className="fa-regular fa-bookmark" />
-    //           </OverlayTrigger>
-    //         )}
-    //         {saved_count}
-    //       </div>
-    //     </Col>
-    //   </Card.Body>
-    // </Card>
   );
 };
 
