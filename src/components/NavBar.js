@@ -38,8 +38,13 @@ const NavBar = () => {
   // Icons to show when the user is logged in
   const loggedInIcons = (
     <>
-      <NavLink className={styles.NavLink} to="/artworks/create">
-        List Artwork
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/artworks/create"
+      >
+        <i class="fa-solid fa-paintbrush"></i>
+        List Art
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -54,20 +59,22 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followed"
       >
-        <i className="fa-solid fa-bookmark" />
-        Followed
+        <i class="fa-solid fa-bars-staggered"></i>
+        Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
+        activeClassName={styles.Active}
         to={`/profiles/${loggedInUser?.profile_id}`}
       >
         <Avatar
           src={loggedInUser?.profile_image}
-          // text={loggedInUser?.username}
+          text={loggedInUser?.username}
           height={40}
         />
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i class="fa-solid fa-right-to-bracket"></i>
         Sign out
       </NavLink>
     </>
@@ -76,10 +83,20 @@ const NavBar = () => {
   // Icons to show when the user is logged out
   const loggedOutIcons = (
     <>
-      <NavLink className={styles.NavLink} to="/signup">
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signup"
+      >
+        <i class="fa-solid fa-user-plus"></i>
         Sign up
       </NavLink>
-      <NavLink className={styles.NavLink} to="/signin">
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
+        <i class="fa-solid fa-right-to-bracket"></i>
         Sign in
       </NavLink>
     </>
@@ -103,7 +120,13 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-right">
-            <NavLink exact className={styles.NavLink} to="/">
+            <NavLink
+              exact
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/"
+            >
+              <i class="fa-solid fa-house"></i>
               Home
             </NavLink>
             {loggedInUser ? loggedInIcons : loggedOutIcons}
