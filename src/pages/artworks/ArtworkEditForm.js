@@ -21,7 +21,6 @@ function ArtworkEditForm() {
     payment_method: "",
     price: "",
     image: "",
-    alt_text: "",
     contact: "",
     location: "",
     description: "",
@@ -39,7 +38,6 @@ function ArtworkEditForm() {
     payment_method,
     price,
     image,
-    alt_text,
     contact,
     location,
     description,
@@ -57,7 +55,6 @@ function ArtworkEditForm() {
           payment_method,
           price,
           image,
-          alt_text,
           contact,
           location,
           description,
@@ -73,7 +70,6 @@ function ArtworkEditForm() {
               payment_method,
               price,
               image,
-              alt_text,
               contact,
               location,
               description,
@@ -113,7 +109,6 @@ function ArtworkEditForm() {
     formData.append("type", type);
     formData.append("payment_method", payment_method);
     formData.append("price", price);
-    formData.append("alt_text", alt_text);
     formData.append("contact", contact);
     formData.append("location", location);
     formData.append("description", description);
@@ -253,22 +248,6 @@ function ArtworkEditForm() {
         />
       </Form.Group>
       {errors.price?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group controlId="alt_text">
-        <Form.Label>Image title</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="descriptive image title"
-          name="alt_text"
-          value={alt_text}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.alt_text?.map((message, index) => (
         <Alert key={index} variant="warning">
           {message}
         </Alert>
