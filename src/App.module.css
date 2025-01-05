@@ -2,8 +2,10 @@
   font-family: "Montserrat", serif;
   font-weight: 400;
   min-height: 100vh;
+  max-width: 100vw;
   color: #090c02;
   background-color: #f9f8f8;
+  overflow-x: hidden;
 }
 
 .Main {
@@ -27,6 +29,6 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: #69353f;
+  color: #82204a;
   text-decoration: none;
 }
