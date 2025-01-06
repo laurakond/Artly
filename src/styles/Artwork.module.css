@@ -5,9 +5,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 */
 .Parent {
   overflow: hidden; /* required */
-  /* height: 250px; /* some non-zero number */
   margin: 25px auto;
-  /* position: relative; required  for demo */
 }
 
 .Ribbon {
@@ -28,7 +26,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   content: "";
   position: absolute;
   top: 0;
-  margin: 0 -1px; /* tweak */
+  margin: 0 -1px;
   width: 100%;
   height: 100%;
   background: #f4442e;
@@ -42,14 +40,16 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 }
 /* Sold label ends here */
 
+/* Card Image component style */
 .CardImageStyle {
   height: auto;
-  max-height: 295px;
+  max-height: 300px;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   background-color: lightgray;
 }
 
+/* Card body component styles */
 .CardHeader {
   background-color: white;
   border-bottom: none;
@@ -70,7 +70,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 /* Media queries */
 
 @media (min-width: 576px) {
-  /* Rules for centering images that are of not standard size */
+  /* Card styles */
   .CardRowStyle {
     display: flex;
     flex-direction: row;
@@ -79,12 +79,30 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   .CardImageStyle {
     min-width: 295px;
   }
-  .CardImageWidth {
-    max-width: 100%;
-  }
 
   .MainCardWidth {
     flex-basis: 60%;
     max-width: 60%;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Card component style */
+  .CardImageStyle {
+    max-height: 324px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Card image style */
+  .CardImageStyle {
+    max-height: 300px;
+    min-width: 300px;
+  }
+
+  /* Card component style */
+  .CardHeader {
+    padding-left: 10px;
+    padding-right: 18px;
   }
 }
