@@ -1,0 +1,114 @@
+/* These styles are shared between Artwork and ArtworkPartInfo components */
+
+/* Sold label(ribbon) code was appropriated from this StackOverflow thread:
+https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
+*/
+.Parent {
+  overflow: hidden; /* required */
+  margin: 25px auto;
+}
+
+.Ribbon {
+  margin: 0;
+  padding: 0;
+  background: #f4442e;
+  color: white;
+  font-weight: bold;
+  padding: 0.4em 0.75em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform-origin: top left;
+}
+
+.Ribbon:before,
+.Ribbon:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  margin: 0 -1px;
+  width: 100%;
+  height: 100%;
+  background: #f4442e;
+}
+
+.Ribbon:before {
+  right: 100%;
+}
+
+.Ribbon:after {
+  left: 100%;
+}
+/* Sold label ends here */
+
+/* Card Image component style */
+.CardImageStyle {
+  height: auto;
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: cover;
+  background-color: lightgray;
+}
+
+/* Card body component styles */
+.CardHeader {
+  background-color: white;
+  border-bottom: none;
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+.CardTitle,
+.CardText {
+  text-align: center;
+}
+
+.CardFooter {
+  background-color: white;
+  border-top: none;
+}
+
+.Bookmark:hover {
+  color: #82204a;
+}
+
+/* Media queries */
+
+@media (min-width: 576px) {
+  /* Card styles */
+  .CardRowStyle {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .CardImageStyle {
+    min-width: 295px;
+  }
+
+  .MainCardWidth {
+    flex-basis: 60%;
+    max-width: 60%;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Card component style */
+  .CardImageStyle {
+    max-height: 324px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Card image style */
+  .CardImageStyle {
+    max-height: 300px;
+    min-width: 300px;
+  }
+
+  /* Card component style */
+  .CardHeader {
+    padding-left: 10px;
+    padding-right: 18px;
+  }
+}
