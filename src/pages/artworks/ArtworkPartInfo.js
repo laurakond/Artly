@@ -1,5 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 // import Container from "react-bootstrap/Container";
 // import Media from "react-bootstrap/Media";
 // import Row from "react-bootstrap/Row";
@@ -9,8 +11,6 @@ import { Link } from "react-router-dom";
 // import appStyles from "../../App.module.css";
 import styles from "../../styles/Artwork.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
-import { OverlayTrigger } from "react-bootstrap";
-import { Tooltip } from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import Avatar from "../../components/Avatar";
 
@@ -67,7 +67,7 @@ const ArtworkPartInfo = (props) => {
             ? {
                 ...artwork,
                 saved_count: artwork.saved_count - 1,
-                like_id: null,
+                save_id_id: null,
               }
             : artwork;
         }),
@@ -84,10 +84,7 @@ const ArtworkPartInfo = (props) => {
       style={{ maxWidth: "100%" }}
     >
       <div>{sold ? <span className={styles.Ribbon}>Sold</span> : null}</div>
-      <Link
-        to={`/artworks/${id}`}
-        className={`d-flex justify-content-center ${styles.CardImageWidth}`}
-      >
+      <Link to={`/artworks/${id}`} className={`d-flex justify-content-center`}>
         <CardImg
           variant="top"
           src={image}
@@ -96,9 +93,9 @@ const ArtworkPartInfo = (props) => {
         />
       </Link>
 
-      <div className={`d-flex flex-column flex-grow-1 ${styles.MainCardWidth}`}>
+      <div className={`d-flex flex-column ${styles.MainCardWidth}`}>
         <Card.Header className={`${styles.CardHeader}`}>
-          <div className="d-flex justify-content-around align-items-center">
+          <div className="d-flex justify-content-between align-items-center">
             <Link to={`/profiles/${profile_id}`}>
               <Avatar
                 src={profile_image}
@@ -161,7 +158,7 @@ const ArtworkPartInfo = (props) => {
               {is_owner ? (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip>You can't save your own post!</Tooltip>}
+                  overlay={<Tooltip>You can't save your own artwork</Tooltip>}
                 >
                   <i className="fa-regular fa-bookmark" />
                 </OverlayTrigger>
@@ -176,7 +173,7 @@ const ArtworkPartInfo = (props) => {
               ) : (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                  overlay={<Tooltip>Log in to save the artwork</Tooltip>}
                 >
                   <i className="fa-regular fa-bookmark" />
                 </OverlayTrigger>
