@@ -43,7 +43,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/artworks/create"
       >
-        <i class="fa-solid fa-paintbrush"></i>
+        <i className="fa-solid fa-paintbrush"></i>
         List Art
       </NavLink>
       <NavLink
@@ -59,7 +59,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followed"
       >
-        <i class="fa-solid fa-bars-staggered"></i>
+        <i className="fa-solid fa-bars-staggered"></i>
         Feed
       </NavLink>
       <NavLink
@@ -74,7 +74,7 @@ const NavBar = () => {
         />
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i class="fa-solid fa-right-to-bracket"></i>
+        <i className="fa-solid fa-right-to-bracket"></i>
         Sign out
       </NavLink>
     </>
@@ -88,7 +88,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signup"
       >
-        <i class="fa-solid fa-user-plus"></i>
+        <i className="fa-solid fa-user-plus"></i>
         Sign up
       </NavLink>
       <NavLink
@@ -96,7 +96,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i class="fa-solid fa-right-to-bracket"></i>
+        <i className="fa-solid fa-right-to-bracket"></i>
         Sign in
       </NavLink>
     </>
@@ -126,7 +126,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i class="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>
               Home
             </NavLink>
             {loggedInUser ? loggedInIcons : loggedOutIcons}

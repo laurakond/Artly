@@ -4,8 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    class="fa-solid fa-ellipsis"
-    // className="fas fa-elipsis-v"
+    className="fa-solid fa-ellipsis"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
