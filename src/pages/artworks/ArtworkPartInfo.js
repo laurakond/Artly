@@ -62,7 +62,7 @@ const ArtworkPartInfo = (props) => {
             ? {
                 ...artwork,
                 saved_count: artwork.saved_count - 1,
-                save_id_id: null,
+                save_id: null,
               }
             : artwork;
         }),
@@ -158,13 +158,27 @@ const ArtworkPartInfo = (props) => {
                   <i className="fa-regular fa-bookmark" />
                 </OverlayTrigger>
               ) : save_id ? (
-                <span onClick={handleDeselectSave}>
-                  <i className="fa-solid fa-bookmark" />
-                </span>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip>
+                      Click to remove the artwork from the saved artwork list
+                    </Tooltip>
+                  }
+                >
+                  <span onClick={handleDeselectSave}>
+                    <i className="fa-solid fa-bookmark" />
+                  </span>
+                </OverlayTrigger>
               ) : loggedInUser ? (
-                <span onClick={handleSave}>
-                  <i className="fa-regular fa-bookmark" />
-                </span>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Click to save the artwork</Tooltip>}
+                >
+                  <span onClick={handleSave}>
+                    <i className="fa-regular fa-bookmark" />
+                  </span>
+                </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
