@@ -1,6 +1,6 @@
 import React from "react";
-import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { Link } from "react-router-dom";
+import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import Avatar from "../../components/Avatar";
 

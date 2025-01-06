@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import InfiniteScroll from "react-infinite-scroll-component";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -7,7 +9,6 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router";
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
   useProfileData,
@@ -15,7 +16,6 @@ import {
 } from "../../contexts/ProfileDataContext";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import MostSellingProfiles from "./MostSellingProfiles";
-import InfiniteScroll from "react-infinite-scroll-component";
 import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import appStyles from "../../App.module.css";
+import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import { toast } from "react-toastify";
+import appStyles from "../../App.module.css";
 
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
