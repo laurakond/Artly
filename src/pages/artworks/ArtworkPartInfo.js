@@ -5,7 +5,6 @@ import Tooltip from "react-bootstrap/Tooltip";
 import CardImg from "react-bootstrap/CardImg";
 import { Link } from "react-router-dom";
 import styles from "../../styles/Artwork.module.css";
-import appStyles from "../../App.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { axiosRes } from "../../api/AxiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -132,7 +131,7 @@ const ArtworkPartInfo = (props) => {
             >
               {price && (
                 <div>
-                  <i class="fa-solid fa-hand-holding-dollar"></i> £{price}
+                  <i className="fa-solid fa-hand-holding-dollar"></i> £{price}
                 </div>
               )}
             </OverlayTrigger>
@@ -142,11 +141,11 @@ const ArtworkPartInfo = (props) => {
             >
               {bids_count === 0 ? (
                 <div>
-                  <i class="fa-solid fa-gavel"></i> 0
+                  <i className="fa-solid fa-gavel"></i> 0
                 </div>
               ) : (
                 <div>
-                  <i class="fa-solid fa-gavel"></i> {bids_count}
+                  <i className="fa-solid fa-gavel"></i> {bids_count}
                 </div>
               )}
             </OverlayTrigger>
