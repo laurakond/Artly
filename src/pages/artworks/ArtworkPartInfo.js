@@ -4,7 +4,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import CardImg from "react-bootstrap/CardImg";
 import { Link } from "react-router-dom";
-import styles from "../../styles/Artwork.module.css";
+import styles from "../../styles/ArtworkPartInfo.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { axiosRes } from "../../api/AxiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -17,7 +17,6 @@ const ArtworkPartInfo = (props) => {
     artist_name,
     price,
     image,
-    alt_text,
     description,
     sold,
     updated_at,
@@ -28,7 +27,6 @@ const ArtworkPartInfo = (props) => {
     profile_id,
     profile_image,
   } = props;
-
   const loggedInUser = useLoggedInUser();
   const is_owner = loggedInUser?.username === owner;
 
@@ -83,7 +81,7 @@ const ArtworkPartInfo = (props) => {
         <CardImg
           variant="top"
           src={image}
-          alt={alt_text}
+          alt={artwork_title}
           className={styles.CardImageStyle}
         />
       </Link>
