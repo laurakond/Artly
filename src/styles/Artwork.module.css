@@ -67,6 +67,10 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   border-top: none;
 }
 
+.Bookmark:hover {
+  color: #82204a;
+}
+
 /* Media queries */
 
 @media (min-width: 576px) {
