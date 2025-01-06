@@ -7,13 +7,17 @@
 }
 
 .Active {
-  font-weight: bold;
+  font-weight: 800;
   color: #82204a;
 }
 
 .NavLink {
   padding: 5px;
   margin: auto 0;
+}
+
+.NavLink:hover {
+  color: #82204a;
 }
 
 i {
