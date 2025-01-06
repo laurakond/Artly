@@ -5,6 +5,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import CardImg from "react-bootstrap/CardImg";
 import { Link } from "react-router-dom";
 import styles from "../../styles/Artwork.module.css";
+import appStyles from "../../App.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { axiosRes } from "../../api/AxiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -155,7 +156,7 @@ const ArtworkPartInfo = (props) => {
                   placement="top"
                   overlay={<Tooltip>You can't save your own artwork</Tooltip>}
                 >
-                  <i className="fa-regular fa-bookmark" />
+                  <i className={`fa-regular fa-bookmark ${styles.Bookmark}`} />
                 </OverlayTrigger>
               ) : save_id ? (
                 <OverlayTrigger
@@ -167,7 +168,7 @@ const ArtworkPartInfo = (props) => {
                   }
                 >
                   <span onClick={handleDeselectSave}>
-                    <i className="fa-solid fa-bookmark" />
+                    <i className={`fa-solid fa-bookmark ${styles.Bookmark}`} />
                   </span>
                 </OverlayTrigger>
               ) : loggedInUser ? (
@@ -176,7 +177,9 @@ const ArtworkPartInfo = (props) => {
                   overlay={<Tooltip>Click to save the artwork</Tooltip>}
                 >
                   <span onClick={handleSave}>
-                    <i className="fa-regular fa-bookmark" />
+                    <i
+                      className={`fa-regular fa-bookmark ${styles.Bookmark}`}
+                    />
                   </span>
                 </OverlayTrigger>
               ) : (
@@ -184,7 +187,7 @@ const ArtworkPartInfo = (props) => {
                   placement="top"
                   overlay={<Tooltip>Log in to save the artwork</Tooltip>}
                 >
-                  <i className="fa-regular fa-bookmark" />
+                  <i className={`fa-regular fa-bookmark ${styles.Bookmark}`} />
                 </OverlayTrigger>
               )}
               {saved_count}
