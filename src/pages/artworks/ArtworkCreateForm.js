@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -11,7 +12,7 @@ import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
 import appStyles from "../../App.module.css";
-import { toast } from "react-toastify";
+
 import { useRedirect } from "../../hooks/useRedirect";
 
 function ArtworkCreateForm() {
@@ -25,7 +26,6 @@ function ArtworkCreateForm() {
     payment_method: "",
     price: "",
     image: "",
-    alt_text: "",
     contact: "",
     location: "",
     description: "",
@@ -217,22 +217,6 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-
-      {/* <Form.Group controlId="alt_text">
-        <Form.Label>Image title</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="descriptive image title"
-          name="alt_text"
-          value={alt_text}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.alt_text?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))} */}
 
       <Form.Group controlId="contact">
         <Form.Label>Contact</Form.Label>

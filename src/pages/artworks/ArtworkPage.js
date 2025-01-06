@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import { useParams } from "react-router";
+import { toast } from "react-toastify";
 import { axiosReq, axiosRes } from "../../api/AxiosDefaults";
 import Artwork from "./Artwork";
 import BidCreateForm from "../bids/BidCreateForm";
@@ -12,7 +13,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
-import { toast } from "react-toastify";
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -124,7 +124,7 @@ const ArtworkPage = () => {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <Col className="py-2 p-2 p-lg-2" lg={8}>
         <MostSellingProfiles mobile />
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
         <Container>

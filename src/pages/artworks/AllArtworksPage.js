@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import NoResults from "../../assets/no-results.png";
 import appStyles from "../../App.module.css";
+import teststyles from "../../styles/Artwork.module.css";
 
 import { axiosReq } from "../../api/AxiosDefaults";
-// import Artwork from './Artwork';
 import Asset from "../../components/Asset";
-import InfiniteScroll from "react-infinite-scroll-component";
+
 import { fetchMoreData } from "../../utils/utils";
 import ArtworkPartInfo from "./ArtworkPartInfo";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
@@ -98,7 +99,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <Col className="py-2 p-3 p-lg-2" lg={8}>
         <MostSellingProfiles mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form onSubmit={(event) => event.preventDefault()}>
@@ -173,7 +174,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
             {artworks.results.length ? (
               <InfiniteScroll
                 children={artworks.results.map((artwork) => (
-                  // <Artwork key={artwork.id} {...artwork} />
                   <ArtworkPartInfo
                     key={artwork.id}
                     {...artwork}
