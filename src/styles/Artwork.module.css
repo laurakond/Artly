@@ -15,6 +15,12 @@
   max-width: 100%;
 }
 
+/* Owner edit dots styles */
+.EditDeleteButton:hover {
+  color: #f4442e;
+  cursor: pointer;
+}
+
 @media (min-width: 420px) {
   .ArtworkCardWidth {
     max-width: 90%;

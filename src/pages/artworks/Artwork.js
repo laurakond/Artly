@@ -81,7 +81,7 @@ const Artwork = (props) => {
               />
               {owner}
             </Link>
-            <div>
+            <div className={styles.EditDeleteButton}>
               {is_owner ? (
                 artworkPage &&
                 !sold && (
