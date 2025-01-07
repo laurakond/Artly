@@ -10,12 +10,3 @@
   object-fit: contain;
   background-color: lightgray;
 }
-
-@media (min-width: 375px) {
-  .Bookmark {
-    position: absolute;
-    bottom: 7px;
-    right: 7px;
-    font-size: 18px;
-  }
-}
