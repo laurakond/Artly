@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -6,7 +7,6 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import NoResults from "../../assets/no-results.png";
 import appStyles from "../../App.module.css";
-import teststyles from "../../styles/Artwork.module.css";
 
 import { axiosReq } from "../../api/AxiosDefaults";
 import Asset from "../../components/Asset";
@@ -15,11 +15,14 @@ import { fetchMoreData } from "../../utils/utils";
 import ArtworkPartInfo from "./ArtworkPartInfo";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
 import styles from "../../styles/AllArtworksPage.module.css";
+import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 
 const AllArtworksPage = ({ message, filter = "" }) => {
   const [artworks, setArtworks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const loggedInUser = useLoggedInUser();
+  const { pathname } = useLocation();
   // search for style/type/sold status
   const [styleQuery, setStyleQuery] = useState("");
   const [typeQuery, setTypeQuery] = useState("");
@@ -28,7 +31,9 @@ const AllArtworksPage = ({ message, filter = "" }) => {
   useEffect(() => {
     const fetchArtworks = async () => {
       try {
-        const { data } = await axiosReq.get(`/artworks/?search=${searchQuery}`);
+        const { data } = await axiosReq.get(
+          `/artworks/?${filter}search=${searchQuery}`
+        );
         setArtworks(data);
         setHasLoaded(true);
       } catch (error) {
@@ -43,7 +48,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchQuery]);
+  }, [searchQuery, pathname, filter, loggedInUser]);
 
   // useEffect for filtering based on the style category.
   useEffect(() => {
