@@ -114,8 +114,8 @@ const ArtworkPartInfo = (props) => {
             )}
             {description && (
               <Card.Text className={`${styles.CardText}`}>
-                {description.substring(0, 100)}
-                {description.length > 100 ? "..." : ""}
+                {description.substring(0, 75)}
+                {description.length > 75 ? "..." : ""}
               </Card.Text>
             )}
           </Link>
