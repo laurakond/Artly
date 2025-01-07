@@ -8,7 +8,7 @@
 
 .Active {
   font-weight: 800;
-  color: #82204a;
+  color: #f4442e;
 }
 
 .NavLink {
@@ -17,7 +17,7 @@
 }
 
 .NavLink:hover {
-  color: #82204a;
+  color: #f4442e;
 }
 
 i {
