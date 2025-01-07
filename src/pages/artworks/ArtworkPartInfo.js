@@ -72,9 +72,8 @@ const ArtworkPartInfo = (props) => {
 
   return (
     <Card
-      className={`flex-column flex-sm-row p-0 ${styles.Parent}`}
+      className={`flex-column flex-sm-row p-0 ${styles.Parent} ${styles.Card}`}
       lg={8}
-      style={{ maxWidth: "100%" }}
     >
       <div>{sold ? <span className={styles.Ribbon}>Sold</span> : null}</div>
       <Link to={`/artworks/${id}`} className={`d-flex justify-content-center`}>
@@ -97,7 +96,7 @@ const ArtworkPartInfo = (props) => {
               />
               {owner}
             </Link>
-            <div>{updated_at}</div>
+            {!sold ? <div>{updated_at}</div> : null}
           </div>
         </Card.Header>
 

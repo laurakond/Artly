@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import NoResults from "../../assets/no-results.png";
+import NoResults from "../../assets/artly-no-results.png";
 import appStyles from "../../App.module.css";
 
 import { axiosReq } from "../../api/AxiosDefaults";
@@ -103,11 +103,11 @@ const AllArtworksPage = ({ message, filter = "" }) => {
   }, [filter, soldFilter]);
 
   return (
-    <Row className="h-100 justify-content-center">
+    <Row className={`h-100 justify-content-center`}>
       <Col xs={12}>
         <MostSellingProfiles />
       </Col>
-      <Col className="py-2 p-3 p-lg-2" lg={8}>
+      <Col className={`py-2 p-3 p-lg-2 ${styles.ContentWidth}`} md={10} lg={8}>
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form onSubmit={(event) => event.preventDefault()}>
           <Form.Control

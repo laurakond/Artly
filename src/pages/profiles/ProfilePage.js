@@ -18,8 +18,9 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import MostSellingProfiles from "./MostSellingProfiles";
 import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
-import NoResults from "../../assets/no-results.png";
+import NoResults from "../../assets/artly-no-results.png";
 import styles from "../../styles/ProfilePage.module.css";
+import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
 function ProfilePage() {
@@ -185,7 +186,10 @@ function ProfilePage() {
       <Col xs={12}>
         <MostSellingProfiles />
       </Col>
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <Col
+        className={`py-2 p-0 p-lg-2 ${allArtworkStyles.ContentWidth}`}
+        lg={8}
+      >
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>

@@ -13,6 +13,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
+import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -123,9 +124,14 @@ const ArtworkPage = () => {
   }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-2 p-lg-2" lg={8}>
-        <MostSellingProfiles mobile />
+    <Row className="h-100 justify-content-center">
+      <Col xs={12}>
+        <MostSellingProfiles />
+      </Col>
+      <Col
+        className={`py-2 p-2 p-lg-2 ${allArtworkStyles.ContentWidth}`}
+        lg={8}
+      >
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
         <Container>
           {loggedInUser && not_owner && !artwork_is_sold ? (
@@ -166,9 +172,6 @@ const ArtworkPage = () => {
             <span>Log in to leave a bid</span>
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <MostSellingProfiles />
       </Col>
     </Row>
   );
