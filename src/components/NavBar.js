@@ -70,7 +70,7 @@ const NavBar = () => {
       >
         <Avatar
           src={loggedInUser?.profile_image}
-          text={loggedInUser?.username}
+          // text={loggedInUser?.username}
           height={40}
         />
       </NavLink>
@@ -110,7 +110,7 @@ const NavBar = () => {
       expand="md"
       fixed="top"
     >
-      <Container>
+      <Container fluid>
         <NavLink exact to="/">
           <Navbar.Brand>
             <img src={logoSplash} alt="logo" height="45" />
