@@ -43,6 +43,9 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 /* Sold label ends here */
 
 /* Card Image component style */
+.Card {
+  max-width: 80%;
+}
 .CardImageStyle {
   height: auto;
   max-height: 300px;
@@ -77,6 +80,9 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 
 @media (min-width: 576px) {
   /* Card styles */
+  .Card {
+    max-width: 100%;
+  }
   .CardRowStyle {
     display: flex;
     flex-direction: row;
@@ -84,18 +90,12 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 
   .CardImageStyle {
     min-width: 295px;
+    max-height: 324px;
   }
 
   .MainCardWidth {
     flex-basis: 60%;
     max-width: 60%;
-  }
-}
-
-@media (min-width: 576px) {
-  /* Card component style */
-  .CardImageStyle {
-    max-height: 324px;
   }
 }
 
