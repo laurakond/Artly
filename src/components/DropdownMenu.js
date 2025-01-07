@@ -17,7 +17,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown drop="bottom">
-      <Dropdown.Toggle as={ThreeDots} className={styles.Toggle} />
+      <Dropdown.Toggle as={ThreeDots} />
 
       <Dropdown.Menu
         popperConfig={{ strategy: "fixed" }}
@@ -44,12 +44,19 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
 
 export const BuyerDropdownMenu = ({ handleDelete }) => {
   return (
-    <Dropdown>
+    <Dropdown drop="bottom">
       <Dropdown.Toggle as={ThreeDots} />
 
-      <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
-        <Dropdown.Item onClick={handleDelete} aria-label="delete">
-          Delete
+      <Dropdown.Menu
+        popperConfig={{ strategy: "fixed" }}
+        className={styles.CustomDropdownMenu}
+      >
+        <Dropdown.Item
+          onClick={handleDelete}
+          aria-label="delete"
+          className={styles.DropdownItem}
+        >
+          <i className="fa-solid fa-trash"></i>Delete
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -61,26 +68,32 @@ export function ProfileEditDropdown({ id }) {
   return (
     <Dropdown className={`ml-auto px-3`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
-      <Dropdown.Menu>
+      <Dropdown.Menu
+        popperConfig={{ strategy: "fixed" }}
+        className={styles.CustomDropdownMenu}
+      >
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
+          className={styles.DropdownItem}
         >
-          <i className="fas fa-edit" /> edit profile
+          <i className="fa-solid fa-pen-to-square"></i> Edit profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
+          className={styles.DropdownItem}
         >
-          <i className="far fa-id-card" />
-          change username
+          <i className="fa-solid fa-address-card"></i>
+          Change username
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
+          className={styles.DropdownItem}
         >
-          <i className="fas fa-key" />
-          change password
+          <i className="fa-solid fa-key"></i>
+          Change password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
