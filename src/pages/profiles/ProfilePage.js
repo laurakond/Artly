@@ -181,9 +181,11 @@ function ProfilePage() {
   );
 
   return (
-    <Row>
+    <Row className="h-100 justify-content-center">
+      <Col xs={12}>
+        <MostSellingProfiles />
+      </Col>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <MostSellingProfiles mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -194,9 +196,6 @@ function ProfilePage() {
             <Asset spinner />
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <MostSellingProfiles />
       </Col>
     </Row>
   );

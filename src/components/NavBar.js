@@ -60,7 +60,7 @@ const NavBar = () => {
         to="/followed"
       >
         <i className="fa-solid fa-bars-staggered"></i>
-        Feed
+        Followed
       </NavLink>
       <NavLink
         className={styles.NavLink}

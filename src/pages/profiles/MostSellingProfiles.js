@@ -3,6 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
+import styles from "../../styles/MostSellingProfiles.module.css";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 
 const MostSellingProfiles = ({ mobile }) => {
@@ -13,17 +14,11 @@ const MostSellingProfiles = ({ mobile }) => {
       {mostSellingProfiles.results.length ? (
         <>
           <p>Top sellers</p>
-          {mobile ? (
-            <div className="d-flex justify-content-around">
-              {mostSellingProfiles.results.slice(0, 3).map((profile) => (
-                <Profile key={profile.id} profileData={profile} mobile />
-              ))}
-            </div>
-          ) : (
-            mostSellingProfiles.results.map((profile) => (
+          <div className={styles.MostSellingContainer}>
+            {mostSellingProfiles.results.map((profile) => (
               <Profile key={profile.id} profileData={profile} />
-            ))
-          )}
+            ))}
+          </div>
         </>
       ) : (
         <Asset spinner />
