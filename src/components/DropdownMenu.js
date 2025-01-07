@@ -16,10 +16,13 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 
 export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   return (
-    <Dropdown drop="bottom" className={styles.DropdownMenu}>
+    <Dropdown drop="bottom">
       <Dropdown.Toggle as={ThreeDots} className={styles.Toggle} />
 
-      <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+      <Dropdown.Menu
+        popperConfig={{ strategy: "fixed" }}
+        className={styles.CustomDropdownMenu}
+      >
         <Dropdown.Item
           onClick={handleEdit}
           aria-label="edit"
