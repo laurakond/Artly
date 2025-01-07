@@ -19,7 +19,7 @@ const MostSellingProfiles = ({ mobile }) => {
       {mostSellingProfiles.results.length ? (
         <>
           <p>Top sellers</p>
-          <div className={styles.MostSellingContainer}>
+          <div className={`${styles.MostSellingContainer}`}>
             {mostSellingProfiles.results.map((profile) => (
               <Profile key={profile.id} profileData={profile} />
             ))}

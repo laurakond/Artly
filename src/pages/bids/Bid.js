@@ -6,6 +6,7 @@ import Media from "react-bootstrap/Media";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Avatar from "../../components/Avatar";
 import { BuyerDropdownMenu } from "../../components/DropdownMenu";
+import artworkStyles from "../../styles/Artwork.module.css";
 
 const Bid = (props) => {
   const {
@@ -81,7 +82,9 @@ const Bid = (props) => {
 
         {/* Delete bid available for the buyer only if the bid is not marked as sold */}
         {is_buyer && !artwork_is_sold && (
-          <BuyerDropdownMenu handleDelete={() => handleDeleteBid(id)} />
+          <div className={artworkStyles.EditDeleteButton}>
+            <BuyerDropdownMenu handleDelete={() => handleDeleteBid(id)} />
+          </div>
         )}
         {/* {is_buyer && (
           <button onClick={handleDeleteBid} className="warning">

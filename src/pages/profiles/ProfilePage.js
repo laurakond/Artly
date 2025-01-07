@@ -20,6 +20,7 @@ import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/artly-no-results.png";
 import styles from "../../styles/ProfilePage.module.css";
+import artworkStyles from "../../styles/Artwork.module.css";
 import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
@@ -57,7 +58,11 @@ function ProfilePage() {
 
   const profileContent = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {profile?.is_owner && (
+        <div className={artworkStyles.EditDeleteButton}>
+          <ProfileEditDropdown id={profile?.id} />
+        </div>
+      )}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
