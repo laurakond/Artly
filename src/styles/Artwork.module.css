@@ -3,11 +3,12 @@
   padding-top: 10px;
 }
 
-.Bookmark {
-  position: absolute;
-  bottom: 7px;
-  right: 2px;
-  font-size: 18px;
+.ArtworkContainImage {
+  height: auto;
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+  background-color: lightgray;
 }
 
 @media (min-width: 375px) {
@@ -16,16 +17,5 @@
     bottom: 7px;
     right: 7px;
     font-size: 18px;
-  }
-}
-
-@media (min-width: 768px) {
-  /* Card image style */
-  .ArtworkContainImage {
-    height: auto;
-    max-height: 300px;
-    min-width: 300px;
-    object-fit: contain;
-    background-color: lightgray;
   }
 }

@@ -59,9 +59,8 @@ const Artwork = (props) => {
 
   return (
     <Card
-      className={`flex-column p-0 ${sharedArtStyles.Parent}`}
-      lg={8}
-      style={{ maxWidth: "100%" }}
+      className={`flex-column p-0 ${sharedArtStyles.Parent} `}
+      style={{ maxWidth: "80%" }}
     >
       <div>
         {sold ? <span className={sharedArtStyles.Ribbon}>Sold</span> : null}
@@ -199,55 +198,6 @@ const Artwork = (props) => {
               </OverlayTrigger>
             </div>
           </div>
-          {/* <div className={`${styles.Bookmark}`}>
-            {is_owner ? (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>You can't save your own artwork</Tooltip>}
-              >
-                <span>
-                  <i
-                    className={`fa-regular fa-bookmark ${sharedArtStyles.Bookmark}`}
-                  />
-                </span>
-              </OverlayTrigger>
-            ) : save_id ? (
-              <OverlayTrigger
-                placement="top"
-                overlay={
-                  <Tooltip>
-                    Click to remove the artwork from the saved artwork list
-                  </Tooltip>
-                }
-              >
-                <span onClick={handleDeselectSave}>
-                  <i
-                    className={`fa-solid fa-bookmark ${sharedArtStyles.Bookmark}`}
-                  />
-                </span>
-              </OverlayTrigger>
-            ) : loggedInUser ? (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Click to save the artwork</Tooltip>}
-              >
-                <span onClick={handleSave}>
-                  <i
-                    className={`fa-regular fa-bookmark ${sharedArtStyles.Bookmark}`}
-                  />
-                </span>
-              </OverlayTrigger>
-            ) : (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to save the artwork</Tooltip>}
-              >
-                <i
-                  className={`fa-regular fa-bookmark ${sharedArtStyles.Bookmark}`}
-                />
-              </OverlayTrigger>
-            )}
-          </div> */}
         </Card.Footer>
       </div>
     </Card>
