@@ -10,3 +10,26 @@
   object-fit: contain;
   background-color: lightgray;
 }
+
+.ArtworkCardWidth {
+  max-width: 100%;
+}
+
+@media (min-width: 420px) {
+  .ArtworkCardWidth {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 540px) {
+  .ArtworkCardWidth {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Card styles */
+  .Card {
+    max-width: 100%;
+  }
+}

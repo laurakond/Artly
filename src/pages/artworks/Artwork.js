@@ -30,10 +30,7 @@ const Artwork = (props) => {
     artworkPage,
     profile_id,
     profile_image,
-    // save_id,
     updated_at,
-    // handleDeselectSave,
-    // handleSave,
   } = props;
 
   const loggedInUser = useLoggedInUser();
@@ -59,8 +56,7 @@ const Artwork = (props) => {
 
   return (
     <Card
-      className={`flex-column p-0 ${sharedArtStyles.Parent} `}
-      style={{ maxWidth: "80%" }}
+      className={`flex-column p-0 ${sharedArtStyles.Parent} ${styles.ArtworkCardWidth}`}
     >
       <div>
         {sold ? <span className={sharedArtStyles.Ribbon}>Sold</span> : null}
