@@ -8,9 +8,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-import Upload from "../../assets/upload.png";
+import Upload from "../../assets/artly-upload.png";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
+import styles from "../../styles/ArtworkCreateForm.module.css";
 import appStyles from "../../App.module.css";
 
 import { useRedirect } from "../../hooks/useRedirect";
@@ -291,7 +292,7 @@ function ArtworkCreateForm() {
                 </>
               ) : (
                 <Form.Label
-                  className="d-flex justify-content-center"
+                  className={`d-flex justify-content-center ${appStyles.Image} ${styles.CreateArtworkUpload}`}
                   htmlFor="image-upload"
                 >
                   <Asset
