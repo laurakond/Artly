@@ -140,6 +140,10 @@ The following palette was used to ensure the contrast is achieved between the ma
 
 I used [Google fonts](https://fonts.google.com/) to source the fonts for the website. These are:
 
+Gothic - was used for the website logo(image displayed in the features section).
+Montserrat, serif - was used as the main text font.
+Poppins, system-ui - was used for the logo and accent text.
+
 ![font screenshots](documentation/images/design/google-fonts-artly.jpg)
 
 [Return to Table of Contents](#table-of-contents)
@@ -212,7 +216,62 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 ### Existing Features
 
+- The website was designed using React framework which allows seamless navigation and trasition between pages without having to refresh/reload the pages.
+- Majority of the website features are available to any user regardless of their registration status.
+
+**Logo and favicon**
+
+![favicon](documentation/images/features/pp5-favicon.JPG)
+![logo](documentation/images/features/pp5-logo.JPG)
+
+- Upon logging loading the website, the user is greeted by a creative Logo to the left of the Navigation bar, which indicates of the website's creative purpose.
+- Similarly, the same theme of the favicon clearly signals which of the browser tabs the website is on.
+
 **The Header**
+
+- Featured across all the pages, the Header is fully responsive and presents the user with the main pages that are required. To the left of the header you find:
+
+- The Logo
+- To the right of the header the remainder of the pages:
+
+  - Home Page
+  - Sign In
+  - Sign Up
+
+![logged out navbar]()
+
+- Upon Registration or Log in, the user's profile avatar and additional four pages and a Sign out are revealed in the header. This creates a sense of personalisation and indicates additional website functionality for the registered users.
+
+  - List Art Page
+  - Saved Page
+  - Followed Page
+  - Profile Avatar
+  - Log out Page
+
+**The Landing Page**
+
+- The Landing page of the website is designed to clearly indicate the purpose upon first visit. The user can straight away see all artworks that have been listed for sale.
+- Arranged in a card view, each artwork listing provides the most essential information and can be clicked to access the detailed view of the artwork.
+  - Tooltips have been used to provide useful information to the user upon hovering over the icons:
+    - the save artwork feature is only available to the registered users.
+- The user can see a list of top selling profiles, and search/filter functionality that allows them to search and filter the list view based on the following criteria:
+
+  - Search bar for artworks, artist name, username
+  - Filter by Artwork style
+  - Filter by Artwork type
+  - Filter by Artwork's sold status:
+    - the sold artworks are marked with a Sold label that clearly indicates their unavailability for purchase
+
+- ![Artwork list view]()
+
+**Artwork detail view**
+
+- Upon clicking on an individual artwork card, the user is taken to a detailed artwork page that displays full information on the artwork, including the style, type, contact details of the seller and the location of the artwork.
+- Some of the features in the artwork detail view are only available to the registered users.
+
+  - **Restricted access**
+
+  ![Artwork detail viw]()
 
 **User authentication**
 
@@ -456,6 +515,20 @@ To deploy to the Heroku website, follow the steps below:
 - [Mastery - the different between width and flex basis](https://mastery.games/post/the-difference-between-width-and-flex-basis/)
 - [Css Tricks - object fit](https://css-tricks.com/on-object-fit-and-object-position/)
 - [Medium - sizing and moving image](https://medium.com/@1stforgottentoy/sizing-and-moving-your-image-in-a-container-f618d46a2547)
+
+#### Scrollbar
+
+- [Mdn web docs - overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
+- [W3Schools](https://www.w3schools.com/css/css_overflow.asp)
+
+#### substring()
+
+- When working on the artwork list view, I noticed that the size of the card was changing depending on the length of the description provided. I used the substring() method to ensure the static card size.
+  - [mdn web docs - substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
+  - [W3Schools - Javascript substring](https://www.w3schools.com/jsref/jsref_substring.asp)
+- The following StackOverflow threads were really helpful at implementing the substring:
+  - [How to use substring in react native](https://stackoverflow.com/questions/51279877/how-to-use-substring-in-react-native)
+  - [How to use substring in react](https://stackoverflow.com/questions/62574400/how-to-use-substring-or-cut-strings-in-react)
 
 ### Acknowledgments
 
