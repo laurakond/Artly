@@ -4,3 +4,7 @@
   padding: 9px;
   padding-left: 15px;
 }
+
+.ContentWidth {
+  max-width: 800px;
+}
