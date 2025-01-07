@@ -8,6 +8,7 @@ import {
   useLoggedInUser,
   useSetLoggedInUser,
 } from "../contexts/LoggedInUserContext";
+import logoSplash from "../assets/splash-logo.png";
 
 import styles from "../styles/NavBar.module.css";
 
@@ -111,7 +112,9 @@ const NavBar = () => {
     >
       <Container>
         <NavLink exact to="/">
-          <Navbar.Brand>Artly</Navbar.Brand>
+          <Navbar.Brand>
+            <img src={logoSplash} alt="logo" height="45" />
+          </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle
           ref={ref}
