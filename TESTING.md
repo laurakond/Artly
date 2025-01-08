@@ -91,16 +91,23 @@ All files were put through the official [W3C Markup Validation](https://validato
 
 **Distorted NavBar view**
 
-- when styling the navbar I noticed that in teh mobile view on smaller screens the proportions of the screen got distorted. This was because of the Most selling profile componenet was set to show 4 profiles. - I managed to resolve this problem by adding the below rules to the main App class in the App.js.
+- when styling the navbar I noticed that in the mobile view on smaller screens the proportions of the screen got distorted. This was because of the Most selling profile componenet was set to show 4 profiles. - I managed to resolve this problem by adding the below rules to the main App class in the App.js.
   - I have also reduced the number of profiles listed to 3, in order to prevent this error. However, I will be looking at implementing horizontal scrolling at the next development stage.
   ```css
   max-width: 100vw;
   overflow-x: hidden;
   ```
 
+**Style and type filters returning non explicit data**
+
+- I noticed that my style filter was returning entries for “other” for style and type of artwork.
+  - I resolved this by replacing the "search=" with "style=" and "type=" in each useEffect for style and type. this seems to have resolved the issue.
+
 ### Unfixed bugs
 
-[Return to Table of Contents](#contents)
+- When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold fuctionality.
+  - It appears that once the atwork is marked as sold, if the seller chooses to edit the artwork, it is listed again as if it was not sold in the artwork list view. However, the user doesn't seem to be able to interact with it afresh, which does not cause any issues apart from misleading and confusing information displayed to the user. - I have circumvented this issue by disabling the edit functionality for the seller once the artwork is marked as sold.
+    [Return to Table of Contents](#contents)
 
 ### Lighthouse testing
 
