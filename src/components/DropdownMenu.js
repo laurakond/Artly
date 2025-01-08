@@ -28,7 +28,8 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
           aria-label="edit"
           className={styles.DropdownItem}
         >
-          <i className="fa-solid fa-pen-to-square"></i>Edit
+          <i className={`fa-solid fa-pen-to-square ${styles.DropdownItem}`}></i>
+          Edit
         </Dropdown.Item>
         <Dropdown.Item
           onClick={handleDelete}

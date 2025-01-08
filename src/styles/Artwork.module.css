@@ -16,7 +16,7 @@
 }
 
 /* Owner edit dots styles */
-.EditDeleteButton:hover {
+.EditDeleteButton i:hover {
   color: #f4442e;
   cursor: pointer;
 }

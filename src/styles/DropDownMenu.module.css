@@ -6,6 +6,12 @@ i {
   box-shadow: 0 0.5rem 1rem rgba(39, 60, 44, 0.25);
 }
 
-.DropdownItem:hover {
+.CustomDropdownMenu:hover,
+.CustomDropdownMenu i:hover {
+  color: #f4442e;
+}
+
+.DropdownItem:hover,
+.DropdownItem:hover i {
   color: #f4442e;
 }
