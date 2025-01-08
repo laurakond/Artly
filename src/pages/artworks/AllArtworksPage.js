@@ -57,7 +57,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
     const fetchStyles = async () => {
       try {
         const { data } = await axiosReq.get(
-          `/artworks/?${filter}search=${styleQuery}`
+          `/artworks/?${filter}style=${styleQuery}`
         );
         setArtworks(data);
         setHasLoaded(true);
@@ -75,7 +75,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
     const fetchType = async () => {
       try {
         const { data } = await axiosReq.get(
-          `/artworks/?${filter}search=${typeQuery}`
+          `/artworks/?${filter}type=${typeQuery}`
         );
         setArtworks(data);
         setHasLoaded(true);
