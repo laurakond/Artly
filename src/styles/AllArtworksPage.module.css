@@ -40,7 +40,13 @@
   padding-right: 0;
 }
 
+.FilterDropdown:hover i {
+  cursor: pointer;
+  color: #f4442e;
+}
+
 /* Media queries */
+/* For small devices like mobiles and tablets */
 @media (min-width: 420px) {
   .SearchAndFilterRowClass {
     max-width: 90%;
@@ -59,6 +65,7 @@
   }
 }
 
+/* For large devices such as laptops */
 @media (min-width: 992px) {
   .SearchAndFilterRowClass {
     max-width: 100%;

@@ -7,7 +7,8 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import NoResults from "../../assets/artly-no-results.png";
 import appStyles from "../../App.module.css";
-
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import { axiosReq } from "../../api/AxiosDefaults";
 import Asset from "../../components/Asset";
 
@@ -131,12 +132,17 @@ const AllArtworksPage = ({ message, filter = "" }) => {
             </Form>
           </Col>
           <Col className={styles.FilterDropdown} xs={2}>
-            <div className="d-flex justify-content-center">
-              <i
-                onClick={() => setShowFilters(!showFilters)}
-                className="fa-solid fa-filter"
-              ></i>
-            </div>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>More filter options</Tooltip>}
+            >
+              <div className="d-flex justify-content-center">
+                <i
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="fa-solid fa-filter"
+                ></i>
+              </div>
+            </OverlayTrigger>
           </Col>
         </Row>
         {/* style/type/sold filter categories */}
