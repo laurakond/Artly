@@ -109,7 +109,11 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         <MostSellingProfiles />
       </Col>
       {/* search bar and filter icon view */}
-      <Col className={`py-2 p-3 p-lg-2 ${styles.ContentWidth}`} md={10} lg={8}>
+      <Col
+        className={`py-2 p-3 p-lg-2 py-lg-3 ${styles.ContentWidth}`}
+        md={10}
+        lg={8}
+      >
         <Row className={`mx-auto ${styles.SearchAndFilterRowClass}`}>
           <Col xs={10} className="px-0 ">
             <i className={`fas fa-search ${styles.SearchIcon}`} />

@@ -58,3 +58,9 @@
     width: 100%;
   }
 }
+
+@media (min-width: 992px) {
+  .SearchAndFilterRowClass {
+    max-width: 100%;
+  }
+}
