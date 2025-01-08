@@ -55,7 +55,6 @@ Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com
 - [General resources](#general-resources)
 - [Acknowledgments](#acknowledgments)
 - [Code inspiration](#code-inspiration)
-- [References](#references)
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -385,6 +384,44 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 **User authentication**
 
+<details>
+<summary>Sign Up</summary>
+
+- The Sign Up form allows the user to create an account in order to access additional features:
+
+  - Artwork create/edit/delete
+  - Bid create/edit/delete
+  - Save artworks
+  - Follow other users
+  - Edit Profile
+
+        - Upon successful registration, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
+        - The user's profile avatar is also visible at the top of the navigation bar.
+
+        ![Sign Up]()
+
+    </details>
+
+<details>
+<summary>Sign In</summary>
+
+- The Sign in form allows the user to access their account and manage the above mentioned features.
+- Upon successfull sign in, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
+- The user's profile avatar is also visible at the top of the navigation bar.
+
+      ![login]()
+
+  </details>
+
+ <details>
+    <summary>Sign Out</summary>
+
+- When the user wishes to leave the account the logout button enables a confirmation page ensuring that the user is informed of their actions. - Upon successful logout, a confirmation message is displayed at the top of the page.
+
+      ![logout](documentation/images/features/logout-page.png)
+
+  </details>
+
 **Restricted access**
 
 - I have applied defensive programming to several features that are only accessible to the registered. These are:
@@ -697,19 +734,9 @@ My thanks go to:
 
 ### Code Inspiration
 
-- I used Code Institute's Moments walkthrough as the base for my project.
+- The project was inspired and based on some parts of Code Institute's Moments walkthrough [project](https://github.com/mr-fibonacci/moments).
+  - Credits are also noted within the code.
 - Updating bid status:
 - When trying to figure out how to create functionality for accepting/rejecting and selling the artwork based on a bid, I used Code Institute’s Moments walkthrough project to help me understand how to manage previous and current state.
-- Artwork sold status not appearing straight away:
-- Similarly, when testing my app, I noticed that the artwork was displaying sold status only after refreshing the page.
-- I realised that I needed to update the artwork sold status in order to get the “Sold” statement appear upon clicking “Mark as sold” button.
-  - I managed to get that working by altering the setBid code snippet to setArtwork snippet based on the Code Institute’s Moments walkthrough project.
-  - I also found this part of React documentation useful: [React documentation - updating state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
-
-### References
 
 [Return to Table of Contents](#table-of-contents)
-
-```
-
-```
