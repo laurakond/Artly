@@ -140,9 +140,12 @@ The following palette was used to ensure the contrast is achieved between the ma
 
 I used [Google fonts](https://fonts.google.com/) to source the fonts for the website. These are:
 
-Gothic - was used for the website logo(image displayed in the features section).
+Gothic - was used for the website logo.
+
 Montserrat, serif - was used as the main text font.
 Poppins, system-ui - was used for the logo and accent text.
+
+![logo](documentation/images/features/pp5-logo.JPG)
 
 ![font screenshots](documentation/images/design/google-fonts-artly.jpg)
 
@@ -264,18 +267,170 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 - ![Artwork list view]()
 
+**Create Artwork form(restricted access)**
+
+- Upon registration or logging in, the user can create an artwork by clicking on "List Art" in the navigation bar.
+- The user will be taken to a form where they can choose to upload an image, and enter information about the artwork.
+  - If the user enters incorrect information or leaves a required field empty, an error message will appear indicating so.
+  - If the user uploads an image that exceeds the limit, an error message will appear indicating so.
+- Once the artwork form is submitted, the user will see a confirmation message on the top right corner.
+  - If the user clicks on the cancel button, they will be taken back to the previous page.
+
+![Artwork form image]()
+
 **Artwork detail view**
 
 - Upon clicking on an individual artwork card, the user is taken to a detailed artwork page that displays full information on the artwork, including the style, type, contact details of the seller and the location of the artwork.
-- Some of the features in the artwork detail view are only available to the registered users.
+- Once logged in, the user can edit or delete their artwork listing by clicking on an icon (pictured below).
 
-  - **Restricted access**
+  - If the user chooses to edit the artwork, they are taken to the artwork edit form.
+  - If the user chooses to delete the artwork, they will be notified by a pop up notification if the action was successful or not.
 
-  ![Artwork detail viw]()
+  ![Artwork detail view]()
+
+  ![User edit icon]()
+
+**Create Artwork form(restricted access)**
+
+- If the user chooses to edit the form in the detailed artwork view, they are taken to the artwork edit form, which is the same as Artwork create form. The user will be able to see preexisting information populated in the fields, and amend them accordingly.
+- Similarly to the Artwork create form, the user can either submit or cancel the edit.
+
+  - Upon successful update, the user will see a notification message appear and they will be taken to the artwork detail view where they can review the information.
+
+  ![Edit Artwork form image]()
+
+**Artwork bid feature(restricted access)**
+
+- When inside the detailed artwork view, the user can choose to bid(buy) on an artwork if the artwork is not their own.
+
+  - A bid form is visible underneath the main artwork information where the user needs to enter the bid price and their contact details.
+
+    - The bid form is only visible to the users who are the buyers, i.e. not the owners of the artwork listing.
+    - The form validates incorrect data input including negative or 0 value price offers.
+      - an error message will appear accordingly.
+    - Upon bid submission the user will be notified if the action was successful or not.
+    - The user's bid and bid status will appear below the bid form, also showing when the bid was created. This allows for the users to track the progress and see when other bids were submitted too.
+
+    ![buyers submitted bid view]()
+
+- If the user wishes to remove their bid, they can delete it.
+
+  - Similarly to the artwork delete, a notification will indicate if the action was completed or if there were any errors.
+
+  ![delete bid]()
+
+- Once the bid is submitted, the seller can then access the artwork detail view to update the bid status.
+
+  - There are three options visible to choose from:
+
+    1. Approve the bid
+    2. Reject the bid
+    3. Mark as sold
+
+    ![Bid button options]()
+
+  - Upon any of these, the bid status view will update for the buyer and seller to see.
+  - If the Bid is marked as sold, the artwork automatically updates to being sold with a "Sold" ribbon appearing on the top right corner of the artwork card, and a call to action button is revealed to the seller to "Contact the buyer".
+
+    ![Sold ribbon]()
+
+    - Once clicked, a mailto functionality will be activated in a separate window.
+    - If there are any other bids for the artwork, their bid status is hidden to indicate which of the bid was accepted.
+
+      ![mailto]()
+
+    - If a buyer enters the sold artwork's detailed view, the bid form is no longer displayed.
+    - Once the artwork is marked as sold, the seller cannot edit the listing.
+
+**Saved artworks(restricted access)**
+
+- In the navigation, the user can access their saved artworks if they wish to review them in one place.
+- The list of artworks is rendered the same way as the main artwork list.
+
+**Followed users(restricted access)**
+
+**Profile view**
+
+**Edit Profile form(restricted access)**
+
+**Change username form(restricted access)**
+
+**Change password form(restricted access)**
+
+**Avatar feature**
+
+- The Avatar is implemented throughout the website and plays a crutial part in the functionality of it.
+  - It provides a visual aid to the user easing to differentiate artworks and profiles they are viewing.
+
+**Default images**
+
+- The artwork and profile features come with a preset default image in case the user has not chosen or updated the images.
+
+  - This way other features, such as the artwork view and the Avatar view, can function without an issue.
+
+  ![artwork default]()
+  ![profile default]()
+
+**Top sellers view**
+
+**Search/Filter feature**
+
+- The search and filter feature is implemented throughout the website, which allows the user to look for their preferred artwork at ease.
+
+**Error page**
+
+- have been added to troubleshoot appropriate server response to user request.
+
+![404 error page]()
 
 **User authentication**
 
+**Restricted access**
+
+- I have applied defensive programming to several features that are only accessible to the registered. These are:
+  - Artwork edit/delete feature
+  - Bid edit/delete feature
+  - Save artwork feature
+  - Profile edit/delete
+  - Follow other users feature
+- Upon an attempt to access any of these the following alert messages will be displayed:
+  - If an unregistered user attempts to access any of the restricted pages by typing in the url link to the browser, they will be taken back to the main page view
+  - I have used front-end to ensure that restricted content/feature is not accessible to unregistered users, thus minimising any errors or access breach.
+
+**Notification messages**
+
+<details>
+    <summary>User registration/access</summary>
+
+![Successful sign in]()
+![Successful registration]()
+![Successful signout]()
+
+</details>
+
+ <details>
+    <summary>Confirmation messages</summary>
+
+![Successful artwork submission]()
+![Successful artwork delete]()
+![Successful bid submission]()
+![Successful bid delete]()
+![Successful bid accept]()
+![Successful bid reject]()
+![Successful bid mark as sold]()
+
+</details>
+
 ### Features Left to Implement
+
+- in house messaging functionality which would allow the sellers and buyers to communicate in one place.
+  - Notifications would be sent to the user's email to make sure that they are notified if any changes are made.
+- Expand and improve on the Profile feature to separate the buyers' and sellers' profiles more prominently.
+- Implement a contact form so that the users could inform administrators about any errors or bugs in the system.
+- My Bids page, so that the buyers have easy access to the bids they a have placed and see the status of them in one place.
+  - At the moment this feature can carried out if the user chooses to save an artwork.
+  - This would allow to expand on the existing functionality of the saved artworks feature.
+- Expand on and improve artwork edit functionality for the seller.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -309,12 +464,13 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 - [W3C CSS](https://jigsaw.w3.org/css-validator/) was used for validating css files.
 - [Balsamiq](https://balsamiq.com/) used for creating wireframes.
 - [Google Fonts](https://fonts.google.com/) for choosing appropriate fonts
-<!-- - [Favicon](https://favicon.io/) for generating a favicon
-- Google Chrome DevTools for testing, troubleshooting and brainstorming code solutions -->
+- [Favicon](https://favicon.io/) for generating a favicon
+- Google Chrome DevTools for testing, troubleshooting and brainstorming code solutions
 - [Am I Responsive?](https://ui.dev/amiresponsive) website for showing the website's responsiveness on different devices
 - [Coolors](https://coolors.co/) for generating the color palette
 - WCAG color contrast checker for website accessibilty
 - Wave evaluation tool for giving visual feedback about the accessibility of the website
+- [Canva](https://www.canva.com/) used for generating the Logo and favicon design
 - [Contrast Grid](https://contrast-grid.eightshapes.com/) to test chosen color palette
 - [React Toastify](https://www.npmjs.com/package/react-toastify/v/9.0.3) for rendering user notifications
 
