@@ -103,6 +103,13 @@ All files were put through the official [W3C Markup Validation](https://validato
 - I noticed that my style filter was returning entries for “other” for style and type of artwork.
   - I resolved this by replacing the "search=" with "style=" and "type=" in each useEffect for style and type. this seems to have resolved the issue.
 
+**Artwork sold status not appearing straight away**
+
+- Similarly, when testing my app, I noticed that the artwork was displaying sold status only after refreshing the page.
+- I realised that I needed to update the artwork sold status in order to get the “Sold” statement appear upon clicking “Mark as sold” button.
+  - I managed to get that working by altering the setBid code snippet to setArtwork snippet.
+  - I found this part of React documentation useful: [React documentation - updating state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
+
 ### Unfixed bugs
 
 - When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold fuctionality.
