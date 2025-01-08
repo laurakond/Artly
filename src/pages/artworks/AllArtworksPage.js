@@ -27,6 +27,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
   const [styleQuery, setStyleQuery] = useState("");
   const [typeQuery, setTypeQuery] = useState("");
   const [soldFilter, setSoldFilter] = useState(undefined);
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     const fetchArtworks = async () => {
@@ -107,75 +108,97 @@ const AllArtworksPage = ({ message, filter = "" }) => {
       <Col xs={12}>
         <MostSellingProfiles />
       </Col>
+      {/* search bar and filter icon view */}
       <Col className={`py-2 p-3 p-lg-2 ${styles.ContentWidth}`} md={10} lg={8}>
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form onSubmit={(event) => event.preventDefault()}>
-          <Form.Control
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search artworks or artist name"
-          />
-        </Form>
-        {/* Search for styles/types of artwork */}
-        <Form onSubmit={(event) => event.preventDefault()}>
-          <Form.Label>View by Style</Form.Label>
-          <Form.Control
-            value={styleQuery}
-            onChange={(event) => setStyleQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            as="select"
-          >
-            <option value="">Select artwork style</option>
-            <option value="Modern">Modern</option>
-            <option value="Contemporary">Contemporary</option>
-            <option value="Digital art">Digital art</option>
-            <option value="Old Masters">Old Masters</option>
-            <option value="Classical">Classical</option>
-            <option value="Other">Other</option>
-          </Form.Control>
-        </Form>
+        <Row className={`mx-auto ${styles.SearchAndFilterRowClass}`}>
+          <Col xs={10} className="px-0 ">
+            <i className={`fas fa-search ${styles.SearchIcon}`} />
+            <Form
+              onSubmit={(event) => event.preventDefault()}
+              className={`${styles.SearchBar}`}
+            >
+              <Form.Control
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                type="text"
+                className={`mr-sm-2 ${styles.Form}`}
+                placeholder="Search by artwork, artist or user"
+              />
+            </Form>
+          </Col>
+          <Col className={styles.FilterDropdown} xs={2}>
+            <div className="d-flex justify-content-center">
+              <i
+                onClick={() => setShowFilters(!showFilters)}
+                className="fa-solid fa-filter"
+              ></i>
+            </div>
+          </Col>
+        </Row>
+        {/* style/type/sold filter categories */}
+        {showFilters && (
+          <div>
+            {/* Search for styles of artwork */}
+            <Form onSubmit={(event) => event.preventDefault()}>
+              <Form.Label>View by Style</Form.Label>
+              <Form.Control
+                value={styleQuery}
+                onChange={(event) => setStyleQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                as="select"
+              >
+                <option value="">Select artwork style</option>
+                <option value="Modern">Modern</option>
+                <option value="Contemporary">Contemporary</option>
+                <option value="Digital art">Digital art</option>
+                <option value="Old Masters">Old Masters</option>
+                <option value="Classical">Classical</option>
+                <option value="Other">Other</option>
+              </Form.Control>
+            </Form>
+            {/* Search for types of artwork */}
+            <Form onSubmit={(event) => event.preventDefault()}>
+              <Form.Label>View by Type</Form.Label>
+              <Form.Control
+                value={typeQuery}
+                onChange={(event) => setTypeQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                as="select"
+              >
+                <option value="">Select artwork type</option>
+                <option value="Collage">Collage</option>
+                <option value="Drawing">Drawing</option>
+                <option value="Needlework">Needlework</option>
+                <option value="Etching">Etching</option>
+                <option value="Painting">Painting</option>
+                <option value="Photography">Photography</option>
+                <option value="Pottery">Pottery</option>
+                <option value="Sculpture">Scultpure</option>
+                <option value="Watercolour">Watercolour</option>
+                <option value="Other">Other</option>
+              </Form.Control>
+            </Form>
 
-        <Form onSubmit={(event) => event.preventDefault()}>
-          <Form.Label>View by Type</Form.Label>
-          <Form.Control
-            value={typeQuery}
-            onChange={(event) => setTypeQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            as="select"
-          >
-            <option value="">Select artwork type</option>
-            <option value="Collage">Collage</option>
-            <option value="Drawing">Drawing</option>
-            <option value="Needlework">Needlework</option>
-            <option value="Etching">Etching</option>
-            <option value="Painting">Painting</option>
-            <option value="Photography">Photography</option>
-            <option value="Pottery">Pottery</option>
-            <option value="Sculpture">Scultpure</option>
-            <option value="Watercolour">Watercolour</option>
-            <option value="Other">Other</option>
-          </Form.Control>
-        </Form>
-
-        <Form onSubmit={(event) => event.preventDefault()}>
-          <Form.Label>View by Sold status</Form.Label>
-          <Form.Control
-            value={soldFilter}
-            onChange={(event) => setSoldFilter(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            as="select"
-          >
-            <option value="">All</option>
-            <option value="true">Sold</option>
-            <option value="false">For sale</option>
-          </Form.Control>
-        </Form>
-
+            {/* Search for sold status */}
+            <Form onSubmit={(event) => event.preventDefault()}>
+              <Form.Label>View by Sold status</Form.Label>
+              <Form.Control
+                value={soldFilter}
+                onChange={(event) => setSoldFilter(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                as="select"
+              >
+                <option value="">All</option>
+                <option value="true">Sold</option>
+                <option value="false">For sale</option>
+              </Form.Control>
+            </Form>
+          </div>
+        )}
+        {/* Artwork list view of spinner */}
         {hasLoaded ? (
           <>
             {artworks.results.length ? (

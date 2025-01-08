@@ -1,3 +1,11 @@
+.ContentWidth {
+  max-width: 800px;
+}
+
+.SearchAndFilterRowClass {
+  justify-content: center;
+}
+
 .SearchIcon {
   position: absolute;
   font-size: 1.2rem;
@@ -5,6 +13,48 @@
   padding-left: 15px;
 }
 
-.ContentWidth {
-  max-width: 800px;
+/* Shared styles for search and filter */
+.SearchBar,
+.FilterDropdown {
+  width: 100%;
+}
+
+/* Search bar only */
+.SearchBar {
+  padding-left: 0;
+}
+
+.SearchBar input {
+  border-radius: 50px;
+  padding-left: 2.75rem;
+}
+
+/* Filter dropdown */
+.FilterDropdown {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
+.FilterDropdown i {
+  padding-right: 0;
+}
+
+/* Media queries */
+@media (min-width: 420px) {
+  .SearchAndFilterRowClass {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 540px) {
+  .SearchAndFilterRowClass {
+    width: 80%;
+    align-items: center;
+  }
+
+  .SearchBar,
+  .FilterDropdown {
+    width: 100%;
+  }
 }
