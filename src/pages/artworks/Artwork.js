@@ -61,14 +61,14 @@ const Artwork = (props) => {
       <div>
         {sold ? <span className={sharedArtStyles.Ribbon}>Sold</span> : null}
       </div>
-      <Link to={`/artworks/${id}`} className={`d-flex justify-content-center`}>
+      <div className={`d-flex justify-content-center`}>
         <CardImg
           variant="top"
           src={image}
           alt={artwork_title}
           className={styles.ArtworkContainImage}
         />
-      </Link>
+      </div>
 
       <div className={`d-flex flex-column`}>
         <Card.Header className={`${sharedArtStyles.CardHeader}`}>
@@ -117,7 +117,7 @@ const Artwork = (props) => {
         </Card.Header>
 
         <Card.Body className={`flex-grow-1 ${styles.CardBody}`}>
-          <Link to={`/artworks/${id}`}>
+          <div>
             <div>
               {artwork_title && (
                 <Card.Title className={`${sharedArtStyles.CardTitle}`}>
@@ -135,7 +135,7 @@ const Artwork = (props) => {
                 </Card.Text>
               )}
             </div>
-          </Link>
+          </div>
         </Card.Body>
 
         <Card.Footer className={`${sharedArtStyles.CardFooter} mt-auto`}>
