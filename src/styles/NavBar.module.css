@@ -24,7 +24,8 @@ i {
   margin: auto 0;
 }
 
-.NavLink:hover {
+.NavLink:hover,
+.NavLink:hover i {
   color: #f4442e;
 }
 
