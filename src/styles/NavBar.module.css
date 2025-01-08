@@ -6,8 +6,16 @@
   box-shadow: 0 1px 4px #090c02;
 }
 
+i {
+  padding-right: 5px;
+}
+
 .Active {
   font-weight: 800;
+  color: #f4442e;
+}
+
+.Active i {
   color: #f4442e;
 }
 
@@ -18,10 +26,6 @@
 
 .NavLink:hover {
   color: #f4442e;
-}
-
-i {
-  padding-right: 5px;
 }
 
 /* .navbar-light button.custom-menu-color.navbar-toggler {
