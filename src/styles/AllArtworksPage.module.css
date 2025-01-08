@@ -13,9 +13,10 @@
   padding-left: 15px;
 }
 
-/* Shared styles for search and filter */
+/* Shared width for search and filter */
 .SearchBar,
-.FilterDropdown {
+.FilterDropdown,
+.MoreFilterOptions {
   width: 100%;
 }
 
@@ -45,11 +46,49 @@
   color: #f4442e;
 }
 
+/* Style/Type/Sold filter styles */
+.ParentFilterContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+.MoreFilterOptions {
+  position: absolute;
+  display: flex;
+  /* max-width: 270px; */
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #f9f8f8;
+  z-index: 1;
+  /* margin-right: 50px; */
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(39, 60, 44, 0.25);
+}
+
+.StyleTypeSoldFilter {
+  /* width: 45%; */
+  /* justify-content: center; */
+  margin: 5px;
+  text-align: center;
+}
+
+.SelectContainer {
+  border-radius: 50px;
+}
+
 /* Media queries */
 /* For small devices like mobiles and tablets */
 @media (min-width: 420px) {
   .SearchAndFilterRowClass {
     max-width: 90%;
+  }
+  .MoreFilterOptions {
+    max-width: 450px;
   }
 }
 
@@ -62,6 +101,25 @@
   .SearchBar,
   .FilterDropdown {
     width: 100%;
+  }
+
+  .MoreFilterOptions {
+    width: 100%;
+
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 576px) {
+  .MoreFilterOptions {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .MoreFilterOptions {
+    margin-right: 50px;
   }
 }
 
