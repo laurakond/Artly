@@ -50,6 +50,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 /* Card Image component style */
 .Card {
   max-width: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(39, 60, 44, 0.25);
 }
 .CardImageStyle {
   height: auto;
