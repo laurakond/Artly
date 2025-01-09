@@ -7,10 +7,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-import Upload2 from "../../assets/upload-frame.png";
+import Upload from "../../assets/upload-frame.png";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
-import styles from "../../styles/ArtworkCreateEditForm.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 
@@ -97,17 +97,19 @@ function ArtworkCreateForm() {
     }
   };
 
-  const FormFields = (
+  const formFields = (
     <div className="text-center ">
       <Form.Group controlId="artwork_title">
-        <Form.Label className={styles.FormLabelFont}>Artwork title</Form.Label>
+        <Form.Label className={formStyles.FormLabelFont}>
+          Artwork title
+        </Form.Label>
         <Form.Control
           type="text"
           placeholder="artwork title"
           name="artwork_title"
           value={artwork_title}
           onChange={handleChange}
-          className={styles.FormControlBorderRadius}
+          className={formStyles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.artwork_title?.map((message, index) => (
@@ -117,14 +119,16 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="artist_name">
-        <Form.Label className={styles.FormLabelFont}>Artist name</Form.Label>
+        <Form.Label className={formStyles.FormLabelFont}>
+          Artist name
+        </Form.Label>
         <Form.Control
           type="text"
           placeholder="artist name"
           name="artist_name"
           value={artist_name}
           onChange={handleChange}
-          className={styles.FormControlBorderRadius}
+          className={formStyles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.artist_name?.map((message, index) => (
@@ -132,11 +136,11 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-      <div className={styles.StypeAndTypeContainer}>
+      <div className={formStyles.StypeAndTypeContainer}>
         <Form.Group controlId="style">
-          <div className={styles.StyleToPriceFormContainer}>
+          <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${styles.FormLabelFont} ${styles.FormLabelMargin}`}
+              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
             >
               Style
             </Form.Label>
@@ -147,7 +151,7 @@ function ArtworkCreateForm() {
               as="select"
               value={style}
               onChange={handleChange}
-              className={styles.FormControlBorderRadius}
+              className={formStyles.FormControlBorderRadius}
             >
               <option value="Modern">Modern</option>
               <option value="Contemporary">Contemporary</option>
@@ -165,9 +169,9 @@ function ArtworkCreateForm() {
         ))}
 
         <Form.Group controlId="type">
-          <div className={styles.StyleToPriceFormContainer}>
+          <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${styles.FormLabelFont} ${styles.FormLabelMargin}`}
+              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
             >
               Type
             </Form.Label>
@@ -178,7 +182,7 @@ function ArtworkCreateForm() {
               as="select"
               value={type}
               onChange={handleChange}
-              className={styles.FormControlBorderRadius}
+              className={formStyles.FormControlBorderRadius}
             >
               <option value="Collage">Collage</option>
               <option value="Drawing">Drawing</option>
@@ -199,11 +203,11 @@ function ArtworkCreateForm() {
           </Alert>
         ))}
       </div>
-      <div className={styles.PriceAndPaymentContainer}>
+      <div className={formStyles.PriceAndPaymentContainer}>
         <Form.Group controlId="payment_method">
-          <div className={styles.StyleToPriceFormContainer}>
+          <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${styles.FormLabelFont} ${styles.FormPayLabelMargin}`}
+              className={`${formStyles.FormLabelFont} ${formStyles.FormPayLabelMargin}`}
             >
               Pay
             </Form.Label>
@@ -214,7 +218,7 @@ function ArtworkCreateForm() {
               as="select"
               value={payment_method}
               onChange={handleChange}
-              className={styles.FormControlBorderRadius}
+              className={formStyles.FormControlBorderRadius}
             >
               <option value="Paypal">Paypal</option>
               <option value="Cash">Cash</option>
@@ -228,9 +232,9 @@ function ArtworkCreateForm() {
         ))}
 
         <Form.Group controlId="price">
-          <div className={styles.StyleToPriceFormContainer}>
+          <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${styles.FormLabelFont} ${styles.FormLabelMargin}`}
+              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
             >
               Price
             </Form.Label>
@@ -240,7 +244,7 @@ function ArtworkCreateForm() {
               name="price"
               value={price}
               onChange={handleChange}
-              className={`${styles.PriceInputWidth} ${styles.FormControlBorderRadius}`}
+              className={`${formStyles.PriceInputWidth} ${formStyles.FormControlBorderRadius}`}
             />
           </div>
         </Form.Group>
@@ -251,14 +255,14 @@ function ArtworkCreateForm() {
         ))}
       </div>
       <Form.Group controlId="contact">
-        <Form.Label className={styles.FormLabelFont}>Contact</Form.Label>
+        <Form.Label className={formStyles.FormLabelFont}>Contact</Form.Label>
         <Form.Control
           type="text"
           placeholder="contact"
           name="contact"
           value={contact}
           onChange={handleChange}
-          className={styles.FormControlBorderRadius}
+          className={formStyles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.contact?.map((message, index) => (
@@ -268,14 +272,14 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="location">
-        <Form.Label className={styles.FormLabelFont}>Location</Form.Label>
+        <Form.Label className={formStyles.FormLabelFont}>Location</Form.Label>
         <Form.Control
           type="text"
           placeholder="location"
           name="location"
           value={location}
           onChange={handleChange}
-          className={styles.FormControlBorderRadius}
+          className={formStyles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.location?.map((message, index) => (
@@ -285,7 +289,9 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="description">
-        <Form.Label className={styles.FormLabelFont}>Description</Form.Label>
+        <Form.Label className={formStyles.FormLabelFont}>
+          Description
+        </Form.Label>
         <Form.Control
           type="text"
           placeholder="description"
@@ -293,7 +299,7 @@ function ArtworkCreateForm() {
           as="textarea"
           value={description}
           onChange={handleChange}
-          className={styles.FormControlBorderRadius}
+          className={formStyles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.description?.map((message, index) => (
@@ -322,7 +328,7 @@ function ArtworkCreateForm() {
       <Row>
         <Col className="p-2 p-md-2" md={5} lg={6}>
           <Container
-            className={`d-flex flex-column justify-content-center py-3 p-4 ${styles.MainArtworkFormContainer}`}
+            className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
           >
             <Form.Group className="text-center mb-0">
               {image ? (
@@ -330,7 +336,7 @@ function ArtworkCreateForm() {
                   <figure>
                     <Image className={appStyles.Image} src={image} rounded />
                   </figure>
-                  <div className={styles.ArtworkImageUpload}>
+                  <div className={formStyles.CreateArtworkUpload}>
                     <Form.Label htmlFor="image-upload">
                       Change the image
                     </Form.Label>
@@ -338,11 +344,11 @@ function ArtworkCreateForm() {
                 </>
               ) : (
                 <Form.Label
-                  className={`d-flex justify-content-center ${appStyles.Image} ${styles.CreateArtworkUpload} ${styles.FormLabelFont}`}
+                  className={`d-flex justify-content-center ${appStyles.Image} ${formStyles.CreateArtworkUpload} ${formStyles.FormLabelFont}`}
                   htmlFor="image-upload"
                 >
                   <Asset
-                    src={Upload2}
+                    src={Upload}
                     message="Click or tap to upload an image"
                   />
                 </Form.Label>
@@ -361,11 +367,11 @@ function ArtworkCreateForm() {
               ))}
             </Form.Group>
 
-            <div className="d-md-none">{FormFields}</div>
+            <div className="d-md-none">{formFields}</div>
           </Container>
         </Col>
         <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
-          <Container>{FormFields}</Container>
+          <Container>{formFields}</Container>
         </Col>
       </Row>
     </Form>

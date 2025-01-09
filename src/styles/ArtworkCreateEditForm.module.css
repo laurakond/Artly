@@ -40,10 +40,12 @@
 
   .FormLabelMargin {
     margin-right: 15px;
+    margin-bottom: 0;
   }
 
   .FormPayLabelMargin {
     margin-right: 24px;
+    margin-bottom: 0;
   }
 
   .PriceInputWidth {
