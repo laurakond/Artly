@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   font-family: "Montserrat", serif;
   font-weight: 400;
@@ -6,20 +10,6 @@
   color: #090c02;
   background-color: #f9f8f8;
   overflow-x: hidden;
-}
-
-.Main {
-  padding-top: 81px;
-}
-
-.Image {
-  max-height: 40vh;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 a {
@@ -35,4 +25,18 @@ a:hover {
 
 i {
   color: #82204a;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.Main {
+  padding-top: 81px;
+}
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
 }
