@@ -344,7 +344,7 @@ function ArtworkEditForm() {
           {message}
         </Alert>
       ))}
-      <div className="pt-2">
+      <div>
         <button
           type="button"
           onClick={() => history.goBack()}

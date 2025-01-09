@@ -307,7 +307,7 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-      <div className="pt-2">
+      <div>
         <button
           type="button"
           className={`mx-2 ${btnStyles.ButtonStyles}`}
@@ -325,7 +325,7 @@ function ArtworkCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       {/* Main container & image column*/}
-      <Row>
+      <Row className="h-100">
         <Col className="p-2 p-md-2" md={5} lg={6}>
           <Container
             className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
