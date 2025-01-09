@@ -1,0 +1,70 @@
+/* Container for smallest devices */
+.MainArtworkFormContainer {
+  border: 1px solid #ced4da;
+  box-shadow: 0 0.5rem 1rem rgba(39, 60, 44, 0.25);
+  border-radius: 8px;
+  max-width: 500px;
+}
+
+.FormControlBorderRadius {
+  border-radius: 8px;
+}
+
+.CreateArtworkUpload img {
+  width: 70%;
+}
+
+.CreateArtworkUpload:hover {
+  cursor: pointer;
+}
+
+/* Label font */
+.FormLabelFont {
+  font-family: "Poppins", system-ui;
+}
+
+/* Bigger mobile/tablet devices */
+@media (min-width: 540px) {
+  .StypeAndTypeContainer,
+  .PriceAndPaymentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .StyleToPriceFormContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .FormLabelMargin {
+    margin-right: 15px;
+  }
+
+  .FormPayLabelMargin {
+    margin-right: 24px;
+  }
+
+  .PriceInputWidth {
+    max-width: 153px;
+  }
+}
+
+/* Large devices: desktops/monitors */
+@media (min-width: 1280px) {
+  .StypeAndTypeContainer {
+    justify-content: center;
+  }
+
+  .PriceAndPaymentContainer {
+    justify-content: space-evenly;
+  }
+}
+/* Larger devices: desktops/monitors */
+@media (min-width: 1400px) {
+  .PriceAndPaymentContainer {
+    justify-content: center;
+    gap: 6rem;
+  }
+}

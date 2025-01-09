@@ -2,16 +2,16 @@ import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-import Upload from "../../assets/artly-upload.png";
+import Upload2 from "../../assets/upload-frame.png";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
-import styles from "../../styles/ArtworkCreateForm.module.css";
+import styles from "../../styles/ArtworkCreateEditForm.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 
 import { useRedirect } from "../../hooks/useRedirect";
@@ -97,16 +97,17 @@ function ArtworkCreateForm() {
     }
   };
 
-  const textFields = (
-    <div className="text-center">
+  const FormFields = (
+    <div className="text-center ">
       <Form.Group controlId="artwork_title">
-        <Form.Label>Artwork title</Form.Label>
+        <Form.Label className={styles.FormLabelFont}>Artwork title</Form.Label>
         <Form.Control
           type="text"
           placeholder="artwork title"
           name="artwork_title"
           value={artwork_title}
           onChange={handleChange}
+          className={styles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.artwork_title?.map((message, index) => (
@@ -116,13 +117,14 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="artist_name">
-        <Form.Label>Artist name</Form.Label>
+        <Form.Label className={styles.FormLabelFont}>Artist name</Form.Label>
         <Form.Control
           type="text"
           placeholder="artist name"
           name="artist_name"
           value={artist_name}
           onChange={handleChange}
+          className={styles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.artist_name?.map((message, index) => (
@@ -130,103 +132,133 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
+      <div className={styles.StypeAndTypeContainer}>
+        <Form.Group controlId="style">
+          <div className={styles.StyleToPriceFormContainer}>
+            <Form.Label
+              className={`${styles.FormLabelFont} ${styles.FormLabelMargin}`}
+            >
+              Style
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="style"
+              name="style"
+              as="select"
+              value={style}
+              onChange={handleChange}
+              className={styles.FormControlBorderRadius}
+            >
+              <option value="Modern">Modern</option>
+              <option value="Contemporary">Contemporary</option>
+              <option value="Digital art">Digital art</option>
+              <option value="Old Masters">Old Masters</option>
+              <option value="Classical">Classical</option>
+              <option value="Other">Other</option>
+            </Form.Control>
+          </div>
+        </Form.Group>
+        {errors.style?.map((message, index) => (
+          <Alert key={index} variant="warning">
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group controlId="style">
-        <Form.Label>Style</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="style"
-          name="style"
-          as="select"
-          value={style}
-          onChange={handleChange}
-        >
-          <option value="Modern">Modern</option>
-          <option value="Contemporary">Contemporary</option>
-          <option value="Digital art">Digital art</option>
-          <option value="Old Masters">Old Masters</option>
-          <option value="Classical">Classical</option>
-          <option value="Other">Other</option>
-        </Form.Control>
-      </Form.Group>
-      {errors.style?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))}
+        <Form.Group controlId="type">
+          <div className={styles.StyleToPriceFormContainer}>
+            <Form.Label
+              className={`${styles.FormLabelFont} ${styles.FormLabelMargin}`}
+            >
+              Type
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="type"
+              name="type"
+              as="select"
+              value={type}
+              onChange={handleChange}
+              className={styles.FormControlBorderRadius}
+            >
+              <option value="Collage">Collage</option>
+              <option value="Drawing">Drawing</option>
+              <option value="Needlework">Needlework</option>
+              <option value="Etching">Etching</option>
+              <option value="Painting">Painting</option>
+              <option value="Photography">Photography</option>
+              <option value="Pottery">Pottery</option>
+              <option value="Sculpture">Sculpture</option>
+              <option value="Watercolour">Watercolour</option>
+              <option value="Other">Other</option>
+            </Form.Control>
+          </div>
+        </Form.Group>
+        {errors.type?.map((message, index) => (
+          <Alert key={index} variant="warning">
+            {message}
+          </Alert>
+        ))}
+      </div>
+      <div className={styles.PriceAndPaymentContainer}>
+        <Form.Group controlId="payment_method">
+          <div className={styles.StyleToPriceFormContainer}>
+            <Form.Label
+              className={`${styles.FormLabelFont} ${styles.FormPayLabelMargin}`}
+            >
+              Pay
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="payment method"
+              name="payment_method"
+              as="select"
+              value={payment_method}
+              onChange={handleChange}
+              className={styles.FormControlBorderRadius}
+            >
+              <option value="Paypal">Paypal</option>
+              <option value="Cash">Cash</option>
+            </Form.Control>
+          </div>
+        </Form.Group>
+        {errors.payment_method?.map((message, index) => (
+          <Alert key={index} variant="warning">
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group controlId="type">
-        <Form.Label>Type</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="type"
-          name="type"
-          as="select"
-          value={type}
-          onChange={handleChange}
-        >
-          <option value="Collage">Collage</option>
-          <option value="Drawing">Drawing</option>
-          <option value="Needlework">Needlework</option>
-          <option value="Etching">Etching</option>
-          <option value="Painting">Painting</option>
-          <option value="Photography">Photography</option>
-          <option value="Pottery">Pottery</option>
-          <option value="Sculpture">Sculpture</option>
-          <option value="Watercolour">Watercolour</option>
-          <option value="Other">Other</option>
-        </Form.Control>
-      </Form.Group>
-      {errors.type?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group controlId="payment_method">
-        <Form.Label>Payment method</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="payment method"
-          name="payment_method"
-          as="select"
-          value={payment_method}
-          onChange={handleChange}
-        >
-          <option value="Paypal">Paypal</option>
-          <option value="Cash">Cash</option>
-        </Form.Control>
-      </Form.Group>
-      {errors.payment_method?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group controlId="price">
-        <Form.Label>Price</Form.Label>
-        <Form.Control
-          type="number"
-          placeholder="price"
-          name="price"
-          value={price}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.price?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))}
-
+        <Form.Group controlId="price">
+          <div className={styles.StyleToPriceFormContainer}>
+            <Form.Label
+              className={`${styles.FormLabelFont} ${styles.FormLabelMargin}`}
+            >
+              Price
+            </Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="£ 0.00"
+              name="price"
+              value={price}
+              onChange={handleChange}
+              className={`${styles.PriceInputWidth} ${styles.FormControlBorderRadius}`}
+            />
+          </div>
+        </Form.Group>
+        {errors.price?.map((message, index) => (
+          <Alert key={index} variant="warning">
+            {message}
+          </Alert>
+        ))}
+      </div>
       <Form.Group controlId="contact">
-        <Form.Label>Contact</Form.Label>
+        <Form.Label className={styles.FormLabelFont}>Contact</Form.Label>
         <Form.Control
           type="text"
           placeholder="contact"
           name="contact"
           value={contact}
           onChange={handleChange}
+          className={styles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.contact?.map((message, index) => (
@@ -236,13 +268,14 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="location">
-        <Form.Label>Location</Form.Label>
+        <Form.Label className={styles.FormLabelFont}>Location</Form.Label>
         <Form.Control
           type="text"
           placeholder="location"
           name="location"
           value={location}
           onChange={handleChange}
+          className={styles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.location?.map((message, index) => (
@@ -252,7 +285,7 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="description">
-        <Form.Label>Description</Form.Label>
+        <Form.Label className={styles.FormLabelFont}>Description</Form.Label>
         <Form.Control
           type="text"
           placeholder="description"
@@ -260,6 +293,7 @@ function ArtworkCreateForm() {
           as="textarea"
           value={description}
           onChange={handleChange}
+          className={styles.FormControlBorderRadius}
         />
       </Form.Group>
       {errors.description?.map((message, index) => (
@@ -267,24 +301,36 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-
-      <Button onClick={() => history.goBack()}>Cancel</Button>
-      <Button type="submit">Create</Button>
+      <div className="pt-2">
+        <button
+          type="button"
+          className={`mx-2 ${btnStyles.ButtonStyles}`}
+          onClick={() => history.goBack()}
+        >
+          Cancel
+        </button>
+        <button className={`mx-2 ${btnStyles.ButtonStyles}`} type="submit">
+          Create
+        </button>
+      </div>
     </div>
   );
 
   return (
     <Form onSubmit={handleSubmit}>
+      {/* Main container & image column*/}
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container className="d-flex flex-column justify-content-center">
-            <Form.Group className="text-center">
+        <Col className="p-2 p-md-2" md={5} lg={6}>
+          <Container
+            className={`d-flex flex-column justify-content-center py-3 p-4 ${styles.MainArtworkFormContainer}`}
+          >
+            <Form.Group className="text-center mb-0">
               {image ? (
                 <>
                   <figure>
                     <Image className={appStyles.Image} src={image} rounded />
                   </figure>
-                  <div>
+                  <div className={styles.ArtworkImageUpload}>
                     <Form.Label htmlFor="image-upload">
                       Change the image
                     </Form.Label>
@@ -292,11 +338,11 @@ function ArtworkCreateForm() {
                 </>
               ) : (
                 <Form.Label
-                  className={`d-flex justify-content-center ${appStyles.Image} ${styles.CreateArtworkUpload}`}
+                  className={`d-flex justify-content-center ${appStyles.Image} ${styles.CreateArtworkUpload} ${styles.FormLabelFont}`}
                   htmlFor="image-upload"
                 >
                   <Asset
-                    src={Upload}
+                    src={Upload2}
                     message="Click or tap to upload an image"
                   />
                 </Form.Label>
@@ -314,11 +360,12 @@ function ArtworkCreateForm() {
                 </Alert>
               ))}
             </Form.Group>
-            <div className="d-md-none">{textFields}</div>
+
+            <div className="d-md-none">{FormFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container>{textFields}</Container>
+        <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
+          <Container>{FormFields}</Container>
         </Col>
       </Row>
     </Form>

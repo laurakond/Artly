@@ -1,0 +1,59 @@
+/* Shared button styles */
+/* This button style has been take from
+https://getcssscan.com/css-buttons-examples,
+Button 23 style by Airbnb. */
+
+/* CSS */
+.ButtonStyles {
+  background-color: #82204a;
+  border: 1px solid #82204a;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #f9f8f8;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 8px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.ButtonStyles:focus-visible {
+  box-shadow: #f4442e 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.ButtonStyles:active {
+  background-color: #f4442e;
+  border-color: #f4452ecb;
+  color: #f9f8f8;
+  font-weight: 600;
+  transform: scale(0.96);
+}
+
+.ButtonStyles:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.ButtonStyles:hover {
+  background-color: #f4442e;
+  border-color: #f4452eec;
+
+  color: #f9f8f8;
+}
