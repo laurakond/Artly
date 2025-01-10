@@ -23,6 +23,11 @@
   font-family: "Poppins", system-ui;
 }
 
+/* Username and Password Edit form container */
+.NameAndPasswordWidth {
+  max-width: 500px;
+}
+
 /* Bigger mobile/tablet devices */
 @media (min-width: 540px) {
   .StypeAndTypeContainer,
