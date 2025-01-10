@@ -9,6 +9,8 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import appStyles from "../../App.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
@@ -124,125 +126,152 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <>
-      <Form.Group>
-        <Form.Label>Location</Form.Label>
-        <Form.Control
-          type="text"
-          value={location}
-          onChange={handleChange}
-          name="location"
-          // rows={7}
-        />
-      </Form.Group>
+      <div className="text-center">
+        <Form.Group>
+          <Form.Label className={formStyles.FormLabelFont}>Location</Form.Label>
+          <Form.Control
+            type="text"
+            value={location}
+            onChange={handleChange}
+            name="location"
+            className={formStyles.FormControlBorderRadius}
+            // rows={7}
+          />
+        </Form.Group>
 
-      {errors?.content?.map((message, index) => (
-        <Alert variant="warning" key={index}>
-          {message}
-        </Alert>
-      ))}
+        {errors?.content?.map((message, index) => (
+          <Alert variant="warning" key={index}>
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group>
-        <Form.Label>Styles</Form.Label>
-        <Form.Control
-          type="textarea"
-          value={styles}
-          onChange={handleChange}
-          name="styles"
-          // rows={7}
-        />
-      </Form.Group>
+        <Form.Group>
+          <Form.Label className={formStyles.FormLabelFont}>Styles</Form.Label>
+          <Form.Control
+            type="textarea"
+            value={styles}
+            onChange={handleChange}
+            name="styles"
+            className={formStyles.FormControlBorderRadius}
+            // rows={7}
+          />
+        </Form.Group>
 
-      {errors?.content?.map((message, index) => (
-        <Alert variant="warning" key={index}>
-          {message}
-        </Alert>
-      ))}
+        {errors?.content?.map((message, index) => (
+          <Alert variant="warning" key={index}>
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group>
-        <Form.Label>Techniques</Form.Label>
-        <Form.Control
-          type="textarea"
-          value={techniques}
-          onChange={handleChange}
-          name="techniques"
-          rows={7}
-        />
-      </Form.Group>
+        <Form.Group>
+          <Form.Label className={formStyles.FormLabelFont}>
+            Techniques
+          </Form.Label>
+          <Form.Control
+            type="textarea"
+            value={techniques}
+            onChange={handleChange}
+            name="techniques"
+            rows={7}
+            className={formStyles.FormControlBorderRadius}
+          />
+        </Form.Group>
 
-      {errors?.content?.map((message, index) => (
-        <Alert variant="warning" key={index}>
-          {message}
-        </Alert>
-      ))}
+        {errors?.content?.map((message, index) => (
+          <Alert variant="warning" key={index}>
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group>
-        <Form.Label>Influences</Form.Label>
-        <Form.Control
-          type="textarea"
-          value={influences}
-          onChange={handleChange}
-          name="influences"
-          rows={7}
-        />
-      </Form.Group>
+        <Form.Group>
+          <Form.Label className={formStyles.FormLabelFont}>
+            Influences
+          </Form.Label>
+          <Form.Control
+            type="textarea"
+            value={influences}
+            onChange={handleChange}
+            name="influences"
+            rows={7}
+            className={formStyles.FormControlBorderRadius}
+          />
+        </Form.Group>
 
-      {errors?.content?.map((message, index) => (
-        <Alert variant="warning" key={index}>
-          {message}
-        </Alert>
-      ))}
+        {errors?.content?.map((message, index) => (
+          <Alert variant="warning" key={index}>
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group>
-        <Form.Label>Collaborations</Form.Label>
-        <Form.Control
-          type="textarea"
-          value={collaborations}
-          onChange={handleChange}
-          name="collaborations"
-          rows={7}
-        />
-      </Form.Group>
+        <Form.Group>
+          <Form.Label className={formStyles.FormLabelFont}>
+            Collaborations
+          </Form.Label>
+          <Form.Control
+            type="textarea"
+            value={collaborations}
+            onChange={handleChange}
+            name="collaborations"
+            rows={7}
+            className={formStyles.FormControlBorderRadius}
+          />
+        </Form.Group>
 
-      {errors?.content?.map((message, index) => (
-        <Alert variant="warning" key={index}>
-          {message}
-        </Alert>
-      ))}
+        {errors?.content?.map((message, index) => (
+          <Alert variant="warning" key={index}>
+            {message}
+          </Alert>
+        ))}
 
-      <Form.Group>
-        <Form.Label>Portfolio</Form.Label>
-        <Form.Control
-          type="url"
-          value={portfolio_url}
-          onChange={handleChange}
-          name="portfolio_url"
-          // rows={7}
-        />
-      </Form.Group>
+        <Form.Group>
+          <Form.Label className={formStyles.FormLabelFont}>
+            Portfolio
+          </Form.Label>
+          <Form.Control
+            type="url"
+            value={portfolio_url}
+            onChange={handleChange}
+            name="portfolio_url"
+            className={formStyles.FormControlBorderRadius}
+            // rows={7}
+          />
+        </Form.Group>
 
-      {errors?.content?.map((message, index) => (
-        <Alert variant="warning" key={index}>
-          {message}
-        </Alert>
-      ))}
+        {errors?.content?.map((message, index) => (
+          <Alert variant="warning" key={index}>
+            {message}
+          </Alert>
+        ))}
 
-      <Button onClick={() => history.goBack()}>cancel</Button>
-      <Button type="submit">save</Button>
+        <button
+          onClick={() => history.goBack()}
+          type="button"
+          className={`mx-2 ${btnStyles.ButtonStyles}`}
+        >
+          cancel
+        </button>
+        <button type="submit" className={`mx-2 ${btnStyles.ButtonStyles}`}>
+          save
+        </button>
+      </div>
     </>
   );
 
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container>
-            <Form.Group>
+        <Col className="p-2 p-md-2" md={5} lg={6}>
+          <Container
+            className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
+          >
+            <Form.Group className="text-center col-s-mb-0">
               {profile_image && (
                 <figure>
                   <Image
                     className={appStyles.Image}
                     src={profile_image}
-                    fluid
+                    // fluid
+                    rounded
                   />
                 </figure>
               )}
@@ -252,10 +281,14 @@ const ProfileEditForm = () => {
                 </Alert>
               ))}
               <div>
-                <Form.Label className={`btn my-auto`} htmlFor="image-upload">
+                <Form.Label
+                  htmlFor="image-upload"
+                  className={`${formStyles.FormLabelFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
+                >
                   Change the image
                 </Form.Label>
               </div>
+
               <Form.File
                 id="image-upload"
                 ref={imageFile}
@@ -273,7 +306,7 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
+        <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
           <Container>{textFields}</Container>
         </Col>
       </Row>
