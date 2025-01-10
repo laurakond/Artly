@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useHistory, useParams } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import btnStyles from "../../styles/Buttons.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 
 import { axiosRes } from "../../api/AxiosDefaults";
 import {
@@ -55,16 +56,21 @@ const UsernameEditForm = () => {
 
   return (
     <Row>
-      <Col className="py-2 mx-auto text-center" md={6}>
-        <Container>
+      <Col className="p-2 mx-auto text-center" md={6}>
+        <Container
+          className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.NameAndPasswordWidth}`}
+        >
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label>Change username</Form.Label>
+              <Form.Label className={formStyles.FormLabelFont}>
+                Change username
+              </Form.Label>
               <Form.Control
                 placeholder="username"
                 type="text"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
+                className={`mt-3 mb-4 ${formStyles.FormControlBorderRadius}`}
               />
             </Form.Group>
             {errors?.username?.map((message, idx) => (
@@ -72,8 +78,15 @@ const UsernameEditForm = () => {
                 {message}
               </Alert>
             ))}
-            <Button onClick={() => history.goBack()}>cancel</Button>
-            <Button type="submit">save</Button>
+            <button
+              onClick={() => history.goBack()}
+              className={`mx-2 ${btnStyles.ButtonStyles}`}
+            >
+              Cancel
+            </button>
+            <button type="submit" className={`mx-2 ${btnStyles.ButtonStyles}`}>
+              Save
+            </button>
           </Form>
         </Container>
       </Col>
