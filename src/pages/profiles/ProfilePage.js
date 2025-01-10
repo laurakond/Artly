@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -21,6 +23,7 @@ import NoResults from "../../assets/artly-no-results.png";
 import styles from "../../styles/ProfilePage.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
+import tabStyles from "../../styles/Tabs.module.css";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
 function ProfilePage() {
@@ -102,7 +105,9 @@ function ProfilePage() {
               </OverlayTrigger>
             )}
           </div>
-          <Row className="justify-content-center no-gutters">
+          <Row
+            className={`justify-content-center no-gutters ${styles.ProfileStats}`}
+          >
             <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.artwork_count}</div>
               <div>artworks</div>
@@ -118,87 +123,6 @@ function ProfilePage() {
             <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.followers_count}</div>
               <div>followers</div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <div>
-                {profile?.styles === "" ? (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
-                    <p className={formStyles.FormLabelFont}>
-                      {" "}
-                      No styles noted.
-                    </p>
-                  </div>
-                ) : (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
-                    <p className={formStyles.FormLabelFont}>
-                      {profile?.styles}
-                    </p>
-                  </div>
-                )}
-              </div>
-              <div>
-                {profile?.techniques === "" ? (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
-                    <p className={formStyles.FormLabelFont}>
-                      No techniques noted.
-                    </p>
-                  </div>
-                ) : (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
-                    <p className={formStyles.FormLabelFont}>
-                      {profile?.techniques}
-                    </p>
-                  </div>
-                )}
-              </div>
-              <div>
-                {profile?.influences === "" ? (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>
-                      Influences:
-                    </p>
-                    <p className={formStyles.FormLabelFont}>
-                      No influences noted
-                    </p>
-                  </div>
-                ) : (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>
-                      Influences:
-                    </p>
-                    <p className={formStyles.FormLabelFont}>
-                      {profile?.influences}
-                    </p>
-                  </div>
-                )}
-              </div>
-              <div>
-                {profile?.collaborations === "" ? (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>
-                      Collaborations:
-                    </p>
-                    <p className={formStyles.FormLabelFont}>
-                      No collaborations noted.
-                    </p>
-                  </div>
-                ) : (
-                  <div>
-                    <p className={`mb-0 ${styles.SubjectStyles}`}>
-                      Collaborations:
-                    </p>
-                    <p className={formStyles.FormLabelFont}>
-                      {profile?.collaborations}
-                    </p>
-                  </div>
-                )}
-              </div>
             </Col>
           </Row>
         </Col>
@@ -226,6 +150,7 @@ function ProfilePage() {
     </>
   );
 
+  // Main Portfolio page information
   const profileOwnersArtworks = (
     <>
       <hr />
@@ -254,6 +179,98 @@ function ProfilePage() {
     </>
   );
 
+  // Portfolio details for users who are artists
+  const portfolioDetails = (
+    <>
+      <Row>
+        <Col>
+          <div>
+            {profile?.styles === "" ? (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
+                <p className={formStyles.FormLabelFont}> No styles noted.</p>
+              </div>
+            ) : (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
+                <p className={formStyles.FormLabelFont}>{profile?.styles}</p>
+              </div>
+            )}
+          </div>
+          <div>
+            {profile?.techniques === "" ? (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
+                <p className={formStyles.FormLabelFont}>No techniques noted.</p>
+              </div>
+            ) : (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
+                <p className={formStyles.FormLabelFont}>
+                  {profile?.techniques}
+                </p>
+              </div>
+            )}
+          </div>
+          <div>
+            {profile?.influences === "" ? (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>Influences:</p>
+                <p className={formStyles.FormLabelFont}>No influences noted</p>
+              </div>
+            ) : (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>Influences:</p>
+                <p className={formStyles.FormLabelFont}>
+                  {profile?.influences}
+                </p>
+              </div>
+            )}
+          </div>
+          <div>
+            {profile?.collaborations === "" ? (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>
+                  Collaborations:
+                </p>
+                <p className={formStyles.FormLabelFont}>
+                  No collaborations noted.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <p className={`mb-0 ${styles.SubjectStyles}`}>
+                  Collaborations:
+                </p>
+                <p className={formStyles.FormLabelFont}>
+                  {profile?.collaborations}
+                </p>
+              </div>
+            )}
+          </div>
+        </Col>
+      </Row>
+    </>
+  );
+
+  // Profile page tabs(code taken from Bootstrap)
+  const profileTabs = (
+    <>
+      <Tabs
+        defaultActiveKey="profile-details"
+        transition={false}
+        className={`${tabStyles.TabStyles} mt-3`}
+      >
+        <Tab eventKey="profile-details" title="More Details" className="mt-2">
+          {portfolioDetails}
+        </Tab>
+        <Tab eventKey="artworks" title="Artworks" className="mt-2">
+          {profileOwnersArtworks}
+        </Tab>
+      </Tabs>
+    </>
+  );
+
   return (
     <Row className="h-100 justify-content-center">
       <Col className="py-2 p-0 p-lg-2">
@@ -261,15 +278,12 @@ function ProfilePage() {
           {/* Here might put max width for larger screens */}
           <MostSellingProfiles />
         </Col>
-        <Col
-          className={`py-2 pt-4 p-0 p-lg-2 `}
-          // lg={6}
-        >
+        <Col className={`py-2 pt-4 p-0 p-lg-2 `}>
           <Container className={styles.ProfileDetailWidth}>
             {hasLoaded ? (
               <>
                 {profileContent}
-                {profileOwnersArtworks}
+                {profileTabs}
               </>
             ) : (
               <Asset spinner />
