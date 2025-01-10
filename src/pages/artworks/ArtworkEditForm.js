@@ -366,11 +366,12 @@ function ArtworkEditForm() {
           <Container
             className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
           >
-            <Form.Group className="text-center mb-0">
-              <figure>
-                <Image className={appStyles.Image} src={image} rounded />
-              </figure>
-
+            <Form.Group className="text-center col-s-mb-0">
+              <div>
+                <figure>
+                  <Image className={appStyles.Image} src={image} rounded />
+                </figure>
+              </div>
               <Form.Label
                 htmlFor="image-upload"
                 className={`${formStyles.FormLabelFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}

@@ -330,7 +330,7 @@ function ArtworkCreateForm() {
           <Container
             className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
           >
-            <Form.Group className="text-center mb-0">
+            <Form.Group className="text-center col-s-mb-0">
               {image ? (
                 <>
                   <figure>
