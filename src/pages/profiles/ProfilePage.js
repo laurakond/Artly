@@ -4,11 +4,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import Asset from "../../components/Asset";
-import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
   useProfileData,
@@ -20,8 +19,8 @@ import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/artly-no-results.png";
 import styles from "../../styles/ProfilePage.module.css";
-import artworkStyles from "../../styles/Artwork.module.css";
-import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
 function ProfilePage() {
@@ -58,15 +57,12 @@ function ProfilePage() {
 
   const profileContent = (
     <>
-      {profile?.is_owner && (
-        <div className={artworkStyles.EditDeleteButton}>
-          <ProfileEditDropdown id={profile?.id} />
-        </div>
-      )}
-      <Row noGutters className="px-3 text-center">
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+
+      <Row noGutters className=" text-center">
         <Col lg={3} className="text-lg-left">
           <Image
-            className={styles.ProfileImage}
+            className={`${styles.ProfileImage}`}
             roundedCircle
             src={profile?.profile_image}
           />
@@ -75,32 +71,51 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <div>
             {profile?.location === "" ? (
-              <Card.Text>No location given.</Card.Text>
+              <div className={`mb-2 ${styles.SubjectStyles}`}>
+                <i className="fa-solid fa-location-dot fa-lg"></i>
+                <p>No location given.</p>
+              </div>
             ) : (
-              <Card.Text>{profile?.location}</Card.Text>
+              <div className={`mb-2 ${styles.SubjectStyles}`}>
+                <i className="fa-solid fa-location-dot fa-lg"></i>
+                {profile?.location}
+              </div>
             )}
           </div>
           <div>
             {profile?.portfolio_url === "" ? (
-              <Card.Text>Porfolio: No portfolio given.</Card.Text>
+              <div className="mb-2">
+                <i className="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                No portfolio given.
+              </div>
             ) : (
-              <Card.Text>{profile?.portfolio_url}</Card.Text>
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip>Opens {profile?.owner}'s portfolio website</Tooltip>
+                }
+              >
+                <div className={`mb-2 ${styles.SubjectStyles}`}>
+                  <i className="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                  <a href={profile?.portfolio_url}>Portfolio link</a>
+                </div>
+              </OverlayTrigger>
             )}
           </div>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.artwork_count}</div>
               <div>artworks</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.sold_artwork_count}</div>
               <div>sold artworks</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
@@ -109,34 +124,79 @@ function ProfilePage() {
             <Col>
               <div>
                 {profile?.styles === "" ? (
-                  <Card.Text>Style: No styles noted.</Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
+                    <p className={formStyles.FormLabelFont}>
+                      {" "}
+                      No styles noted.
+                    </p>
+                  </div>
                 ) : (
-                  <Card.Text>Style: {profile?.styles}</Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
+                    <p className={formStyles.FormLabelFont}>
+                      {profile?.styles}
+                    </p>
+                  </div>
                 )}
               </div>
               <div>
                 {profile?.techniques === "" ? (
-                  <Card.Text>Technique: No techniques noted.</Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
+                    <p className={formStyles.FormLabelFont}>
+                      No techniques noted.
+                    </p>
+                  </div>
                 ) : (
-                  <Card.Text>Technique: {profile?.techniques}</Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
+                    <p className={formStyles.FormLabelFont}>
+                      {profile?.techniques}
+                    </p>
+                  </div>
                 )}
               </div>
               <div>
                 {profile?.influences === "" ? (
-                  <Card.Text>Influences: No influences noted.</Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>
+                      Influences:
+                    </p>
+                    <p className={formStyles.FormLabelFont}>
+                      No influences noted
+                    </p>
+                  </div>
                 ) : (
-                  <Card.Text>Influences: {profile?.influences}</Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>
+                      Influences:
+                    </p>
+                    <p className={formStyles.FormLabelFont}>
+                      {profile?.influences}
+                    </p>
+                  </div>
                 )}
               </div>
               <div>
                 {profile?.collaborations === "" ? (
-                  <Card.Text>
-                    Collaborations: No collaborations noted.
-                  </Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>
+                      Collaborations:
+                    </p>
+                    <p className={formStyles.FormLabelFont}>
+                      No collaborations noted.
+                    </p>
+                  </div>
                 ) : (
-                  <Card.Text>
-                    Collaborations: {profile?.collaborations}
-                  </Card.Text>
+                  <div>
+                    <p className={`mb-0 ${styles.SubjectStyles}`}>
+                      Collaborations:
+                    </p>
+                    <p className={formStyles.FormLabelFont}>
+                      {profile?.collaborations}
+                    </p>
+                  </div>
                 )}
               </div>
             </Col>
@@ -146,11 +206,19 @@ function ProfilePage() {
           {loggedInUser &&
             !is_owner &&
             (profile?.following_id ? (
-              <Button onClick={() => handleUnfollowUser(profile)}>
+              <button
+                onClick={() => handleUnfollowUser(profile)}
+                className={btnStyles.ButtonStyles}
+              >
                 unfollow
-              </Button>
+              </button>
             ) : (
-              <Button onClick={() => handleFollowUser(profile)}>follow</Button>
+              <button
+                onClick={() => handleFollowUser(profile)}
+                className={btnStyles.ButtonStyles}
+              >
+                follow
+              </button>
             ))}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
@@ -188,23 +256,26 @@ function ProfilePage() {
 
   return (
     <Row className="h-100 justify-content-center">
-      <Col xs={12}>
-        <MostSellingProfiles />
-      </Col>
-      <Col
-        className={`py-2 p-0 p-lg-2 ${allArtworkStyles.ContentWidth}`}
-        lg={8}
-      >
-        <Container className={appStyles.Content}>
-          {hasLoaded ? (
-            <>
-              {profileContent}
-              {profileOwnersArtworks}
-            </>
-          ) : (
-            <Asset spinner />
-          )}
-        </Container>
+      <Col className="py-2 p-0 p-lg-2">
+        <Col xs={12}>
+          {/* Here might put max width for larger screens */}
+          <MostSellingProfiles />
+        </Col>
+        <Col
+          className={`py-2 pt-4 p-0 p-lg-2 `}
+          // lg={6}
+        >
+          <Container className={styles.ProfileDetailWidth}>
+            {hasLoaded ? (
+              <>
+                {profileContent}
+                {profileOwnersArtworks}
+              </>
+            ) : (
+              <Asset spinner />
+            )}
+          </Container>
+        </Col>
       </Col>
     </Row>
   );

@@ -15,3 +15,28 @@ i {
 .DropdownItem:hover i {
   color: #f4442e;
 }
+
+/* This code was taken from Code Institute's Moments walkthrough. More noted in the README.md */
+.Absolute {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+}
+
+@media (min-width: 768px) {
+  .Absolute {
+    right: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .Absolute {
+    right: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Absolute {
+    right: 300px;
+  }
+}
