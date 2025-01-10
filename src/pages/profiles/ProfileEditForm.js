@@ -259,7 +259,7 @@ const ProfileEditForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="p-2 p-md-2" md={5} lg={6}>
+        <Col className="p-2 p-md-4" md={5} lg={6}>
           <Container
             className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
           >
@@ -305,7 +305,7 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
+        <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2 pr-xl-5">
           <Container>{textFields}</Container>
         </Col>
       </Row>
