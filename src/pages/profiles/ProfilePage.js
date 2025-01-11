@@ -106,7 +106,7 @@ function ProfilePage() {
             )}
           </div>
           <Row
-            className={`justify-content-center no-gutters ${styles.ProfileStats}`}
+            className={`justify-content-center no-gutters my-4 ${styles.ProfileStats}`}
           >
             <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
               <div>{profile?.artwork_count}</div>
@@ -153,9 +153,10 @@ function ProfilePage() {
   // Main Portfolio page information
   const profileOwnersArtworks = (
     <>
-      <hr />
-      <p className="text-center">{profile?.owner}'s artworks</p>
-      <hr />
+      <p className={`text-center mt-4 ${styles.SubjectStyles}`}>
+        {profile?.owner}'s artworks
+      </p>
+
       {profileArtworks.results.length ? (
         <InfiniteScroll
           children={profileArtworks.results.map((artwork) => (
