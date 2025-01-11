@@ -21,6 +21,7 @@
   cursor: pointer;
 }
 
+/* Media queries */
 @media (min-width: 420px) {
   .ArtworkCardWidth {
     max-width: 90%;

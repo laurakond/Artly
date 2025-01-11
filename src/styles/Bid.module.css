@@ -1,0 +1,33 @@
+.AccentFont {
+  font-family: "Poppins", system-ui;
+}
+
+.ExistingBids {
+  flex-direction: column;
+}
+
+/* Class for displaying accept/reject/sold seller buttons */
+.SellerActionButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.BuyerDeleteBid {
+  flex-direction: row;
+}
+
+/* Media queries */
+@media (min-width: 506px) {
+  .BuyerDeleteBid {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 740px) {
+  .ExistingBids {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

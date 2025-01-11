@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -14,6 +15,9 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
 import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
+import artworkStyles from "../../styles/Artwork.module.css";
+import styles from "../../styles/ArtworkPage.module.css";
+import appStyles from "../../App.module.css";
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -129,47 +133,101 @@ const ArtworkPage = () => {
         <MostSellingProfiles />
       </Col>
       <Col
-        className={`py-2 p-2 p-lg-2 ${allArtworkStyles.ContentWidth}`}
+        className={`py-2 p-2 p-lg-2 ${allArtworkStyles.ContentWidth} `}
         lg={8}
       >
         <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
-        <Container>
+        <Container
+          className={`py-3 ${artworkStyles.ArtworkCardWidth} ${styles.MainBidContainer}`}
+        >
           {loggedInUser && not_owner && !artwork_is_sold ? (
-            <BidCreateForm
-              artwork={id}
-              setArtwork={setArtwork}
-              setBids={setBids}
-              profile_id={loggedInUser.profile_id}
-              profile_image={profile_image}
-            />
+            <>
+              <p className={appStyles.AccentFont}>Leave your bid here</p>
+              <BidCreateForm
+                artwork={id}
+                setArtwork={setArtwork}
+                setBids={setBids}
+                profile_id={loggedInUser.profile_id}
+                profile_image={profile_image}
+              />
+            </>
           ) : bids.results.length ? (
             "Bids"
           ) : null}
+          <hr />
+          {bids.results.length && loggedInUser ? (
+            <>
+              <p className={appStyles.AccentFont}>Existing Bids</p>
 
-          {bids.results.length ? (
-            <InfiniteScroll
-              children={bids.results.map((bid) => (
-                <Bid
-                  key={bid.id}
-                  {...bid}
-                  setArtwork={setArtwork}
-                  setBids={setBids}
-                  handleRejectBid={handleRejectBid}
-                  handleAcceptBid={handleAcceptBid}
-                  handleSoldBid={handleSoldBid}
-                  handleDeleteBid={handleDeleteBid}
-                  artwork_is_sold={artwork_is_sold}
-                />
-              ))}
-              dataLength={bids.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!bids.next}
-              next={() => fetchMoreData(bids, setBids)}
-            />
+              <InfiniteScroll
+                children={bids.results.map((bid) => (
+                  <Bid
+                    key={bid.id}
+                    {...bid}
+                    setArtwork={setArtwork}
+                    setBids={setBids}
+                    handleRejectBid={handleRejectBid}
+                    handleAcceptBid={handleAcceptBid}
+                    handleSoldBid={handleSoldBid}
+                    handleDeleteBid={handleDeleteBid}
+                    artwork_is_sold={artwork_is_sold}
+                  />
+                ))}
+                dataLength={bids.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!bids.next}
+                next={() => fetchMoreData(bids, setBids)}
+              />
+            </>
+          ) : !loggedInUser && bids.results.length && !artwork_is_sold ? (
+            <>
+              <p className="text-center">
+                <Link to="/signin">
+                  <span>Sign in </span>
+                </Link>{" "}
+                or
+                <Link to="/signup">
+                  <span> Sign up </span>
+                </Link>
+                to place a bid.
+              </p>
+              <hr />
+              <p className={appStyles.AccentFont}>Existing Bids</p>
+              <InfiniteScroll
+                children={bids.results.map((bid) => (
+                  <Bid
+                    key={bid.id}
+                    {...bid}
+                    setArtwork={setArtwork}
+                    setBids={setBids}
+                    handleRejectBid={handleRejectBid}
+                    handleAcceptBid={handleAcceptBid}
+                    handleSoldBid={handleSoldBid}
+                    handleDeleteBid={handleDeleteBid}
+                    artwork_is_sold={artwork_is_sold}
+                  />
+                ))}
+                dataLength={bids.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!bids.next}
+                next={() => fetchMoreData(bids, setBids)}
+              />
+            </>
           ) : loggedInUser ? (
-            <span>No bids yet</span>
+            <span>No bids have been placed yet.</span>
           ) : (
-            <span>Log in to leave a bid</span>
+            <>
+              <p className="text-center">
+                <Link to="/signin">
+                  <span>Sign in </span>
+                </Link>{" "}
+                or
+                <Link to="/signup">
+                  <span> Sign up </span>
+                </Link>
+                to place a bid.
+              </p>
+            </>
           )}
         </Container>
       </Col>

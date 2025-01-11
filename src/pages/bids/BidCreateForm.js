@@ -5,7 +5,8 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import InputGroup from "react-bootstrap/InputGroup";
 import { axiosRes } from "../../api/AxiosDefaults";
-import Avatar from "../../components/Avatar";
+import btnStyles from "../../styles/Buttons.module.css";
+import styles from "../../styles/BidCreateForm.module.css";
 
 function BidCreateForm(props) {
   const [errors, setErrors] = useState({});
@@ -66,58 +67,51 @@ function BidCreateForm(props) {
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
-      <Form.Group>
-        <InputGroup>
-          {/* {owner} */}
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} />
-          </Link>
-          <Form.Control
-            placeholder="my bid"
-            name="bid_price"
-            type="decimal"
-            value={bid_price}
-            onChange={handleChange}
-            rows={2}
-          />
-          {/* {Array.isArray(errors.bid_price) && errors.bid_price.map((message, index) => (
-                <Alert key={index} variant="warning">
-                    {message}
-                </Alert>
-            ))} */}
-          {errors.bid_price?.map((message, index) => (
-            <Alert key={index} variant="warning">
-              {message}
-            </Alert>
-          ))}
-
-          <Form.Control
-            placeholder="email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={handleChange}
-            rows={2}
-          />
-        </InputGroup>
-      </Form.Group>
-      {/* {Array.isArray(errors.email) && errors.email.map((message, index) => (
-            <Alert key={index} variant="warning">
+      <div className={styles.InputFormStyles}>
+        <Form.Group>
+          <InputGroup className="justify-content-start align-items-center">
+            <div>
+              <Form.Control
+                placeholder="£0.00"
+                name="bid_price"
+                type="decimal"
+                value={bid_price}
+                onChange={handleChange}
+                rows={2}
+                className={`mt-3 ${styles.BidPriceStyle}`}
+              />
+            </div>
+            {errors.bid_price?.map((message, index) => (
+              <Alert key={index} variant="warning">
                 {message}
-            </Alert>
-        ))} */}
-      {errors.email?.map((message, index) => (
-        <Alert key={index} variant="warning">
-          {message}
-        </Alert>
-      ))}
-      <button
-        className="btn d-block ml-auto"
-        // disabled={!bidPrice.trim()}
-        type="submit"
-      >
-        Send your bid
-      </button>
+              </Alert>
+            ))}
+            <div>
+              <Form.Control
+                placeholder="email"
+                name="email"
+                type="email"
+                value={email}
+                onChange={handleChange}
+                rows={2}
+                className={` mt-3 ${styles.EmailInputStyle}`}
+              />
+            </div>
+            {errors.email?.map((message, index) => (
+              <Alert key={index} variant="warning">
+                {message}
+              </Alert>
+            ))}
+          </InputGroup>
+        </Form.Group>
+
+        <button
+          className={`${btnStyles.ButtonStyles} ${styles.ButtonMargin}`}
+          type="submit"
+        >
+          Bid
+        </button>
+      </div>
     </Form>
   );
 }
