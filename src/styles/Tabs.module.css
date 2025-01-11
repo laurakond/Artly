@@ -1,20 +1,4 @@
-.TabStyles:active {
-  /* padding-left: 10px; */
-  background: #f9f8f8;
-}
-
-.TabStyles a.nav-item.nav-link.active {
-  background: #f9f8f8;
-}
-
 .TabStyles {
   font-weight: 600;
-  color: #f4442e;
-  background-color: #f9f8f8;
-}
-
-.TabStyles:active {
-  font-weight: 600;
-  color: #f4442e;
   background-color: #f9f8f8;
 }
