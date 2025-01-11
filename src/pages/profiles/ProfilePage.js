@@ -134,14 +134,14 @@ function ProfilePage() {
                 onClick={() => handleUnfollowUser(profile)}
                 className={btnStyles.ButtonStyles}
               >
-                unfollow
+                Unfollow
               </button>
             ) : (
               <button
                 onClick={() => handleFollowUser(profile)}
                 className={btnStyles.ButtonStyles}
               >
-                follow
+                Follow
               </button>
             ))}
         </Col>
@@ -217,7 +217,7 @@ function ProfilePage() {
             {profile?.influences === "" ? (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Influences:</p>
-                <p className={formStyles.FormLabelFont}>No influences noted</p>
+                <p className={formStyles.FormLabelFont}>No influences noted.</p>
               </div>
             ) : (
               <div>
