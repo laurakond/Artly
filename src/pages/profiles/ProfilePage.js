@@ -255,7 +255,7 @@ function ProfilePage() {
   );
 
   // Profile page tabs(code taken from Bootstrap)
-  const profileTabs = (
+  const profilePageTabs = (
     <>
       <Tabs
         defaultActiveKey="profile-details"
@@ -284,7 +284,7 @@ function ProfilePage() {
             {hasLoaded ? (
               <>
                 {profileContent}
-                {profileTabs}
+                {profilePageTabs}
               </>
             ) : (
               <Asset spinner />

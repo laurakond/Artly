@@ -11,11 +11,7 @@ const MostSellingProfiles = ({ mobile }) => {
   const { mostSellingProfiles } = useProfileData();
 
   return (
-    <Container
-      className={`${mobile && "d-lg-none text-center mb-3"} ${
-        allArtworkStyles.ContentWidth
-      }`}
-    >
+    <Container className={`${mobile && "d-lg-none text-center mb-3"} `}>
       {mostSellingProfiles.results.length ? (
         <>
           <p>Top sellers</p>
