@@ -18,6 +18,7 @@ import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
 import artworkStyles from "../../styles/Artwork.module.css";
 import styles from "../../styles/ArtworkPage.module.css";
 import appStyles from "../../App.module.css";
+import bidStyles from "../../styles/Bid.module.css";
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -183,11 +184,11 @@ const ArtworkPage = () => {
             <>
               <p className="text-center">
                 <Link to="/signin">
-                  <span>Sign in </span>
-                </Link>{" "}
+                  <span className={bidStyles.AccentFont}>Sign in </span>
+                </Link>
                 or
                 <Link to="/signup">
-                  <span> Sign up </span>
+                  <span className={bidStyles.AccentFont}> Sign up </span>
                 </Link>
                 to place a bid.
               </p>
@@ -218,11 +219,11 @@ const ArtworkPage = () => {
               <p className="text-center">
                 This artwork has been sold.
                 <Link to="/signin">
-                  <span> Sign in </span>
+                  <span className={bidStyles.AccentFont}> Sign in </span>
                 </Link>{" "}
                 or
                 <Link to="/signup">
-                  <span> Sign up </span>
+                  <span className={bidStyles.AccentFont}> Sign up </span>
                 </Link>
                 to bid on another one.
               </p>
@@ -254,11 +255,11 @@ const ArtworkPage = () => {
             <>
               <p className="text-center">
                 <Link to="/signin">
-                  <span>Sign in </span>
-                </Link>{" "}
+                  <span className={bidStyles.AccentFont}>Sign in </span>
+                </Link>
                 or
                 <Link to="/signup">
-                  <span> Sign up </span>
+                  <span className={bidStyles.AccentFont}> Sign up </span>
                 </Link>
                 to place a bid.
               </p>
