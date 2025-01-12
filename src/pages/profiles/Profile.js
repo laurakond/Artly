@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import Avatar from "../../components/Avatar";
+import styles from "../../styles/Profile.module.css";
 
 const Profile = (props) => {
   const { profileData, mobile, imageSize = 55 } = props;
@@ -14,28 +17,42 @@ const Profile = (props) => {
 
   return (
     <div
-      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+      className={`my-3 flex-column align-items-center justify-content-center ${
+        mobile && "flex-column"
+      }`}
     >
-      <div>
+      <div className="position-relative">
         <Link className="align-self-center" to={`/profiles/${id}`}>
           <Avatar src={profile_image} height={imageSize} />
         </Link>
       </div>
-      <div className="mx-2">
+      <div className="text-center">
         <strong>{owner}</strong>
       </div>
-      <div className={`text-right ${!mobile && "ml-auto"}`}>
+      <div className={styles.FollowIconStyle}>
         {!mobile &&
           loggedInUser &&
           !is_owner &&
           (following_id ? (
-            <button onClick={() => handleUnfollowUser(profileData)}>
-              unfollow
-            </button>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Click to unfollow {owner}</Tooltip>}
+            >
+              <i
+                className="fa-solid fa-minus fa-lg"
+                onClick={() => handleUnfollowUser(profileData)}
+              ></i>
+            </OverlayTrigger>
           ) : (
-            <button onClick={() => handleFollowUser(profileData)}>
-              follow
-            </button>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Click to follow {owner}</Tooltip>}
+            >
+              <i
+                className="fa-solid fa-plus fa-lg"
+                onClick={() => handleFollowUser(profileData)}
+              ></i>
+            </OverlayTrigger>
           ))}
       </div>
     </div>
