@@ -6,12 +6,12 @@
   margin-bottom: 1rem;
 }
 
+/* Styles for displaying seller buttons */
 .ExistingBids,
 .ContactBuyerBtnDisplay {
   flex-direction: column;
 }
 
-/* Class for displaying accept/reject/sold seller buttons */
 .SellerActionButtons {
   display: flex;
   flex-direction: column;

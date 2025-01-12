@@ -186,7 +186,7 @@ const Artwork = (props) => {
                 <div>
                   {contact && (
                     <div>
-                      <i className="fa-solid fa-mobile-screen-button"></i>{" "}
+                      <i className="fa-solid fa-mobile-screen-button"></i>
                       {contact}
                     </div>
                   )}

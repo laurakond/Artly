@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -22,8 +21,8 @@ function BidCreateForm(props) {
       ...bidData,
       [event.target.name]: event.target.value,
     });
-    // This part of code was appropriated from medium.com. Full credit is
-    // noted in the Readme file.
+    // This part of the code was appropriated from medium.com. Full credit is
+    // noted in the used code section in the Readme.md.
     if (errors[event.target.name]) {
       setErrors((prevErrors) => ({
         ...prevErrors,

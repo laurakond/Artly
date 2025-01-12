@@ -13,7 +13,6 @@ import { axiosReq } from "../../api/AxiosDefaults";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
-
 import { useRedirect } from "../../hooks/useRedirect";
 
 function ArtworkCreateForm() {
@@ -98,7 +97,7 @@ function ArtworkCreateForm() {
   };
 
   const formFields = (
-    <div className="text-center ">
+    <div className="text-center">
       <Form.Group controlId="artwork_title">
         <Form.Label className={formStyles.FormLabelFont}>
           Artwork title
