@@ -19,16 +19,10 @@
 
 .BuyerDeleteBid {
   flex-direction: row;
+  justify-content: space-around;
 }
 
 /* Media queries */
-@media (min-width: 506px) {
-  .BuyerDeleteBid {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-}
-
 @media (min-width: 665px) {
   .ContactBuyerBtnDisplay {
     flex-direction: row;
