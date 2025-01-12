@@ -16,7 +16,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 
 export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   return (
-    <Dropdown drop="bottom">
+    <Dropdown drop="down">
       <Dropdown.Toggle as={ThreeDots} />
 
       <Dropdown.Menu
@@ -45,7 +45,7 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
 
 export const BuyerDropdownMenu = ({ handleDelete }) => {
   return (
-    <Dropdown drop="bottom">
+    <Dropdown drop="down">
       <Dropdown.Toggle as={ThreeDots} />
 
       <Dropdown.Menu
