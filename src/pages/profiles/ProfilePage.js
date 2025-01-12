@@ -19,7 +19,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import MostSellingProfiles from "./MostSellingProfiles";
 import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
-import NoResults from "../../assets/artly-no-results.png";
+import NoResults from "../../assets/no-results.png";
 import styles from "../../styles/ProfilePage.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
