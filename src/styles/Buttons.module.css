@@ -12,10 +12,8 @@ Button 23 style by Airbnb. */
   color: #f9f8f8;
   cursor: pointer;
   display: inline-block;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui;
   font-size: 16px;
-  font-weight: 500;
   line-height: 20px;
   margin: 0;
   outline: none;
@@ -54,6 +52,6 @@ Button 23 style by Airbnb. */
 .ButtonStyles:hover {
   background-color: #f4442e;
   border-color: #f4452eec;
-
+  font-weight: 500;
   color: #f9f8f8;
 }
