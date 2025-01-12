@@ -2,16 +2,39 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
+.BidPriceStyle {
+  margin-bottom: 1rem;
+}
+
+.Alert {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
 @media (min-width: 609px) {
+  .InputGroupCustom {
+    flex-wrap: nowrap;
+  }
   .InputFormStyles {
     flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
   }
+
+  .BidPriceStyle,
+  .EmailInputStyle {
+    width: 100%;
+  }
+
   .BidPriceStyle {
     max-width: 100px;
     margin-right: 0.5rem;
+    margin-bottom: 0;
   }
   .EmailInputStyle {
     margin-left: 0.5rem;
@@ -19,8 +42,18 @@
   }
 
   .ButtonMargin {
-    align-self: center;
+    align-self: center; /* change to flex end when alert is displayed*/
     margin: auto;
     margin-left: 1.5rem;
+  }
+
+  .ButtonMarginWithError,
+  .AlertMarginWithError {
+    /* Button changes the centering when the alert is displayed*/
+    align-self: flex-end;
+  }
+
+  .AlertEmail {
+    margin-left: 0.5rem;
   }
 }

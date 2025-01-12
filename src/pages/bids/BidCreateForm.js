@@ -9,7 +9,7 @@ import styles from "../../styles/BidCreateForm.module.css";
 
 function BidCreateForm(props) {
   const [errors, setErrors] = useState({});
-  const { artwork, setArtwork, setBids, profile_image, profile_id } = props;
+  const { artwork, setArtwork, setBids } = props;
   const [bidData, setBidData] = useState({
     email: "",
     bid_price: "",
@@ -67,9 +67,26 @@ function BidCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <div className={styles.InputFormStyles}>
-        <Form.Group>
-          <InputGroup className="justify-content-start align-items-center">
-            <div>
+        <Form.Group className="mb-0">
+          <InputGroup
+            className={`justify-content-start align-items-center ${styles.InputGroupCustom}`}
+          >
+            <div
+              className={
+                errors.bid_price || errors.email
+                  ? styles.AlertMarginWithError
+                  : null
+              }
+            >
+              {errors.bid_price?.map((message, index) => (
+                <Alert
+                  key={index}
+                  variant="warning"
+                  className={`p-2 ${styles.Alert} ${styles.AlertPrice}`}
+                >
+                  {message}
+                </Alert>
+              ))}
               <Form.Control
                 placeholder="£0.00"
                 name="bid_price"
@@ -77,15 +94,25 @@ function BidCreateForm(props) {
                 value={bid_price}
                 onChange={handleChange}
                 rows={2}
-                className={`mt-3 ${styles.BidPriceStyle}`}
+                className={`${styles.BidPriceStyle}`}
               />
             </div>
-            {errors.bid_price?.map((message, index) => (
-              <Alert key={index} variant="warning">
-                {message}
-              </Alert>
-            ))}
-            <div>
+            <div
+              className={
+                errors.bid_price || errors.email
+                  ? styles.AlertMarginWithError
+                  : null
+              }
+            >
+              {errors.email?.map((message, index) => (
+                <Alert
+                  key={index}
+                  variant="warning"
+                  className={`p-2 ${styles.Alert} ${styles.AlertEmail}`}
+                >
+                  {message}
+                </Alert>
+              ))}
               <Form.Control
                 placeholder="email"
                 name="email"
@@ -93,19 +120,18 @@ function BidCreateForm(props) {
                 value={email}
                 onChange={handleChange}
                 rows={2}
-                className={` mt-3 ${styles.EmailInputStyle}`}
+                className={` ${styles.EmailInputStyle}`}
               />
             </div>
-            {errors.email?.map((message, index) => (
-              <Alert key={index} variant="warning">
-                {message}
-              </Alert>
-            ))}
           </InputGroup>
         </Form.Group>
 
         <button
-          className={`${btnStyles.ButtonStyles} ${styles.ButtonMargin}`}
+          className={`${btnStyles.ButtonStyles} ${
+            errors.bid_price || errors.email
+              ? styles.ButtonMarginWithError
+              : styles.ButtonMargin
+          }`}
           type="submit"
         >
           Bid
