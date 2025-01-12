@@ -151,13 +151,13 @@ const ArtworkPage = () => {
                 profile_image={profile_image}
               />
             </>
-          ) : bids.results.length ? (
-            "Bids"
           ) : null}
+
+          <p className={appStyles.AccentFont}>Existing Bids</p>
           <hr />
           {bids.results.length && loggedInUser ? (
             <>
-              <p className={appStyles.AccentFont}>Existing Bids</p>
+              {/* <p className={appStyles.AccentFont}>Existing Bids</p> */}
 
               <InfiniteScroll
                 children={bids.results.map((bid) => (
@@ -190,6 +190,41 @@ const ArtworkPage = () => {
                   <span> Sign up </span>
                 </Link>
                 to place a bid.
+              </p>
+              <hr />
+              <p className={appStyles.AccentFont}>Existing Bids</p>
+              <InfiniteScroll
+                children={bids.results.map((bid) => (
+                  <Bid
+                    key={bid.id}
+                    {...bid}
+                    setArtwork={setArtwork}
+                    setBids={setBids}
+                    handleRejectBid={handleRejectBid}
+                    handleAcceptBid={handleAcceptBid}
+                    handleSoldBid={handleSoldBid}
+                    handleDeleteBid={handleDeleteBid}
+                    artwork_is_sold={artwork_is_sold}
+                  />
+                ))}
+                dataLength={bids.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!bids.next}
+                next={() => fetchMoreData(bids, setBids)}
+              />
+            </>
+          ) : !loggedInUser && bids.results.length ? (
+            <>
+              <p className="text-center">
+                This artwork has been sold.
+                <Link to="/signin">
+                  <span> Sign in </span>
+                </Link>{" "}
+                or
+                <Link to="/signup">
+                  <span> Sign up </span>
+                </Link>
+                to bid on another one.
               </p>
               <hr />
               <p className={appStyles.AccentFont}>Existing Bids</p>
