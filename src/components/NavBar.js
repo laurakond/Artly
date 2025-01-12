@@ -9,13 +9,11 @@ import {
   useSetLoggedInUser,
 } from "../contexts/LoggedInUserContext";
 import logoSplash from "../assets/splash-logo.png";
-
 import styles from "../styles/NavBar.module.css";
-
 import axios from "axios";
 import useNavBarToggle from "../hooks/useNavBarToggle";
-
 import Avatar from "./Avatar";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const loggedInUser = useLoggedInUser();
@@ -27,6 +25,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setLoggedInUser(null);
+      removeTokenTimestamp();
       toast.success("You are logged out!");
     } catch (error) {
       console.log(error);

@@ -12,6 +12,7 @@ import Alert from "react-bootstrap/Alert";
 import axios from "axios";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils.js";
 
 function SignInForm() {
   const setLoggedInUser = useSetLoggedInUser();
@@ -37,6 +38,7 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setLoggedInUser(data.user);
+      setTokenTimestamp(data);
       history.goBack();
       toast.success("You are signed in!");
     } catch (error) {

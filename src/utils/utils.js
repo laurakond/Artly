@@ -1,4 +1,8 @@
+import jwtDecode from "jwt-decode";
 import { axiosReq } from "../api/AxiosDefaults";
+
+// All of the below code was appropriated from Code Institute's Moments
+// walkthrough project. More details noted in the Readme.md
 
 export const fetchMoreData = async (resource, setResource) => {
   try {
@@ -51,4 +55,17 @@ export const unfollowUserHelper = (profile, clickedProfile) => {
       }
     : // this is not the profile the user clicked on or the profile the user owns, so just return it unchanged
       profile;
+};
+
+export const setTokenTimestamp = (data) => {
+  const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
+  localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+};
+
+export const shouldRefreshToken = () => {
+  return !!localStorage.getItem("refreshTokenTimestamp");
+};
+
+export const removeTokenTimestamp = () => {
+  localStorage.removeItem("refreshTokenTimestamp");
 };
