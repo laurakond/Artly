@@ -2,7 +2,12 @@
   font-family: "Poppins", system-ui;
 }
 
-.ExistingBids {
+.BidDisplayMargin {
+  margin-bottom: 1rem;
+}
+
+.ExistingBids,
+.ContactBuyerBtnDisplay {
   flex-direction: column;
 }
 
@@ -21,6 +26,13 @@
   .BuyerDeleteBid {
     flex-direction: row;
     justify-content: space-around;
+  }
+}
+
+@media (min-width: 665px) {
+  .ContactBuyerBtnDisplay {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 

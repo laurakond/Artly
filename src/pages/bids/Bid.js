@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Media from "react-bootstrap/Media";
-// import { OverlayTrigger } from "react-bootstrap";
-// import { Tooltip } from "react-bootstrap";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Avatar from "../../components/Avatar";
 import { BuyerDropdownMenu } from "../../components/DropdownMenu";
@@ -13,11 +11,11 @@ import btnStyles from "../../styles/Buttons.module.css";
 const Bid = (props) => {
   const {
     buyer,
-    updated_at,
     bid_price,
     seller,
     email,
     status,
+    bids_count,
     artwork_is_sold,
     id,
     handleAcceptBid,
@@ -32,10 +30,12 @@ const Bid = (props) => {
   const is_buyer = loggedInUser?.username === buyer;
 
   return (
-    <div>
+    <div className={`${bids_count !== 0 ? styles.BidDisplayMargin : null} `}>
       <Media
         className={`${
-          is_seller && !artwork_is_sold
+          is_seller && status === "Sold" && artwork_is_sold
+            ? styles.ContactBuyerBtnDisplay
+            : is_seller && !artwork_is_sold
             ? styles.SellerActionButtons
             : is_buyer && !artwork_is_sold
             ? styles.BuyerDeleteBid
@@ -47,34 +47,33 @@ const Bid = (props) => {
             <Avatar src={profile_image} />
           </Link>
           <Media.Body className="align-self-center ml-2">
-            <div
-              className={`d-flex justify-content-between flex-column ${styles.Test}`}
-            >
-              <span>{updated_at}</span>
-
+            <div className="d-flex justify-content-between flex-column">
+              <span className={styles.AccentFont}>{buyer}</span>
               {/* Bid display based on the bid status and if artwork is sold */}
               {artwork_is_sold && status === "Sold" ? (
                 <p className="mb-0">
                   Bid placed: £{bid_price} Status: {status}
                 </p>
               ) : artwork_is_sold ? (
-                <p>Bid placed: £{bid_price}</p>
+                <p className="mb-0">Bid placed: £{bid_price}</p>
               ) : (
-                <p>
+                <p className="mb-0">
                   Bid placed: £{bid_price} Status: {status}
                 </p>
               )}
             </div>
           </Media.Body>
         </div>
+
+        {/* Seller Buttons for managing the bids */}
         <div>
           {is_seller && status === "Sold" ? (
-            <div className="d-flex align-items-center m-2">
+            <div className={`d-flex align-items-center m-2`}>
               <a
                 href={`mailto:${email}`}
                 rel="noopener"
                 aria-label="Email the buyer (opens email in the new window)"
-                className={` ${btnStyles.ButtonStyles}`}
+                className={btnStyles.ButtonStyles}
               >
                 Email the buyer
               </a>
@@ -107,7 +106,7 @@ const Bid = (props) => {
             )
           )}
         </div>
-        {/* Delete bid available for the buyer only if the bid is not marked as sold */}
+        {/* Buyer Delete bid if the artwork is not sold */}
         {is_buyer && !artwork_is_sold && (
           <div className={artworkStyles.EditDeleteButton}>
             <BuyerDropdownMenu handleDelete={() => handleDeleteBid(id)} />
