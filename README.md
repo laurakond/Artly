@@ -223,8 +223,8 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 **Logo and favicon**
 
-![favicon](documentation/images/features/pp5-favicon.JPG)
-![logo](documentation/images/features/pp5-logo.JPG)
+![favicon](documentation/images/features/pp5-favicon.jpg)
+![logo](documentation/images/features/pp5-logo.jpg)
 
 - Upon logging loading the website, the user is greeted by a creative Logo to the left of the Navigation bar, which indicates of the website's creative purpose.
 - Similarly, the same theme of the favicon clearly signals which of the browser tabs the website is on.
@@ -240,7 +240,15 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   - Sign In
   - Sign Up
 
-![logged out navbar]()
+  **Mobile**
+
+  ![mobile logged out navbar](documentation/images/features/mobile-navbar.jpg)
+  ![mobile expanded logged out navbar](documentation/images/features/mobile-navbar-exp.jpg)
+
+  **Desktop**
+
+  ![desktop logged out navbar](documentation/images/features/desktop-navbar.jpg)
+  ![desktop logged in navbar](documentation/images/features/desktop-navbar-user.jpg)
 
 - Upon Registration or Log in, the user's profile avatar and additional four pages and a Sign out are revealed in the header. This creates a sense of personalisation and indicates additional website functionality for the registered users.
 
@@ -249,6 +257,13 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   - Followed Page
   - Profile Avatar
   - Log out Page
+
+  **Mobile**
+
+  ![mobile logged in navbar](documentation/images/features/mobile-navbar-user.jpg)
+
+  **Desktop**
+  ![desktop logged in navbar](documentation/images/features/desktop-navbar-user.jpg)
 
 **The Landing Page**
 
@@ -262,9 +277,11 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   - Filter by Artwork style
   - Filter by Artwork type
   - Filter by Artwork's sold status:
+
     - the sold artworks are marked with a Sold label that clearly indicates their unavailability for purchase
 
-- ![Artwork list view]()
+    ![Mobile Artwork list view](documentation/images/features/mobile-artwork-list.jpg)
+    ![Desktop Artwork list view](documentation/images/features/desktop-artwork-list.jpg)
 
 **Create Artwork form(restricted access)**
 
@@ -418,7 +435,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 - When the user wishes to leave the account the logout button enables a confirmation page ensuring that the user is informed of their actions. - Upon successful logout, a confirmation message is displayed at the top of the page.
 
-      ![logout](documentation/images/features/logout-page.png)
+      ![logout]()
 
   </details>
 
