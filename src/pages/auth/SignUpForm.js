@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
-
 import { useRedirect } from "../../hooks/useRedirect";
+import { axiosReq } from "../../api/AxiosDefaults";
+import styles from "../../styles/SignUpInPage.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
+  const [artworkImages, setArtworkImages] = useState({ results: [] });
+
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -45,11 +50,25 @@ const SignUpForm = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchArtworkImages = async () => {
+      try {
+        const { data } = await axiosReq.get(`/artworks/`);
+        setArtworkImages(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchArtworkImages();
+    console.log("artworks = ", artworkImages);
+  }, []);
+
   return (
     <Row>
       <Col className="my-auto py-2 p-md-2" md={6}>
-        <Container>
-          <h1>Sign Up</h1>
+        <Container className={styles.CustomContainerWidth}>
+          <h1 className={appStyles.AccentFont}>Sign Up</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
@@ -60,6 +79,7 @@ const SignUpForm = () => {
                 name="username"
                 value={username}
                 onChange={handleChange}
+                className={formStyles.FormControlBorderRadius}
               />
             </Form.Group>
             {errors.username?.map((message, index) => (
@@ -76,6 +96,7 @@ const SignUpForm = () => {
                 name="password1"
                 value={password1}
                 onChange={handleChange}
+                className={formStyles.FormControlBorderRadius}
               />
             </Form.Group>
             {errors.password1?.map((message, index) => (
@@ -92,6 +113,7 @@ const SignUpForm = () => {
                 name="password2"
                 value={password2}
                 onChange={handleChange}
+                className={formStyles.FormControlBorderRadius}
               />
             </Form.Group>
             {errors.password2?.map((message, index) => (
@@ -100,22 +122,41 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-            <Button type="submit">Sign up</Button>
+            <button type="submit" className={btnStyles.ButtonStyles}>
+              Sign up
+            </button>
             {errors.non_field_errors?.map((message, index) => (
               <Alert variant="warning" key={index}>
                 {message}
               </Alert>
             ))}
           </Form>
-        </Container>
-        <Container>
-          <Link to="/signin">
-            Already have an account? <span>Sign in</span>
-          </Link>
+          <Container className="py-3 px-0">
+            <Link to="/signin">
+              Already have an account?
+              <span className={appStyles.AccentFont}> Sign In</span>
+            </Link>
+          </Container>
         </Container>
       </Col>
-      <Col>
-        <Image />
+      <Col className="my-auto py-2 p-md-2" xs={12} md={6}>
+        <Container className="px-0">
+          <Carousel className={`w-100 ${styles.CustomCarouselStyle}`}>
+            {artworkImages?.results?.length > 0 ? (
+              artworkImages?.results.map((artwork) => (
+                <Carousel.Item key={artwork.id}>
+                  <img
+                    className={`d-block w-100`}
+                    src={artwork.image}
+                    alt={artwork.artwork_title}
+                  />
+                </Carousel.Item>
+              ))
+            ) : (
+              <img />
+            )}
+          </Carousel>
+        </Container>
       </Col>
     </Row>
   );
