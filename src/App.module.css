@@ -10,6 +10,11 @@
   color: #090c02;
   background-color: #f9f8f8;
   overflow-x: hidden;
+  cursor: default;
+}
+
+.AccentFont {
+  font-family: "Poppins", system-ui;
 }
 
 a {
