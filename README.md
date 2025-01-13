@@ -139,12 +139,12 @@ The following palette was used to ensure the contrast is achieved between the ma
 
 I used [Google fonts](https://fonts.google.com/) to source the fonts for the website. These are:
 
-Gothic - was used for the website logo.
-
-Montserrat, serif - was used as the main text font.
-Poppins, system-ui - was used for the logo and accent text.
+- Gothic - was used for the website logo.
 
 ![logo](documentation/images/features/pp5-logo.JPG)
+
+- Montserrat, serif - was used as the main text font.
+- Poppins, system-ui - was used for the accent text such as form labels.
 
 ![font screenshots](documentation/images/design/google-fonts-artly.jpg)
 
@@ -487,7 +487,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 ### Databases
 
-- [Artly-api](https://artly-api-a39d790259f4.herokuapp.com/)
+- [Artly-api](https://artly-api-a39d790259f4.herokuapp.com/), created as part of the project to store the data.
 
 ### Other tools, technologies, packages
 
@@ -507,7 +507,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 - [Coolors](https://coolors.co/) for generating the color palette
 - WCAG color contrast checker for website accessibilty
 - Wave evaluation tool for giving visual feedback about the accessibility of the website
-- [Canva](https://www.canva.com/) used for generating the Logo and favicon design
+- [Canva](https://www.canva.com/) used for generating the Logo, favicon design and image upload defaults
 - [Contrast Grid](https://contrast-grid.eightshapes.com/) to test chosen color palette
 - [React Toastify](https://www.npmjs.com/package/react-toastify/v/9.0.3) for rendering user notifications
 
@@ -657,6 +657,9 @@ To deploy to the Heroku website, follow the steps below:
   }
   ```
 
+- I used [Get Css Scan](https://getcssscan.com/css-buttons-examples) website for sourcing button styles.
+  - The code I appropriated to fit design needs was taken from Button 23 by Airbnb.
+
 ### General resources:
 
 #### React tutorials
@@ -723,6 +726,13 @@ To deploy to the Heroku website, follow the steps below:
   - [How to use substring in react native](https://stackoverflow.com/questions/51279877/how-to-use-substring-in-react-native)
   - [How to use substring in react](https://stackoverflow.com/questions/62574400/how-to-use-substring-or-cut-strings-in-react)
 
+#### Conditional Class rendering
+
+- When building the bid component layout, I needed to activate certain classes based on conditions. I found the following Stack overflow threads and another article really helpful to understand how to do it:
+  - [Add css classname dynamically in react loop based on condition](https://stackoverflow.com/questions/66767604/add-css-classname-dynamically-in-react-loop-based-on-condition)
+  - [Conditionally applying class attributes in react](https://stackoverflow.com/questions/30533171/conditionally-applying-class-attributes-in-react)
+  - [Dhwise - Mastering react add class conditionally](https://www.dhiwise.com/post/mastering-react-add-class-conditionally-a-comprehensive-guide)
+
 ### Acknowledgments
 
 My thanks go to:
@@ -736,7 +746,6 @@ My thanks go to:
 
 - The project was inspired and based on some parts of Code Institute's Moments walkthrough [project](https://github.com/mr-fibonacci/moments).
   - Credits are also noted within the code.
-- Updating bid status:
-- When trying to figure out how to create functionality for accepting/rejecting and selling the artwork based on a bid, I used Code Institute’s Moments walkthrough project to help me understand how to manage previous and current state.
+- The bid functionality idea from the seller's perspective came from AsiaWi's Snap it up [project](https://github.com/AsiaWi/snap-it-up-frontend/tree/main).
 
 [Return to Table of Contents](#table-of-contents)
