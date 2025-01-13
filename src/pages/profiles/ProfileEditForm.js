@@ -127,7 +127,7 @@ const ProfileEditForm = () => {
     <>
       <div className="text-center">
         <Form.Group>
-          <Form.Label className={formStyles.FormLabelFont}>Location</Form.Label>
+          <Form.Label className={appStyles.AccentFont}>Location</Form.Label>
           <Form.Control
             type="text"
             value={location}
@@ -145,7 +145,7 @@ const ProfileEditForm = () => {
         ))}
 
         <Form.Group>
-          <Form.Label className={formStyles.FormLabelFont}>Styles</Form.Label>
+          <Form.Label className={appStyles.AccentFont}>Styles</Form.Label>
           <Form.Control
             type="textarea"
             value={styles}
@@ -163,9 +163,7 @@ const ProfileEditForm = () => {
         ))}
 
         <Form.Group>
-          <Form.Label className={formStyles.FormLabelFont}>
-            Techniques
-          </Form.Label>
+          <Form.Label className={appStyles.AccentFont}>Techniques</Form.Label>
           <Form.Control
             type="textarea"
             value={techniques}
@@ -183,9 +181,7 @@ const ProfileEditForm = () => {
         ))}
 
         <Form.Group>
-          <Form.Label className={formStyles.FormLabelFont}>
-            Influences
-          </Form.Label>
+          <Form.Label className={appStyles.AccentFont}>Influences</Form.Label>
           <Form.Control
             type="textarea"
             value={influences}
@@ -203,7 +199,7 @@ const ProfileEditForm = () => {
         ))}
 
         <Form.Group>
-          <Form.Label className={formStyles.FormLabelFont}>
+          <Form.Label className={appStyles.AccentFont}>
             Collaborations
           </Form.Label>
           <Form.Control
@@ -223,9 +219,7 @@ const ProfileEditForm = () => {
         ))}
 
         <Form.Group>
-          <Form.Label className={formStyles.FormLabelFont}>
-            Portfolio
-          </Form.Label>
+          <Form.Label className={appStyles.AccentFont}>Portfolio</Form.Label>
           <Form.Control
             type="url"
             value={portfolio_url}
@@ -282,7 +276,7 @@ const ProfileEditForm = () => {
               <div>
                 <Form.Label
                   htmlFor="image-upload"
-                  className={`${formStyles.FormLabelFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
+                  className={`${appStyles.AccentFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
                 >
                   Change the image
                 </Form.Label>

@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
+import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 
@@ -61,7 +62,7 @@ const UserPasswordEditForm = () => {
         >
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label className={formStyles.FormLabelFont}>
+              <Form.Label className={appStyles.AccentFont}>
                 New password
               </Form.Label>
               <Form.Control
@@ -79,7 +80,7 @@ const UserPasswordEditForm = () => {
               </Alert>
             ))}
             <Form.Group>
-              <Form.Label className={formStyles.FormLabelFont}>
+              <Form.Label className={appStyles.AccentFont}>
                 Confirm password
               </Form.Label>
               <Form.Control

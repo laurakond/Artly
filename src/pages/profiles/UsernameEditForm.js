@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 
@@ -62,7 +63,7 @@ const UsernameEditForm = () => {
         >
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label className={formStyles.FormLabelFont}>
+              <Form.Label className={appStyles.AccentFont}>
                 Change username
               </Form.Label>
               <Form.Control

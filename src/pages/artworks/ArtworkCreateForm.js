@@ -99,9 +99,7 @@ function ArtworkCreateForm() {
   const formFields = (
     <div className="text-center">
       <Form.Group controlId="artwork_title">
-        <Form.Label className={formStyles.FormLabelFont}>
-          Artwork title
-        </Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Artwork title</Form.Label>
         <Form.Control
           type="text"
           placeholder="artwork title"
@@ -118,9 +116,7 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="artist_name">
-        <Form.Label className={formStyles.FormLabelFont}>
-          Artist name
-        </Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Artist name</Form.Label>
         <Form.Control
           type="text"
           placeholder="artist name"
@@ -139,7 +135,7 @@ function ArtworkCreateForm() {
         <Form.Group controlId="style">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormLabelMargin}`}
             >
               Style
             </Form.Label>
@@ -170,7 +166,7 @@ function ArtworkCreateForm() {
         <Form.Group controlId="type">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormLabelMargin}`}
             >
               Type
             </Form.Label>
@@ -206,7 +202,7 @@ function ArtworkCreateForm() {
         <Form.Group controlId="payment_method">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormPayLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormPayLabelMargin}`}
             >
               Pay
             </Form.Label>
@@ -233,7 +229,7 @@ function ArtworkCreateForm() {
         <Form.Group controlId="price">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormLabelMargin}`}
             >
               Price
             </Form.Label>
@@ -254,7 +250,7 @@ function ArtworkCreateForm() {
         ))}
       </div>
       <Form.Group controlId="contact">
-        <Form.Label className={formStyles.FormLabelFont}>Contact</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Contact</Form.Label>
         <Form.Control
           type="text"
           placeholder="contact"
@@ -271,7 +267,7 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="location">
-        <Form.Label className={formStyles.FormLabelFont}>Location</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Location</Form.Label>
         <Form.Control
           type="text"
           placeholder="location"
@@ -288,9 +284,7 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="description">
-        <Form.Label className={formStyles.FormLabelFont}>
-          Description
-        </Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Description</Form.Label>
         <Form.Control
           type="text"
           placeholder="description"
@@ -343,7 +337,7 @@ function ArtworkCreateForm() {
                 </>
               ) : (
                 <Form.Label
-                  className={`d-flex justify-content-center ${appStyles.Image} ${formStyles.CreateArtworkUpload} ${formStyles.FormLabelFont}`}
+                  className={`d-flex justify-content-center ${appStyles.Image} ${formStyles.CreateArtworkUpload} ${appStyles.AccentFont}`}
                   htmlFor="image-upload"
                 >
                   <Asset

@@ -6,6 +6,7 @@ import Avatar from "../../components/Avatar";
 import { BuyerDropdownMenu } from "../../components/DropdownMenu";
 import artworkStyles from "../../styles/Artwork.module.css";
 import styles from "../../styles/Bid.module.css";
+import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
 const Bid = (props) => {
@@ -48,7 +49,7 @@ const Bid = (props) => {
           </Link>
           <Media.Body className="align-self-center ml-2">
             <div className="d-flex justify-content-between flex-column">
-              <span className={styles.AccentFont}>{buyer}</span>
+              <span className={appStyles.AccentFont}>{buyer}</span>
               {/* Bid display based on the bid status and if artwork is sold */}
               {artwork_is_sold && status === "Sold" ? (
                 <p className="mb-0">

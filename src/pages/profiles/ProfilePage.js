@@ -16,15 +16,15 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
+import { ProfileEditDropdown } from "../../components/DropdownMenu";
 import MostSellingProfiles from "./MostSellingProfiles";
 import ArtworkPartInfo from "../artworks/ArtworkPartInfo";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import styles from "../../styles/ProfilePage.module.css";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import tabStyles from "../../styles/Tabs.module.css";
-import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -108,19 +108,19 @@ function ProfilePage() {
           <Row
             className={`justify-content-center no-gutters my-4 ${styles.ProfileStats}`}
           >
-            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
+            <Col xs={6} sm={3} className={`my-2 ${appStyles.AccentFont}`}>
               <div>{profile?.artwork_count}</div>
               <div>artworks</div>
             </Col>
-            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
+            <Col xs={6} sm={3} className={`my-2 ${appStyles.AccentFont}`}>
               <div>{profile?.sold_artwork_count}</div>
               <div>sold artworks</div>
             </Col>
-            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
+            <Col xs={6} sm={3} className={`my-2 ${appStyles.AccentFont}`}>
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
-            <Col xs={6} sm={3} className={`my-2 ${formStyles.FormLabelFont}`}>
+            <Col xs={6} sm={3} className={`my-2 ${appStyles.AccentFont}`}>
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
@@ -189,12 +189,12 @@ function ProfilePage() {
             {profile?.styles === "" ? (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
-                <p className={formStyles.FormLabelFont}> No styles noted.</p>
+                <p className={appStyles.AccentFont}> No styles noted.</p>
               </div>
             ) : (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Style:</p>
-                <p className={formStyles.FormLabelFont}>{profile?.styles}</p>
+                <p className={appStyles.AccentFont}>{profile?.styles}</p>
               </div>
             )}
           </div>
@@ -202,14 +202,12 @@ function ProfilePage() {
             {profile?.techniques === "" ? (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
-                <p className={formStyles.FormLabelFont}>No techniques noted.</p>
+                <p className={appStyles.AccentFont}>No techniques noted.</p>
               </div>
             ) : (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Technique:</p>
-                <p className={formStyles.FormLabelFont}>
-                  {profile?.techniques}
-                </p>
+                <p className={appStyles.AccentFont}>{profile?.techniques}</p>
               </div>
             )}
           </div>
@@ -217,14 +215,12 @@ function ProfilePage() {
             {profile?.influences === "" ? (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Influences:</p>
-                <p className={formStyles.FormLabelFont}>No influences noted.</p>
+                <p className={appStyles.AccentFont}>No influences noted.</p>
               </div>
             ) : (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>Influences:</p>
-                <p className={formStyles.FormLabelFont}>
-                  {profile?.influences}
-                </p>
+                <p className={appStyles.AccentFont}>{profile?.influences}</p>
               </div>
             )}
           </div>
@@ -234,16 +230,14 @@ function ProfilePage() {
                 <p className={`mb-0 ${styles.SubjectStyles}`}>
                   Collaborations:
                 </p>
-                <p className={formStyles.FormLabelFont}>
-                  No collaborations noted.
-                </p>
+                <p className={appStyles.AccentFont}>No collaborations noted.</p>
               </div>
             ) : (
               <div>
                 <p className={`mb-0 ${styles.SubjectStyles}`}>
                   Collaborations:
                 </p>
-                <p className={formStyles.FormLabelFont}>
+                <p className={appStyles.AccentFont}>
                   {profile?.collaborations}
                 </p>
               </div>
@@ -276,7 +270,6 @@ function ProfilePage() {
     <Row className="h-100 justify-content-center">
       <Col className="py-2 p-0 p-lg-2">
         <Col xs={12}>
-          {/* Here might put max width for larger screens */}
           <MostSellingProfiles />
         </Col>
         <Col className={`py-2 pt-4 p-0 p-lg-2 `}>

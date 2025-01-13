@@ -136,9 +136,7 @@ function ArtworkEditForm() {
   const formFields = (
     <div className="text-center">
       <Form.Group controlId="artwork_title">
-        <Form.Label className={formStyles.FormLabelFont}>
-          Artwork title
-        </Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Artwork title</Form.Label>
         <Form.Control
           type="text"
           placeholder="artwork title"
@@ -155,9 +153,7 @@ function ArtworkEditForm() {
       ))}
 
       <Form.Group controlId="artist_name">
-        <Form.Label className={formStyles.FormLabelFont}>
-          Artist name
-        </Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Artist name</Form.Label>
         <Form.Control
           type="text"
           placeholder="artist name"
@@ -177,7 +173,7 @@ function ArtworkEditForm() {
         <Form.Group controlId="style">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormLabelMargin}`}
             >
               Style
             </Form.Label>
@@ -208,7 +204,7 @@ function ArtworkEditForm() {
         <Form.Group controlId="type">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormLabelMargin}`}
             >
               Type
             </Form.Label>
@@ -244,7 +240,7 @@ function ArtworkEditForm() {
         <Form.Group controlId="payment_method">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormPayLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormPayLabelMargin}`}
             >
               Pay
             </Form.Label>
@@ -271,7 +267,7 @@ function ArtworkEditForm() {
         <Form.Group controlId="price">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
-              className={`${formStyles.FormLabelFont} ${formStyles.FormLabelMargin}`}
+              className={`${appStyles.AccentFont} ${formStyles.FormLabelMargin}`}
             >
               Price
             </Form.Label>
@@ -292,7 +288,7 @@ function ArtworkEditForm() {
         ))}
       </div>
       <Form.Group controlId="contact">
-        <Form.Label className={formStyles.FormLabelFont}>Contact</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Contact</Form.Label>
         <Form.Control
           type="text"
           placeholder="contact"
@@ -309,7 +305,7 @@ function ArtworkEditForm() {
       ))}
 
       <Form.Group controlId="location">
-        <Form.Label className={formStyles.FormLabelFont}>Location</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Location</Form.Label>
         <Form.Control
           type="text"
           placeholder="location"
@@ -326,9 +322,7 @@ function ArtworkEditForm() {
       ))}
 
       <Form.Group controlId="description">
-        <Form.Label className={formStyles.FormLabelFont}>
-          Description
-        </Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Description</Form.Label>
         <Form.Control
           type="text"
           placeholder="description"
@@ -374,7 +368,7 @@ function ArtworkEditForm() {
               </div>
               <Form.Label
                 htmlFor="image-upload"
-                className={`${formStyles.FormLabelFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
+                className={`${appStyles.AccentFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
               >
                 Change the image
               </Form.Label>

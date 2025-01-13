@@ -18,11 +18,6 @@
   cursor: pointer;
 }
 
-/* Label font */
-.FormLabelFont {
-  font-family: "Poppins", system-ui;
-}
-
 /* Username and Password Edit form container */
 .NameAndPasswordWidth {
   max-width: 500px;
