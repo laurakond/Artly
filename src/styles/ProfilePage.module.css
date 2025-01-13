@@ -27,6 +27,7 @@
 @media (min-width: 992px) {
   .ProfileDetailWidth {
     max-width: 800px;
+    padding-top: 0.5rem;
   }
 
   .ProfileStats {
