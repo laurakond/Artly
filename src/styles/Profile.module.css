@@ -7,4 +7,5 @@
 
 .FollowIconStyle:hover i {
   cursor: pointer;
+  color: #f4442e;
 }
