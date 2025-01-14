@@ -2,11 +2,22 @@
   max-width: 400px;
 }
 
+.FontSize {
+  font-size: 2rem;
+}
+
+.CustomCarouselContainer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .CustomCarouselStyle {
   max-width: 400px;
   margin: auto;
   background-color: #273c2c;
   border-radius: 8px;
+  border: 1px solid #ced4da;
+  box-shadow: 0 0.5rem 1rem rgba(39, 60, 44, 0.25);
 }
 
 .CustomCarouselStyle img {
@@ -28,8 +39,28 @@
 }
 
 @media (min-width: 768px) {
+  /* Row height was appropriated from Code Institute's Moments walkthrough project. */
+  .RowHeight {
+    height: calc(100vh - 81px);
+  }
+
+  .CustomCarouselContainer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .CustomCarouselStyle img {
     max-height: 315px;
     max-width: 400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .CustomCarouselStyle {
+    max-width: 500px;
+  }
+  .CustomCarouselStyle img {
+    max-height: 400px;
+    max-width: 500px;
   }
 }
