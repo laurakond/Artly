@@ -17,10 +17,6 @@
   border-radius: 8px;
 }
 
-span:hover {
-  color: #f4442e;
-}
-
 /* Media queries */
 @media (min-width: 576px) {
   /* .CustomCarouselStyle img {

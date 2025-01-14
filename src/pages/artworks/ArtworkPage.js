@@ -18,7 +18,6 @@ import allArtworkStyles from "../../styles/AllArtworksPage.module.css";
 import artworkStyles from "../../styles/Artwork.module.css";
 import styles from "../../styles/ArtworkPage.module.css";
 import appStyles from "../../App.module.css";
-import bidStyles from "../../styles/Bid.module.css";
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -184,11 +183,20 @@ const ArtworkPage = () => {
             <>
               <p className="text-center">
                 <Link to="/signin">
-                  <span className={bidStyles.AccentFont}>Sign in </span>
+                  <span
+                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                  >
+                    Sign in{" "}
+                  </span>
                 </Link>
                 or
                 <Link to="/signup">
-                  <span className={bidStyles.AccentFont}> Sign up </span>
+                  <span
+                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                  >
+                    {" "}
+                    Sign up{" "}
+                  </span>
                 </Link>
                 to place a bid.
               </p>
@@ -219,11 +227,21 @@ const ArtworkPage = () => {
               <p className="text-center">
                 This artwork has been sold.
                 <Link to="/signin">
-                  <span className={bidStyles.AccentFont}> Sign in </span>
+                  <span
+                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                  >
+                    {" "}
+                    Sign in{" "}
+                  </span>
                 </Link>{" "}
                 or
                 <Link to="/signup">
-                  <span className={bidStyles.AccentFont}> Sign up </span>
+                  <span
+                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                  >
+                    {" "}
+                    Sign up{" "}
+                  </span>
                 </Link>
                 to bid on another one.
               </p>
@@ -255,11 +273,20 @@ const ArtworkPage = () => {
             <>
               <p className="text-center">
                 <Link to="/signin">
-                  <span className={bidStyles.AccentFont}>Sign in </span>
+                  <span
+                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                  >
+                    Sign in{" "}
+                  </span>
                 </Link>
                 or
                 <Link to="/signup">
-                  <span className={bidStyles.AccentFont}> Sign up </span>
+                  <span
+                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                  >
+                    {" "}
+                    Sign up{" "}
+                  </span>
                 </Link>
                 to place a bid.
               </p>
