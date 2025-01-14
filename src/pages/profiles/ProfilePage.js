@@ -61,14 +61,12 @@ function ProfilePage() {
 
   const profileContent = (
     <>
-      <div className={appStyles.HoverEffect}>
-        {profile?.is_owner && (
-          <ProfileEditDropdown
-            id={profile?.id}
-            className={appStyles.HoverEffect}
-          />
-        )}
-      </div>
+      {profile?.is_owner && (
+        <ProfileEditDropdown
+          id={profile?.id}
+          className={appStyles.HoverEffect}
+        />
+      )}
 
       <Row noGutters className=" text-center">
         <Col lg={3} className="text-lg-left">

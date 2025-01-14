@@ -23,6 +23,11 @@ i {
   z-index: 99;
 }
 
+.Absolute i:hover {
+  cursor: pointer;
+  color: #f4442e;
+}
+
 @media (min-width: 768px) {
   .Absolute {
     right: 200px;
