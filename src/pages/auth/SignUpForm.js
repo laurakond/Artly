@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
-import { axiosReq } from "../../api/AxiosDefaults";
 import styles from "../../styles/SignUpInPage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import ImageCarousel from "../../components/ImageCarousel";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
-  const [artworkImages, setArtworkImages] = useState({ results: [] });
 
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -50,25 +48,11 @@ const SignUpForm = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchArtworkImages = async () => {
-      try {
-        const { data } = await axiosReq.get(`/artworks/`);
-        setArtworkImages(data);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchArtworkImages();
-    console.log("artworks = ", artworkImages);
-  }, []);
-
   return (
-    <Row>
-      <Col className="my-auto py-2 p-md-2" md={6}>
+    <Row className={styles.RowHeight}>
+      <Col className="my-auto py-4 p-md-2" md={6}>
         <Container className={styles.CustomContainerWidth}>
-          <h1 className={appStyles.AccentFont}>Sign Up</h1>
+          <h1 className={`mb-3 ${styles.FontSize}`}>Sign Up</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
@@ -123,7 +107,7 @@ const SignUpForm = () => {
             ))}
 
             <button type="submit" className={btnStyles.ButtonStyles}>
-              Sign up
+              Sign Up
             </button>
             {errors.non_field_errors?.map((message, index) => (
               <Alert variant="warning" key={index}>
@@ -134,29 +118,18 @@ const SignUpForm = () => {
           <Container className="py-3 px-0">
             <Link to="/signin">
               Already have an account?
-              <span className={appStyles.AccentFont}> Sign In</span>
+              <span
+                className={`${appStyles.AccentFont} ${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
+              >
+                {" "}
+                Sign In
+              </span>
             </Link>
           </Container>
         </Container>
       </Col>
       <Col className="my-auto py-2 p-md-2" xs={12} md={6}>
-        <Container className="px-0">
-          <Carousel className={`w-100 ${styles.CustomCarouselStyle}`}>
-            {artworkImages?.results?.length > 0 ? (
-              artworkImages?.results.map((artwork) => (
-                <Carousel.Item key={artwork.id}>
-                  <img
-                    className={`d-block w-100`}
-                    src={artwork.image}
-                    alt={artwork.artwork_title}
-                  />
-                </Carousel.Item>
-              ))
-            ) : (
-              <img />
-            )}
-          </Carousel>
-        </Container>
+        <ImageCarousel />
       </Col>
     </Row>
   );

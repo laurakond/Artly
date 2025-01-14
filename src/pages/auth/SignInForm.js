@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
 import axios from "axios";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils.js";
+import styles from "../../styles/SignUpInPage.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import ImageCarousel from "../../components/ImageCarousel";
 
 function SignInForm() {
   const setLoggedInUser = useSetLoggedInUser();
@@ -50,10 +52,10 @@ function SignInForm() {
   };
 
   return (
-    <Row>
-      <Col className="my-auto p-0 p-md-2" md={6}>
-        <Container>
-          <h1>Sign In</h1>
+    <Row className={styles.RowHeight}>
+      <Col className="my-auto py-4 p-md-2" md={6}>
+        <Container className={styles.CustomContainerWidth}>
+          <h1 className={`mb-3 ${styles.FontSize}`}>Sign In</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
@@ -63,6 +65,7 @@ function SignInForm() {
                 name="username"
                 value={username}
                 onChange={handleChange}
+                className={formStyles.FormControlBorderRadius}
               />
             </Form.Group>
             {errors.username?.map((message, index) => (
@@ -79,6 +82,7 @@ function SignInForm() {
                 name="password"
                 value={password}
                 onChange={handleChange}
+                className={formStyles.FormControlBorderRadius}
               />
             </Form.Group>
             {errors.password?.map((message, index) => (
@@ -87,23 +91,31 @@ function SignInForm() {
               </Alert>
             ))}
 
-            <Button type="submit">Sign In</Button>
+            <button type="submit" className={btnStyles.ButtonStyles}>
+              Sign In
+            </button>
             {errors.non_field_errors?.map((message, index) => (
               <Alert variant="warning" key={index}>
                 {message}
               </Alert>
             ))}
           </Form>
-        </Container>
-        <Container>
-          <Link to="/signup">
-            Don't have an account?
-            <span>Sign up now!</span>
-          </Link>
+
+          <Container className="py-3 px-0">
+            <Link to="/signup">
+              Don't have an account?
+              <span
+                className={`${appStyles.AccentFont} ${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
+              >
+                {" "}
+                Sign Up
+              </span>
+            </Link>
+          </Container>
         </Container>
       </Col>
-      <Col md={6}>
-        <Image />
+      <Col className="my-auto py-2 p-md-2" xs={12} md={6}>
+        <ImageCarousel />
       </Col>
     </Row>
   );
