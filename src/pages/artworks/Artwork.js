@@ -143,7 +143,7 @@ const Artwork = (props) => {
 
         <Card.Footer className={`${sharedArtStyles.CardFooter} mt-auto`}>
           <div className="d-flex justify-content-around">
-            <div>
+            <div className={appStyles.AccentFont}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Artwork style</Tooltip>}
@@ -169,7 +169,7 @@ const Artwork = (props) => {
                 </div>
               </OverlayTrigger>
             </div>
-            <div>
+            <div className={appStyles.AccentFont}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Artwork type</Tooltip>}

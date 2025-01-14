@@ -124,7 +124,9 @@ const ArtworkPartInfo = (props) => {
           </Link>
         </Card.Body>
 
-        <Card.Footer className={`${styles.CardFooter} mt-auto`}>
+        <Card.Footer
+          className={`${styles.CardFooter} ${appStyles.AccentFont} mt-auto`}
+        >
           <div className="d-flex justify-content-around">
             <OverlayTrigger
               placement="top"

@@ -185,7 +185,7 @@ const ArtworkPage = () => {
               <p className="text-center">
                 <Link to="/signin">
                   <span
-                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                    className={`${appStyles.AccentFont} ${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
                   >
                     Sign in{" "}
                   </span>
@@ -193,7 +193,7 @@ const ArtworkPage = () => {
                 or
                 <Link to="/signup">
                   <span
-                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                    className={`${appStyles.AccentFont} ${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
                   >
                     {" "}
                     Sign up{" "}
@@ -229,7 +229,7 @@ const ArtworkPage = () => {
                 This artwork has been sold.
                 <Link to="/signin">
                   <span
-                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                    className={`${appStyles.AccentFont} ${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
                   >
                     {" "}
                     Sign in{" "}
@@ -238,7 +238,7 @@ const ArtworkPage = () => {
                 or
                 <Link to="/signup">
                   <span
-                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                    className={`${appStyles.AccentFont} ${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
                   >
                     {" "}
                     Sign up{" "}
@@ -275,7 +275,7 @@ const ArtworkPage = () => {
               <p className="text-center">
                 <Link to="/signin">
                   <span
-                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                    className={`${appStyles.AccentFont}${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
                   >
                     Sign in{" "}
                   </span>
@@ -283,7 +283,7 @@ const ArtworkPage = () => {
                 or
                 <Link to="/signup">
                   <span
-                    className={`${appStyles.AccentFont} ${appStyles.HoverEffect}`}
+                    className={`${appStyles.AccentFont}${appStyles.AccentFontColor} ${appStyles.HoverEffect}`}
                   >
                     {" "}
                     Sign up{" "}
