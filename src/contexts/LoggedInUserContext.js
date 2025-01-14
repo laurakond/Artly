@@ -1,9 +1,10 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { useHistory } from "react-router";
 import axios from "axios";
 import { axiosReq, axiosRes } from "../api/AxiosDefaults";
-import { useHistory } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
+//This code was appropriated from Code Institute's Moments walkthrough project.
 export const LoggedInUserContext = createContext();
 export const SetLoggedInUserContext = createContext();
 

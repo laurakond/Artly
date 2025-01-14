@@ -1,9 +1,10 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
+import { toast } from "react-toastify";
 import { useLoggedInUser } from "./LoggedInUserContext";
 import { axiosReq, axiosRes } from "../api/AxiosDefaults";
 import { followUserHelper, unfollowUserHelper } from "../utils/utils";
-import { toast } from "react-toastify";
 
+//This code was appropriated from Code Institute's Moments walkthrough project.
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
 

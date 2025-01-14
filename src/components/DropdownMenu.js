@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/DropDownMenu.module.css";
 
+// This code was appropriated from Code Institute's Moments walkthrough project.
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fa-solid fa-ellipsis"
