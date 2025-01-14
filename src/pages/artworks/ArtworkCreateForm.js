@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-import Upload from "../../assets/upload-frame.png";
+import Upload from "../../assets/upload-frame.webp";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
