@@ -36,6 +36,11 @@ input[type="file"] {
   font-family: "Poppins", system-ui;
 }
 
+.AccentFontColor {
+  font-weight: 500;
+  color: #82204a;
+}
+
 .HoverEffect:hover {
   color: #f4442e;
 }
