@@ -24,7 +24,7 @@ const UserPasswordEditForm = () => {
   const { new_password1, new_password2 } = userData;
 
   const [errors, setErrors] = useState({});
-
+  // Manages profile password form
   const handleChange = (event) => {
     setUserData({
       ...userData,

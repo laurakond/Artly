@@ -1,14 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import CardImg from "react-bootstrap/CardImg";
-import { Link } from "react-router-dom";
-import styles from "../../styles/ArtworkPartInfo.module.css";
-import appStyles from "../../App.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { axiosRes } from "../../api/AxiosDefaults";
 import Avatar from "../../components/Avatar";
+import styles from "../../styles/ArtworkPartInfo.module.css";
+import appStyles from "../../App.module.css";
 
 const ArtworkPartInfo = (props) => {
   const {
@@ -31,6 +31,7 @@ const ArtworkPartInfo = (props) => {
   const loggedInUser = useLoggedInUser();
   const is_owner = loggedInUser?.username === owner;
 
+  // Manages saved artworks for the user.
   const handleSave = async () => {
     try {
       const { data } = await axiosRes.post("/saved/", { artwork: id });
@@ -51,6 +52,7 @@ const ArtworkPartInfo = (props) => {
     }
   };
 
+  // Manages unsave artwork functionality
   const handleDeselectSave = async () => {
     try {
       await axiosRes.delete(`/saved/${save_id}/`);

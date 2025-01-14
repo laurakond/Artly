@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -10,7 +11,6 @@ import Artwork from "./Artwork";
 import BidCreateForm from "../bids/BidCreateForm";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Bid from "../bids/Bid";
-import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
@@ -28,6 +28,7 @@ const ArtworkPage = () => {
   const artwork_is_sold = artwork.results[0]?.sold;
   const profile_image = loggedInUser?.profile_image;
 
+  // Manages accept bid functionality for the seller
   const handleAcceptBid = async (id) => {
     try {
       await axiosRes.put(`/bids/${id}/`, { status: "Approved" });
@@ -44,6 +45,7 @@ const ArtworkPage = () => {
     }
   };
 
+  // Manages reject bid functionality for the seller
   const handleRejectBid = async (id) => {
     try {
       await axiosRes.put(`/bids/${id}/`, { status: "Rejected" });
@@ -60,6 +62,7 @@ const ArtworkPage = () => {
     }
   };
 
+  // Manages sold bid status functionality for the seller
   const handleSoldBid = async (id) => {
     try {
       await axiosRes.put(`/bids/${id}/`, { status: "Sold" });
@@ -157,8 +160,6 @@ const ArtworkPage = () => {
           <hr />
           {bids.results.length && loggedInUser ? (
             <>
-              {/* <p className={appStyles.AccentFont}>Existing Bids</p> */}
-
               <InfiniteScroll
                 children={bids.results.map((bid) => (
                   <Bid

@@ -31,6 +31,7 @@ function BidCreateForm(props) {
     }
   };
 
+  // Manages bid submission functionality for the buyer and counts the bids
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

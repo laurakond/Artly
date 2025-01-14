@@ -4,19 +4,18 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import NoResults from "../../assets/no-results.webp";
-import appStyles from "../../App.module.css";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import Container from "react-bootstrap/Container";
+import NoResults from "../../assets/no-results.webp";
 import { axiosReq } from "../../api/AxiosDefaults";
 import Asset from "../../components/Asset";
-
+import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { fetchMoreData } from "../../utils/utils";
 import ArtworkPartInfo from "./ArtworkPartInfo";
 import MostSellingProfiles from "../profiles/MostSellingProfiles";
 import styles from "../../styles/AllArtworksPage.module.css";
-import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
+import appStyles from "../../App.module.css";
 
 const AllArtworksPage = ({ message, filter = "" }) => {
   const [artworks, setArtworks] = useState({ results: [] });
@@ -24,7 +23,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const loggedInUser = useLoggedInUser();
   const { pathname } = useLocation();
-  // search for style/type/sold status
   const [styleQuery, setStyleQuery] = useState("");
   const [typeQuery, setTypeQuery] = useState("");
   const [soldFilter, setSoldFilter] = useState(undefined);
@@ -146,7 +144,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
             </OverlayTrigger>
           </Col>
         </Row>
-        {/* style/type/sold filter categories */}
         {showFilters && (
           <div className={styles.ParentFilterContainer}>
             <div className={styles.MoreFilterOptions}>

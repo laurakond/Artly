@@ -7,15 +7,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import appStyles from "../../App.module.css";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
-import btnStyles from "../../styles/Buttons.module.css";
-
 import { axiosReq } from "../../api/AxiosDefaults";
 import {
   useLoggedInUser,
   useSetLoggedInUser,
 } from "../../contexts/LoggedInUserContext";
+import appStyles from "../../App.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 
 const ProfileEditForm = () => {
   const loggedInUser = useLoggedInUser();
@@ -90,7 +89,7 @@ const ProfileEditForm = () => {
       [event.target.name]: event.target.value,
     });
   };
-
+  // Manages edit profile form
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

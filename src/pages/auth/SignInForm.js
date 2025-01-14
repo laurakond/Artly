@@ -10,11 +10,11 @@ import axios from "axios";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils.js";
+import ImageCarousel from "../../components/ImageCarousel";
 import styles from "../../styles/SignUpInPage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
-import ImageCarousel from "../../components/ImageCarousel";
 
 function SignInForm() {
   const setLoggedInUser = useSetLoggedInUser();
@@ -35,6 +35,7 @@ function SignInForm() {
     });
   };
 
+  // Manages login submission of the form
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

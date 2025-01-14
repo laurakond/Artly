@@ -6,15 +6,14 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Buttons.module.css";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
-
 import { axiosRes } from "../../api/AxiosDefaults";
 import {
   useLoggedInUser,
   useSetLoggedInUser,
 } from "../../contexts/LoggedInUserContext";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
+import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
 
 const UsernameEditForm = () => {
   const [username, setUsername] = useState("");
@@ -34,6 +33,7 @@ const UsernameEditForm = () => {
     }
   }, [loggedInUser, history, id]);
 
+  // Manages username update form
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

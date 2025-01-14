@@ -38,6 +38,7 @@ function ProfilePage() {
   const [profileArtworks, setProfileArtworks] = useState({ results: [] });
 
   useEffect(() => {
+    // Manages profile information view
     const fetchData = async () => {
       try {
         const [{ data: pageProfile }, { data: profileArtworks }] =

@@ -7,12 +7,12 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
+import ImageCarousel from "../../components/ImageCarousel";
 import { useRedirect } from "../../hooks/useRedirect";
 import styles from "../../styles/SignUpInPage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
-import ImageCarousel from "../../components/ImageCarousel";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
@@ -27,6 +27,7 @@ const SignUpForm = () => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
+  // Manages for submission for the signup
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
