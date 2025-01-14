@@ -28,21 +28,3 @@ i {
     right: 200px;
   }
 }
-
-@media (min-width: 992px) {
-  .Absolute {
-    right: 150px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .Absolute {
-    right: 350px;
-  }
-}
-
-@media (min-width: 1500px) {
-  .Absolute {
-    right: 450px;
-  }
-}
