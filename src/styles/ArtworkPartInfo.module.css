@@ -132,9 +132,3 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
     padding-right: 18px;
   }
 }
-
-@media (min-width: 1400px) {
-  .Card {
-    max-width: 90%;
-  }
-}

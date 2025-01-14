@@ -136,4 +136,7 @@
   .SearchAndFilterRowClass {
     max-width: 100%;
   }
+  .ArtworkListWidth {
+    max-width: 700px;
+  }
 }
