@@ -5,6 +5,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import CardImg from "react-bootstrap/CardImg";
 import { Link } from "react-router-dom";
 import styles from "../../styles/ArtworkPartInfo.module.css";
+import appStyles from "../../App.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { axiosRes } from "../../api/AxiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -86,7 +87,7 @@ const ArtworkPartInfo = (props) => {
       </Link>
 
       <div className={`d-flex flex-column ${styles.MainCardWidth}`}>
-        <Card.Header className={`${styles.CardHeader}`}>
+        <Card.Header className={`${styles.CardHeader} ${appStyles.AccentFont}`}>
           <div className="d-flex justify-content-between align-items-center">
             <Link to={`/profiles/${profile_id}`}>
               <Avatar
@@ -100,7 +101,7 @@ const ArtworkPartInfo = (props) => {
           </div>
         </Card.Header>
 
-        <Card.Body className="flex-grow-1">
+        <Card.Body className="flex-grow-1 p-3">
           <Link to={`/artworks/${id}`}>
             {artwork_title && (
               <Card.Title className={`${styles.CardTitle}`}>

@@ -11,6 +11,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Avatar from "../../components/Avatar";
 import sharedArtStyles from "../../styles/ArtworkPartInfo.module.css";
 import styles from "../../styles/Artwork.module.css";
+import appStyles from "../../App.module.css";
 
 const Artwork = (props) => {
   const {
@@ -71,7 +72,9 @@ const Artwork = (props) => {
       </div>
 
       <div className={`d-flex flex-column`}>
-        <Card.Header className={`${sharedArtStyles.CardHeader}`}>
+        <Card.Header
+          className={`${sharedArtStyles.CardHeader} ${appStyles.AccentFont}`}
+        >
           <div className="d-flex justify-content-between align-items-center">
             <Link to={`/profiles/${profile_id}`}>
               <Avatar

@@ -274,25 +274,27 @@ function ProfilePage() {
   );
 
   return (
-    <Row className="h-100 justify-content-center">
-      <Col className="py-2 p-0 p-lg-2">
-        <Col xs={12}>
-          <MostSellingProfiles />
+    <Container className={styles.Container}>
+      <Row className="h-100 justify-content-center">
+        <Col className="py-2 p-0 p-lg-2">
+          <Col xs={12}>
+            <MostSellingProfiles />
+          </Col>
+          <Col className={`py-2 pt-4 p-0 p-lg-2 `}>
+            <Container className={styles.ProfileDetailWidth}>
+              {hasLoaded ? (
+                <>
+                  {profileContent}
+                  {profilePageTabs}
+                </>
+              ) : (
+                <Asset spinner />
+              )}
+            </Container>
+          </Col>
         </Col>
-        <Col className={`py-2 pt-4 p-0 p-lg-2 `}>
-          <Container className={styles.ProfileDetailWidth}>
-            {hasLoaded ? (
-              <>
-                {profileContent}
-                {profilePageTabs}
-              </>
-            ) : (
-              <Asset spinner />
-            )}
-          </Container>
-        </Col>
-      </Col>
-    </Row>
+      </Row>
+    </Container>
   );
 }
 

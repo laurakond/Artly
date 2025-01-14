@@ -52,6 +52,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   max-width: 100%;
   box-shadow: 0 0.5rem 1rem rgba(39, 60, 44, 0.25);
 }
+
 .CardImageStyle {
   height: auto;
   max-height: 300px;
@@ -129,5 +130,11 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   .CardHeader {
     padding-left: 10px;
     padding-right: 18px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .Card {
+    max-width: 90%;
   }
 }

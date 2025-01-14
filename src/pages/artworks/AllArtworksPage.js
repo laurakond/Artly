@@ -228,7 +228,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         )}
         {/* Artwork list view of spinner */}
         {hasLoaded ? (
-          <>
+          <Container className={styles.ArtworkListWidth}>
             {artworks.results.length ? (
               <InfiniteScroll
                 children={artworks.results.map((artwork) => (
@@ -248,7 +248,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
                 <Asset src={NoResults} message={message} />
               </Container>
             )}
-          </>
+          </Container>
         ) : (
           <Container className={appStyles.Content}>
             <Asset spinner />

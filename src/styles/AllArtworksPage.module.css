@@ -114,11 +114,20 @@
   .MoreFilterOptions {
     max-width: 600px;
   }
+  .ArtworkListWidth {
+    max-width: 670px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (min-width: 768px) {
   .MoreFilterOptions {
     margin-right: 50px;
+  }
+  .ArtworkListWidth {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
