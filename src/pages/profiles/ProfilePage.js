@@ -94,7 +94,7 @@ function ProfilePage() {
           </div>
           <div>
             {profile?.portfolio_url === "" ? (
-              <div className="mb-2">
+              <div className={`mb-2 ${styles.SubjectStyles}`}>
                 <i className="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
                 No portfolio given.
               </div>
