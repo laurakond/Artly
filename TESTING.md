@@ -110,6 +110,14 @@ All files were put through the official [W3C Markup Validation](https://validato
   - I managed to get that working by altering the setBid code snippet to setArtwork snippet.
   - I found this part of React documentation useful: [React documentation - updating state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
 
+**Missing dependency in SignUpForm**
+
+- When rendering the images for the carousel in the SignUpForm, I received `React Hook useEffect has a missing dependency: 'artwork Images'. Either include it or remove the dependency array react-hooks/exhaustive-deps` warning in devtools console.
+  - This warning was irrelevant as using the dependency would have made the effect to rerender on each image, which was not needed.
+    - I applied `// eslint-disable-next-line react-hooks/exhaustive-deps` to disable the warning, which I found in these two StackOverflow threads:
+      - [how to fix missing dependency](https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook)
+      - [how to fix react hook useeffect has a missing dependency](https://stackoverflow.com/questions/64499336/how-to-fix-react-hook-useeffect-has-a-missing-dependency-either-include-it-or)
+
 ### Unfixed bugs
 
 - When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold fuctionality.
