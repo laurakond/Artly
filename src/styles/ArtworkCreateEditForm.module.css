@@ -12,6 +12,7 @@
 
 .CreateArtworkUpload img {
   width: 70%;
+  border-radius: 8px;
 }
 
 .CreateArtworkUpload:hover {
