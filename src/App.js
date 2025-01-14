@@ -1,4 +1,3 @@
-import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
@@ -17,6 +16,7 @@ import UsernameEditForm from "./pages/profiles/UsernameEditForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UserPasswordEditForm from "./pages/profiles/UserPasswordEditForm";
 import PageNotFound from "./components/PageNotFound";
+import styles from "./App.module.css";
 
 function App() {
   const loggedInUser = useLoggedInUser();
