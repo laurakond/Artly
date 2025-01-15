@@ -82,6 +82,7 @@ const UsernameEditForm = () => {
             <button
               onClick={() => history.goBack()}
               className={`mx-2 ${btnStyles.ButtonStyles}`}
+              type="button"
             >
               Cancel
             </button>
