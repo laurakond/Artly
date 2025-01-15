@@ -133,7 +133,6 @@ const ProfileEditForm = () => {
             onChange={handleChange}
             name="location"
             className={formStyles.FormControlBorderRadius}
-            // rows={7}
           />
         </Form.Group>
 
@@ -151,7 +150,6 @@ const ProfileEditForm = () => {
             onChange={handleChange}
             name="styles"
             className={formStyles.FormControlBorderRadius}
-            // rows={7}
           />
         </Form.Group>
 
@@ -225,7 +223,6 @@ const ProfileEditForm = () => {
             onChange={handleChange}
             name="portfolio_url"
             className={formStyles.FormControlBorderRadius}
-            // rows={7}
           />
         </Form.Group>
 
