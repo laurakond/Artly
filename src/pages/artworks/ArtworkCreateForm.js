@@ -318,55 +318,57 @@ function ArtworkCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       {/* Main container & image column*/}
-      <Row>
-        <Col className="p-2 p-md-2" md={5} lg={6}>
-          <Container
-            className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
-          >
-            <Form.Group className="text-center col-s-mb-0">
-              {image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div className={formStyles.CreateArtworkUpload}>
-                    <Form.Label htmlFor="image-upload">
-                      Change the image
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
-                <Form.Label
-                  className={`d-flex justify-content-center ${appStyles.Image} ${formStyles.CreateArtworkUpload} ${appStyles.AccentFont}`}
-                  htmlFor="image-upload"
-                >
-                  <Asset
-                    src={Upload}
-                    message="Click or tap to upload an image"
-                  />
-                </Form.Label>
-              )}
+      <Container>
+        <Row>
+          <Col className="p-2 p-md-2" md={5} lg={6}>
+            <Container
+              className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
+            >
+              <Form.Group className="text-center col-s-mb-0">
+                {image ? (
+                  <>
+                    <figure>
+                      <Image className={appStyles.Image} src={image} rounded />
+                    </figure>
+                    <div className={formStyles.CreateArtworkUpload}>
+                      <Form.Label htmlFor="image-upload">
+                        Change the image
+                      </Form.Label>
+                    </div>
+                  </>
+                ) : (
+                  <Form.Label
+                    className={`d-flex justify-content-center ${appStyles.Image} ${formStyles.CreateArtworkUpload} ${appStyles.AccentFont}`}
+                    htmlFor="image-upload"
+                  >
+                    <Asset
+                      src={Upload}
+                      message="Click or tap to upload an image"
+                    />
+                  </Form.Label>
+                )}
 
-              <Form.File
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-              {errors.image?.map((message, index) => (
-                <Alert key={index} variant="warning">
-                  {message}
-                </Alert>
-              ))}
-            </Form.Group>
+                <Form.File
+                  id="image-upload"
+                  accept="image/*"
+                  onChange={handleChangeImage}
+                  ref={imageInput}
+                />
+                {errors.image?.map((message, index) => (
+                  <Alert key={index} variant="warning">
+                    {message}
+                  </Alert>
+                ))}
+              </Form.Group>
 
-            <div className="d-md-none">{formFields}</div>
-          </Container>
-        </Col>
-        <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
-          <Container>{formFields}</Container>
-        </Col>
-      </Row>
+              <div className="d-md-none">{formFields}</div>
+            </Container>
+          </Col>
+          <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
+            <Container>{formFields}</Container>
+          </Col>
+        </Row>
+      </Container>
     </Form>
   );
 }
