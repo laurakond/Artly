@@ -104,7 +104,9 @@ function ProfilePage() {
                   <Tooltip>Opens {profile?.owner}'s portfolio website</Tooltip>
                 }
               >
-                <div className={`mb-2 ${styles.SubjectStyles}`}>
+                <div
+                  className={`mb-2 ${styles.SubjectStyles} ${appStyles.HoverEffect}`}
+                >
                   <i className="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
                   <a href={profile?.portfolio_url}>Portfolio link</a>
                 </div>

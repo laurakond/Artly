@@ -52,7 +52,8 @@ input[type="file"] {
 }
 
 .HoverEffect:hover,
-.HoverEffect:hover i {
+.HoverEffect:hover i,
+.HoverEffect:hover a {
   color: #f4442e;
   cursor: pointer;
 }
