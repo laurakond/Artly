@@ -17,7 +17,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   margin: 0;
   padding: 0;
   background: #f4442e;
-  color: white;
+  color: #f9f8f8;
   font-weight: bold;
   padding: 0.4em 0.75em;
   position: absolute;
@@ -58,12 +58,12 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
   max-height: 300px;
   max-width: 100%;
   object-fit: cover;
-  background-color: lightgray;
+  background-color: #273c2c;
 }
 
 /* Card body component styles */
 .CardHeader {
-  background-color: white;
+  background-color: #ffffff;
   border-bottom: none;
   padding-left: 0;
   padding-right: 10px;
@@ -75,7 +75,7 @@ https://stackoverflow.com/questions/30503866/right-corner-ribbon-on-a-div-css
 }
 
 .CardFooter {
-  background-color: white;
+  background-color: #ffffff;
   border-top: none;
 }
 

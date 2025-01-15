@@ -42,13 +42,6 @@ Button 23 style by Airbnb. */
   transform: scale(0.96);
 }
 
-.ButtonStyles:disabled {
-  border-color: #dddddd;
-  color: #dddddd;
-  cursor: not-allowed;
-  opacity: 1;
-}
-
 .ButtonStyles:hover {
   background-color: #f4442e;
   border-color: #f4452eec;
