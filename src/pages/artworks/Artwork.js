@@ -113,9 +113,14 @@ const Artwork = (props) => {
                 )}
               </div>
             </OverlayTrigger>
-            <div>
-              <i className="fa-solid fa-location-dot"></i> {location}
-            </div>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Location</Tooltip>}
+            >
+              <div>
+                <i className="fa-solid fa-location-dot"></i> {location}
+              </div>
+            </OverlayTrigger>
           </div>
         </Card.Header>
 
