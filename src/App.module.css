@@ -32,6 +32,16 @@ input[type="file"] {
   cursor: default;
 }
 
+.Main {
+  padding-top: 81px;
+}
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .AccentFont {
   font-family: "Poppins", system-ui;
 }
@@ -45,14 +55,4 @@ input[type="file"] {
 .HoverEffect:hover i {
   color: #f4442e;
   cursor: pointer;
-}
-
-.Main {
-  padding-top: 81px;
-}
-
-.Image {
-  max-height: 40vh;
-  max-width: 100%;
-  object-fit: contain;
 }

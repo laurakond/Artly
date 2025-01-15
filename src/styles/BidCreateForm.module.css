@@ -42,14 +42,13 @@
   }
 
   .ButtonMargin {
-    align-self: center; /* change to flex end when alert is displayed*/
+    align-self: center;
     margin: auto;
     margin-left: 1.5rem;
   }
 
   .ButtonMarginWithError,
   .AlertMarginWithError {
-    /* Button changes the centering when the alert is displayed*/
     align-self: flex-end;
   }
 

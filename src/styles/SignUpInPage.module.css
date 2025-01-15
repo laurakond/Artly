@@ -29,15 +29,6 @@
 }
 
 /* Media queries */
-@media (min-width: 576px) {
-  /* .CustomCarouselStyle img {
-    max-height: 200px;
-  } */
-  /* .CustomCarouselStyle {
-    max-width: 300px;
-  } */
-}
-
 @media (min-width: 768px) {
   /* Row height was appropriated from Code Institute's Moments walkthrough project. */
   .RowHeight {

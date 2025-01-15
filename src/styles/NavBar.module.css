@@ -15,7 +15,8 @@ i {
   color: #f4442e;
 }
 
-.Active i {
+.Active i,
+.NavLink:hover {
   color: #f4442e;
 }
 
@@ -23,13 +24,3 @@ i {
   padding: 5px;
   margin: auto 0;
 }
-
-.NavLink:hover,
-.NavLink:hover i {
-  color: #f4442e;
-}
-
-/* .navbar-light button.custom-menu-color.navbar-toggler {
-  border-color: #090c02 !important;
-  color: #090c02;
-} */
