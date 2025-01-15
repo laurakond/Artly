@@ -118,10 +118,19 @@ All files were put through the official [W3C Markup Validation](https://validato
       - [how to fix missing dependency](https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook)
       - [how to fix react hook useeffect has a missing dependency](https://stackoverflow.com/questions/64499336/how-to-fix-react-hook-useeffect-has-a-missing-dependency-either-include-it-or)
 
+**Cancel button in username/password edit forms**
+
+- When testing the change username and password forms, I noticed that when the user clicked on the cancel button, the following errors were thrown:
+  ![toast message error](documentation/images/errors/toast-cancel-error.png)
+  ![console error](documentation/images/errors/memory-400-errors.png)
+  - These errors seem to have appeared because I forgot to set the button element type to button.
+    - After adding `type=button` to the button element for the cancel form functionality, the errors have resolved.
+
 ### Unfixed bugs
 
 - When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold fuctionality.
-  - It appears that once the atwork is marked as sold, if the seller chooses to edit the artwork, it is listed again as if it was not sold in the artwork list view. However, the user doesn't seem to be able to interact with it afresh, which does not cause any issues apart from misleading and confusing information displayed to the user. - I have circumvented this issue by disabling the edit functionality for the seller once the artwork is marked as sold.
+  - It appears that once the atwork is marked as sold, if the seller chooses to edit the artwork, it is listed again as if it was not sold in the artwork list view. However, the user doesn't seem to be able to interact with it afresh, which does not cause any issues apart from misleading and confusing information displayed to the user.
+  - I have circumvented this issue by disabling the edit functionality for the seller once the artwork is marked as sold.
     [Return to Table of Contents](#contents)
 
 ### Lighthouse testing
