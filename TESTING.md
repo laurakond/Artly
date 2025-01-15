@@ -342,7 +342,11 @@ After the development stage of the application, I went through each feature, ens
 | 5                                                        | Hover over the save button                              | Colour changes to orange/red                                                                                                                                                                                                                                                                                       | Y   |                                                                                                                                                                                                                       |
 | 6                                                        | Click on the save button                                | "Password updated successfully!" message displayed, redirects to the Profile detail view page                                                                                                                                                                                                                      | Y   |                                                                                                                                                                                                                       |
 
-The below table shows manual testing for accessing restricted pages by unauthorised users.
+[Return to Table of Contents](#contents)
+
+### Restricted access testing
+
+I have implemented restricted access to specific content that is only allowed to the users who have a registered account.
 
 | Page                       | User action                                                     | Expected Results                | Y/N | Comments                                                                                                                                                                                                         |
 | -------------------------- | --------------------------------------------------------------- | ------------------------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -352,12 +356,6 @@ The below table shows manual testing for accessing restricted pages by unauthori
 | Edit profile username page | Type in the url address for an individual profile username edit | Redirects to the main home page | Y   |                                                                                                                                                                                                                  |
 | Edit profile password page | Type in the url address for an individual profile password edit | Redirects to the main home page | Y   |                                                                                                                                                                                                                  |
 | Saved & Followed pages     | Type in the url address for the /saved or /followed             | Redirects to the main home page | Y   | The website redirects not logged in users to the home page, however, the url keeps `/saved` or `/followed` snippets attached. Apart from being misleading, this does not affect the functionality of the website |
-
-[Return to Table of Contents](#contents)
-
-### Restricted access testing
-
-I have implemented restricted access to specific content that is only allowed to the users who have a registered account.
 
 [Return to Table of Contents](#contents)
 
