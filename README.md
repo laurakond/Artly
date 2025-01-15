@@ -128,10 +128,21 @@ The following wireframe report show the initial idea of how the website would lo
 
 The following palette was used to ensure the contrast is achieved between the main parts of the website:
 
-<details>
-    <summary>Color palette images</summary>
+- #82204a - Murrey - for emphasising clickable words, i.e. Sign up, and font awesome icons, buttons
+- #82204a4a - a variation ofthe above for the top sellers scroll bar color
+- #f4442e - Cinnabar - for the active class, logo splash, sold ribbon, hover effects
+- #f4452ecb - variation of the above for the button border color
+- #273c2c - Dark green - for the image container background
+- rgba(39, 60, 44, 0.25) - rgba color of the above for the box shadow effect
+- #090c02 - Smokey black - for the main font color
+- #F9F8F8 - Seasalt - for the main background and light font color
+- #E7C69E - Sunset - for the upload image frame
+- #FFFFFF - default card background color resused for the form backgrounds
+  -rgba(255, 255, 255, 0.8) - rgba equivalent of the above white for the button colors (came with the style)
+- #ced4da - French grey - default border color
 
-</details>
+  ![Color palette 1](documentation/images/design/colorpalette.jpg)
+  ![Color palette 2](documentation/images/design/colorpalette2.jpg)
 
 <br>
 
@@ -141,7 +152,7 @@ I used [Google fonts](https://fonts.google.com/) to source the fonts for the web
 
 - Gothic - was used for the website logo.
 
-![logo](documentation/images/features/pp5-logo.JPG)
+![logo](documentation/images/features/pp5-logo.jpg)
 
 - Montserrat, serif - was used as the main text font.
 - Poppins, system-ui - was used for the accent text such as form labels.
