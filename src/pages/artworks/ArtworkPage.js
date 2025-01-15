@@ -180,7 +180,8 @@ const ArtworkPage = () => {
                 next={() => fetchMoreData(bids, setBids)}
               />
             </>
-          ) : !loggedInUser && bids.results.length && !artwork_is_sold ? (
+          ) : (!loggedInUser && bids.results.length && !artwork_is_sold) ||
+            (!loggedInUser && !bids.results.length && !artwork_is_sold) ? (
             <>
               <p className="text-center">
                 <Link to="/signin">
