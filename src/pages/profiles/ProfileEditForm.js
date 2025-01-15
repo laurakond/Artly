@@ -240,10 +240,10 @@ const ProfileEditForm = () => {
           type="button"
           className={`mx-2 ${btnStyles.ButtonStyles}`}
         >
-          cancel
+          Cancel
         </button>
         <button type="submit" className={`mx-2 ${btnStyles.ButtonStyles}`}>
-          save
+          Save
         </button>
       </div>
     </>
