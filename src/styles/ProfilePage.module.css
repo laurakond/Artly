@@ -1,4 +1,9 @@
 /* This code snippet was taken from Code Institute's Moments walkthrough project */
+.Container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .ProfileImage {
   object-fit: cover;
   height: 120px;

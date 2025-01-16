@@ -6,11 +6,11 @@ import { useProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/MostSellingProfiles.module.css";
 import appStyles from "../../App.module.css";
 
-const MostSellingProfiles = ({ mobile }) => {
+const MostSellingProfiles = () => {
   const { mostSellingProfiles } = useProfileData();
 
   return (
-    <Container className={`${mobile && "d-lg-none text-center mb-3"} `}>
+    <Container className="text-center mb-3">
       {mostSellingProfiles.results.length ? (
         <>
           <p className={`mb-1 ${appStyles.AccentFont}`}>Top sellers</p>
