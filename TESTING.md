@@ -24,16 +24,11 @@ By Laura Kondrataite
 
 ### W3C Validator Testing
 
-All files were put through the official [W3C Markup Validation](https://validator.w3.org/) & [W3C Css Validation](https://jigsaw.w3.org/css-validator/) services. The initial check returned a few errors and warnings that were corrected and taken note of. Images of errors are enclosed below.
+All files were put through the official [W3C Css Validation](https://jigsaw.w3.org/css-validator/) services returning no errors or warnings.
 
-<details>
-    <summary></summary>
+- **To note:** I have only included one screenshot of the App.module.css file as all of them were exactly the same and did not have an incidation of the file name.
 
-</details>
-
-**W3C Markup**:
-
-**W3C CSS**:
+  ![App module css](documentation/images/testing/app-css.jpg)
 
 ### JS Hint Testing
 
@@ -126,6 +121,11 @@ All files were put through the official [W3C Markup Validation](https://validato
   - These errors seem to have appeared because I forgot to set the button element type to button.
     - After adding `type=button` to the button element for the cancel form functionality, the errors have resolved.
 
+**Flickering pointer in Profile component**
+
+- Flickering pointer over the toolpit in the Top sellers section was caused by overlapping Tooltip and css rules for the icons.
+  - I managed to resolve this by setting hover effect to a different div element.
+
 ### Unfixed bugs
 
 - When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold fuctionality.
@@ -172,6 +172,7 @@ The project was tested against the following devices and browsers:
 - Galaxy s10
 - Galaxy Tab A
 - iPhone 7
+- iPhone 15
 
 [Return to Table of Contents](#contents)
 
@@ -183,7 +184,8 @@ The application was tested during the development and post-development stages. I
 
 ### Manual testing
 
-After the development stage of the application, I went through each feature, ensuring that the website is working as intended. Below is a table showing each user action and expected results
+After the development stage of the application, I went through each feature, ensuring that the website is working as intended. Below is a table showing each user action and expected results.
+**To note:** different error, validation messages are noted in the [features section](README.md#features).
 
 | Page                                                     | User Actions                                            | Expected Results                                                                                                                                                                                                                                                                                                   | Y/N | Comments                                                                                                                                                                                                              |
 | -------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
