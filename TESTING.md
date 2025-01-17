@@ -7,7 +7,7 @@ By Laura Kondrataite
 [Testing](#testing)
 
 - [W3C Validator testing](#w3c-validator-testing)
-- [JS Hint testing](#js-hint-testing)
+- [ES Lint testing](#js-hint-testing)
 - [Bugs](#bugs)
   - [Fixed bugs](#fixed-bugs)
   - [Unfixed bugs](#unfixed-bugs)
@@ -30,7 +30,7 @@ All files were put through the official [W3C Css Validation](https://jigsaw.w3.o
 
   ![App module css](documentation/images/testing/app-css.jpg)
 
-### JS Hint Testing
+### ES Lint Testing
 
 All files were put through ES lint validation using the terminal. No errors were found.
 
