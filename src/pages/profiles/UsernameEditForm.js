@@ -47,7 +47,6 @@ const UsernameEditForm = () => {
       toast.success("Username updated successfully!");
       history.goBack();
     } catch (error) {
-      console.log(error);
       toast.error(
         "Something went wrong while attempting to update your username."
       );

@@ -76,9 +76,7 @@ function ArtworkEditForm() {
               description,
             })
           : history.push("/");
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     handleMount();
   }, [history, id]);
@@ -122,7 +120,6 @@ function ArtworkEditForm() {
       history.push(`/artworks/${id}`);
       toast.success("Artwork updated successfully!");
     } catch (error) {
-      console.log(error);
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }

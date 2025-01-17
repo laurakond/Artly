@@ -19,9 +19,7 @@ const ImageCarousel = () => {
           setArtworkImages(data);
           setHasLoaded(true);
         }
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     fetchArtworkImages();
     return () => {

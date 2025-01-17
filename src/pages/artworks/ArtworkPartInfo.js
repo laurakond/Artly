@@ -47,9 +47,7 @@ const ArtworkPartInfo = (props) => {
             : artwork;
         }),
       }));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   // Manages unsave artwork functionality
@@ -68,9 +66,7 @@ const ArtworkPartInfo = (props) => {
             : artwork;
         }),
       }));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (

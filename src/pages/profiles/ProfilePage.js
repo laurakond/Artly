@@ -52,9 +52,7 @@ function ProfilePage() {
         }));
         setProfileArtworks(profileArtworks);
         setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     fetchData();
   }, [id, setProfileData]);

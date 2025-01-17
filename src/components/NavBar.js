@@ -28,7 +28,6 @@ const NavBar = () => {
       removeTokenTimestamp();
       toast.success("You are logged out!");
     } catch (error) {
-      console.log(error);
       toast.error(
         "Something went wrong while attempting to log out. Please try again."
       );

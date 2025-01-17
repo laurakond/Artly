@@ -48,7 +48,6 @@ const Artwork = (props) => {
       history.push("/");
       toast.success("Artwork deleted successfully!");
     } catch (error) {
-      console.log(error);
       toast.error(
         "Something went wrong while attempting to delete your artwork."
       );

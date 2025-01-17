@@ -36,9 +36,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         );
         setArtworks(data);
         setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     setHasLoaded(false);
     const timer = setTimeout(() => {
@@ -59,9 +57,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         );
         setArtworks(data);
         setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     setHasLoaded(false);
@@ -77,9 +73,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         );
         setArtworks(data);
         setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     setHasLoaded(false);
     fetchType();
@@ -94,9 +88,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         );
         setArtworks(data);
         setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     setHasLoaded(false);
     fetchSoldStatus();

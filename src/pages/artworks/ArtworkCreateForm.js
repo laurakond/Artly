@@ -86,7 +86,6 @@ function ArtworkCreateForm() {
       history.push(`/artworks/${data.id}`);
       toast.success("Artwork listing created successfully!");
     } catch (error) {
-      console.log(error);
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }

@@ -41,7 +41,6 @@ const ProfileDataProvider = ({ children }) => {
       }));
       toast.success(`You are now following ${clickedProfile.owner}`);
     } catch (error) {
-      console.log(error);
       toast.error(
         `Something went wrong while attempting to follow ${clickedProfile.owner}.`
       );
@@ -67,7 +66,6 @@ const ProfileDataProvider = ({ children }) => {
       }));
       toast.success(`You are no longer following ${clickedProfile.owner}`);
     } catch (error) {
-      console.log(error);
       toast.error(
         `Something went wrong while attempting to unfollow ${clickedProfile.owner}.`
       );
@@ -84,9 +82,7 @@ const ProfileDataProvider = ({ children }) => {
           ...prevState,
           mostSellingProfiles: data,
         }));
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     handleMount();
   }, [loggedInUser]);

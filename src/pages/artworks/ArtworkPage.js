@@ -110,7 +110,6 @@ const ArtworkPage = () => {
       }));
       toast.success("Bid deleted successfully!");
     } catch (error) {
-      console.log(error);
       toast.error("Something went wrong while attempting to delete your bid.");
     }
   };
@@ -125,9 +124,7 @@ const ArtworkPage = () => {
         setArtwork({ results: [artwork] });
         setBids(bids);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
     setHasLoaded(false);
     handleMount();

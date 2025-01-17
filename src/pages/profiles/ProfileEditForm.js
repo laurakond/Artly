@@ -72,7 +72,6 @@ const ProfileEditForm = () => {
             portfolio_url,
           });
         } catch (error) {
-          console.log(error);
           history.push("/");
         }
       } else {
@@ -114,7 +113,6 @@ const ProfileEditForm = () => {
       toast.success("Profile updated successfully!");
       history.goBack();
     } catch (error) {
-      console.log(error);
       toast.error(
         "Something went wrong while attempting to update your profile."
       );
