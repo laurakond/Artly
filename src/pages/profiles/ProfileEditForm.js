@@ -259,7 +259,6 @@ const ProfileEditForm = () => {
                   <Image
                     className={appStyles.Image}
                     src={profile_image}
-                    // fluid
                     rounded
                   />
                 </figure>

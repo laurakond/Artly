@@ -43,7 +43,6 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/artworks/create"
       >
-        {/* <i className="fa-solid fa-paintbrush"></i> */}
         List Art
       </NavLink>
       <NavLink
@@ -51,7 +50,6 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/saved"
       >
-        {/* <i className="fa-solid fa-bookmark" /> */}
         Saved artworks
       </NavLink>
       <NavLink
@@ -59,7 +57,6 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followed"
       >
-        {/* <i className="fa-solid fa-bars-staggered"></i> */}
         Followed profiles
       </NavLink>
       <NavLink
@@ -67,14 +64,9 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to={`/profiles/${loggedInUser?.profile_id}`}
       >
-        <Avatar
-          src={loggedInUser?.profile_image}
-          // text={loggedInUser?.username}
-          height={40}
-        />
+        <Avatar src={loggedInUser?.profile_image} height={40} />
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        {/* <i className="fa-solid fa-right-to-bracket"></i> */}
         Sign out
       </NavLink>
     </>
@@ -88,7 +80,6 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signup"
       >
-        {/* <i className="fa-solid fa-user-plus"></i> */}
         Sign up
       </NavLink>
       <NavLink
@@ -96,7 +87,6 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        {/* <i className="fa-solid fa-right-to-bracket"></i> */}
         Sign in
       </NavLink>
     </>
@@ -128,7 +118,6 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              {/* <i className="fa-solid fa-house"></i> */}
               Home
             </NavLink>
             {loggedInUser ? loggedInIcons : loggedOutIcons}

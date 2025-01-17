@@ -153,7 +153,6 @@ const ArtworkPage = () => {
             <Asset spinner />
           </Container>
         )}
-        {/* <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage /> */}
         <Container
           className={`py-3 ${artworkStyles.ArtworkCardWidth} ${styles.MainBidContainer}`}
         >
