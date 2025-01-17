@@ -169,7 +169,10 @@ const ArtworkPartInfo = (props) => {
                     </Tooltip>
                   }
                 >
-                  <span onClick={handleDeselectSave}>
+                  <span
+                    onClick={handleDeselectSave}
+                    className={appStyles.HoverEffect}
+                  >
                     <i className={`fa-solid fa-bookmark ${styles.Bookmark}`} />
                   </span>
                 </OverlayTrigger>
@@ -178,7 +181,7 @@ const ArtworkPartInfo = (props) => {
                   placement="top"
                   overlay={<Tooltip>Click to save the artwork</Tooltip>}
                 >
-                  <span onClick={handleSave}>
+                  <span onClick={handleSave} className={appStyles.HoverEffect}>
                     <i
                       className={`fa-regular fa-bookmark ${styles.Bookmark}`}
                     />
