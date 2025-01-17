@@ -55,7 +55,7 @@ function SignInForm() {
   return (
     <Container>
       <Row className={styles.RowHeight}>
-        <Col className="my-auto py-4 p-md-2" xs={12} lg={6}>
+        <Col className="my-auto py-4 p-md-2" md={6}>
           <Container className={styles.CustomContainerWidth}>
             <h1 className={`mb-3 ${styles.FontSize}`}>Sign In</h1>
             <Form onSubmit={handleSubmit}>
@@ -116,7 +116,7 @@ function SignInForm() {
             </Container>
           </Container>
         </Col>
-        <Col className="my-auto py-2 p-md-2" xs={12} lg={6}>
+        <Col className="my-auto py-2 p-md-2" xs={12} md={6}>
           <ImageCarousel />
         </Col>
       </Row>
