@@ -22,6 +22,7 @@ import appStyles from "../../App.module.css";
 const ArtworkPage = () => {
   const { id } = useParams();
   const [artwork, setArtwork] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
   const loggedInUser = useLoggedInUser();
   const [bids, setBids] = useState({ results: [] });
   const not_owner = !artwork.results[0]?.is_owner;
@@ -123,10 +124,12 @@ const ArtworkPage = () => {
         ]);
         setArtwork({ results: [artwork] });
         setBids(bids);
+        setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
     };
+    setHasLoaded(false);
     handleMount();
   }, [id]);
 
@@ -139,7 +142,18 @@ const ArtworkPage = () => {
         className={`py-2 p-2 p-lg-2 ${allArtworkStyles.ContentWidth} `}
         lg={8}
       >
-        <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage />
+        {hasLoaded ? (
+          <Artwork
+            {...artwork.results[0]}
+            setArtworks={setArtwork}
+            artworkPage
+          />
+        ) : (
+          <Container className={appStyles.Content}>
+            <Asset spinner />
+          </Container>
+        )}
+        {/* <Artwork {...artwork.results[0]} setArtworks={setArtwork} artworkPage /> */}
         <Container
           className={`py-3 ${artworkStyles.ArtworkCardWidth} ${styles.MainBidContainer}`}
         >
