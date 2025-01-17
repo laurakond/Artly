@@ -11,19 +11,24 @@ const ImageCarousel = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchArtworkImages = async () => {
-      try {
-        const { data } = await axiosReq.get(`/artworks/`);
-        setArtworkImages(data);
-        setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
+      if (isMounted) {
+        try {
+          const { data } = await axiosReq.get(`/artworks/`);
+          setArtworkImages(data);
+          setHasLoaded(true);
+        } catch (error) {
+          console.log(error);
+        }
       }
     };
     fetchArtworkImages();
-    setHasLoaded(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
   return (
     <Container className={signUpInstyles.CustomCarouselContainer}>
       {hasLoaded ? (
