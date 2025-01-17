@@ -1,4 +1,4 @@
-# Testing for Once Upon a Time
+# Testing for Artly
 
 By Laura Kondrataite
 
@@ -31,6 +31,10 @@ All files were put through the official [W3C Css Validation](https://jigsaw.w3.o
   ![App module css](documentation/images/testing/app-css.jpg)
 
 ### JS Hint Testing
+
+All files were put through ES lint validation using the terminal. No errors were found.
+
+![ES lint validation](documentation/images/testing/es-lint-validation.jpg)
 
 [Return to Table of Contents](#contents)
 
