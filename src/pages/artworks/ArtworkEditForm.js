@@ -354,43 +354,45 @@ function ArtworkEditForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="p-2 p-md-2" md={5} lg={6}>
-          <Container
-            className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
-          >
-            <Form.Group className="text-center col-s-mb-0">
-              <div>
-                <figure>
-                  <Image className={appStyles.Image} src={image} rounded />
-                </figure>
-              </div>
-              <Form.Label
-                htmlFor="image-upload"
-                className={`${appStyles.AccentFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
-              >
-                Change the image
-              </Form.Label>
+      <Container className="p-0">
+        <Row>
+          <Col className="p-2 p-md-2" md={5} lg={6}>
+            <Container
+              className={`d-flex flex-column justify-content-center py-3 p-4 ${formStyles.MainArtworkFormContainer}`}
+            >
+              <Form.Group className="text-center col-s-mb-0">
+                <div>
+                  <figure>
+                    <Image className={appStyles.Image} src={image} rounded />
+                  </figure>
+                </div>
+                <Form.Label
+                  htmlFor="image-upload"
+                  className={`${appStyles.AccentFont} ${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
+                >
+                  Change the image
+                </Form.Label>
 
-              <Form.File
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-              {errors.image?.map((message, index) => (
-                <Alert key={index} variant="warning">
-                  {message}
-                </Alert>
-              ))}
-            </Form.Group>
-            <div className="d-md-none">{formFields}</div>
-          </Container>
-        </Col>
-        <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
-          <Container>{formFields}</Container>
-        </Col>
-      </Row>
+                <Form.File
+                  id="image-upload"
+                  accept="image/*"
+                  onChange={handleChangeImage}
+                  ref={imageInput}
+                />
+                {errors.image?.map((message, index) => (
+                  <Alert key={index} variant="warning">
+                    {message}
+                  </Alert>
+                ))}
+              </Form.Group>
+              <div className="d-md-none">{formFields}</div>
+            </Container>
+          </Col>
+          <Col md={7} lg={6} className="d-none d-md-block p-2 p-md-2">
+            <Container>{formFields}</Container>
+          </Col>
+        </Row>
+      </Container>
     </Form>
   );
 }
