@@ -18,7 +18,7 @@ const ProfileDataProvider = ({ children }) => {
   });
 
   const loggedInUser = useLoggedInUser();
-
+  //Handle profile data to allow the user to follow another user
   const handleFollowUser = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
@@ -47,6 +47,7 @@ const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  //Handle profile data to allow the user to unfollow another user
   const handleUnfollowUser = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -72,6 +73,7 @@ const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  // Fetch and display profiles based on sold artwork count
   useEffect(() => {
     const handleMount = async () => {
       try {

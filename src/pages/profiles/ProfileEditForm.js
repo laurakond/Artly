@@ -45,7 +45,7 @@ const ProfileEditForm = () => {
   } = profileData;
 
   const [errors, setErrors] = useState({});
-
+  // Fetch profile instance data and display it
   useEffect(() => {
     const handleMount = async () => {
       if (loggedInUser?.profile_id?.toString() === id) {
@@ -82,6 +82,7 @@ const ProfileEditForm = () => {
     handleMount();
   }, [loggedInUser, history, id]);
 
+  // Handle form updates
   const handleChange = (event) => {
     setProfileData({
       ...profileData,

@@ -10,6 +10,8 @@ const ImageCarousel = () => {
   const [artworkImages, setArtworkImages] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  /* Function that fetches all existing artworks to display in the Sign up/in
+   pages */
   useEffect(() => {
     let isMounted = true;
     const fetchArtworkImages = async () => {

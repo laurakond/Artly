@@ -15,6 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+// This code snippet is applied for editing/deleting Artwork instances
 export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown drop="down">
@@ -44,6 +45,7 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   );
 };
 
+// This code snippet is used for deleting buyer's bid
 export const BuyerDropdownMenu = ({ handleDelete }) => {
   return (
     <Dropdown drop="down">
@@ -65,6 +67,8 @@ export const BuyerDropdownMenu = ({ handleDelete }) => {
   );
 };
 
+/* This code snippet is used for editing the user's profile,
+including username and password */
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (

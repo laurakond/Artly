@@ -44,6 +44,7 @@ function ArtworkEditForm() {
     description,
   } = artworkData;
 
+  // Fetch existing artwork instance data
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -81,6 +82,7 @@ function ArtworkEditForm() {
     handleMount();
   }, [history, id]);
 
+  // Handle form change
   const handleChange = (event) => {
     setArtworkData({
       ...artworkData,
@@ -88,6 +90,7 @@ function ArtworkEditForm() {
     });
   };
 
+  // Handle image change
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -98,6 +101,7 @@ function ArtworkEditForm() {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

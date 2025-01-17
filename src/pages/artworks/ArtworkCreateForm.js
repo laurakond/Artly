@@ -47,6 +47,7 @@ function ArtworkCreateForm() {
     description,
   } = artworkData;
 
+  // Handle form input changes
   const handleChange = (event) => {
     setArtworkData({
       ...artworkData,
@@ -54,6 +55,7 @@ function ArtworkCreateForm() {
     });
   };
 
+  // Handle image input changes
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -64,6 +66,7 @@ function ArtworkCreateForm() {
     }
   };
 
+  // Handle artwork form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

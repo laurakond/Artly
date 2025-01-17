@@ -38,10 +38,11 @@ const Artwork = (props) => {
   const is_owner = loggedInUser?.username === owner;
   const history = useHistory();
 
+  // Handles artwork edit
   const handleEdit = () => {
     history.push(`/artworks/${id}/edit`);
   };
-
+  // Handles artwork deletion and takes the user to Home page
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/artworks/${id}/`);

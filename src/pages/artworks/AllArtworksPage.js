@@ -28,6 +28,7 @@ const AllArtworksPage = ({ message, filter = "" }) => {
   const [soldFilter, setSoldFilter] = useState(undefined);
   const [showFilters, setShowFilters] = useState(false);
 
+  // Fetch artworks and filter them by search query
   useEffect(() => {
     const fetchArtworks = async () => {
       try {

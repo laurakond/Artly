@@ -56,7 +56,7 @@ function ProfilePage() {
     };
     fetchData();
   }, [id, setProfileData]);
-
+  // Displays user's profile information and related data
   const profileContent = (
     <>
       {profile?.is_owner && (
@@ -162,7 +162,7 @@ function ProfilePage() {
     </>
   );
 
-  // Main Portfolio page information
+  // Displays user's Artwork information
   const profileOwnersArtworks = (
     <>
       <p className={`text-center mt-4 ${styles.SubjectStyles}`}>

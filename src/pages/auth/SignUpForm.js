@@ -27,14 +27,14 @@ const SignUpForm = () => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
-  // Manages for submission for the signup
+  // Handles form inputs
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
       [event.target.name]: event.target.value,
     });
   };
-
+  // Manages form submission for the signup
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

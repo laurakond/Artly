@@ -114,6 +114,7 @@ const ArtworkPage = () => {
     }
   };
 
+  // Fetch artwork instance and related bid data.
   useEffect(() => {
     const handleMount = async () => {
       try {

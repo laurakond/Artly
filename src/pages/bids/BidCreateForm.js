@@ -16,6 +16,7 @@ function BidCreateForm(props) {
   });
   const { bid_price, email } = bidData;
 
+  // Handle changing bid data(price and email)
   const handleChange = (event) => {
     setBidData({
       ...bidData,
