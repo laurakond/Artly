@@ -13,7 +13,7 @@ const MostSellingProfiles = () => {
     <Container className="text-center mb-3">
       {mostSellingProfiles.results.length ? (
         <>
-          <p className={`mb-1 ${appStyles.AccentFont}`}>Top sellers</p>
+          <p className={`mb-1 ${appStyles.AccentFont} text-left`}>Top users</p>
           <div className={`${styles.MostSellingContainer}`}>
             {mostSellingProfiles.results.map((profile) => (
               <Profile key={profile.id} profileData={profile} />
