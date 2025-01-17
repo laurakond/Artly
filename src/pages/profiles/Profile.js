@@ -37,7 +37,6 @@ const Profile = (props) => {
           (following_id ? (
             <OverlayTrigger
               placement="top"
-              PopperProps={{ style: { pointerEvents: "none" } }}
               overlay={<Tooltip>Click to unfollow {owner}</Tooltip>}
             >
               <div className={styles.FollowIcon}>
@@ -51,7 +50,6 @@ const Profile = (props) => {
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Click to follow {owner}</Tooltip>}
-              PopperProps={{ style: { pointerEvents: "none" } }}
             >
               <div className={appStyles.HoverEffect}>
                 <i
