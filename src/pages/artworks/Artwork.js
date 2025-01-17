@@ -45,7 +45,7 @@ const Artwork = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/artworks/${id}/`);
-      history.goBack();
+      history.push("/");
       toast.success("Artwork deleted successfully!");
     } catch (error) {
       console.log(error);
