@@ -1,11 +1,6 @@
 .FollowIconStyle {
   position: relative;
   top: -80px;
-  left: 58px;
+  left: 34px;
   padding-left: 4px;
-}
-
-.FollowIconStyle:hover i {
-  cursor: pointer;
-  color: #f4442e;
 }

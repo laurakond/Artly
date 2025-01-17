@@ -6,6 +6,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Profile.module.css";
+import appStyles from "../../App.module.css";
 
 const Profile = (props) => {
   const { profileData, mobile, imageSize = 55 } = props;
@@ -29,29 +30,35 @@ const Profile = (props) => {
       <div className="text-center">
         <strong>{owner}</strong>
       </div>
-      <div className={styles.FollowIconStyle}>
+      <div className={`${styles.FollowIconStyle} ${appStyles.HoverEffect}`}>
         {!mobile &&
           loggedInUser &&
           !is_owner &&
           (following_id ? (
             <OverlayTrigger
               placement="top"
+              PopperProps={{ style: { pointerEvents: "none" } }}
               overlay={<Tooltip>Click to unfollow {owner}</Tooltip>}
             >
-              <i
-                className="fa-solid fa-minus fa-lg"
-                onClick={() => handleUnfollowUser(profileData)}
-              ></i>
+              <div className={styles.FollowIcon}>
+                <i
+                  className="fa-solid fa-minus fa-lg"
+                  onClick={() => handleUnfollowUser(profileData)}
+                ></i>
+              </div>
             </OverlayTrigger>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Click to follow {owner}</Tooltip>}
+              PopperProps={{ style: { pointerEvents: "none" } }}
             >
-              <i
-                className="fa-solid fa-plus fa-lg"
-                onClick={() => handleFollowUser(profileData)}
-              ></i>
+              <div className={appStyles.HoverEffect}>
+                <i
+                  className="fa-solid fa-plus fa-lg"
+                  onClick={() => handleFollowUser(profileData)}
+                ></i>
+              </div>
             </OverlayTrigger>
           ))}
       </div>
