@@ -52,7 +52,7 @@ const NavBar = () => {
         to="/saved"
       >
         {/* <i className="fa-solid fa-bookmark" /> */}
-        Saved
+        Saved artworks
       </NavLink>
       <NavLink
         className={styles.NavLink}
