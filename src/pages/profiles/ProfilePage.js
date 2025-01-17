@@ -83,7 +83,7 @@ function ProfilePage() {
             {profile?.location === "" ? (
               <div className={`mb-2 ${styles.SubjectStyles}`}>
                 <i className="fa-solid fa-location-dot fa-lg"></i>
-                <p>No location given.</p>
+                <p className="d-inline">No location given.</p>
               </div>
             ) : (
               <div className={`mb-2 ${styles.SubjectStyles}`}>
@@ -96,7 +96,7 @@ function ProfilePage() {
             {profile?.portfolio_url === "" ? (
               <div className={`mb-2 ${styles.SubjectStyles}`}>
                 <i className="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
-                No portfolio given.
+                <p className="d-inline">No portfolio given.</p>
               </div>
             ) : (
               <OverlayTrigger
@@ -109,7 +109,12 @@ function ProfilePage() {
                   className={`mb-2 ${styles.SubjectStyles} ${appStyles.HoverEffect}`}
                 >
                   <i className="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
-                  <a href={profile?.portfolio_url}>Portfolio link</a>
+                  <a
+                    href={profile?.portfolio_url}
+                    aria-label={`$ Opens a link to ${profile?.owner}'s portfolio website`}
+                  >
+                    Portfolio link
+                  </a>
                 </div>
               </OverlayTrigger>
             )}
