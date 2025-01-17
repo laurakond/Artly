@@ -13,14 +13,14 @@ const ImageCarousel = () => {
   useEffect(() => {
     let isMounted = true;
     const fetchArtworkImages = async () => {
-      if (isMounted) {
-        try {
-          const { data } = await axiosReq.get(`/artworks/`);
+      try {
+        const { data } = await axiosReq.get(`/artworks/`);
+        if (isMounted) {
           setArtworkImages(data);
           setHasLoaded(true);
-        } catch (error) {
-          console.log(error);
         }
+      } catch (error) {
+        console.log(error);
       }
     };
     fetchArtworkImages();
