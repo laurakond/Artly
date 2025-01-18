@@ -8,7 +8,7 @@ Are you looking for a place where to sell your art? Or perhaps you wish to purch
 
 **Artly** is a product comparison site which promotes sharing most beloved artworks with like minded people. Whether you are looking to sell or buy a unique pieces of art, Artly promotes a is led by arts community who wishes to share and sell their artwork.
 
-**Please note:** This repository coverts the front-end Artly project development.which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api).
+**Please note:** This repository covers the front-end Artly project development.which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api).
 
 Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com/).
 
@@ -130,7 +130,7 @@ The following wireframe report show the initial idea of how the website would lo
 The following palette was used to ensure the contrast is achieved between the main parts of the website:
 
 - #82204a - Murrey - for emphasising clickable words, i.e. Sign up, and font awesome icons, buttons
-- #82204a4a - a variation ofthe above for the top sellers scroll bar color
+- #82204a4a - a variation of the above for the top sellers scroll bar color
 - #f4442e - Cinnabar - for the active class, logo splash, sold ribbon, hover effects
 - #f4452ecb - variation of the above for the button border color
 - #273c2c - Dark green - for the image container background
@@ -139,7 +139,9 @@ The following palette was used to ensure the contrast is achieved between the ma
 - #F9F8F8 - Seasalt - for the main background and light font color
 - #E7C69E - Sunset - for the upload image frame
 - #FFFFFF - default card background color resused for the form backgrounds
-  -rgba(255, 255, 255, 0.8) - rgba equivalent of the above white for the button colors (came with the style)
+
+  - rgba(255, 255, 255, 0.8) - rgba equivalent of the above white for the button colors (came with the style)
+
 - #ced4da - French grey - default border color
 
   ![Color palette 1](documentation/images/design/colorpalette.jpg)
@@ -256,6 +258,9 @@ Majority of the website content is available to any user regardless of their reg
   - Sign In
   - Sign Up
 
+- The user can clearly see the navigation between different buttons with the hover effect, and one the button is clicked, the change of color of the button indicates the section/page that the user is at.
+  ![navbar hover and active class](documentation/images/features/hover-active-navbar.jpg)
+
   **Mobile**
 
   ![mobile logged out navbar](documentation/images/features/mobile-navbar.jpg)
@@ -328,14 +333,14 @@ Majority of the website content is available to any user regardless of their reg
 - Upon clicking on the individual artwork card, the user is taken to a detailed artwork page that displays full information about it, including the style, type, contact details of the seller and the location of the artwork.
 - Below the artwork information, the user can see the Existing Bids feature (discussed below) which displays any bids submitted for the artwork. If the user wishes to interact with this feature, they are required to Sign in or Sign up.
 
+  ![Artwork detail view](documentation/images/features/artwork-detail-view.png)
+
 **Artwork detail view(restricted access)**
 
 - Once logged in, the user can choose to edit or delete their artwork listing by clicking on a three dots favicon (pictured below).
 
   - If the user chooses to edit the artwork, they are taken to the artwork edit form.
   - If the user chooses to delete the artwork, they will be notified by a pop up notification if the action was successful or not.
-
-  ![Artwork detail view](documentation/images/features/artwork-detail-view.png)
 
   ![User edit/delete icon](documentation/images/features/artwork-edit-delete.jpg)
 
@@ -405,7 +410,9 @@ Majority of the website content is available to any user regardless of their reg
 - To access and review the saved artworks, the user can do so by clicking on the "Saved artworks" button in the navigation bar.
 - The list of artworks is rendered the same way as the main artwork list.
 
-![save artwork](documentation/images/features/save-artwork.jpg)
+  ![save artwork](documentation/images/features/save-artwork.jpg)
+
+  ![saved artwork list](documentation/images/features/saved-artwork-list.png)
 
 **Profile view**
 
@@ -413,11 +420,17 @@ Majority of the website content is available to any user regardless of their reg
 
 - The user's avatar, with the location, portfolio url, number of artworks, number of sold artworks, followed/following users count are all displayed within the main area of the profile view.
 - Other information is displayed using React bootstrap's Tabs component, splitting the information into two tabs:
+
   - More details - styles, techniques, collaborations, influences
   - Artworks - a list of the user's artworks
 
-![profile view](documentation/images/features/restricted-profile-view.png)
-![artworks view](documentation/images/features/profile-artwork-view.png)
+- The profile feature is set up with a user who is an artist looking to sell their artwork in mind.
+
+  - Further development, including separation of the seller and buyer profiles is noted in the [Features left to implement](#features-left-to-implement) section.
+
+  ![profile view](documentation/images/features/restricted-profile-view.png)
+
+  ![artworks view](documentation/images/features/profile-artwork-view.png)
 
 **Profile view(restricted access)**
 
@@ -466,41 +479,94 @@ Majority of the website content is available to any user regardless of their reg
   ![follow feature](documentation/images/features/follow-feature.jpg)
   ![unfollow feature](documentation/images/features/unfollow-feature.jpg)
 
-**Avatar feature**
+**Profile Avatar feature**
 
-- The Avatar is implemented throughout the website and plays a crutial part in the functionality of it.
-  - It provides a visual aid to the user easing to differentiate artworks and profiles they are viewing.
+- The Avatar component is implemented throughout the website.
+  - It provides a visual aid to the user, easily indicating who the user is, so that specific features such as artworks and bids are clearly marked against each user.
+- The Avatar is reused in all major features such as artwork card display, bid display, Top sellers display and profile view display.
+- The user can choose to change the image through the profile edit form.
 
-**Default images**
+![avatar](documentation/images/features/profile-avatar-display.png)
 
-- The artwork and profile features come with a pre-set default image in case the user has not chosen or updated the images.
+**Top sellers feature**
 
-  - This way other features, such as the artwork view and the Avatar view, can function without an issue.
+- The Top sellers feature is displayed throughout the website for easy access so that the users could view the profiles that have sold the most artworks.
+  - The current functionality of this feature lists all users in a descending order from the most sold to the least sold.
+    - It was a design choice to have the users displayed as such due to limited number of users at the time of MVP release.
+  - Further development of this feature is noted in the [Features left to implement](#features-left-to-implement) section.
+- A scrollbar has been implemented to allow horizontal display of the feature.
 
-  ![artwork default]()
-  ![profile default]()
+  - On desktop, it is only visible once the user is signed in, and is controlled by the arrows on each end.
+  - On mobile, the users can swipe left and right to flip through the profiles.
 
-**Top sellers view**
+  ![Scrollbar desktop](documentation/images/features/scrollbar.jpg)
+
+  ![Scrollbar mobile](documentation/images/features/mobile-screenshot.png)
 
 **Search/Filter feature**
 
 - The search and filter feature is implemented throughout the website, which allows the user to look for their preferred artwork at ease.
+- Users can use the username, artwork title or artist name keywords to search for appropriate artwork listings.
+- To access further filtering, the user can click on the filter icon next to the search bar and choose from the following categories:
+  - the type of the artwork
+  - the style of the artwork
+  - whether the artwork is available for sale
+- This feature is available within the main artwork list, saved artworks list, and followed profiles list.
+
+  - Further implementation of the search/filter within the website is noted in the [Features left to implement](#features-left-to-implement) section.
+  - If the typed keyword does not match any listing, or there are no artworks within the chosen category, a "No results found" message with an image will be displayed.
+
+  ![Search bar](documentation/images/features/search-bar.png)
+  ![Fitler options](documentation/images/features/style-category.jpg)
+  ![Fitler options](documentation/images/features/type-filter.jpg)
+  ![Fitler options](documentation/images/features/sold-filter.jpg)
+  ![No results found](documentation/images/features/no-results-seach.png)
 
 **Tooltip feature**
 
-- Tooltips have been used to provide additional explanatory information to the user upon hovering over the icons.
+- Tooltips have been applied throughout the website to provide additional information that indicates user interaction.
 
-  **Error page**
+  - Where the interaction is available the cursor will also change into pointer and a hover effect is applied to further enhance the user interactivity.
+    - **to note:** the screenshots do not display the pointer.
 
-- have been added to troubleshoot appropriate server response to user request.
+  ![tooltip1](documentation/images/features/tooltip.jpg)
+  ![tooltip2](documentation/images/features/tooltip2.jpg)
+  ![tooltip3](documentation/images/features/tooltip4.jpg)
 
-![404 error page]()
+**Default images**
+
+- The artwork and profile features come with a pre-set default image in case the user has not chosen the images upon creating the artwork or profile.
+
+  - This way other features, such as the artwork view and the Avatar view, can function without any issue.
+
+    - These can be updated through the artwork edit and profile edit forms.
+
+      ![artwork default](documentation/images/features/default_artwork.jpg)
+
+      ![profile default](documentation/images/features/user-default.png)
+
+**Image carousel**
+
+- The image carousel feature has been implemented in order to display uploaded artworks to unregistered users in order to showcase them in one place aside from the main page.
+  - This feature is used in both the Sign up and Sign in pages noted below.
+- The user can use the arrows to flick through the images or stop the carousel upon hovering over the image.
+
+  ![Image carousel](documentation/images/features/image-carousel.jpg)
+
+**Page not found**
+
+- The page not found has been added to troubleshoot a url response that does not exist.
+
+  - A link redirecting the user to the main page is included for easy access.
+
+  ![404 error page](documentation/images/features/404-not-found.png)
 
 **User authentication**
 
 <details>
 <summary>Sign Up page</summary>
 
+- Once within the Sign up page, the user is presented with a registration form and an image carousel that displays current artworks.
 - The Sign Up form allows the user to create an account in order to access additional features:
 
   - Artwork create/edit/delete
@@ -509,30 +575,46 @@ Majority of the website content is available to any user regardless of their reg
   - Follow other users
   - Edit Profile, including username and password
 
-        - Upon successful registration, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
-        - The user's profile avatar is also visible at the top of the navigation bar.
+- The user is required to enter their username, a password of their choice and confirm the password again.
+- Upon successful registration, a confirmation message is displayed at the top of the page and the user is redirected to the Sign in page.
+- If the user already has an account, they can click on the Sign in link which will redirect to the Sign in page instead.
 
-        ![Sign Up]()
+- Mobile/tablet
+
+  ![Sign Up tablet](documentation/images/features/signup-tablet.png)
+
+- Desktop
+  ![Sign Up desktop](documentation/images/features/signup-desktop.png)
 
     </details>
 
 <details>
 <summary>Sign In page</summary>
 
-- The Sign in form allows the user to access their account and manage the above mentioned features.
+- Once within the Sign up page, the user is presented with a registration form and an image carousel that displays current artworks.
+- The Sign in form allows the user to access their account and manage the following features:
+  - Artwork create/edit/delete
+  - Bid create/edit/delete
+  - Save artworks
+  - Follow other users
+  - Edit Profile, including username and password
 - Upon successfull sign in, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
-- The user's profile avatar is also visible at the top of the navigation bar.
+- The user's profile avatar is also visible at the top of the navigation bar and within other features mentioned above.
+- If the user does not have an account, they can click on the Sign up link which will redirect to the Sign up page instead.
 
-      ![login]()
+  - Mobile/tablet
+
+    ![Sign in mobile](documentation/images/features/mobile-sigin.png)
+
+  - Desktop
+    ![Sign in desktop](documentation/images/features/desktop-sigin.png)
 
   </details>
 
  <details>
     <summary>Sign Out</summary>
 
-- When the user wishes to leave the account the logout button enables a confirmation page ensuring that the user is informed of their actions. - Upon successful logout, a confirmation message is displayed at the top of the page.
-
-      ![logout]()
+- When the user wishes to leave the account, the Sign out button enables a successful confirmation message and redirects the user to the home page.
 
   </details>
 
@@ -544,31 +626,99 @@ Majority of the website content is available to any user regardless of their reg
   - Save artwork feature
   - Profile edit/delete
   - Follow other users feature
-- Upon an attempt to access any of these the following alert messages will be displayed:
-  - If an unregistered user attempts to access any of the restricted pages by typing in the url link to the browser, they will be taken back to the main page view
-  - I have used front-end to ensure that restricted content/feature is not accessible to unregistered users, thus minimising any errors or access breach.
+- Upon an attempt to access any of these the following will happen:
+  - If an unregistered user attempts to access any of the restricted pages by typing in the url link to the browser (i.e. artwork edit form url), they will be taken back to the main page view.
+  - I have used React framework to ensure that restricted content/feature is not accessible to unregistered users, thus minimising any errors or access breach.
+  - I have used conditional rendering to ensure that certain functionality is not available depending on the state of the feature.
 
 **Notification messages**
 
 <details>
     <summary>User registration/access</summary>
 
-![Successful sign in]()
-![Successful registration]()
-![Successful signout]()
+![Successful registration](documentation/images/features/signup-message.jpg)
+
+![Successful sign in](documentation/images/features/signin-message.jpg)
+
+![Successful signout](documentation/images/features/signout-message.jpg)
 
 </details>
 
  <details>
     <summary>Confirmation messages</summary>
 
-![Successful artwork submission]()
-![Successful artwork delete]()
-![Successful bid submission]()
-![Successful bid delete]()
-![Successful bid accept]()
-![Successful bid reject]()
-![Successful bid mark as sold]()
+![Successful artwork submission](documentation/images/features/artwork-creation-message.jpg)
+
+![Successful artwork edit](documentation/images/features/artwork-edit-message.jpg)
+
+![Successful artwork delete](documentation/images/features/artwork-delete-message.jpg)
+
+![Successful bid submission](documentation/images/features/bid-submitted-message.jpg)
+
+![Successful bid delete](documentation/images/features/bid-deleted-message.jpg)
+
+![Successful bid accept](documentation/images/features/bid-accept-message.jpg)
+
+![Successful bid reject](documentation/images/features/bid-reject-message.jpg)
+
+![Successful bid mark as sold](documentation/images/features/artwork-sold-message.jpg)
+
+![Following user message](documentation/images/features/follow-message.jpg)
+
+![Unfollowed user message](documentation/images/features/unfollow-message.jpg)
+
+![Successful profile edit](documentation/images/features/profile-edit-message.jpg)
+
+![Successful username edit](documentation/images/features/username-message.jpg)
+
+![Successful password edit](documentation/images/features/pw-update-message.jpg)
+
+</details>
+
+ <details>
+  <summary>Error nofitications</summary>
+
+![Bid submission error](documentation/images/features/bid-submit-error-message.jpg)
+
+![Artwork submission error](documentation/images/features/artwork-submit-error-message.jpg)
+
+![Password submission error](documentation/images/features/pw-edit-error.jpg)
+
+![Signup submission error](documentation/images/features/signup-error-message.jpg)
+
+![Signin submission error](documentation/images/features/signin-error-message.jpg)
+
+- Other error notification messages that are not pictured but are set up to be raised in case of an error are:
+
+  - Sign out: `"Something went wrong while attempting to sign out. Please try again."`
+  - Following a user: `"Something went wrong while attempting to follow <username>."`
+  - Unfollow a user: `"Something went wrong while attempting to unfollow <username>."`
+  - Delete the artwork: `"Something went wrong while attempting to delete your artwork."`
+  - Edit the artwork: `"Something went wrong while attempting to update your artwork."`
+  - Accept a bid: `"Something went wrong while attempting to accept the bid."`
+  - Reject a bid: `"Something went wrong while attempting to reject the bid."`
+  - Mark as sold a bid: `"Something went wrong while attempting to mark the artwork as sold."`
+  - Delete a bid: `"Something went wrong while attempting to delete your bid."`
+  - Profile edit: `"Something went wrong while attempting to update your profile."`
+  - Username edit: `"Something went wrong while attempting to update your username."`
+  </details>
+
+<details>
+  <summary>Form input validation</summary>
+
+![Artwork input validation](documentation/images/features/artwork-input-validation.jpg)
+
+![Bid input validation](documentation/images/features/bid-input-validation.jpg)
+
+![Invalid bid number](documentation/images/features/invalid-bid-number.jpg)
+
+![Password validation](documentation/images/features/pw-validation-message.jpg)
+
+![Signup validation](documentation/images/features/signup-validation.jpg)
+
+![Signup validation2](documentation/images/features/signup-validation2.jpg)
+
+![Signin validation](documentation/images/features/signin-validation-error.jpg)
 
 </details>
 
@@ -693,6 +843,7 @@ To deploy to the Heroku website, follow the steps below:
 
 - Default image was supplied by [Flaticon](https://www.flaticon.com/).
   - I had to replace initial default image as it had a white border around it, which was visible after applying color choices.
+- The default artwork image has been appropriated from the Code Institute's Moments walkthrough project.
 
 ### Used code
 
