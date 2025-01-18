@@ -130,6 +130,16 @@ All files were put through ES lint validation using the terminal. No errors were
 - Flickering pointer over the toolpit in the Top sellers section was caused by overlapping Tooltip and css rules for the icons.
   - I managed to resolve this by setting hover effect to a different div element.
 
+**Unmounted Image carousel component**
+
+![unmounted error](documentation/images/errors/unmounted-error.jpg)
+
+- The above error was showing up, when the user signs into their account.
+
+  - To fix it, I added a cleanup function, using the code in the image as an example.
+
+  ![Unmount example](documentation/images/errors/cleanup-example.png)
+
 ### Unfixed bugs
 
 - When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold fuctionality.
