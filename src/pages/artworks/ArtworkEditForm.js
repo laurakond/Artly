@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import { axiosReq } from "../../api/AxiosDefaults";
 import appStyles from "../../App.module.css";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import formStyles from "../../styles/FormStyles.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
 function ArtworkEditForm() {

@@ -13,7 +13,7 @@ import {
   useSetLoggedInUser,
 } from "../../contexts/LoggedInUserContext";
 import appStyles from "../../App.module.css";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import formStyles from "../../styles/FormStyles.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
 const ProfileEditForm = () => {

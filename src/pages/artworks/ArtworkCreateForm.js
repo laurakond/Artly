@@ -10,7 +10,7 @@ import Image from "react-bootstrap/Image";
 import Upload from "../../assets/upload-frame.webp";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/AxiosDefaults";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import formStyles from "../../styles/FormStyles.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 import { useRedirect } from "../../hooks/useRedirect";

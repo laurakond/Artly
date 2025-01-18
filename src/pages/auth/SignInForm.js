@@ -14,7 +14,7 @@ import ImageCarousel from "../../components/ImageCarousel";
 import styles from "../../styles/SignUpInPage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
-import formStyles from "../../styles/ArtworkCreateEditForm.module.css";
+import formStyles from "../../styles/FormStyles.module.css";
 
 function SignInForm() {
   const setLoggedInUser = useSetLoggedInUser();
