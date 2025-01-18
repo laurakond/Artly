@@ -6,6 +6,10 @@
   font-size: 2rem;
 }
 
+.CustomMargin {
+  margin: auto 0;
+}
+
 .CustomCarouselContainer {
   padding-left: 0;
   padding-right: 0;
@@ -23,21 +27,54 @@
 .CustomCarouselStyle img {
   width: 100%;
   height: 100%;
-  max-height: 300px;
+  max-height: 258px;
   object-fit: cover;
   border-radius: 8px;
 }
 
 /* Media queries */
-@media (min-width: 768px) {
+@media (min-width: 375px) {
+  .CustomCarouselStyle img {
+    max-height: 300px;
+  }
+}
+
+@media (min-width: 712px) {
   /* Row height was appropriated from Code Institute's Moments walkthrough project. */
   .RowHeight {
     height: calc(100vh - 81px);
   }
 
+  .CustomMargin {
+    margin-top: 0;
+  }
+
   .CustomCarouselContainer {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  /* .CustomCarouselStyle img {
+    max-height: 315px;
+    max-width: 400px;
+  } */
+
+  .CustomCarouselStyle {
+    max-width: 500px;
+  }
+  .CustomCarouselStyle img {
+    max-height: 400px;
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 992px) {
+  .CustomMargin {
+    margin-top: auto;
+  }
+
+  .CustomCarouselStyle {
+    max-width: 400px;
   }
 
   .CustomCarouselStyle img {
@@ -46,7 +83,7 @@
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .CustomCarouselStyle {
     max-width: 500px;
   }
