@@ -86,7 +86,9 @@ const ArtworkPage = () => {
       toast.success("Artwork is now sold.");
     } catch (error) {
       console.error(error);
-      toast.error("Something went wrong while attempting to sell the artwork.");
+      toast.error(
+        "Something went wrong while attempting to mark the artwork as sold."
+      );
     }
   };
 

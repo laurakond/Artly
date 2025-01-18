@@ -26,10 +26,10 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setLoggedInUser(null);
       removeTokenTimestamp();
-      toast.success("You are logged out!");
+      toast.success("You are signed out!");
     } catch (error) {
       toast.error(
-        "Something went wrong while attempting to log out. Please try again."
+        "Something went wrong while attempting to sign out. Please try again."
       );
     }
   };

@@ -40,7 +40,7 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
-      toast.success("You are signed up! Please sing in.");
+      toast.success("You are signed up! Please sign in.");
     } catch (error) {
       setErrors(error.response?.data);
       toast.error(

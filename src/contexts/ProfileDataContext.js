@@ -39,7 +39,7 @@ const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-      toast.success(`You are now following ${clickedProfile.owner}`);
+      toast.success(`You are now following ${clickedProfile.owner}.`);
     } catch (error) {
       toast.error(
         `Something went wrong while attempting to follow ${clickedProfile.owner}.`
@@ -65,7 +65,7 @@ const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-      toast.success(`You are no longer following ${clickedProfile.owner}`);
+      toast.success(`You are no longer following ${clickedProfile.owner}.`);
     } catch (error) {
       toast.error(
         `Something went wrong while attempting to unfollow ${clickedProfile.owner}.`
