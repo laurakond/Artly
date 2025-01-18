@@ -24,6 +24,15 @@ By Laura Kondrataite
 
 ### W3C Validator Testing
 
+#### W3C HTML validation
+
+The main index.html file was put through the official [W3C Markdown Validation](https://validator.w3.org/nu/) services returning no errors or warnings.
+
+- Info notes were included as React uses JSX and not ure HTML.
+  ![HTML validation image](documentation/images/testing/html-validation.jpg)
+
+#### W3C Css validation
+
 All files were put through the official [W3C Css Validation](https://jigsaw.w3.org/css-validator/) services returning no errors or warnings.
 
 - **To note:** I have only included one screenshot of the App.module.css file as all of them were exactly the same and did not have an incidation of the file name.
