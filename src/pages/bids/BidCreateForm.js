@@ -22,8 +22,8 @@ function BidCreateForm(props) {
       ...bidData,
       [event.target.name]: event.target.value,
     });
-    // This part of the code was appropriated from medium.com. Full credit is
-    // noted in the used code section in the Readme.md.
+    /*This part of the code was appropriated from medium.com. Full credit is
+    noted in the used code section in the Readme.md.*/
     if (errors[event.target.name]) {
       setErrors((prevErrors) => ({
         ...prevErrors,

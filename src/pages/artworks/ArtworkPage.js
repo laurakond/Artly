@@ -74,8 +74,8 @@ const ArtworkPage = () => {
         ),
       }));
 
-      // Sets the artwork's sold status as true, which allows to generate
-      // the status straight away upon the bid status update.
+      /* Sets the artwork's sold status as true, which allows to generate
+      the status straight away upon the bid status update.*/
       setArtwork((prevArtwork) => ({
         ...prevArtwork,
         results: prevArtwork.results.map((artwork) => ({
@@ -90,8 +90,8 @@ const ArtworkPage = () => {
     }
   };
 
-  // Functionality for the buyer to delete their bid before the bid is approved
-  // and marked as sold.
+  /* Functionality for the buyer to delete their bid before the bid is approved
+  and marked as sold.*/
   const handleDeleteBid = async (id) => {
     try {
       await axiosRes.delete(`/bids/${id}/`);
