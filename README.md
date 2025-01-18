@@ -1,6 +1,6 @@
 # Artly
 
-![main-image](documentation/images/features/am-i-responsive.jpeg)
+![main-image](documentation/images/features/am-i-responsive.jpg)
 
 (By Laura Kondrataite)
 
@@ -8,7 +8,7 @@ Are you looking for a place where to sell your art? Or perhaps you wish to purch
 
 **Artly** is a product comparison site which promotes sharing most beloved artworks with like minded people. Whether you are looking to sell or buy a unique pieces of art, Artly promotes a is led by arts community who wishes to share and sell their artwork.
 
-**Please note:** This repository is for the front-end part of Artly React project which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api).
+**Please note:** This repository coverts the front-end Artly project development.which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api).
 
 Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com/).
 
@@ -22,6 +22,7 @@ Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com
 - [Wireframes](#wireframes)
 - [Color palette](#color-palette)
 - [Font styles](#font-styles)
+- [Architecture solutions](#architecture-solutions)
 
 [Agile Methodology](#agile-methodology)
 
@@ -159,6 +160,10 @@ I used [Google fonts](https://fonts.google.com/) to source the fonts for the web
 
 ![font screenshots](documentation/images/design/google-fonts-artly.jpg)
 
+### Architecture solutions
+
+- The website was designed using React framework which allows seamless navigation and trasition between pages without having to refresh/reload the pages through the use of components.
+
 [Return to Table of Contents](#table-of-contents)
 
 ## Agile Methodology
@@ -229,22 +234,22 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 ### Existing Features
 
-- The website was designed using React framework which allows seamless navigation and trasition between pages without having to refresh/reload the pages.
-- Majority of the website features are available to any user regardless of their registration status.
+Majority of the website content is available to any user regardless of their registration status. Restricted features are the ones that allow the user to interact with the website beyond content browsing.
 
 **Logo and favicon**
 
 ![favicon](documentation/images/features/pp5-favicon.jpg)
 ![logo](documentation/images/features/pp5-logo.jpg)
 
-- Upon logging loading the website, the user is greeted by a creative Logo to the left of the Navigation bar, which indicates of the website's creative purpose.
-- Similarly, the same theme of the favicon clearly signals which of the browser tabs the website is on.
+- Upon loading the website, the user is greeted by a creative Logo to the left of the Navigation bar, which indicates the website's creative flare.
+- Similarly, the favicon clearly makes the website standout amongst many opened browser tabs clearly indicating which tab belongs to the Artly website.
 
 **The Header**
 
 - Featured across all the pages, the Header is fully responsive and presents the user with the main pages that are required. To the left of the header you find:
 
-- The Logo
+  - The Logo
+
 - To the right of the header the remainder of the pages:
 
   - Home Page
@@ -254,12 +259,12 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   **Mobile**
 
   ![mobile logged out navbar](documentation/images/features/mobile-navbar.jpg)
+
   ![mobile expanded logged out navbar](documentation/images/features/mobile-navbar-exp.jpg)
 
   **Desktop**
 
   ![desktop logged out navbar](documentation/images/features/desktop-navbar.jpg)
-  ![desktop logged in navbar](documentation/images/features/desktop-navbar-user.jpg)
 
 - Upon Registration or Log in, the user's profile avatar and additional four pages and a Sign out are revealed in the header. This creates a sense of personalisation and indicates additional website functionality for the registered users.
 
@@ -274,14 +279,13 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   ![mobile logged in navbar](documentation/images/features/mobile-navbar-user.jpg)
 
   **Desktop**
-  ![desktop logged in navbar](documentation/images/features/desktop-navbar-user.jpg)
+  ![desktop logged in navbar](documentation/images/features/desktop-loggedin-navbar.jpg)
 
 **The Landing Page**
 
-- The Landing page of the website is designed to clearly indicate the purpose upon first visit. The user can straight away see all artworks that have been listed for sale.
-- Arranged in a card view, each artwork listing provides the most essential information and can be clicked to access the detailed view of the artwork.
-  - Tooltips have been used to provide useful information to the user upon hovering over the icons:
-    - the save artwork feature is only available to the registered users.
+- The Landing page of the website is designed to clearly indicate the purpose upon first visit. The user can straight away see all the artworks that have been listed for sale.
+  - The page acts as the main content container incorporating multiple features (components) that are discussed further along in full detail.
+- Each artwork listing provides the most essential information, and can be clicked to access more information about the artwork.
 - The user can see a list of top selling profiles, and search/filter functionality that allows them to search and filter the list view based on the following criteria:
 
   - Search bar for artworks, artist name, username
@@ -291,98 +295,176 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
     - the sold artworks are marked with a Sold label that clearly indicates their unavailability for purchase
 
-    ![Mobile Artwork list view](documentation/images/features/mobile-artwork-list.jpg)
-    ![Desktop Artwork list view](documentation/images/features/desktop-artwork-list.jpg)
+  <details>
+    <summary>Mobile artwork list screenshow</summary>
+      
+    ![Mobile Artwork list view](documentation/images/features/mobile-artwork-list.png)
+
+  </details>
+
+  <details>
+    <summary>Desktop artwork list screenshow</summary>
+      
+    ![Desktop Artwork list view](documentation/images/features/desktop-artwork-list.png)
+
+  </details>
 
 **Create Artwork form(restricted access)**
 
-- Upon registration or logging in, the user can create an artwork by clicking on "List Art" in the navigation bar.
+- Upon registration or logging in, the user can create an artwork by clicking on the "List Art" in the navigation bar.
 - The user will be taken to a form where they can choose to upload an image, and enter information about the artwork.
-  - If the user enters incorrect information or leaves a required field empty, an error message will appear indicating so.
+  - If the user enters incorrect information or leaves a required field empty, an error message will appear indicating so upon submission.
   - If the user uploads an image that exceeds the limit, an error message will appear indicating so.
 - Once the artwork form is submitted, the user will see a confirmation message on the top right corner.
+
   - If the user clicks on the cancel button, they will be taken back to the previous page.
 
-![Artwork form image]()
+  ![Mobile artwork form image](documentation/images/features/mobile-artwork-form.png)
+  ![Desktop artwork form image](documentation/images/features/desktop-artwork-form.png)
+  ![artwork form validation image](documentation/images/features/artwork-form-validation-messages.png)
 
-**Artwork detail view**
+**Artwork detail view page**
 
-- Upon clicking on an individual artwork card, the user is taken to a detailed artwork page that displays full information on the artwork, including the style, type, contact details of the seller and the location of the artwork.
-- Once logged in, the user can edit or delete their artwork listing by clicking on an icon (pictured below).
+- Upon clicking on the individual artwork card, the user is taken to a detailed artwork page that displays full information about it, including the style, type, contact details of the seller and the location of the artwork.
+- Below the artwork information, the user can see the Existing Bids feature (discussed below) which displays any bids submitted for the artwork. If the user wishes to interact with this feature, they are required to Sign in or Sign up.
+
+**Artwork detail view(restricted access)**
+
+- Once logged in, the user can choose to edit or delete their artwork listing by clicking on a three dots favicon (pictured below).
 
   - If the user chooses to edit the artwork, they are taken to the artwork edit form.
   - If the user chooses to delete the artwork, they will be notified by a pop up notification if the action was successful or not.
 
-  ![Artwork detail view]()
+  ![Artwork detail view](documentation/images/features/artwork-detail-view.png)
 
-  ![User edit icon]()
+  ![User edit/delete icon](documentation/images/features/artwork-edit-delete.jpg)
 
-**Create Artwork form(restricted access)**
+**Artwork edit form(restricted access)**
 
-- If the user chooses to edit the form in the detailed artwork view, they are taken to the artwork edit form, which is the same as Artwork create form. The user will be able to see preexisting information populated in the fields, and amend them accordingly.
-- Similarly to the Artwork create form, the user can either submit or cancel the edit.
+- If the user chooses to edit the form in the detailed artwork view, they are taken to the artwork edit form, which is the same as Artwork create form.
+  - The user will be able to see preexisting information populated in the fields, and amend them accordingly.
+- Similarly to the Artwork create form, the user can either submit or cancel the form.
 
   - Upon successful update, the user will see a notification message appear and they will be taken to the artwork detail view where they can review the information.
 
-  ![Edit Artwork form image]()
+  ![Edit Artwork form image](documentation/images/features/artwork-edit-form.png)
 
-**Artwork bid feature(restricted access)**
+**Artwork bid feature - buyer (restricted access)**
 
 - When inside the detailed artwork view, the user can choose to bid(buy) on an artwork if the artwork is not their own.
 
-  - A bid form is visible underneath the main artwork information where the user needs to enter the bid price and their contact details.
+  - A bid form is visible underneath the detailed artwork view where the user needs to enter the bid price and their contact details.
 
-    - The bid form is only visible to the users who are the buyers, i.e. not the owners of the artwork listing.
+    - The bid form is visible to registered buyers only, i.e. not the owners of the artwork.
     - The form validates incorrect data input including negative or 0 value price offers.
       - an error message will appear accordingly.
     - Upon bid submission the user will be notified if the action was successful or not.
-    - The user's bid and bid status will appear below the bid form, also showing when the bid was created. This allows for the users to track the progress and see when other bids were submitted too.
-
-    ![buyers submitted bid view]()
+    - The user's bid price and bid status will appear below the bid form, also showing when the bid was created. This allows for the users to track the progress and see when the other bids were submitted too.
 
 - If the user wishes to remove their bid, they can delete it.
 
-  - Similarly to the artwork delete, a notification will indicate if the action was completed or if there were any errors.
+  - Similarly to the artwork delete functionality, a notification will indicate if the action was completed successfully or if there were any errors.
 
-  ![delete bid]()
+  ![buyers submitted bid view](documentation/images/features/bid-feature.png)
 
-- Once the bid is submitted, the seller can then access the artwork detail view to update the bid status.
+  ![bid validation view](documentation/images/features/bid-validation.png)
 
-  - There are three options visible to choose from:
+  ![delete bid](documentation/images/features/bid-delete.jpg)
+
+**Artwork bid feature - seller (restricted access)**
+
+- Once the bid is submitted, the seller (artwork owner) can then access the artwork detail view to update the bid status.
+
+  - There are three options available to choose from:
 
     1. Approve the bid
     2. Reject the bid
     3. Mark as sold
 
-    ![Bid button options]()
-
-  - Upon any of these, the bid status view will update for the buyer and seller to see.
-  - If the Bid is marked as sold, the artwork automatically updates to being sold with a "Sold" ribbon appearing on the top right corner of the artwork card, and a call to action button is revealed to the seller to "Contact the buyer".
-
-    ![Sold ribbon]()
-
-    - Once clicked, a mailto functionality will be activated in a separate window.
+  - Upon clicking any of these, the buyer's bid status will update for everyone to see.
+  - If the Bid is marked as sold:
+    - The artwork automatically updates to being sold
+    - The "Sold" ribbon appears on the top right corner of the artwork card
+    - A call to action button is revealed to the seller to "Contact the buyer"
+      - Once clicked, a mailto functionality will be activated in a separate window.
+    - The bid form is hidden for everyone clearly indicating that no more bids can be submitted for this artwork.
     - If there are any other bids for the artwork, their bid status is hidden to indicate which of the bid was accepted.
+  - Once the artwork is marked as sold, the seller cannot edit the listing.
 
-      ![mailto]()
+  ![Bid button options](documentation/images/features/bid-approve-buttons.png)
 
-    - If a buyer enters the sold artwork's detailed view, the bid form is no longer displayed.
-    - Once the artwork is marked as sold, the seller cannot edit the listing.
+  ![sold artwork detail view](documentation/images/features/sold-detail-view.png)
+
+  ![sold artwork buyer's view](documentation/images/features/sold-buyer-view.png)
 
 **Saved artworks(restricted access)**
 
-- In the navigation, the user can access their saved artworks if they wish to review them in one place.
+- The user has an option to save an artwork by clicking on the bookmark icon in the artwork list view.
+  - The icon will change to indicate that the user has already saved it.
+  - The saved artwork count displayed next to the icon, indicates to how many users have the artwork saved, and will discrease/increase based on the saved artwork count.
+- To access and review the saved artworks, the user can do so by clicking on the "Saved artworks" button in the navigation bar.
 - The list of artworks is rendered the same way as the main artwork list.
 
-**Followed users(restricted access)**
+![save artwork](documentation/images/features/save-artwork.jpg)
 
 **Profile view**
 
+- Any user can view another user's profile, where they can see various information about that user, including:
+
+- The user's avatar, with the location, portfolio url, number of artworks, number of sold artworks, followed/following users count are all displayed within the main area of the profile view.
+- Other information is displayed using React bootstrap's Tabs component, splitting the information into two tabs:
+  - More details - styles, techniques, collaborations, influences
+  - Artworks - a list of the user's artworks
+
+![profile view](documentation/images/features/restricted-profile-view.png)
+![artworks view](documentation/images/features/profile-artwork-view.png)
+
+**Profile view(restricted access)**
+
+- Similarly to the artwork feature, the users can edit their profiles by choosing one of the following options from the edit drop down list:
+  - edit profile - redirects to the profile edit form page
+  - change username - redirects to the username edit form page
+  - change password - redirects to the password edit form page
+
+![User edit profile](documentation/images/features/profile-edit-options.jpg)
+
 **Edit Profile form(restricted access)**
+
+- If the user chooses to edit the profile, they are taken to the profile edit form.
+  - The user will be able to see pre-existing information populated in the fields, and amend them accordingly.
+- Similarly to the Artwork create/edit forms, the user can either submit or cancel the form.
+
+  - Upon successful update, the user will see a notification message appear and they will be taken back to the profle view.
+  - If the user chooses to cancel the edit, they will be taken back to the profile view as well.
+  - All form fields are optional.
+
+  ![Edit profile form image](documentation/images/features/edit-profile-form.png)
 
 **Change username form(restricted access)**
 
+- Similarly to the profile edit form, upon selecting edit username, the user is taken to the username edit form where they can either update or cancel the action.
+
+  - In both instances, the user will be taken back to the profile view.
+
+  ![username edit form](documentation/images/features/edit-username.png)
+
 **Change password form(restricted access)**
+
+- Similarly to the profile edit form, upon selecting edit username, the user is taken to the username edit form where they can either update or cancel the action.
+
+  - In both instances, the user will be taken back to the profile view.
+
+  ![password edit form](documentation/images/features/edit-password.png)
+
+**Followed users(restricted access)**
+
+- Similarly to the Saved artworks feature, the user can (un)follow other users by clicking on the (un)follow button within the user's profile, or "plus"/"minus" icons within the top sellers feature.
+- The followed user's content can be found within the "Followed profiles" button in the navigation bar.
+
+  - The current set up is displaying followed users' artworks.
+
+  ![follow feature](documentation/images/features/follow-feature.jpg)
+  ![unfollow feature](documentation/images/features/unfollow-feature.jpg)
 
 **Avatar feature**
 
@@ -391,7 +473,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 **Default images**
 
-- The artwork and profile features come with a preset default image in case the user has not chosen or updated the images.
+- The artwork and profile features come with a pre-set default image in case the user has not chosen or updated the images.
 
   - This way other features, such as the artwork view and the Avatar view, can function without an issue.
 
@@ -404,7 +486,11 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 
 - The search and filter feature is implemented throughout the website, which allows the user to look for their preferred artwork at ease.
 
-**Error page**
+**Tooltip feature**
+
+- Tooltips have been used to provide additional explanatory information to the user upon hovering over the icons.
+
+  **Error page**
 
 - have been added to troubleshoot appropriate server response to user request.
 
@@ -413,7 +499,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
 **User authentication**
 
 <details>
-<summary>Sign Up</summary>
+<summary>Sign Up page</summary>
 
 - The Sign Up form allows the user to create an account in order to access additional features:
 
@@ -421,7 +507,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   - Bid create/edit/delete
   - Save artworks
   - Follow other users
-  - Edit Profile
+  - Edit Profile, including username and password
 
         - Upon successful registration, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
         - The user's profile avatar is also visible at the top of the navigation bar.
@@ -431,7 +517,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
     </details>
 
 <details>
-<summary>Sign In</summary>
+<summary>Sign In page</summary>
 
 - The Sign in form allows the user to access their account and manage the above mentioned features.
 - Upon successfull sign in, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
@@ -760,6 +846,11 @@ To deploy to the Heroku website, follow the steps below:
   - [Add css classname dynamically in react loop based on condition](https://stackoverflow.com/questions/66767604/add-css-classname-dynamically-in-react-loop-based-on-condition)
   - [Conditionally applying class attributes in react](https://stackoverflow.com/questions/30533171/conditionally-applying-class-attributes-in-react)
   - [Dhwise - Mastering react add class conditionally](https://www.dhiwise.com/post/mastering-react-add-class-conditionally-a-comprehensive-guide)
+
+#### Multiple functions in onClick
+
+- [Call multiple functions onclick react](https://stackoverflow.com/questions/26069238/call-multiple-functions-onclick-reactjs)
+- [putting two functions in the same onclick](https://stackoverflow.com/questions/71102714/putting-two-functions-in-the-same-onclick)
 
 ### Acknowledgments
 
