@@ -31,6 +31,7 @@ Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com
 [Features](#features)
 
 - [Existing Features](#existing-features)
+- [Reusable Components](#reusable-components)
 - [Features Left to Implement](#features-left-to-implement)
 
 [Technologies used](#technologies-used)
@@ -164,7 +165,11 @@ I used [Google fonts](https://fonts.google.com/) to source the fonts for the web
 
 ### Architecture solutions
 
-- The website was designed using React framework which allows seamless navigation and trasition between pages without having to refresh/reload the pages through the use of components.
+- The website was designed using React framework which allows seamless navigation and trasition between pages without having to refresh/reload the website through the use of components.
+- The current file structure will be reviewed and improved at the next development stage in order to adhere to React architecture best practices. This includes:
+  - restructuring files/folders within src directory
+    - moving files to the right place
+  - extracting functionality of some features into independent reusable components and placing them appropriately within the file structure
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -496,15 +501,6 @@ Majority of the website content is available to any user regardless of their reg
   ![follow feature](documentation/images/features/follow-feature.jpg)
   ![unfollow feature](documentation/images/features/unfollow-feature.jpg)
 
-**Profile Avatar feature**
-
-- The Avatar component is implemented throughout the website.
-  - It provides a visual aid to the user, easily indicating who the user is, so that specific features such as artworks and bids are clearly marked against each user.
-- The Avatar is reused in all major features such as artwork card display, bid display, Top sellers display and profile view display.
-- The user can choose to change the image through the profile edit form.
-
-![avatar](documentation/images/features/profile-avatar-display.png)
-
 **Top sellers feature**
 
 - The Top sellers feature is displayed throughout the website for easy access so that the users could view the profiles that have sold the most artworks.
@@ -565,14 +561,6 @@ Majority of the website content is available to any user regardless of their reg
       ![artwork default](documentation/images/features/default_artwork.jpg)
 
       ![profile default](documentation/images/features/user-default.png)
-
-**Image carousel**
-
-- The image carousel feature has been implemented in order to display uploaded artworks to unregistered users in order to showcase them in one place aside from the main page.
-  - This feature is used in both the Sign up and Sign in pages noted below.
-- The user can use the arrows to flick through the images or stop the carousel upon hovering over the image.
-
-  ![Image carousel](documentation/images/features/image-carousel.jpg)
 
 **Page not found**
 
@@ -742,6 +730,53 @@ Majority of the website content is available to any user regardless of their reg
 ![Signin validation](documentation/images/features/signin-validation-error.jpg)
 
 </details>
+
+### Reusable components
+
+- The following reusable components have been set up so that they could re applied through the code avoiding unneccesary code duplication:
+
+**Asset component**
+
+- The asset component is used to display a spinner while the content is loading or no results are found upon search.
+  ![spinner](documentation/images/features/spinner-asset.png)
+
+**Dropdown menu component**
+
+- The dropdown menu component is utilised to allow the users access CRUD functionality throughout the website. It is used for Artwork, Bid and Profile features:
+
+  - Artwork edit/delete
+
+![Artwork edit](documentation/images/features/dropdown-artwork.png)
+
+    - Bid delete
+
+![Bid delete](documentation/images/features/dropdown-bid.png)
+
+    - Profile edit
+
+![Profile edit](documentation/images/features/dropdown-profile.png)
+
+**Avatar component**
+
+- The Avatar component is implemented throughout the website.
+  - It provides a visual aid to the user, easily indicating who the user is, so that specific features such as artworks and bids are clearly marked against each user.
+- The Avatar is reused in all major features such as artwork card display, bid display, Top sellers display and profile view display.
+  - It is also clickable, which allows the users to access profile view.
+- The user can choose to change the image through the profile edit form.
+
+![Avatar1](documentation/images/features/avatar1.jpg)
+
+![Avatar2](documentation/images/features/avatar2.jpg)
+
+![Avatar3](documentation/images/features/avatar3.jpg)
+
+**Image carousel**
+
+- The image carousel feature has been implemented in order to display uploaded artworks to unregistered users in order to showcase them in one place aside from the main page.
+  - This feature is used in both the Sign up and Sign in pages noted below.
+- The user can use the arrows to flick through the images or stop the carousel upon hovering over the image.
+
+  ![Image carousel](documentation/images/features/image-carousel.jpg)
 
 ### Features Left to Implement
 
