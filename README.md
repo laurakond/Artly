@@ -277,7 +277,7 @@ Majority of the website content is available to any user regardless of their reg
   - Saved Page
   - Followed Page
   - Profile Avatar
-  - Log out Page
+  - Sign out
 
   **Mobile**
 
@@ -291,6 +291,7 @@ Majority of the website content is available to any user regardless of their reg
 - The Landing page of the website is designed to clearly indicate the purpose upon first visit. The user can straight away see all the artworks that have been listed for sale.
   - The page acts as the main content container incorporating multiple features (components) that are discussed further along in full detail.
 - Each artwork listing provides the most essential information, and can be clicked to access more information about the artwork.
+- Infinite scrolling has been implemented to ensure that the list is refreshed and loads more artworks as the user scrolls down the list.
 - The user can see a list of top selling profiles, and search/filter functionality that allows them to search and filter the list view based on the following criteria:
 
   - Search bar for artworks, artist name, username
@@ -416,17 +417,26 @@ Majority of the website content is available to any user regardless of their reg
 
 **Profile view**
 
-- Any user can view another user's profile, where they can see various information about that user, including:
+- Any user can view their own and another user's profile, where they can see various information about that user, including:
 
-- The user's avatar, with the location, portfolio url, number of artworks, number of sold artworks, followed/following users count are all displayed within the main area of the profile view.
-- Other information is displayed using React bootstrap's Tabs component, splitting the information into two tabs:
+  - The user's avatar,
+  - the location,
+  - portfolio url,
+  - number of artworks,
+  - number of sold artworks,
+  - followed and following users count
+
+- These are all displayed within the main area of the profile view.
+
+- Other information relating to the artist user is displayed using React bootstrap's Tabs component, splitting the information into two tabs:
 
   - More details - styles, techniques, collaborations, influences
   - Artworks - a list of the user's artworks
 
-- The profile feature is set up with a user who is an artist looking to sell their artwork in mind.
+- The current profile feature is set up focusing on a user who is an artist in mind.
 
-  - Further development, including separation of the seller and buyer profiles is noted in the [Features left to implement](#features-left-to-implement) section.
+  - The section "More details" allows these users to include relevant information about their work.
+  - Further developments, including separation of the seller and buyer profiles is noted in the [Features left to implement](#features-left-to-implement) section.
 
   ![profile view](documentation/images/features/restricted-profile-view.png)
 
@@ -517,9 +527,13 @@ Majority of the website content is available to any user regardless of their reg
   - If the typed keyword does not match any listing, or there are no artworks within the chosen category, a "No results found" message with an image will be displayed.
 
   ![Search bar](documentation/images/features/search-bar.png)
+
   ![Fitler options](documentation/images/features/style-category.jpg)
+
   ![Fitler options](documentation/images/features/type-filter.jpg)
+
   ![Fitler options](documentation/images/features/sold-filter.jpg)
+
   ![No results found](documentation/images/features/no-results-seach.png)
 
 **Tooltip feature**
@@ -724,14 +738,25 @@ Majority of the website content is available to any user regardless of their reg
 
 ### Features Left to Implement
 
-- in house messaging functionality which would allow the sellers and buyers to communicate in one place.
-  - Notifications would be sent to the user's email to make sure that they are notified if any changes are made.
-- Expand and improve on the Profile feature to separate the buyers' and sellers' profiles more prominently.
+- An in-house messaging functionality, which would allow the sellers and buyers to communicate within one platform.
+  - Once the user's artwork receives a bid, or a bid is approved/marked as sold, a notification would be sent to the user's notification board.
+  - Any other communication, such as arranging the logistics of the artwork's collection and payment would be sent through the messaging service.
+  - Notifications would still be sent to the user's email to make sure that they are notified if any changes are made when they are offline.
+- Expand the Profile feature in order to separate the buyers' and sellers' profiles more:
+  - The users will be able to select if they are an artist or a artwork owner/art buyer.
+    - Based on this, the users will be able to choose from different profile forms to populate
+      - Respective profiles would be shown
+    - Clear indication through the use of icons/imagery within the website which user is an artist and an art seller or a buyer
+  - Create a section for the users to browse all user profiles regardless of their artwork count
+- Improve current Top sellers feature to only show the users who have sold artworks
 - Implement a contact form so that the users could inform administrators about any errors or bugs in the system.
-- My Bids page, so that the buyers have easy access to the bids they a have placed and see the status of them in one place.
+  - This would be similar to Contact us or Report any errors
+- My Bids page would allow the buyers have easy access to the bids they a have placed and see the status of them in one place.
   - At the moment this feature can carried out if the user chooses to save an artwork.
   - This would allow to expand on the existing functionality of the saved artworks feature.
-- Expand on and improve artwork edit functionality for the seller.
+- Expand on and improve artwork edit functionality for the seller allowing the user to remove the sold artworks from the list, which would allow better user experience for the buyers.
+  - Create a separate section where the sold artworks would be stored so that any user could access it.
+- Restructure and implement the search and filter feature so that it is accessible within the profile view.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -760,7 +785,7 @@ Majority of the website content is available to any user regardless of their reg
 - **Git** was used for version control.
 - **Pip** was used to install required dependencies.
 - **Gitpod** editor was used for writing the code.
-- [JS Hint](https://jshint.com/) was used for validating Javascript code.
+- **JS Lint**, built in validator, was used to validate JSX code.
 - [W3C Markdown](https://validator.w3.org/) was used for validating html files.
 - [W3C CSS](https://jigsaw.w3.org/css-validator/) was used for validating css files.
 - [Balsamiq](https://balsamiq.com/) used for creating wireframes.
@@ -771,7 +796,7 @@ Majority of the website content is available to any user regardless of their reg
 - [Coolors](https://coolors.co/) for generating the color palette
 - WCAG color contrast checker for website accessibilty
 - Wave evaluation tool for giving visual feedback about the accessibility of the website
-- [Canva](https://www.canva.com/) used for generating the Logo, favicon design and image upload defaults
+- [Canva](https://www.canva.com/) used for generating the Logo, favicon design and default images for search feature and image uploads
 - [Contrast Grid](https://contrast-grid.eightshapes.com/) to test chosen color palette
 - [React Toastify](https://www.npmjs.com/package/react-toastify/v/9.0.3) for rendering user notifications
 
@@ -825,6 +850,9 @@ To clone the repository in Github:
 
 To deploy to the Heroku website, follow the steps below:
 
+- In your IDE, before going to Heroku website, add the following prebuid command in the package.json file, "scripts" section:
+  - `"heroku-prebuild": "npm install -g serve",`
+- Add a Procfile at the root of the project with the following web command: `web: serve -s build`
 - Navigate to [Heroku](https://www.heroku.com) platform website ang log in or create an account.
 - Click 'Create new App'.
 - Choose a unique project name and select your region from the drop down.
@@ -901,7 +929,7 @@ To deploy to the Heroku website, follow the steps below:
   }
   ```
 
-- bookmark positioning
+- Bookmark positioning
 
   - when working on the Artwork component, I wanted to adjust the bookmark/save icon to the bottom right corner of the card. I managed to do this by applying the following code and adjusting it to fit the website needs: [W3Schools - image text bottom right](https://www.w3schools.com/css/tryit.asp?filename=trycss_image_text_bottom_right)
 
@@ -1007,7 +1035,7 @@ To deploy to the Heroku website, follow the steps below:
 
 My thanks go to:
 
-- My mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova)
+- My mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for explaining concepts I didn't understand and overall project evaluation.
 - My fellow student, [Vernell Clark](https://github.com/VCGithubCode), for troubleshooting problematic parts of code and providing a shoulder to cry on when things got really rough.
 
 - [Daisy McGirr](https://github.com/Dee-McG) for helpig to crystalise the project idea, troubleshooting and providing moral support throughout the whole project.
