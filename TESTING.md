@@ -157,6 +157,8 @@ All files were put through ES lint validation using the terminal. No errors were
   - It appears that once the atwork is marked as sold, if the seller chooses to edit the artwork, it is listed again as if it was not sold in the artwork list view. However, the user doesn't seem to be able to interact with it afresh, which does not cause any issues apart from misleading and confusing information displayed to the user.
   - I have circumvented this issue by disabling the edit functionality for the seller once the artwork is marked as sold.
     [Return to Table of Contents](#contents)
+- The following errors noted in the console are expected to be present as per Moments walkthrough note, therefore I have not addressed these at this development stage:
+  ![Acceptable errors](documentation/images/errors/acceptable-errors.jpg)
 
 ### Lighthouse testing
 
@@ -204,7 +206,14 @@ The scores have been marked down due to the use of external CDNs and Cloudinary 
 
 The project was run through Wave evaluation tool and WCAG Colour contrast checker.
 
-- No errors were detected when passing through Wave evaluation tool.
+**Wave**
+
+- Couple of errors were returned for the Sign up and Sign in pages, indicating lack of labels for input fields.
+  - Lack of labels was a design choice, aiming to a clean design and denoting inside the input field with placeholder text what was the expected input.
+- No other errors were detected when passing through Wave evaluation tool.
+
+**WCAG**
+
 - I ensured that sufficient color contrast is provided when choosing the color palette. I used [Contrast Grid tool](https://contrast-grid.eightshapes.com/) to ensure that the colors are well-chosen.
 
   ![color contrast](documentation/images/design/color-contrast.jpg)
