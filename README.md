@@ -746,15 +746,15 @@ Majority of the website content is available to any user regardless of their reg
 
   - Artwork edit/delete
 
-![Artwork edit](documentation/images/features/dropdown-artwork.png)
+  ![Artwork edit](documentation/images/features/dropdown-artwork.png)
 
-    - Bid delete
+  - Bid delete
 
-![Bid delete](documentation/images/features/dropdown-bid.png)
+  ![Bid delete](documentation/images/features/dropdown-bid.png)
 
-    - Profile edit
+  - Profile edit
 
-![Profile edit](documentation/images/features/dropdown-profile.png)
+  ![Profile edit](documentation/images/features/dropdown-profile.png)
 
 **Avatar component**
 
@@ -764,11 +764,11 @@ Majority of the website content is available to any user regardless of their reg
   - It is also clickable, which allows the users to access profile view.
 - The user can choose to change the image through the profile edit form.
 
-![Avatar1](documentation/images/features/avatar1.jpg)
+  ![Avatar1](documentation/images/features/avatar1.jpg)
 
-![Avatar2](documentation/images/features/avatar2.jpg)
+  ![Avatar2](documentation/images/features/avatar2.jpg)
 
-![Avatar3](documentation/images/features/avatar3.jpg)
+  ![Avatar3](documentation/images/features/avatar3.jpg)
 
 **Image carousel**
 
@@ -798,7 +798,7 @@ Majority of the website content is available to any user regardless of their reg
   - This would allow to expand on the existing functionality of the saved artworks feature.
 - Expand on and improve artwork edit functionality for the seller allowing the user to remove the sold artworks from the list, which would allow better user experience for the buyers.
   - Create a separate section where the sold artworks would be stored so that any user could access it.
-- Restructure and implement the search and filter feature so that it is accessible within the profile view.
+- Restructure and implement a separate search and filter component so that it can be reused throughout the website, for example within the Profile Artwork tab.
 - The current form submission is set up to validate form input values upon submission.
   - This will be addressed and changed to on input validation to provide a more seamless user experience when creating a form.
 
