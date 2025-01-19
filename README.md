@@ -134,7 +134,7 @@ The following palette was used to ensure the contrast is achieved between the ma
 - #f4442e - Cinnabar - for the active class, logo splash, sold ribbon, hover effects
 - #f4452ecb - variation of the above for the button border color
 - #273c2c - Dark green - for the image container background
-- rgba(39, 60, 44, 0.25) - rgba color of the above for the box shadow effect
+- rgba(39, 60, 44, 0.25) - Dark green color in rgba for the box shadow effect
 - #090c02 - Smokey black - for the main font color
 - #F9F8F8 - Seasalt - for the main background and light font color
 - #E7C69E - Sunset - for the upload image frame
@@ -320,13 +320,20 @@ Majority of the website content is available to any user regardless of their reg
 - Upon registration or logging in, the user can create an artwork by clicking on the "List Art" in the navigation bar.
 - The user will be taken to a form where they can choose to upload an image, and enter information about the artwork.
   - If the user enters incorrect information or leaves a required field empty, an error message will appear indicating so upon submission.
+    - required fields have been marked with an asterisk `*` and an explanation at the bottom has been included for better user experience
   - If the user uploads an image that exceeds the limit, an error message will appear indicating so.
 - Once the artwork form is submitted, the user will see a confirmation message on the top right corner.
 
   - If the user clicks on the cancel button, they will be taken back to the previous page.
 
-  ![Mobile artwork form image](documentation/images/features/mobile-artwork-form.png)
-  ![Desktop artwork form image](documentation/images/features/desktop-artwork-form.png)
+    - Mobile
+
+      ![Mobile artwork form image](documentation/images/features/artwork-form-mobile.png)
+
+    - Desktop
+
+    ![Desktop artwork form image](documentation/images/features/artwork-form.png)
+
   ![artwork form validation image](documentation/images/features/artwork-form-validation-messages.png)
 
 **Artwork detail view page**
@@ -757,6 +764,8 @@ Majority of the website content is available to any user regardless of their reg
 - Expand on and improve artwork edit functionality for the seller allowing the user to remove the sold artworks from the list, which would allow better user experience for the buyers.
   - Create a separate section where the sold artworks would be stored so that any user could access it.
 - Restructure and implement the search and filter feature so that it is accessible within the profile view.
+- The current form submission is set up to validate form input values upon submission.
+  - This will be addressed and changed to on input validation to provide a more seamless user experience when creating a form.
 
 [Return to Table of Contents](#table-of-contents)
 
