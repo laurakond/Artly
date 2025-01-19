@@ -101,7 +101,7 @@ function ArtworkCreateForm() {
   const formFields = (
     <div className="text-center">
       <Form.Group controlId="artwork_title">
-        <Form.Label className={appStyles.AccentFont}>Artwork title</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Artwork title*</Form.Label>
         <Form.Control
           type="text"
           placeholder="artwork title"
@@ -252,7 +252,7 @@ function ArtworkCreateForm() {
         ))}
       </div>
       <Form.Group controlId="contact">
-        <Form.Label className={appStyles.AccentFont}>Contact</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Contact*</Form.Label>
         <Form.Control
           type="text"
           placeholder="contact"
@@ -269,7 +269,7 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="location">
-        <Form.Label className={appStyles.AccentFont}>Location</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Location*</Form.Label>
         <Form.Control
           type="text"
           placeholder="location"
@@ -286,7 +286,7 @@ function ArtworkCreateForm() {
       ))}
 
       <Form.Group controlId="description">
-        <Form.Label className={appStyles.AccentFont}>Description</Form.Label>
+        <Form.Label className={appStyles.AccentFont}>Description*</Form.Label>
         <Form.Control
           type="text"
           placeholder="description"
@@ -314,6 +314,7 @@ function ArtworkCreateForm() {
           Create
         </button>
       </div>
+      <p className="mt-3 text-left">* denotes required fields</p>
     </div>
   );
 
