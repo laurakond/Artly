@@ -6,8 +6,8 @@ By Laura Kondrataite
 
 [Testing](#testing)
 
-- [W3C Validator testing](#w3c-validator-testing)
-- [ES Lint testing](#js-hint-testing)
+- [W3C Validation testing](#w3c-validation-testing)
+- [ES Lint testing](#es-lint-testing)
 - [Bugs](#bugs)
   - [Fixed bugs](#fixed-bugs)
   - [Unfixed bugs](#unfixed-bugs)
@@ -157,9 +157,10 @@ All files were put through ES lint validation using the terminal. No errors were
 - When testing the website, I noticed that there is a discrepancy in the artwork edit once it is sold functionality.
   - It appears that once the artwork is marked as sold, if the seller chooses to edit the artwork, it is listed again as if it was not sold in the artwork list view. However, the user doesn't seem to be able to interact with it afresh, which does not cause any issues apart from misleading and confusing information displayed to the user.
   - I have circumvented this issue by disabling the edit functionality for the seller once the artwork is marked as sold.
-    [Return to Table of Contents](#contents)
 - The following errors noted in the console are expected to be present as per Moments walkthrough note, therefore I have not addressed these at this development stage:
   ![Acceptable errors](documentation/images/errors/acceptable-errors.jpg)
+
+[Return to Table of Contents](#contents)
 
 ### Lighthouse testing
 
