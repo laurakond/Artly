@@ -432,6 +432,17 @@ I have implemented restricted access to specific content that is only allowed to
 
 - Automated testing has been implemented for the following:
 
+  - Checking that links in the NavBar component work accordingly for:
+    - Renders Navbar
+    - Renders sign in and sign up buttons on logout
+    - Renders sign in and sign up buttons on Sign out
+    - Renders link to the user profile for a logged in user
+    - Renders link to the artwork create form
+    - Renders link to the saved artworks list view
+    - Renders link to the followed profiles view
+
+  ![automated testing](documentation/images/testing/react-auto-tests.jpg)
+
 [Return to Table of Contents](#contents)
 
 [Return to the main README.md](README.md)
