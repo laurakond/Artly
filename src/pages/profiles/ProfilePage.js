@@ -65,7 +65,6 @@ function ProfilePage() {
           className={appStyles.HoverEffect}
         />
       )}
-
       <Row noGutters className=" text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -168,7 +167,6 @@ function ProfilePage() {
       <p className={`text-center mt-4 ${styles.SubjectStyles}`}>
         {profile?.owner}'s artworks
       </p>
-
       {profileArtworks.results.length ? (
         <InfiniteScroll
           children={profileArtworks.results.map((artwork) => (

@@ -168,7 +168,6 @@ const ArtworkPage = () => {
               />
             </>
           ) : null}
-
           <p className={appStyles.AccentFont}>Existing Bids</p>
           <hr />
           {bids.results.length && loggedInUser ? (

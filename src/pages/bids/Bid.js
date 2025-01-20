@@ -50,7 +50,6 @@ const Bid = (props) => {
           <Media.Body className="align-self-center ml-2">
             <div className="d-flex justify-content-between flex-column">
               <span className={appStyles.AccentFont}>{buyer}</span>
-              {/* Bid display based on the bid status and if artwork is sold */}
               {artwork_is_sold && status === "Sold" ? (
                 <p className="mb-0">
                   Bid placed: £{bid_price} Status: {status}
@@ -65,8 +64,6 @@ const Bid = (props) => {
             </div>
           </Media.Body>
         </div>
-
-        {/* Seller Buttons for managing the bids */}
         <div>
           {is_seller && status === "Sold" ? (
             <div className={`d-flex align-items-center m-2`}>
@@ -107,7 +104,6 @@ const Bid = (props) => {
             )
           )}
         </div>
-        {/* Buyer Delete bid if the artwork is not sold */}
         {is_buyer && !artwork_is_sold && (
           <div className={artworkStyles.EditDeleteButton}>
             <BuyerDropdownMenu handleDelete={() => handleDeleteBid(id)} />

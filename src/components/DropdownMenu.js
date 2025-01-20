@@ -20,7 +20,6 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown drop="down">
       <Dropdown.Toggle as={ThreeDots} />
-
       <Dropdown.Menu
         popperConfig={{ strategy: "fixed" }}
         className={styles.CustomDropdownMenu}
@@ -50,7 +49,6 @@ export const BuyerDropdownMenu = ({ handleDelete }) => {
   return (
     <Dropdown drop="down">
       <Dropdown.Toggle as={ThreeDots} />
-
       <Dropdown.Menu
         popperConfig={{ strategy: "fixed" }}
         className={styles.CustomDropdownMenu}

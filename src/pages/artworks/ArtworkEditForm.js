@@ -151,7 +151,6 @@ function ArtworkEditForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group controlId="artist_name">
         <Form.Label className={appStyles.AccentFont}>Artist name</Form.Label>
         <Form.Control
@@ -168,7 +167,6 @@ function ArtworkEditForm() {
           {message}
         </Alert>
       ))}
-
       <div className={formStyles.StypeAndTypeContainer}>
         <Form.Group controlId="style">
           <div className={formStyles.StyleToPriceFormContainer}>
@@ -200,7 +198,6 @@ function ArtworkEditForm() {
             {message}
           </Alert>
         ))}
-
         <Form.Group controlId="type">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
@@ -263,7 +260,6 @@ function ArtworkEditForm() {
             {message}
           </Alert>
         ))}
-
         <Form.Group controlId="price">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
@@ -303,7 +299,6 @@ function ArtworkEditForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group controlId="location">
         <Form.Label className={appStyles.AccentFont}>Location</Form.Label>
         <Form.Control
@@ -320,7 +315,6 @@ function ArtworkEditForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group controlId="description">
         <Form.Label className={appStyles.AccentFont}>Description</Form.Label>
         <Form.Control
@@ -373,7 +367,6 @@ function ArtworkEditForm() {
                 >
                   Change the image
                 </Form.Label>
-
                 <Form.File
                   id="image-upload"
                   accept="image/*"

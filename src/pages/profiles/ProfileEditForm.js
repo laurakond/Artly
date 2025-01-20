@@ -134,13 +134,11 @@ const ProfileEditForm = () => {
             className={formStyles.FormControlBorderRadius}
           />
         </Form.Group>
-
         {errors?.content?.map((message, index) => (
           <Alert variant="warning" key={index}>
             {message}
           </Alert>
         ))}
-
         <Form.Group>
           <Form.Label className={appStyles.AccentFont}>Styles</Form.Label>
           <Form.Control
@@ -151,13 +149,11 @@ const ProfileEditForm = () => {
             className={formStyles.FormControlBorderRadius}
           />
         </Form.Group>
-
         {errors?.content?.map((message, index) => (
           <Alert variant="warning" key={index}>
             {message}
           </Alert>
         ))}
-
         <Form.Group>
           <Form.Label className={appStyles.AccentFont}>Techniques</Form.Label>
           <Form.Control
@@ -169,13 +165,11 @@ const ProfileEditForm = () => {
             className={formStyles.FormControlBorderRadius}
           />
         </Form.Group>
-
         {errors?.content?.map((message, index) => (
           <Alert variant="warning" key={index}>
             {message}
           </Alert>
         ))}
-
         <Form.Group>
           <Form.Label className={appStyles.AccentFont}>Influences</Form.Label>
           <Form.Control
@@ -187,13 +181,11 @@ const ProfileEditForm = () => {
             className={formStyles.FormControlBorderRadius}
           />
         </Form.Group>
-
         {errors?.content?.map((message, index) => (
           <Alert variant="warning" key={index}>
             {message}
           </Alert>
         ))}
-
         <Form.Group>
           <Form.Label className={appStyles.AccentFont}>
             Collaborations
@@ -207,13 +199,11 @@ const ProfileEditForm = () => {
             className={formStyles.FormControlBorderRadius}
           />
         </Form.Group>
-
         {errors?.content?.map((message, index) => (
           <Alert variant="warning" key={index}>
             {message}
           </Alert>
         ))}
-
         <Form.Group>
           <Form.Label className={appStyles.AccentFont}>Portfolio</Form.Label>
           <Form.Control
@@ -224,13 +214,11 @@ const ProfileEditForm = () => {
             className={formStyles.FormControlBorderRadius}
           />
         </Form.Group>
-
         {errors?.content?.map((message, index) => (
           <Alert variant="warning" key={index}>
             {message}
           </Alert>
         ))}
-
         <button
           onClick={() => history.goBack()}
           type="button"
@@ -275,7 +263,6 @@ const ProfileEditForm = () => {
                   Change the image
                 </Form.Label>
               </div>
-
               <Form.File
                 id="image-upload"
                 ref={imageFile}

@@ -70,7 +70,6 @@ const Artwork = (props) => {
           className={styles.ArtworkContainImage}
         />
       </div>
-
       <div className={`d-flex flex-column`}>
         <Card.Header
           className={`${sharedArtStyles.CardHeader} ${appStyles.AccentFont}`}
@@ -123,7 +122,6 @@ const Artwork = (props) => {
             </OverlayTrigger>
           </div>
         </Card.Header>
-
         <Card.Body className={`flex-grow-1 ${styles.CardBody}`}>
           <div>
             <div>
@@ -145,7 +143,6 @@ const Artwork = (props) => {
             </div>
           </div>
         </Card.Body>
-
         <Card.Footer className={`${sharedArtStyles.CardFooter} mt-auto`}>
           <div className="d-flex justify-content-around">
             <div className={appStyles.AccentFont}>

@@ -100,7 +100,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
       <Col xs={12}>
         <MostSellingProfiles />
       </Col>
-      {/* search bar and filter icon view */}
       <Col
         className={`py-2 p-3 p-lg-2 py-lg-3 ${styles.ContentWidth}`}
         md={10}
@@ -140,7 +139,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
         {showFilters && (
           <div className={styles.ParentFilterContainer}>
             <div className={styles.MoreFilterOptions}>
-              {/* Search for styles of artwork */}
               <Form onSubmit={(event) => event.preventDefault()}>
                 <div className={styles.StyleTypeSoldFilter}>
                   <Form.Label>Artwork Style</Form.Label>
@@ -164,7 +162,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
                   </Form.Control>
                 </div>
               </Form>
-              {/* Search for types of artwork */}
               <Form onSubmit={(event) => event.preventDefault()}>
                 <div className={styles.StyleTypeSoldFilter}>
                   <Form.Label>Artwork Type</Form.Label>
@@ -192,8 +189,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
                   </Form.Control>
                 </div>
               </Form>
-
-              {/* Search for sold status */}
               <Form onSubmit={(event) => event.preventDefault()}>
                 <div className={styles.StyleTypeSoldFilter}>
                   <Form.Label>Sold status</Form.Label>
@@ -216,7 +211,6 @@ const AllArtworksPage = ({ message, filter = "" }) => {
             </div>
           </div>
         )}
-        {/* Artwork list view of spinner */}
         {hasLoaded ? (
           <Container className={styles.ArtworkListWidth}>
             {artworks.results.length ? (

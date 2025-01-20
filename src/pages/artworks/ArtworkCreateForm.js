@@ -116,7 +116,6 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group controlId="artist_name">
         <Form.Label className={appStyles.AccentFont}>Artist name</Form.Label>
         <Form.Control
@@ -164,7 +163,6 @@ function ArtworkCreateForm() {
             {message}
           </Alert>
         ))}
-
         <Form.Group controlId="type">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
@@ -227,7 +225,6 @@ function ArtworkCreateForm() {
             {message}
           </Alert>
         ))}
-
         <Form.Group controlId="price">
           <div className={formStyles.StyleToPriceFormContainer}>
             <Form.Label
@@ -267,7 +264,6 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group controlId="location">
         <Form.Label className={appStyles.AccentFont}>Location*</Form.Label>
         <Form.Control
@@ -284,7 +280,6 @@ function ArtworkCreateForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group controlId="description">
         <Form.Label className={appStyles.AccentFont}>Description*</Form.Label>
         <Form.Control
@@ -320,7 +315,6 @@ function ArtworkCreateForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      {/* Main container & image column*/}
       <Container>
         <Row>
           <Col className="p-2 p-md-2" md={5} lg={6}>
@@ -350,7 +344,6 @@ function ArtworkCreateForm() {
                     />
                   </Form.Label>
                 )}
-
                 <Form.File
                   id="image-upload"
                   accept="image/*"
@@ -363,7 +356,6 @@ function ArtworkCreateForm() {
                   </Alert>
                 ))}
               </Form.Group>
-
               <div className="d-md-none">{formFields}</div>
             </Container>
           </Col>
