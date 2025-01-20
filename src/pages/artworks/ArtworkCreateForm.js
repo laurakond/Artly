@@ -327,8 +327,10 @@ function ArtworkCreateForm() {
                     <figure>
                       <Image className={appStyles.Image} src={image} rounded />
                     </figure>
-                    <div className={formStyles.CreateArtworkUpload}>
-                      <Form.Label htmlFor="image-upload">
+                    <div
+                      className={`${formStyles.CreateArtworkUpload} ${btnStyles.ButtonStyles}`}
+                    >
+                      <Form.Label htmlFor="image-upload" className="mb-0">
                         Change the image
                       </Form.Label>
                     </div>
