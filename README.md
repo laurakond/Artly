@@ -8,6 +8,8 @@ Are you looking for a place to sell your art? Or perhaps you wish to purchase a 
 
 **Artly** is a product comparison site which promotes sharing the most beloved artworks with like-minded people. Whether you are looking to sell or buy a unique piece of art, Artly promotes is led by the artist community who wish to share and sell their artwork.
 
+The users can put an artwork up for sale, bid on an artwork of their liking, or simply save an artwork to review later at a convenient time. They can also review the profiles and customise their own, and follow other users for easy access to most up-to-date artwork listings.
+
 **Please note:** This repository covers the front-end Artly project development,which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api), and the deployed API [here](https://artly-api-a39d790259f4.herokuapp.com/).
 
 Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com/).
@@ -70,57 +72,70 @@ The primary target audience for the website is:
 
 - persons of any gender aged 16+ who enjoy art,
 - artists who wish to share their work,
-- art connoiseurs who are looking for alternative ways of selling owned artwork.
+- art connoiseurs who are looking for alternative ways of selling owned artwork,
+- art connoiseurs who are looking for ways of buying new artwork.
 
 No background, geographical location or income has been specified for the target audience.
 
 ### User Stories
 
-|                                                    | As a Developer                                                                                                                                                |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [1](https://github.com/laurakond/artly/issues/1)   | As a developer I can set up a new workspace for front-end so that I can start working on my project.                                                          |
-| [2](https://github.com/laurakond/artly/issues/2)   | As a developer I can deploy the front-end repository to Heroku so that it is accessible online.                                                               |
-| [3](https://github.com/laurakond/artly/issues/3)   | As a developer I can add a favicon so that the website renders appropriate image in the browser.                                                              |
-| [4](https://github.com/laurakond/artly/issues/4)   | As a developer I can add main website keywords and description so that the website gains higher searchability in the search engines.                          |
-| [5](https://github.com/laurakond/artly/issues/5)   | As a developer I can apply design of choice so that the website is visually appealing and represents the purpose.                                             |
-| [6](https://github.com/laurakond/artly/issues/6)   | As a developer, I can carry out website design improvement so that I know the project adheres to the principles of UX/UI design.                              |
-| [7](https://github.com/laurakond/artly/issues/7)   | As a developer, I can note the website progression in the front-end README so that anyone can see the steps and actions taken for the release of the website. |
-| [8](https://github.com/laurakond/artly/issues/8)   | As a developer, I can fix the bugs for the front-end so that I can ensure any issues are handled before the initial project release.                          |
-| [9](https://github.com/laurakond/artly/issues/9)   | As a developer, I can carry out user stories testing so that I know all main user criteria and MVP are met.                                                   |
-| [10](https://github.com/laurakond/artly/issues/10) | As a developer, I can perform manual tests for front-end so that I know all functionalities of the website are working.                                       |
-| [11](https://github.com/laurakond/artly/issues/11) | As a developer, I can validate each page and app for front-end so that I know that the code adheres to best practices.                                        |
+|                                                     | As a Developer                                                                                                                                                |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [#1](https://github.com/laurakond/artly/issues/1)   | As a developer I can set up a new workspace for front-end so that I can start working on my project.                                                          |
+| [#2](https://github.com/laurakond/artly/issues/2)   | As a developer I can deploy the front-end repository to Heroku so that it is accessible online.                                                               |
+| [#3](https://github.com/laurakond/artly/issues/3)   | As a developer I can add a favicon so that the website renders appropriate image in the browser.                                                              |
+| [#4](https://github.com/laurakond/artly/issues/4)   | As a developer I can add main website keywords and description so that the website gains higher searchability in the search engines.                          |
+| [#5](https://github.com/laurakond/artly/issues/5)   | As a developer I can apply design of choice so that the website is visually appealing and represents the purpose.                                             |
+| [#6](https://github.com/laurakond/artly/issues/6)   | As a developer, I can carry out website design improvement so that I know the project adheres to the principles of UX/UI design.                              |
+| [#7](https://github.com/laurakond/artly/issues/7)   | As a developer, I can note the website progression in the front-end README so that anyone can see the steps and actions taken for the release of the website. |
+| [#8](https://github.com/laurakond/artly/issues/8)   | As a developer, I can fix the bugs for the front-end so that I can ensure any issues are handled before the initial project release.                          |
+| [#9](https://github.com/laurakond/artly/issues/9)   | As a developer, I can carry out user stories testing so that I know all main user criteria and MVP are met.                                                   |
+| [#10](https://github.com/laurakond/artly/issues/10) | As a developer, I can perform manual tests for front-end so that I know all functionalities of the website are working.                                       |
+| [#11](https://github.com/laurakond/artly/issues/11) | As a developer, I can validate each page and app for front-end so that I know that the code adheres to best practices.                                        |
+| [#31](https://github.com/laurakond/artly/issues/31) | As a developer, I can perform automated tests for front-end so that I know all functionalities of the website are working.                                    |
 
 <br>
 
-|                                                    | As a First time user                                                                             |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [12](https://github.com/laurakond/artly/issues/12) | As a first time user I can create an account so that I can sign in and access member's features. |
+|                                                     | As a First time user                                                                             |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [#12](https://github.com/laurakond/artly/issues/12) | As a first time user I can create an account so that I can sign in and access member's features. |
 
 <br>
 
-|                                                    | As a site user                                                                                                                           |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [13](https://github.com/laurakond/artly/issues/13) | As a site user I can login to & logout of the website so that I can access functionality for logged in users.                            |
-| [14](https://github.com/laurakond/artly/issues/14) | As a site user I can view the navbar from every page so that I can navigate easily between pages.                                        |
-| [15](https://github.com/laurakond/artly/issues/15) | As a site user I can see a list of posted artworks on the home page so that I can clearly see the latest posts that have been published. |
-| [16](https://github.com/laurakond/artly/issues/16) | As a logged in user I can create my own artwork post so that I can share it with others and sell it.                                     |
-| [17](https://github.com/laurakond/artly/issues/17) | As a site user I can edit the artwork post so that I can show the most up to date information.                                           |
-| [18](https://github.com/laurakond/artly/issues/18) | As a site user I can delete the artwork post so that it is no longer visible on the website for others to see.                           |
-| [19](https://github.com/laurakond/artly/issues/19) | As a site user I can access a detailed artwork post so that I can read more about it.                                                    |
-| [20](https://github.com/laurakond/artly/issues/20) | As a buyer I can make a bid the artwork so that I can buy it.                                                                            |
-| [21](https://github.com/laurakond/artly/issues/21) | As a buyer I can delete my bid so that I can control removal of my bid for the artwork’s post.                                           |
-| [22](https://github.com/laurakond/artly/issues/22) | As a seller I can review pending bids so that I can decide which seller to sell the artwork to.                                          |
-| [23](https://github.com/laurakond/artly/issues/23) | As a seller I can set the artwork page as sold so that it is clear to the buyers the artwork is sold.                                    |
-| [24](https://github.com/laurakond/artly/issues/24) | As a seller I can get in touch with the buyer to organise the collection of the artwork.                                                 |
-| [25](https://github.com/laurakond/artly/issues/25) | As a logged in user I can update my profile so that I can keep it up-to-date with most relevant information.                             |
-| [26](https://github.com/laurakond/artly/issues/26) | As a logged in user I can save the artwork post so that I can access them in one place.                                                  |
-| [27](https://github.com/laurakond/artly/issues/27) | As a site user I can search for artworks by keyword or filter by category/style so that I can find listings relevant to my interests.    |
-| [28](https://github.com/laurakond/artly/issues/28) | As a site user, I can see notification messages so that I know that my action was successful/completed.                                  |
-| [29](https://github.com/laurakond/artly/issues/29) | As a site user I can see most popular artwork posts displayed on each page so that I can view their profiles.                            |
-| [30](https://github.com/laurakond/artly/issues/30) | As a site user I can submit a contact form to site admins so that I can report any issues with the website.                              |
-| [31](https://github.com/laurakond/artly/issues/31) | As a developer, I can perform automated tests for front-end so that I know all functionalities of the website are working.               |
+|                                                     | As a site user                                                                                                                           |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [#13](https://github.com/laurakond/artly/issues/13) | As a site user I can login to & logout of the website so that I can access functionality for logged in users.                            |
+| [#14](https://github.com/laurakond/artly/issues/14) | As a site user I can view the navbar from every page so that I can navigate easily between pages.                                        |
+| [#15](https://github.com/laurakond/artly/issues/15) | As a site user I can see a list of posted artworks on the home page so that I can clearly see the latest posts that have been published. |
+| [#16](https://github.com/laurakond/artly/issues/16) | As a logged in user I can create my own artwork post so that I can share it with others and sell it.                                     |
+| [#17](https://github.com/laurakond/artly/issues/17) | As a site user I can edit the artwork post so that I can show the most up to date information.                                           |
+| [#18](https://github.com/laurakond/artly/issues/18) | As a site user I can delete the artwork post so that it is no longer visible on the website for others to see.                           |
+| [#19](https://github.com/laurakond/artly/issues/19) | As a site user I can access a detailed artwork post so that I can read more about it.                                                    |
+| [#20](https://github.com/laurakond/artly/issues/20) | As a buyer I can make a bid the artwork so that I can buy it.                                                                            |
+| [#21](https://github.com/laurakond/artly/issues/21) | As a buyer I can delete my bid so that I can control removal of my bid for the artwork’s post.                                           |
+| [#22](https://github.com/laurakond/artly/issues/22) | As a seller I can review pending bids so that I can decide which seller to sell the artwork to.                                          |
+| [#23](https://github.com/laurakond/artly/issues/23) | As a seller I can set the artwork page as sold so that it is clear to the buyers the artwork is sold.                                    |
+| [#24](https://github.com/laurakond/artly/issues/24) | As a seller I can get in touch with the buyer to organise the collection of the artwork.                                                 |
+| [#25](https://github.com/laurakond/artly/issues/25) | As a logged in user I can update my profile so that I can keep it up-to-date with most relevant information.                             |
+| [#26](https://github.com/laurakond/artly/issues/26) | As a logged in user I can save the artwork post so that I can access them in one place.                                                  |
+| [#27](https://github.com/laurakond/artly/issues/27) | As a site user I can search for artworks by keyword or filter by category/style so that I can find listings relevant to my interests.    |
+| [#28](https://github.com/laurakond/artly/issues/28) | As a site user, I can see notification messages so that I know that my action was successful/completed.                                  |
+| [#29](https://github.com/laurakond/artly/issues/29) | As a site user I can see top selling users displayed on each page so that I can view their profiles.                                     |
+| [#30](https://github.com/laurakond/artly/issues/30) | As a site user I can submit a contact form to site admins so that I can report any issues with the website.                              |
+| [#32](https://github.com/laurakond/artly/issues/32) | As a site user, I can see the My bids tab so that I can access and see all of the bids I submitted.                                      |
+| [#33](https://github.com/laurakond/artly/issues/33) | As a site user, I can follow or unfollow another user so that I can follow any updates from another user.                                |
 
-<br>
+### Flowcharts
+
+I used [Exslidraw](https://excalidraw.com/) for creating site navigation charts.
+
+MVP:
+
+![mvp chart](documentation/images/design/mvp-graph.jpg)
+
+Full website navigation chart:
+
+![full chart](documentation/images/design/project-scheme.jpg)
 
 ### Wireframes
 
@@ -168,10 +183,9 @@ I used [Google fonts](https://fonts.google.com/) to source the fonts for the web
 ### Architecture solutions
 
 - The website was designed using React framework which allows seamless navigation and transition between pages without having to refresh/reload the website through the use of components.
-- The current file structure will be reviewed and improved at the next development stage in order to adhere to React architecture best practices. This includes:
-  - restructuring files/folders within src directory:
-    - moving files to the right place.
-  - extracting functionality of some features into independent reusable components and placing them appropriately within the file structure.
+- The current file structure will be reviewed and improved at the next development stage in order to adhere to best practices and enhance separation of conterns, including:
+  - restructuring files/folders within src directory
+  - extracting functionality of some features into their own independent and reusable components and placing them appropriately within the file structure.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -267,6 +281,7 @@ Majority of the website content is available to any user, regardless of their re
 **Logo and favicon**
 
 ![favicon](documentation/images/features/pp5-favicon.jpg)
+![favicon2](documentation/images/features/favicon-image.jpg)
 ![logo](documentation/images/features/pp5-logo.jpg)
 
 - Upon loading the website, the user is greeted by a creative Logo to the left of the Navigation bar, which indicates the website's creative flare.
