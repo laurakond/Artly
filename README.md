@@ -8,7 +8,7 @@ Are you looking for a place where to sell your art? Or perhaps you wish to purch
 
 **Artly** is a product comparison site which promotes sharing most beloved artworks with like minded people. Whether you are looking to sell or buy a unique pieces of art, Artly promotes a is led by arts community who wishes to share and sell their artwork.
 
-**Please note:** This repository covers the front-end Artly project development.which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api).
+**Please note:** This repository covers the front-end Artly project development.which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api), and the deployed API [here](https://artly-api-a39d790259f4.herokuapp.com/).
 
 Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com/).
 
@@ -27,6 +27,8 @@ Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com
 [Agile Methodology](#agile-methodology)
 
 - [GitHub Project Management](#github-project-management)
+- [Epics](#epics)
+- [Front-end milestones](#front-end-milestones)
 
 [Features](#features)
 
@@ -192,10 +194,29 @@ MoSCoW methodology was used to map out which features were required for the MVP,
 
 ![Finished Project board]()
 
-**Epics**
-The Epics have been covered in the back-end Artly-api README.md, which can be found [here](https://github.com/laurakond/artly-api?tab=readme-ov-file#github-project-management).
+### Epics
 
-**Front-end Milestones**
+The below list displays all the epics used throughout the project development, including the Artly api backend and frontend.
+
+- **Epic 1:** Project setup - this stage was important to kick start my work on the project, ensuring that initial workspaces were created and appropriate dependencies installed.
+- **Epic 2:** Deployment - I set out to deploy the API as soon as possible in order to test any issues that might arise.
+- **Epic 3:** User authentication - this part of the project was essential for enabling user-specific authorised access.
+- **Epic4:** User registration - this part ensured that the user can create an account and login on the front-end.
+- **Epic 5:** User navigation - this allowed the user to navigate the website seamlessly upon login/logout.
+- **Epic 6:** Artwork functionality - this feature allows the user to create an artwork listing for sale. It has the main MVP CRUD functionality.
+- **Epic 7**: Offer functionality - this feature provided an ability to leave the bid and accept/reject the bid.
+- **Epic 8:** Profile functionality (optional) - this feature allows the user to manage their profile.
+- **Epic 9:** Save functionality (optional) - this feature allows the user to save their favoured artwork listings.
+- **Epic 10:** Contact functionality (optional) - this feature allows the user to report any website errors to the site administration.
+- **Epic 11:** Testing and bug fixes - this part of the project was crucial to ensure that the project was working seamlessly and had minor/none bugs.
+- **Epic 12:** Documentation - documentation was a crutial part of the project work which allowed me to document the progress and resources used for the develpment of the work.
+- **Epic 13**: User nofications - this provided users with notification messages upon various interactivity.
+- **Epic 14**: Website design - this part allowed me to assess and improve any design choices/decisions for the front-end of the project as I progressed.
+- **Epic 15**: Follower functionality (optional) - this feature allows the user to follow and unfollow chosen users' profiles.
+
+### Front-end Milestones
+
+- The noted milestones are for the front-end project development only. To see the milestones for the back-end, follow the link [here](https://github.com/laurakond/artly-api?tab=readme-ov-file#back-end-milestones).
 
 - **Milestone 1:** Project board
   - Set up a project board.
@@ -211,7 +232,7 @@ The Epics have been covered in the back-end Artly-api README.md, which can be fo
   - View artwork listings on the homepage.
   - Access detailed artwork posts.
   - Create, edit, delete artwork posts.
-- **Milestone13:** Front-end Offer Crud functionality
+- **Milestone13:** Front-end Offer CRUD functionality
   - Make offers for artwork.
   - Review pending offers.
 - **Milestone14:** Front-end Profile CRUD functionality(optional)
@@ -738,6 +759,7 @@ Majority of the website content is available to any user regardless of their reg
 **Asset component**
 
 - The asset component is used to display a spinner while the content is loading or no results are found upon search.
+
   ![spinner](documentation/images/features/spinner-asset.png)
 
 **Dropdown menu component**
