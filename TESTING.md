@@ -211,12 +211,15 @@ The project was run through Wave evaluation tool and WCAG Colour contrast checke
 **Wave**
 
 - Couple of errors were returned for the Sign up and Sign in pages, indicating lack of labels for input fields.
-  - Lack of labels was a design choice, aiming to a clean design and denoting inside the input field with placeholder text what was the expected input.
+  - Lack of labels was a design choice, aiming for a clean design and indicating the purpose of each input field through the use of placeholder text.
 - No other errors were detected when passing through Wave evaluation tool.
 
 **WCAG**
 
 - I ensured that sufficient color contrast is provided when choosing the color palette. I used [Contrast Grid tool](https://contrast-grid.eightshapes.com/) to ensure that the colors are well-chosen.
+  - #F4442E color against the #F9F8F8 background did not pass through AA and AAA standards.
+    - It was a design choice to use this colour as an accent color for hover effects, active classes in the Navigation bar and the sold ribbon.
+- No other issues were noted.
 
   ![color contrast](documentation/images/design/color-contrast.jpg)
 
@@ -242,7 +245,7 @@ The project was tested against the following devices and browsers:
 
 ### User testing
 
-The application was tested during the development and post-development stages. I have asked my friends and peers to notify me of any issues that might appear. No issues were reported/noted during the development and post-development.
+The application was tested during the development and post-development stages. I have asked my friends and peers to notify me of any issues that might appear. No issues were reported/noted during the development and post-development aside from already mentioned bug in the device testing section.
 
 [Return to Table of Contents](#contents)
 
