@@ -880,6 +880,7 @@ The following reusable components have been set up so that they could re-applied
 - [Canva](https://www.canva.com/) used for generating the Logo, favicon design and default images for search feature and image uploads
 - [Contrast Grid](https://contrast-grid.eightshapes.com/) to test chosen color palette
 - [React Toastify](https://www.npmjs.com/package/react-toastify/v/9.0.3) for rendering user notifications
+- [Exslidraw](https://excalidraw.com/) for creating site navigation charts.
 
 Full list of dependencies used for the project can be found in the package.json file.
 
