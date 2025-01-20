@@ -4,11 +4,11 @@
 
 (By Laura Kondrataite)
 
-Are you looking for a place where to sell your art? Or perhaps you wish to purchase a piece of artwork from a local/independent artists? Then look no further!
+Are you looking for a place to sell your art? Or perhaps you wish to purchase a piece of artwork from local/independent artists? Then look no further!
 
-**Artly** is a product comparison site which promotes sharing most beloved artworks with like minded people. Whether you are looking to sell or buy a unique pieces of art, Artly promotes a is led by arts community who wishes to share and sell their artwork.
+**Artly** is a product comparison site which promotes sharing the most beloved artworks with like-minded people. Whether you are looking to sell or buy a unique piece of art, Artly promotes is led by the artist community who wish to share and sell their artwork.
 
-**Please note:** This repository covers the front-end Artly project development.which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api), and the deployed API [here](https://artly-api-a39d790259f4.herokuapp.com/).
+**Please note:** This repository covers the front-end Artly project development,which was created as part of a web development course with Code Institute. To see the back-end repository for this project click [here](https://github.com/laurakond/artly-api), and the deployed API [here](https://artly-api-a39d790259f4.herokuapp.com/).
 
 Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com/).
 
@@ -69,8 +69,8 @@ Live **Artly** site can be found [here](https://artly-a211b809ae81.herokuapp.com
 The primary target audience for the website is:
 
 - persons of any gender aged 16+ who enjoy art,
-- artists who wishes to share their work,
-- art connoiseurs who are looking for alternative ways in selling owned artwork.
+- artists who wish to share their work,
+- art connoiseurs who are looking for alternative ways of selling owned artwork.
 
 No background, geographical location or income has been specified for the target audience.
 
@@ -124,7 +124,7 @@ No background, geographical location or income has been specified for the target
 
 ### Wireframes
 
-The following wireframe report show the initial idea of how the website would look on different devices: mobiles, tablets/iPads and laptops/desktops.
+The following wireframe report shows the initial idea of how the website would look on different devices: mobiles, tablets/iPads and laptops/desktops.
 
 - [Full Wireframe report](documentation/docs/artly-wireframes.pdf)
 
@@ -167,11 +167,11 @@ I used [Google fonts](https://fonts.google.com/) to source the fonts for the web
 
 ### Architecture solutions
 
-- The website was designed using React framework which allows seamless navigation and trasition between pages without having to refresh/reload the website through the use of components.
+- The website was designed using React framework which allows seamless navigation and transition between pages without having to refresh/reload the website through the use of components.
 - The current file structure will be reviewed and improved at the next development stage in order to adhere to React architecture best practices. This includes:
-  - restructuring files/folders within src directory
-    - moving files to the right place
-  - extracting functionality of some features into independent reusable components and placing them appropriately within the file structure
+  - restructuring files/folders within src directory:
+    - moving files to the right place.
+  - extracting functionality of some features into independent reusable components and placing them appropriately within the file structure.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -188,7 +188,7 @@ The link to the project board can be found [here](https://github.com/users/laura
 - I chose the "trafic-light" color scheme for the MoSCoW method in order to indicate which tasks were a priority (green must-haves) and which ones were not(red won't-haves) for my project board.
   - This provided clarity and better understanding for myself as I was a sole project contributor.
 
-I used the same Milestones, Epics and labels within the API and Front-end repositories to help organise front-end and back-end user stories. This allowed me to keep track of the progress and ensure that the project MVP was completed in time.
+I used the same Milestones, Epics and labels within the API and Front-end repositories to help organise front-end and back-end user stories. This allowed me to keep track of the progress and ensure that the project MVP was completed on time.
 
 MoSCoW methodology was used to map out which features were required for the MVP, and only address the others if there was sufficient time left.
 
@@ -196,9 +196,9 @@ MoSCoW methodology was used to map out which features were required for the MVP,
 
 ### Epics
 
-The below list displays all the epics used throughout the project development, including the Artly api backend and frontend.
+The list below displays all the epics used throughout the project development, including the Artly api backend and frontend.
 
-- **Epic 1:** Project setup - this stage was important to kick start my work on the project, ensuring that initial workspaces were created and appropriate dependencies installed.
+- **Epic 1:** Project setup - this stage was important to kick-start my work on the project, ensuring that initial workspaces were created and appropriate dependencies installed.
 - **Epic 2:** Deployment - I set out to deploy the API as soon as possible in order to test any issues that might arise.
 - **Epic 3:** User authentication - this part of the project was essential for enabling user-specific authorised access.
 - **Epic4:** User registration - this part ensured that the user can create an account and login on the front-end.
@@ -262,7 +262,7 @@ The noted milestones are for the front-end project development only. To see the 
 
 ### Existing Features
 
-Majority of the website content is available to any user regardless of their registration status. Restricted features are the ones that allow the user to interact with the website beyond content browsing.
+Majority of the website content is available to any user, regardless of their registration status. Restricted features are the ones that allow the user to interact with the website beyond content browsing.
 
 **Logo and favicon**
 
@@ -270,7 +270,7 @@ Majority of the website content is available to any user regardless of their reg
 ![logo](documentation/images/features/pp5-logo.jpg)
 
 - Upon loading the website, the user is greeted by a creative Logo to the left of the Navigation bar, which indicates the website's creative flare.
-- Similarly, the favicon clearly makes the website standout amongst many opened browser tabs clearly indicating which tab belongs to the Artly website.
+- Similarly, the favicon clearly makes the website standout among many opened browser tabs, clearly indicating which tab belongs to the Artly website.
 
 **The Header**
 
@@ -284,7 +284,7 @@ Majority of the website content is available to any user regardless of their reg
   - Sign In
   - Sign Up
 
-- The user can clearly see the navigation between different buttons with the hover effect, and one the button is clicked, the change of color of the button indicates the section/page that the user is at.
+- The user can clearly see the navigation between different buttons with the hover effect, and once the button is clicked, the color change of the button indicates the section/page that the user is at.
   ![navbar hover and active class](documentation/images/features/hover-active-navbar.jpg)
 
   **Mobile**
@@ -297,7 +297,7 @@ Majority of the website content is available to any user regardless of their reg
 
   ![desktop logged out navbar](documentation/images/features/desktop-navbar.jpg)
 
-- Upon Registration or Log in, the user's profile avatar and additional four pages and a Sign out are revealed in the header. This creates a sense of personalisation and indicates additional website functionality for the registered users.
+- Upon Registration or Log in, the user's profile avatar, additional four pages and a Sign out links are revealed in the header. This creates a sense of personalisation and clearly marks additional website functionality for the registered users.
 
   - List Art Page
   - Saved Page
@@ -318,7 +318,7 @@ Majority of the website content is available to any user regardless of their reg
   - The page acts as the main content container incorporating multiple features (components) that are discussed further along in full detail.
 - Each artwork listing provides the most essential information, and can be clicked to access more information about the artwork.
 - Infinite scrolling has been implemented to ensure that the list is refreshed and loads more artworks as the user scrolls down the list.
-- The user can see a list of top selling profiles, and search/filter functionality that allows them to search and filter the list view based on the following criteria:
+- The user can see a list of top-selling profiles, and search/filter functionality that allows them to search and filter the list view based on the following criteria:
 
   - Search bar for artworks, artist name, username
   - Filter by Artwork style
@@ -348,7 +348,7 @@ Majority of the website content is available to any user regardless of their reg
   - If the user enters incorrect information or leaves a required field empty, an error message will appear indicating so upon submission.
     - required fields have been marked with an asterisk `*` and an explanation at the bottom has been included for better user experience
   - If the user uploads an image that exceeds the limit, an error message will appear indicating so.
-- Once the artwork form is submitted, the user will see a confirmation message on the top right corner.
+- Once the artwork form is submitted, the user will see a confirmation message in the top right corner.
 
   - If the user clicks on the cancel button, they will be taken back to the previous page.
 
@@ -374,17 +374,17 @@ Majority of the website content is available to any user regardless of their reg
 - Once logged in, the user can choose to edit or delete their artwork listing by clicking on a three dots favicon (pictured below).
 
   - If the user chooses to edit the artwork, they are taken to the artwork edit form.
-  - If the user chooses to delete the artwork, they will be notified by a pop up notification if the action was successful or not.
+  - If the user chooses to delete the artwork, they will be notified by a pop-up notification if the action was successful or not.
 
   ![User edit/delete icon](documentation/images/features/artwork-edit-delete.jpg)
 
 **Artwork edit form(restricted access)**
 
-- If the user chooses to edit the form in the detailed artwork view, they are taken to the artwork edit form, which is the same as Artwork create form.
+- If the user chooses to edit the form in the detailed artwork view, they are taken to the artwork edit form, which is the same as the Artwork create form.
   - The user will be able to see preexisting information populated in the fields, and amend them accordingly.
 - Similarly to the Artwork create form, the user can either submit or cancel the form.
 
-  - Upon successful update, the user will see a notification message appear and they will be taken to the artwork detail view where they can review the information.
+  - Upon successful update, the user will see a notification message appear, and they will be taken to the artwork detail view where they can review the information.
 
   ![Edit Artwork form image](documentation/images/features/artwork-edit-form.png)
 
@@ -423,8 +423,8 @@ Majority of the website content is available to any user regardless of their reg
   - Upon clicking any of these, the buyer's bid status will update for everyone to see.
   - If the Bid is marked as sold:
     - The artwork automatically updates to being sold
-    - The "Sold" ribbon appears on the top right corner of the artwork card
-    - A call to action button is revealed to the seller to "Contact the buyer"
+    - The "Sold" ribbon appears in the top right corner of the artwork card
+    - A call-to-action button is revealed to the seller to "Contact the buyer"
       - Once clicked, a mailto functionality will be activated in a separate window.
     - The bid form is hidden for everyone clearly indicating that no more bids can be submitted for this artwork.
     - If there are any other bids for the artwork, their bid status is hidden to indicate which of the bid was accepted.
@@ -440,7 +440,7 @@ Majority of the website content is available to any user regardless of their reg
 
 - The user has an option to save an artwork by clicking on the bookmark icon in the artwork list view.
   - The icon will change to indicate that the user has already saved it.
-  - The saved artwork count displayed next to the icon, indicates to how many users have the artwork saved, and will discrease/increase based on the saved artwork count.
+  - The saved artwork count displayed next to the icon, indicates how many users have the artwork saved, and will dicrease/increase based on the saved artwork count.
 - To access and review the saved artworks, the user can do so by clicking on the "Saved artworks" button in the navigation bar.
 - The list of artworks is rendered the same way as the main artwork list.
 
@@ -477,7 +477,7 @@ Majority of the website content is available to any user regardless of their reg
 
 **Profile view(restricted access)**
 
-- Similarly to the artwork feature, the users can edit their profiles by choosing one of the following options from the edit drop down list:
+- Similarly to the artwork feature, users can edit their profiles by choosing one of the following options from the edit drop down list:
   - edit profile - redirects to the profile edit form page
   - change username - redirects to the username edit form page
   - change password - redirects to the password edit form page
@@ -490,7 +490,7 @@ Majority of the website content is available to any user regardless of their reg
   - The user will be able to see pre-existing information populated in the fields, and amend them accordingly.
 - Similarly to the Artwork create/edit forms, the user can either submit or cancel the form.
 
-  - Upon successful update, the user will see a notification message appear and they will be taken back to the profle view.
+  - Upon successful update, the user will see a notification message appear, and they will be taken back to the profle view.
   - If the user chooses to cancel the edit, they will be taken back to the profile view as well.
   - All form fields are optional.
 
@@ -524,8 +524,8 @@ Majority of the website content is available to any user regardless of their reg
 
 **Top sellers feature**
 
-- The Top sellers feature is displayed throughout the website for easy access so that the users could view the profiles that have sold the most artworks.
-  - The current functionality of this feature lists all users in a descending order from the most sold to the least sold.
+- The Top sellers feature is displayed throughout the website for easy access so that the users can view the most sold artworks' profiles.
+  - The current functionality of this feature lists all users in descending order from the most sold to the least sold.
     - It was a design choice to have the users displayed as such due to limited number of users at the time of MVP release.
   - Further development of this feature is noted in the [Features left to implement](#features-left-to-implement) section.
 - A scrollbar has been implemented to allow horizontal display of the feature.
@@ -575,7 +575,7 @@ Majority of the website content is available to any user regardless of their reg
 
 - The artwork and profile features come with a pre-set default image in case the user has not chosen the images upon creating the artwork or profile.
 
-  - This way other features, such as the artwork view and the Avatar view, can function without any issue.
+  - This way, other features, such as the artwork view and the Avatar view, can function without any issue.
 
     - These can be updated through the artwork edit and profile edit forms.
 
@@ -596,8 +596,8 @@ Majority of the website content is available to any user regardless of their reg
 <details>
 <summary>Sign Up page</summary>
 
-- Once within the Sign up page, the user is presented with a registration form and an image carousel that displays current artworks.
-- The Sign Up form allows the user to create an account in order to access additional features:
+- Once within the Sign-up page, the user is presented with a registration form and an image carousel that displays current artworks.
+- The Sign-Up form allows the user to create an account in order to access additional features:
 
   - Artwork create/edit/delete
   - Bid create/edit/delete
@@ -606,8 +606,8 @@ Majority of the website content is available to any user regardless of their reg
   - Edit Profile, including username and password
 
 - The user is required to enter their username, a password of their choice and confirm the password again.
-- Upon successful registration, a confirmation message is displayed at the top of the page and the user is redirected to the Sign in page.
-- If the user already has an account, they can click on the Sign in link which will redirect to the Sign in page instead.
+- Upon successful registration, a confirmation message is displayed at the top of the page and the user is redirected to the Sign-In page.
+- If the user already has an account, they can click on the Sign-In link which will redirect to the Sign in page instead.
 
 - Mobile/tablet
 
@@ -621,8 +621,8 @@ Majority of the website content is available to any user regardless of their reg
 <details>
 <summary>Sign In page</summary>
 
-- Once within the Sign up page, the user is presented with a registration form and an image carousel that displays current artworks.
-- The Sign in form allows the user to access their account and manage the following features:
+- Once within the Sign-Up page, the user is presented with a registration form and an image carousel that displays current artworks.
+- The Sign-In form allows the user to access their account and manage the following features:
   - Artwork create/edit/delete
   - Bid create/edit/delete
   - Save artworks
@@ -630,7 +630,7 @@ Majority of the website content is available to any user regardless of their reg
   - Edit Profile, including username and password
 - Upon successfull sign in, a confirmation message is displayed at the top of the page and the user is redirected to the home page.
 - The user's profile avatar is also visible at the top of the navigation bar and within other features mentioned above.
-- If the user does not have an account, they can click on the Sign up link which will redirect to the Sign up page instead.
+- If the user does not have an account, they can click on the Sign-Up link which will redirect to the Sign-Up page instead.
 
   - Mobile/tablet
 
@@ -644,7 +644,7 @@ Majority of the website content is available to any user regardless of their reg
  <details>
     <summary>Sign Out</summary>
 
-- When the user wishes to leave the account, the Sign out button enables a successful confirmation message and redirects the user to the home page.
+- When the user wishes to leave the account, the Sign-Out button enables a successful confirmation message and redirects the user to the home page.
 
   </details>
 
@@ -655,8 +655,8 @@ Majority of the website content is available to any user regardless of their reg
   - Bid edit/delete feature
   - Save artwork feature
   - Profile edit/delete
-  - Follow other users feature
-- Upon an attempt to access any of these the following will happen:
+  - Follow users feature
+- Upon an attempt to access any of these, the following will happen:
   - If an unregistered user attempts to access any of the restricted pages by typing in the url link to the browser (i.e. artwork edit form url), they will be taken back to the main page view.
   - I have used React framework to ensure that restricted content/feature is not accessible to unregistered users, thus minimising any errors or access breach.
   - I have used conditional rendering to ensure that certain functionality is not available depending on the state of the feature.
@@ -754,7 +754,7 @@ Majority of the website content is available to any user regardless of their reg
 
 ### Reusable components
 
-- The following reusable components have been set up so that they could re applied through the code avoiding unneccesary code duplication:
+The following reusable components have been set up so that they could re-applied through the code, avoiding unnecessary code duplication:
 
 **Asset component**
 
@@ -764,7 +764,7 @@ Majority of the website content is available to any user regardless of their reg
 
 **Dropdown menu component**
 
-- The dropdown menu component is utilised to allow the users access CRUD functionality throughout the website. It is used for Artwork, Bid and Profile features:
+- The dropdown menu component is utilised to allow the users to access CRUD functionality throughout the website. It is used for Artwork, Bid and Profile features:
 
   - Artwork edit/delete
 
@@ -885,7 +885,7 @@ This website was deployed using GitHub pages and Heroku website. To deploy the p
 ### Github
 
 1. Login to GitHub and navigate to the main repository page.
-2. Click on the chosen repository,for example [Artly](https://artly-a211b809ae81.herokuapp.com/).
+2. Click on the chosen repository, for example [Artly](https://artly-a211b809ae81.herokuapp.com/).
 3. Once inside the repository, click on the "Settings" tab above the repository title displayed around the middle of the page.
 4. Select "Pages" tab on the left side navigation menu.
 5. Select "main" or "master" branch under "Build and Deployment", then "root" folder and click "save" button.
@@ -914,19 +914,19 @@ To clone the repository in Github:
 
 ### Heroku
 
-To deploy to the Heroku website, follow the steps below:
+To deploy to the Heroku website, follow the below steps:
 
 - In your IDE, before going to Heroku website, add the following prebuid command in the package.json file, "scripts" section:
-  - `"heroku-prebuild": "npm install -g serve",`
-- Add a Procfile at the root of the project with the following web command: `web: serve -s build`
+  - `"heroku-prebuild": "npm install -g serve",`.
+- Add a Procfile at the root of the project with the following web command: `web: serve -s build`.
 - Navigate to [Heroku](https://www.heroku.com) platform website ang log in or create an account.
 - Click 'Create new App'.
-- Choose a unique project name and select your region from the drop down.
+- Choose a unique project name and select your region from the drop-down.
 - Select 'Deploy' tab.
 - Select 'Github' (or other platform if you are using another one) in the Deployment method section to connect to Heroku.
-- Type out your project name in the 'Connect to Github' section and select your project repository
-- Once connected, scroll to the bottom and click 'Deploy Branch' button
-- When it has finished deploying, click on the 'View' button below or 'Open App' at the top right corner
+- Type out your project name in the 'Connect to Github' section and select your project repository.
+- Once connected, scroll to the bottom and click 'Deploy Branch' button.
+- When it has finished deploying, click on the 'View' button below or 'Open App' in the top right corner.
 - If the deployment was successful you will be taken to the deployed site.
 
 [Return to Table of Contents](#table-of-contents)
@@ -935,8 +935,8 @@ To deploy to the Heroku website, follow the steps below:
 
 ### Content
 
-- Default image was supplied by [Flaticon](https://www.flaticon.com/).
-  - I had to replace initial default image as it had a white border around it, which was visible after applying color choices.
+- The default profile image was supplied by [Flaticon](https://www.flaticon.com/).
+  - I had to replace the initial default image as it had a white border around it, which was visible after applying color choices.
 - The default artwork image has been appropriated from the Code Institute's Moments walkthrough project.
 
 ### Used code
@@ -997,7 +997,7 @@ To deploy to the Heroku website, follow the steps below:
 
 - Bookmark positioning
 
-  - when working on the Artwork component, I wanted to adjust the bookmark/save icon to the bottom right corner of the card. I managed to do this by applying the following code and adjusting it to fit the website needs: [W3Schools - image text bottom right](https://www.w3schools.com/css/tryit.asp?filename=trycss_image_text_bottom_right)
+  - when working on the Artwork component, I wanted to adjust the bookmark/save icon to the bottom right corner of the card. I managed to do this by applying the following code and adjusting it to fit the website's needs: [W3Schools - image text bottom right](https://www.w3schools.com/css/tryit.asp?filename=trycss_image_text_bottom_right)
 
   ```css
   .container {
