@@ -216,7 +216,7 @@ The below list displays all the epics used throughout the project development, i
 
 ### Front-end Milestones
 
-- The noted milestones are for the front-end project development only. To see the milestones for the back-end, follow the link [here](https://github.com/laurakond/artly-api?tab=readme-ov-file#back-end-milestones).
+The noted milestones are for the front-end project development only. To see the milestones for the back-end, follow the link [here](https://github.com/laurakond/artly-api?tab=readme-ov-file#back-end-milestones).
 
 - **Milestone 1:** Project board
   - Set up a project board.
