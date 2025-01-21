@@ -164,13 +164,20 @@ All files were put through ES lint validation using the terminal. No errors were
 
 ### Lighthouse testing
 
-Website performance, accessibility, best practices and SEO were tested using Lighthouse web performance testing tool. The tests were carried out using Google Chrome.
+Website performance, accessibility, best practices and SEO were tested using Lighthouse web performance testing tool. The tests were carried out using Google Chrome browser.
 
-The scores have been marked down due to the use of external CDNs and Cloudinary storage, and network speed.
+[Lighthouse report](documentation/docs/lighthouse-report.pdf)
 
-<details>
-<summary></summary>
-</details>
+Lower than average performance and best practices scores are noted due to the following reasons:
+
+- use of external libraries such as Javascript and Bootstrap CDNs
+- user of third party cookies
+  - I have included a screenshot of the homepage tested on Google Chrome and Google Chrome incognito mode to show the difference in performance and best practices
+- Cloudinary storage and large image files
+  - since the images are loaded using cloudinary, their sizes are not controlled.
+    - I will be looking at implementing image resizing on the backend at the next development stage.
+- network speed
+- use of jwt tokens
 
 [Return to Table of Contents](#contents)
 
