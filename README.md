@@ -206,7 +206,7 @@ I used the same Milestones, Epics and labels within the API and Front-end reposi
 
 MoSCoW methodology was used to map out which features were required for the MVP, and only address the others if there was sufficient time left.
 
-![Finished Project board]()
+![Finished Project board](documentation/images/design/complete-board.jpg)
 
 ### Epics
 
