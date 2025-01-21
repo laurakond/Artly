@@ -29,6 +29,7 @@ By Laura Kondrataite
 The main index.html file was put through the official [W3C Markdown Validation](https://validator.w3.org/nu/) services returning no errors or warnings.
 
 - Info notes were included as React uses JSX and not ure HTML.
+
   ![HTML validation image](documentation/images/testing/html-validation.jpg)
 
 #### W3C Css validation

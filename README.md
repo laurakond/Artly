@@ -901,7 +901,7 @@ This website was deployed using GitHub pages and Heroku website. To deploy the p
 ### Github
 
 1. Login to GitHub and navigate to the main repository page.
-2. Click on the chosen repository, for example [Artly](https://artly-a211b809ae81.herokuapp.com/).
+2. Click on the chosen repository, for example [Artly](https://github.com/laurakond/artly).
 3. Once inside the repository, click on the "Settings" tab above the repository title displayed around the middle of the page.
 4. Select "Pages" tab on the left side navigation menu.
 5. Select "main" or "master" branch under "Build and Deployment", then "root" folder and click "save" button.
